@@ -5,9 +5,7 @@ export default class Bundle {
   constructor(options) {
     this.entry = options.entry;
 
-    this.result = {
-      code: ''
-    };
+    this.result = {};
   }
 
   build() {
@@ -15,8 +13,8 @@ export default class Bundle {
       .then(id => {
         return this.fetchModule(id, undefined);
       })
-      .then(code => {
-        this.result.code = code;
+      .then(parsed => {
+        this.result = parsed;
       });
   }
 
@@ -31,8 +29,8 @@ export default class Bundle {
         msg += `: ${err.message}`;
         throw new Error(msg);
       })
-      .then(code => {
-        return code;
+      .then(parsed => {
+        return parsed;
       });
   }
 
