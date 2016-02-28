@@ -4,8 +4,15 @@
   "description": "Bandol",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "test": "ava -s",
+    "start": "babel-node index.js"
   },
+  "files": [
+    "src",
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nashdot/bandol.git"
@@ -21,5 +28,20 @@
   "bugs": {
     "url": "https://github.com/nashdot/bandol/issues"
   },
-  "homepage": "https://github.com/nashdot/bandol#readme"
+  "homepage": "https://github.com/nashdot/bandol#readme",
+  "devDependencies": {
+    "ava": "^0.12.0",
+    "babel-eslint": "^5.0.0",
+    "babel-register": "^6.5.2",
+    "eslint": "^2.2.0",
+    "eslint-config-nashdot": "^1.1.1",
+    "rimraf": "^2.5.2"
+  },
+  "ava": {
+    "files": [
+      "tests/*.js"
+    ],
+    "failFast": true,
+    "tap": true
+  }
 }

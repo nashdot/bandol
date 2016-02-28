@@ -1,0 +1,10 @@
+{
+  "parser": "babel-eslint",
+  "extends": "nashdot/base",
+  "rules": {
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  }
+}
