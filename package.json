@@ -37,6 +37,9 @@
     "eslint-config-nashdot": "^1.1.1",
     "rimraf": "^2.5.2"
   },
+  "dependencies": {
+    "babylon": "^6.5.2"
+  },
   "ava": {
     "files": [
       "tests/*.js"
