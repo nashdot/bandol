@@ -1,0 +1,25 @@
+{
+  "name": "bandol",
+  "version": "0.0.1",
+  "description": "Bandol",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nashdot/bandol.git"
+  },
+  "keywords": [
+    "javascript",
+    "bundle",
+    "es6",
+    "jsnext"
+  ],
+  "author": "Stanislav Lesnikov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nashdot/bandol/issues"
+  },
+  "homepage": "https://github.com/nashdot/bandol#readme"
+}
