@@ -9,8 +9,8 @@ export default function mapSequence(array, fn) {
   }
 
   for (let i = 0; i < array.length; i += 1) {
-    promise = promise.then(() => next(array[i], i));
+    promise = promise.then(() => { return next(array[i], i); });
   }
 
-  return promise.then(() => results);
+  return promise.then(() => { return results; });
 }
