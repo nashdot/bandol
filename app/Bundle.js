@@ -1,65 +1,77 @@
 import resolveId from './utils/resolveId.js';
 import load from './utils/load';
-import mapSequence from './utils/mapSequence.js';
 
-import Module from './Module';
+import Resource from './Resource';
 
 export default class Bundle {
   constructor(options) {
     this.entry = options.entry;
 
-    this.modules = [];
+    this.resources = [];
     this.result = {};
   }
 
-  build() {
-    return resolveId(this.entry, undefined)
-      .then(id => {
-        return this.fetchModule(id, undefined);
-      })
-      .then(module => {
-        this.result = { code: module.code, ast: module.ast };
-      });
+  async build() {
+    try {
+      const id = await resolveId(this.entry, undefined);
+      const resource = await this.fetchResource(id, undefined);
+
+      console.log('Bundle::build: resource = ' + JSON.stringify(resource.id));
+      console.log('Bundle::build: sources = ' + JSON.stringify(resource.sources));
+
+      // -- Register
+      this.resources.push(resource);
+
+      // -- Fetch dependencies
+      await this.fetchAllDependencies(resource);
+
+      this.result = { code: resource.code, ast: resource.ast };
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
-  fetchModule(id, importer) {
-    return load(id, importer)
-      .catch(err => {
-        let msg = `Could not load ${id}`;
-        if (importer) {
-          msg += ` (imported by ${importer})`;
-        }
+  async fetchResource(id, importer) {
+    console.log(`fetchResource: ${id}`);
 
-        msg += `: ${err.message}`;
-        throw new Error(msg);
-      })
-      .then(parsed => {
-        const module = new Module({
-          id: id,
-          code: parsed.code,
-          ast: parsed.ast,
-          bundle: this
-        });
-        module.parse();
-        this.modules.push(module);
+    let resource;
 
-        return this.fetchAllDependencies(module)
-          .then(() => {
-            return module;
-          });
+    try {
+      const loaded = await load(id, importer);
+
+      resource = new Resource({
+        id: id,
+        code: loaded.code,
+        ast: loaded.ast,
+        bundle: this
       });
+
+      // -- Parse
+      resource.parse();
+    } catch (error) {
+      console.log(error.message);
+    }
+
+    return resource;
   }
 
-  fetchAllDependencies(module) {
-    return mapSequence(module.sources, source => {
-      return resolveId(source, module.id)
-        .then(id => {
-          if (id === module.id) {
-            throw new Error(`A module cannot import itself (${id})`);
-          }
-          return this.fetchModule(id, module.id);
-        });
-    });
+  async fetchAllDependencies(resource) {
+    console.log(`fetchAllDependencies: id=${resource.id}`);
+    console.log(`fetchAllDependencies: sources=${JSON.stringify(resource.sources)}`);
+
+    for (const source of resource.sources) {
+      console.log(`fetchAllDependencies: source=${source}`);
+
+      try {
+        const id = await resolveId(source, resource.id);
+        const depResource = await this.fetchResource(id, resource.id);
+
+        // -- Register
+        this.resources.push(depResource);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
   }
 
   generate() {

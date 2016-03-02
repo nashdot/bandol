@@ -3,7 +3,7 @@ import getLocation from './utils/getLocation.js';
 import traverse from 'babel-traverse';
 // import * as types from 'babel-types';
 
-export default class Module {
+export default class Resource {
   constructor({ id: id, code: code, ast: ast, bundle: bundle }) {
     this.id = id;
     this.code = code;
@@ -25,7 +25,7 @@ export default class Module {
       const localName = specifier.local.name;
 
       if (this.imports[localName]) {
-        const err = new Error(`Duplicated import '${localName}'`);
+        const err = new Error(`Duplicated import '${localName}' (${source})`);
         err.file = this.id;
         err.loc = getLocation(this.code, specifier.start);
         throw err;
@@ -44,7 +44,7 @@ export default class Module {
           name = specifier.imported.name;
         }
       }
-      this.imports[localName] = { source: source, name: name, module: null };
+      this.imports[localName] = { source: source, name: name, resource: null };
     });
   }
 
