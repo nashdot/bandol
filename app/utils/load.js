@@ -26,13 +26,16 @@ const babylonOtions = {
 };
 
 export default function load(id) {
+  console.log(`Loading '${id}'`);
   return new Promise((resolve, reject) => {
     fs.readFile(id, 'utf8', (err, data) => {
       if (err) {
+        console.log(`Loading error: '${err}'`);
         reject(err);
       }
 
       const ast = babylon.parse(data, babylonOtions);
+      console.log(`Loading parsed`);
       resolve({ code: data, ast: ast });
     });
   });

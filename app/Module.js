@@ -5,6 +5,7 @@ import traverse from 'babel-traverse';
 
 export default class Module {
   constructor({ id: id, code: code, ast: ast, bundle: bundle }) {
+    console.log('ctor: ' + id);
     this.id = id;
     this.code = code;
     this.ast = ast;
