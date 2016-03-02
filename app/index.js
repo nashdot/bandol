@@ -5,7 +5,7 @@ const ALLOWED_KEYS = [
   'entry'
 ];
 
-function bandol(options) {
+async function bandol(options) {
   if (!options || !options.entry) {
     return Promise.reject(new Error('You must supply options.entry to bandol'));
   }
@@ -17,14 +17,14 @@ function bandol(options) {
   }
 
   const bundle = new Bundle(options);
+  await bundle.build();
 
-  return bundle.build().then(() => {
-    return {
-      generate: opts => {
-        return bundle.generate(opts);
-      }
-    };
-  });
+  return {
+    bundle: bundle,
+    generate: opts => {
+      return bundle.generate(opts);
+    }
+  };
 }
 
 export default bandol;
