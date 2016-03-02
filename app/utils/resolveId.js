@@ -1,4 +1,3 @@
-/* eslint no-param-reassign: 0 */
 import resolveModule from 'resolve';
 import path from 'path';
 
