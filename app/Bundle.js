@@ -16,9 +16,6 @@ export default class Bundle {
       const id = await resolveId(this.entry, undefined);
       const resource = await this.fetchResource(id, undefined);
 
-      console.log('Bundle::build: resource = ' + JSON.stringify(resource.id));
-      console.log('Bundle::build: sources = ' + JSON.stringify(resource.sources));
-
       // -- Register
       this.resources.push(resource);
 
@@ -56,11 +53,10 @@ export default class Bundle {
   }
 
   async fetchAllDependencies(resource) {
-    console.log(`fetchAllDependencies: id=${resource.id}`);
-    console.log(`fetchAllDependencies: sources=${JSON.stringify(resource.sources)}`);
+    console.log(`fetchAllDependencies: ${resource.id} - sources=${JSON.stringify(resource.sources)}`);
 
     for (const source of resource.sources) {
-      console.log(`fetchAllDependencies: source=${source}`);
+      console.log(`fetchAllDependencies: ${resource.id} - source=${source}`);
 
       try {
         const id = await resolveId(source, resource.id);
@@ -68,6 +64,9 @@ export default class Bundle {
 
         // -- Register
         this.resources.push(depResource);
+
+        // -- Fetch dependencies
+        await this.fetchAllDependencies(depResource);
       } catch (error) {
         console.log(error.message);
       }
