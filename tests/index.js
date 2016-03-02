@@ -13,16 +13,20 @@ function doBandol(testPath) {
   });
 }
 
-let testPath = 'core/basic';
-test(testPath, t => {
-  return doBandol(testPath).then(b => {
-    t.is(b.generate().code, expected(testPath));
+test('core/basic', t => {
+  return doBandol('core/basic').then(b => {
+    t.is(b.generate().code, expected('core/basic'));
   });
 });
 
-testPath = 'core/basic-2';
-test(testPath, t => {
-  return doBandol(testPath).then(b => {
-    t.is(b.generate().code, expected(testPath));
+test('core/basic-2', t => {
+  return doBandol('core/basic-2').then(b => {
+    t.is(b.generate().code, expected('core/basic-2'));
+  });
+});
+
+test('core/module', t => {
+  return doBandol('core/module').then(b => {
+    t.is(b.generate().code, expected('core/module'));
   });
 });
