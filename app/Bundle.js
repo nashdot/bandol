@@ -1,7 +1,12 @@
 import resolveId from './utils/resolveId.js';
-import load from './utils/load';
 
 import Resource from './Resource';
+
+import es6LoaderPlugin from './plugins/bandol-plugin-loader-es6';
+
+const plugins = [
+  es6LoaderPlugin
+];
 
 export default class Bundle {
   constructor(options) {
@@ -28,18 +33,18 @@ export default class Bundle {
     }
   }
 
-  async fetchResource(id, importer) {
+  async fetchResource(id) {
     console.log(`fetchResource: ${id}`);
 
     let resource;
 
     try {
-      const loaded = await load(id, importer);
+      const loaded = await this.load(id);
 
       resource = new Resource({
         id: id,
-        code: loaded.code,
-        ast: loaded.ast,
+        code: loaded.props.code,
+        ast: loaded.props.ast,
         bundle: this
       });
 
@@ -75,5 +80,20 @@ export default class Bundle {
 
   generate() {
     return this.result;
+  }
+
+  async load(id) {
+    for (const plugin of plugins) {
+      const worker = plugin();
+      if (worker.load) {
+        const result = await worker.load(id);
+
+        if (result) {
+          return result;
+        }
+      }
+    }
+
+    return undefined;
   }
 }
