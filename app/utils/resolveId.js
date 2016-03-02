@@ -1,28 +1,21 @@
 /* eslint no-param-reassign: 0 */
-import fs from 'fs';
+import resolveModule from 'resolve';
 import path from 'path';
 
-function addExtensionIfNecessary(filename) {
-  if (fs.statSync(filename).isFile()) {
-    return filename;
-  }
-
-  filename += '.js';
-  if (fs.statSync(filename).isFile()) {
-    return filename;
-  }
-
-  return null;
-}
-
 export default function resolveId(importee, importer) {
-  return new Promise((resolve) => {
-    if (path.isAbsolute(importee)) {
-      resolve(addExtensionIfNecessary(importee));
-    } else if (importer === undefined) {
-      resolve(addExtensionIfNecessary(path.resolve(process.cwd(), importee)));
+  return new Promise((resolve, reject) => {
+    console.log(`Importing ${importee} for ${importer}`);
+
+    let baseDir;
+    if (importer === undefined) {
+      baseDir = process.cwd();
     } else {
-      resolve(addExtensionIfNecessary(path.resolve(path.dirname(importer), importee)));
+      baseDir = path.dirname(importer);
     }
+
+    resolveModule(importee, { basedir: baseDir }, (err, res) => {
+      if (err) reject(err);
+      else resolve(res);
+    });
   });
 }

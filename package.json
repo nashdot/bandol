@@ -40,7 +40,8 @@
   "dependencies": {
     "babel-traverse": "^6.5.0",
     "babel-types": "^6.5.2",
-    "babylon": "^6.5.2"
+    "babylon": "^6.5.2",
+    "resolve": "^1.1.7"
   },
   "ava": {
     "files": [
