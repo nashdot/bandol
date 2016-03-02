@@ -13,20 +13,27 @@ function doBandol(testPath) {
   });
 }
 
+// https://github.com/sindresorhus/serialize-error/issues/4
+// Use: const generated = b.generate().code; t.is(generated, ...
+// and not direct call inside t.is()
+
 test('core/basic', t => {
   return doBandol('core/basic').then(b => {
-    t.is(b.generate().code, expected('core/basic'));
+    const generated = b.generate().code;
+    t.is(generated, expected('core/basic'));
   });
 });
 
 test('core/basic-2', t => {
   return doBandol('core/basic-2').then(b => {
-    t.is(b.generate().code, expected('core/basic-2'));
+    const generated = b.generate().code;
+    t.is(generated, expected('core/basic-2'));
   });
 });
 
 test('core/module', t => {
   return doBandol('core/module').then(b => {
-    t.is(b.generate().code, expected('core/module'));
+    const generated = b.generate().code;
+    t.is(generated, expected('core/module'));
   });
 });
