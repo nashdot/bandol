@@ -3,6 +3,8 @@ import path from 'path';
 import _ from 'lodash';
 import * as babylon from 'babylon';
 
+import Resource from '../../Resource'; // 'bandol/Resource';
+
 export default class Plugin {
   _supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
 
@@ -53,7 +55,8 @@ export default class Plugin {
           }
 
           const ast = babylon.parse(data, this._babylonOtions);
-          resolve({ id: id, props: { code: data, ast: ast } });
+          const dependencies = [];
+          resolve(new Resource(id, dependencies, { code: data, ast: ast }));
         });
       }
     });

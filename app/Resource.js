@@ -4,21 +4,22 @@ import traverse from 'babel-traverse';
 // import * as types from 'babel-types';
 
 export default class Resource {
-  constructor({ id: id, code: code, ast: ast, bundle: bundle }) {
+  constructor(id, dependencies, props) {
     this.id = id;
-    this.code = code;
-    this.ast = ast;
-    this.bundle = bundle;
+    this.dependencies = dependencies;
 
-    this.sources = [];
+    this.props = props;
+
     this.imports = blank();
+
+    this.parse();
   }
 
   addImport(node) {
     const source = node.source.value;
 
-    if (!~this.sources.indexOf(source)) {
-      this.sources.push(source);
+    if (!~this.dependencies.indexOf(source)) {
+      this.dependencies.push(source);
     }
 
     node.specifiers.forEach(specifier => {
@@ -49,7 +50,7 @@ export default class Resource {
   }
 
   parse() {
-    traverse(this.ast, {
+    traverse(this.props.ast, {
       ImportDeclaration: (path) => {
         this.addImport(path.node);
       }

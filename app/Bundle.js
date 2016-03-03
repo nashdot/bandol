@@ -1,5 +1,3 @@
-import Resource from './Resource';
-
 import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
 import es6LoaderPlugin from './plugins/bandol-plugin-loader-es6';
 
@@ -55,17 +53,7 @@ export default class Bundle {
     let resource;
 
     try {
-      const loaded = await this.loadResource(id);
-
-      resource = new Resource({
-        id: id,
-        code: loaded.props.code,
-        ast: loaded.props.ast,
-        bundle: this
-      });
-
-      // -- Parse
-      resource.parse();
+      resource = await this.loadResource(id);
     } catch (error) {
       console.log(error.message);
     }
@@ -74,14 +62,14 @@ export default class Bundle {
   }
 
   async fetchAllDependencies(resource) {
-    console.log(`fetchAllDependencies: ${resource.id} - sources=${JSON.stringify(resource.sources)}`);
+    console.log(`fetchAllDependencies: ${resource.id} - dependencies=${JSON.stringify(resource.dependencies)}`);
 
-    for (const source of resource.sources) {
-      console.log(`fetchAllDependencies: ${resource.id} - source=${source}`);
+    for (const dependency of resource.dependencies) {
+      console.log(`fetchAllDependencies: ${resource.id} - dependency=${dependency}`);
 
       try {
-        const id = await this.resolveResource(source, resource.id);
-        const depResource = await this.fetchResource(id, resource.id);
+        const id = await this.resolveResource(dependency, resource.id);
+        const depResource = await this.fetchResource(id);
 
         // -- Register
         this.resources.push(depResource);
@@ -96,7 +84,7 @@ export default class Bundle {
 
   generate() {
     const resource = this.resources[0];
-    const result = { code: resource.code, ast: resource.ast };
+    const result = { code: resource.props.code, ast: resource.props.ast };
     return result;
   }
 
