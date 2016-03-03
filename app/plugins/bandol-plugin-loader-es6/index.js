@@ -30,6 +30,10 @@ export default class Plugin {
     plugins: this._babylonPlugins.slice(0)
   };
 
+  constructor(bundle) {
+    this.bundle = bundle;
+  }
+
   /**
    * Test if a filename ends with a compilable extension.
    */

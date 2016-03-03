@@ -22,7 +22,7 @@ export default class Bundle {
 
   initPlugins() {
     for (const Plugin of plugins) {
-      const worker = new Plugin();
+      const worker = new Plugin(this);
 
       if (worker.resolveResource) {
         this.resolverPlugins.push(worker);
