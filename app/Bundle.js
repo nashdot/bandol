@@ -13,7 +13,6 @@ export default class Bundle {
     this.entry = options.entry;
 
     this.resources = [];
-    this.result = {};
 
     this.resolvePlugins = [];
     this.loaderPlugins = [];
@@ -45,8 +44,6 @@ export default class Bundle {
 
       // -- Fetch dependencies
       await this.fetchAllDependencies(resource);
-
-      this.result = { code: resource.code, ast: resource.ast };
     } catch (error) {
       console.log(error.message);
     }
@@ -98,7 +95,9 @@ export default class Bundle {
   }
 
   generate() {
-    return this.result;
+    const resource = this.resources[0];
+    const result = { code: resource.code, ast: resource.ast };
+    return result;
   }
 
   async load(id) {
