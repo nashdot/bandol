@@ -1,7 +1,5 @@
-import { keys } from './object.js';
-
 export default function validateKeys(object, allowedKeys) {
-  const actualKeys = keys(object);
+  const actualKeys = Object.keys(object);
 
   let i = actualKeys.length;
 
