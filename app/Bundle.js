@@ -28,7 +28,7 @@ export default class Bundle {
         this.resolverPlugins.push(worker);
       }
 
-      if (worker.load) {
+      if (worker.loadResource) {
         this.loaderPlugins.push(worker);
       }
     }
@@ -55,7 +55,7 @@ export default class Bundle {
     let resource;
 
     try {
-      const loaded = await this.load(id);
+      const loaded = await this.loadResource(id);
 
       resource = new Resource({
         id: id,
@@ -100,9 +100,9 @@ export default class Bundle {
     return result;
   }
 
-  async load(id) {
+  async loadResource(id) {
     for (const plugin of this.loaderPlugins) {
-      const result = await plugin.load(id);
+      const result = await plugin.loadResource(id);
 
       if (result) {
         return result;

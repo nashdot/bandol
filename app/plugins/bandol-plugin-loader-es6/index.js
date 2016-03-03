@@ -39,7 +39,7 @@ function canCompile(filename) {
 
 export default function () {
   return {
-    load: (id) => {
+    loadResource: (id) => {
       return new Promise((resolve) => {
         if (canCompile(id)) {
           resolve(undefined);
