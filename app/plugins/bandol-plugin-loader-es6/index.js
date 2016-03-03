@@ -73,7 +73,11 @@ export default class Plugin {
 
           const ast = babylon.parse(data, this._babylonOtions);
           const dependencies = this._retreiveDependencies(ast);
-          resolve(new Resource(id, dependencies, { code: data, ast: ast }));
+          resolve(
+            new Resource(id, dependencies, {
+              code: data,
+              ast: ast
+            }));
         });
       }
     });
