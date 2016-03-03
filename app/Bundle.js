@@ -38,7 +38,7 @@ export default class Bundle {
   async build() {
     try {
       const id = await this.resolveResource(this.entry, undefined);
-      const resource = await this.fetchResource(id, undefined);
+      const resource = await this.fetchResource(id);
 
       // -- Register
       this.resources.push(resource);
