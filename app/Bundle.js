@@ -1,5 +1,3 @@
-import resolveId from './utils/resolveId.js';
-
 import Resource from './Resource';
 
 import nodeResolvePlugin from './plugins/bandol-plugin-resolve-node';
@@ -27,7 +25,7 @@ export default class Bundle {
     for (const plugin of plugins) {
       const worker = plugin();
 
-      if (worker.resolve) {
+      if (worker.resolveResource) {
         this.resolvePlugins.push(worker);
       }
 
@@ -39,7 +37,7 @@ export default class Bundle {
 
   async build() {
     try {
-      const id = await resolveId(this.entry, undefined);
+      const id = await this.resolveResource(this.entry, undefined);
       const resource = await this.fetchResource(id, undefined);
 
       // -- Register
@@ -85,7 +83,7 @@ export default class Bundle {
       console.log(`fetchAllDependencies: ${resource.id} - source=${source}`);
 
       try {
-        const id = await resolveId(source, resource.id);
+        const id = await this.resolveResource(source, resource.id);
         const depResource = await this.fetchResource(id, resource.id);
 
         // -- Register
@@ -115,9 +113,9 @@ export default class Bundle {
     return undefined;
   }
 
-  async resolve(id) {
+  async resolveResource(importee, importer) {
     for (const plugin of this.resolvePlugins) {
-      const result = await plugin.resolve(id);
+      const result = await plugin.resolveResource(importee, importer);
 
       if (result) {
         return result;
