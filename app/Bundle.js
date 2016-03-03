@@ -1,10 +1,10 @@
 import Resource from './Resource';
 
-import nodeResolvePlugin from './plugins/bandol-plugin-resolve-node';
+import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
 import es6LoaderPlugin from './plugins/bandol-plugin-loader-es6';
 
 const plugins = [
-  nodeResolvePlugin,
+  nodeResolverPlugin,
   es6LoaderPlugin
 ];
 
@@ -14,7 +14,7 @@ export default class Bundle {
 
     this.resources = [];
 
-    this.resolvePlugins = [];
+    this.resolverPlugins = [];
     this.loaderPlugins = [];
 
     this.initPlugins();
@@ -25,7 +25,7 @@ export default class Bundle {
       const worker = plugin();
 
       if (worker.resolveResource) {
-        this.resolvePlugins.push(worker);
+        this.resolverPlugins.push(worker);
       }
 
       if (worker.load) {
@@ -113,7 +113,7 @@ export default class Bundle {
   }
 
   async resolveResource(importee, importer) {
-    for (const plugin of this.resolvePlugins) {
+    for (const plugin of this.resolverPlugins) {
       const result = await plugin.resolveResource(importee, importer);
 
       if (result) {
