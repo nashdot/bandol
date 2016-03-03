@@ -49,17 +49,17 @@ export default class Bundle {
       this.resources.push(resource);
 
       // -- Fetch dependencies
-      await this.fetchAllDependencies(resource);
+      await this.loadDependencies(resource);
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  async fetchAllDependencies(resource) {
-    console.log(`fetchAllDependencies: ${resource.id} - dependencies=${JSON.stringify(resource.dependencies)}`);
+  async loadDependencies(resource) {
+    console.log(`loadDependencies: ${resource.id} - dependencies=${JSON.stringify(resource.dependencies)}`);
 
     for (const dependency of resource.dependencies) {
-      console.log(`fetchAllDependencies: ${resource.id} - dependency=${dependency}`);
+      console.log(`loadDependencies: ${resource.id} - dependency=${dependency}`);
 
       try {
         await this.buildResource(dependency, resource.id);
