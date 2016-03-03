@@ -56,11 +56,7 @@ export default class Bundle {
   }
 
   async loadDependencies(resource) {
-    console.log(`loadDependencies: ${resource.id} - dependencies=${JSON.stringify(resource.dependencies)}`);
-
     for (const dependency of resource.dependencies) {
-      console.log(`loadDependencies: ${resource.id} - dependency=${dependency}`);
-
       try {
         await this.buildResource(dependency, resource.id);
       } catch (error) {
