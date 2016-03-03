@@ -61,10 +61,16 @@ export default class Bundle {
     }
   }
 
-  generate() {
-    const resource = this.resources[0];
-    const result = { code: resource.props.code, ast: resource.props.ast };
-    return result;
+  async resolveResource(importee, importer) {
+    for (const plugin of this.resolverPlugins) {
+      const result = await plugin.resolveResource(importee, importer);
+
+      if (result) {
+        return result;
+      }
+    }
+
+    return undefined;
   }
 
   async loadResource(id) {
@@ -79,15 +85,9 @@ export default class Bundle {
     return undefined;
   }
 
-  async resolveResource(importee, importer) {
-    for (const plugin of this.resolverPlugins) {
-      const result = await plugin.resolveResource(importee, importer);
-
-      if (result) {
-        return result;
-      }
-    }
-
-    return undefined;
+  generate() {
+    const resource = this.resources[0];
+    const result = { code: resource.props.code, ast: resource.props.ast };
+    return result;
   }
 }
