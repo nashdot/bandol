@@ -34,7 +34,15 @@ export default class Bundle {
 
   async build() {
     try {
-      const id = await this.resolveResource(this.entry, undefined);
+      await this.buildResource(this.entry, undefined);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  async buildResource(importee, importer) {
+    try {
+      const id = await this.resolveResource(importee, importer);
       const resource = await this.fetchResource(id);
 
       // -- Register
@@ -68,14 +76,7 @@ export default class Bundle {
       console.log(`fetchAllDependencies: ${resource.id} - dependency=${dependency}`);
 
       try {
-        const id = await this.resolveResource(dependency, resource.id);
-        const depResource = await this.fetchResource(id);
-
-        // -- Register
-        this.resources.push(depResource);
-
-        // -- Fetch dependencies
-        await this.fetchAllDependencies(depResource);
+        await this.buildResource(dependency, resource.id);
       } catch (error) {
         console.log(error.message);
       }
