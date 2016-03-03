@@ -57,11 +57,7 @@ export default class Bundle {
 
   async buildDependencies(resource) {
     for (const dependency of resource.dependencies) {
-      try {
-        await this.buildResource(dependency, resource.id);
-      } catch (error) {
-        console.log(error.message);
-      }
+      await this.buildResource(dependency, resource.id);
     }
   }
 
