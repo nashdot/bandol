@@ -43,7 +43,7 @@ export default class Bundle {
   async buildResource(importee, importer) {
     try {
       const id = await this.resolveResource(importee, importer);
-      const resource = await this.fetchResource(id);
+      const resource = await this.loadResource(id);
 
       // -- Register
       this.resources.push(resource);
@@ -53,20 +53,6 @@ export default class Bundle {
     } catch (error) {
       console.log(error.message);
     }
-  }
-
-  async fetchResource(id) {
-    console.log(`fetchResource: ${id}`);
-
-    let resource;
-
-    try {
-      resource = await this.loadResource(id);
-    } catch (error) {
-      console.log(error.message);
-    }
-
-    return resource;
   }
 
   async fetchAllDependencies(resource) {
