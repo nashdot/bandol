@@ -2,9 +2,11 @@ import resolveId from './utils/resolveId.js';
 
 import Resource from './Resource';
 
+import nodeResolvePlugin from './plugins/bandol-plugin-resolve-node';
 import es6LoaderPlugin from './plugins/bandol-plugin-loader-es6';
 
 const plugins = [
+  nodeResolvePlugin,
   es6LoaderPlugin
 ];
 
@@ -14,6 +16,25 @@ export default class Bundle {
 
     this.resources = [];
     this.result = {};
+
+    this.resolvePlugins = [];
+    this.loaderPlugins = [];
+
+    this.initPlugins();
+  }
+
+  initPlugins() {
+    for (const plugin of plugins) {
+      const worker = plugin();
+
+      if (worker.resolve) {
+        this.resolvePlugins.push(worker);
+      }
+
+      if (worker.load) {
+        this.loaderPlugins.push(worker);
+      }
+    }
   }
 
   async build() {
@@ -83,14 +104,23 @@ export default class Bundle {
   }
 
   async load(id) {
-    for (const plugin of plugins) {
-      const worker = plugin();
-      if (worker.load) {
-        const result = await worker.load(id);
+    for (const plugin of this.loaderPlugins) {
+      const result = await plugin.load(id);
 
-        if (result) {
-          return result;
-        }
+      if (result) {
+        return result;
+      }
+    }
+
+    return undefined;
+  }
+
+  async resolve(id) {
+    for (const plugin of this.resolvePlugins) {
+      const result = await plugin.resolve(id);
+
+      if (result) {
+        return result;
       }
     }
 
