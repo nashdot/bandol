@@ -1,8 +1,10 @@
 import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
 import es6LoaderPlugin from './plugins/bandol-plugin-loader-es6';
+import cjsLoaderPlugin from './plugins/bandol-plugin-loader-cjs';
 
 const plugins = [
   nodeResolverPlugin,
+  cjsLoaderPlugin,
   es6LoaderPlugin
 ];
 
