@@ -21,8 +21,8 @@ export default class Bundle {
   }
 
   initPlugins() {
-    for (const plugin of plugins) {
-      const worker = plugin();
+    for (const Plugin of plugins) {
+      const worker = new Plugin();
 
       if (worker.resolveResource) {
         this.resolverPlugins.push(worker);
