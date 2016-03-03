@@ -23,6 +23,12 @@ async function bandol(options) {
     bundle: bundle,
     generate: opts => {
       return bundle.generate(opts);
+    },
+    printResources: () => {
+      console.log('Resources:');
+      for (const r of bundle.resources) {
+        console.log(r.id);
+      }
     }
   };
 }

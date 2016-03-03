@@ -20,6 +20,7 @@ function doBandol(testPath) {
 test('core/basic', t => {
   return doBandol('core/basic').then(b => {
     const generated = b.generate().code;
+    b.printResources();
     t.is(generated, expected('core/basic'));
   });
 });
@@ -27,6 +28,7 @@ test('core/basic', t => {
 test('core/basic-2', t => {
   return doBandol('core/basic-2').then(b => {
     const generated = b.generate().code;
+    b.printResources();
     t.is(generated, expected('core/basic-2'));
   });
 });
@@ -34,6 +36,7 @@ test('core/basic-2', t => {
 test('core/module', t => {
   return doBandol('core/module').then(b => {
     const generated = b.generate().code;
+    b.printResources();
     t.is(generated, expected('core/module'));
   });
 });
