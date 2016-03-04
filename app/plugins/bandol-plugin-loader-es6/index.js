@@ -100,7 +100,6 @@ export default class Plugin extends BasePlugin {
           ast: ast
         };
 
-        this.log(`Loaded ${resource.id}`);
         resolve(nextResource);
       }
     });

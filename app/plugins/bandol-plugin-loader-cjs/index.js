@@ -107,7 +107,6 @@ export default class Plugin extends BasePlugin {
           };
         }
 
-        this.log(`Loaded ${resource.id}`);
         resolve(nextResource);
       }
     });
