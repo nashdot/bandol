@@ -68,27 +68,38 @@ export default class Plugin {
 
   /* eslint no-param-reassign: 0 */
   loadResource(resource) {
+    const nextResource = Object.assign({}, resource);
+
     return new Promise((resolve) => {
-      if (!this._canCompile(resource.id)) {
-        resolve(resource);
+      if (!this._canCompile(nextResource.id
+        && nextResource.type !== Types.UNKNOWN
+        && nextResource.type !== Types.JAVASCRIPT)) {
+        resolve(nextResource);
       } else {
-        fs.readFile(resource.id, 'utf8', (err, data) => {
-          if (!err) {
-            const ast = babylon.parse(data, this._babylonOtions);
-            const dependencies = this._retreiveDependencies(ast);
+        let data = nextResource.props.data;
+        let ast = nextResource.props.ast;
 
-            if (dependencies.length > 0) {
-              resource.type = Types.JAVASCRIPT;
-              resource.dependencies = dependencies;
-              resource.props = {
-                code: data,
-                ast: ast
-              };
-            }
-
-            resolve(resource);
+        if (nextResource.type === Types.UNKNOWN) {
+          try {
+            data = fs.readFileSync(nextResource.id, 'utf8');
+            ast = babylon.parse(data, this._babylonOtions);
+          } catch (err) {
+            resolve(nextResource);
           }
-        });
+        }
+
+        const dependencies = this._retreiveDependencies(ast);
+
+        if (dependencies.length > 0) {
+          nextResource.type = Types.JAVASCRIPT;
+          nextResource.dependencies = dependencies;
+          nextResource.props = {
+            code: data,
+            ast: ast
+          };
+        }
+
+        resolve(nextResource);
       }
     });
   }

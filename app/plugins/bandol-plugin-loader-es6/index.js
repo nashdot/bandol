@@ -66,24 +66,33 @@ export default class Plugin {
     const nextResource = Object.assign({}, resource);
 
     return new Promise((resolve) => {
-      if (!this._canCompile(nextResource.id)) {
+      if (!this._canCompile(nextResource.id
+        && nextResource.type !== Types.UNKNOWN
+        && nextResource.type !== Types.JAVASCRIPT)) {
         resolve(nextResource);
       } else {
-        fs.readFile(nextResource.id, 'utf8', (err, data) => {
-          if (!err) {
-            const ast = babylon.parse(data, this._babylonOtions);
-            const dependencies = this._retreiveDependencies(ast);
+        let data = nextResource.props.data;
+        let ast = nextResource.props.ast;
 
-            nextResource.type = Types.JAVASCRIPT;
-            nextResource.dependencies = dependencies;
-            nextResource.props = {
-              code: data,
-              ast: ast
-            };
+        if (nextResource.type === Types.UNKNOWN) {
+          try {
+            data = fs.readFileSync(nextResource.id, 'utf8');
+            ast = babylon.parse(data, this._babylonOtions);
+          } catch (err) {
+            resolve(nextResource);
           }
+        }
 
-          resolve(nextResource);
-        });
+        const dependencies = this._retreiveDependencies(ast);
+
+        nextResource.type = Types.JAVASCRIPT;
+        nextResource.dependencies = dependencies;
+        nextResource.props = {
+          code: data,
+          ast: ast
+        };
+
+        resolve(nextResource);
       }
     });
   }
