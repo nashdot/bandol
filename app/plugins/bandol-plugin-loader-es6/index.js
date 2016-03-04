@@ -51,15 +51,16 @@ export default class Plugin extends BasePlugin {
     return !_.contains(this._supportedExtensions, ext);
   }
 
-  _retreiveDependencies(ast, originalDependencies) {
+  _retreiveDependencies(ast, originalDependencies, importerId) {
     const dependencies = originalDependencies;
 
     traverse(ast, {
       ImportDeclaration: (nodePath) => {
         const source = nodePath.node.source.value;
+        const id = this.bundle.resolveResource(source, importerId);
 
-        if (!~dependencies.indexOf(source)) {
-          dependencies.push(source);
+        if (!~dependencies.indexOf(id)) {
+          dependencies.push(id);
         }
       }
     });
@@ -91,7 +92,7 @@ export default class Plugin extends BasePlugin {
           }
         }
 
-        dependencies = this._retreiveDependencies(ast, dependencies);
+        dependencies = this._retreiveDependencies(ast, dependencies, resource.id);
 
         nextResource.type = Types.JAVASCRIPT;
         nextResource.dependencies = dependencies;

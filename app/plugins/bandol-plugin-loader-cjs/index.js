@@ -51,7 +51,7 @@ export default class Plugin extends BasePlugin {
     return !_.contains(this._supportedExtensions, ext);
   }
 
-  _retreiveDependencies(ast, originalDependencies) {
+  _retreiveDependencies(ast, originalDependencies, importerId) {
     const dependencies = originalDependencies;
 
     traverse(ast, {
@@ -62,9 +62,10 @@ export default class Plugin extends BasePlugin {
         if (node.arguments.length !== 1 || node.arguments[0].type !== 'StringLiteral') return; // TODO handle these weird cases?
 
         const source = node.arguments[0].value;
+        const id = this.bundle.resolveResource(source, importerId);
 
-        if (!~dependencies.indexOf(source)) {
-          dependencies.push(source);
+        if (!~dependencies.indexOf(id)) {
+          dependencies.push(id);
         }
       }
     });
@@ -96,7 +97,7 @@ export default class Plugin extends BasePlugin {
           }
         }
 
-        dependencies = this._retreiveDependencies(ast, dependencies);
+        dependencies = this._retreiveDependencies(ast, dependencies, resource.id);
 
         if (dependencies.length > 0) {
           nextResource.type = Types.JAVASCRIPT;

@@ -40,17 +40,15 @@ export default class Bundle {
 
   async build() {
     try {
-      this.entryId = await this.resolveResource(this.entry, undefined);
-      await this.buildResource(this.entry, undefined);
+      this.entryId = this.resolveResource(this.entry, undefined);
+      await this.buildResource(this.entryId);
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  async buildResource(importee, importer) {
+  async buildResource(id) {
     try {
-      const id = await this.resolveResource(importee, importer);
-
       if (this.resources.has(id)) {
         return;
       }
@@ -68,21 +66,21 @@ export default class Bundle {
   }
 
   async buildDependencies(resource) {
-    for (const dependency of resource.dependencies) {
-      await this.buildResource(dependency, resource.id);
+    for (const id of resource.dependencies) {
+      await this.buildResource(id);
     }
   }
 
-  async resolveResource(importee, importer) {
+  resolveResource(importee, importerId) {
     for (const plugin of this.resolverPlugins) {
-      const id = await plugin.resolveResource(importee, importer);
+      const id = plugin.resolveResource(importee, importerId);
 
       if (id) {
         return id;
       }
     }
 
-    throw new Error(`Cannot resolve resource "${importee}" in "${importer}`);
+    throw new Error(`Cannot resolve resource "${importee}" in "${importerId}`);
   }
 
   async loadResource(id) {
