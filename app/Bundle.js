@@ -1,3 +1,6 @@
+import Resource from './Resource';
+import Types from './Types';
+
 import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
 import es6LoaderPlugin from './plugins/bandol-plugin-loader-es6';
 import cjsLoaderPlugin from './plugins/bandol-plugin-loader-cjs';
@@ -76,15 +79,17 @@ export default class Bundle {
   }
 
   async loadResource(id) {
-    for (const plugin of this.loaderPlugins) {
-      const result = await plugin.loadResource(id);
+    let resource = new Resource(id);
 
-      if (result) {
-        return result;
+    for (const plugin of this.loaderPlugins) {
+      resource = await plugin.loadResource(resource);
+
+      if (resource.type !== Types.UNKNOWN) {
+        return resource;
       }
     }
 
-    return undefined;
+    return resource;
   }
 
   generate() {

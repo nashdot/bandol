@@ -5,7 +5,6 @@ import * as babylon from 'babylon';
 import traverse from 'babel-traverse';
 
 import Types from '../../Types';
-import Resource from '../../Resource'; // 'bandol/Resource';
 
 export default class Plugin {
   _supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
@@ -43,7 +42,7 @@ export default class Plugin {
    */
   _canCompile(filename) {
     const ext = path.extname(filename);
-    return _.contains(this._supportedExtensions, ext);
+    return !_.contains(this._supportedExtensions, ext);
   }
 
   _retreiveDependencies(ast) {
@@ -62,23 +61,28 @@ export default class Plugin {
     return dependencies;
   }
 
-  loadResource(id) {
-    return new Promise((resolve) => {
-      if (this._canCompile(id)) {
-        resolve(undefined);
-      } else {
-        fs.readFile(id, 'utf8', (err, data) => {
-          if (err) {
-            resolve(undefined);
-          }
+  /* eslint no-param-reassign: 0 */
+  loadResource(resource) {
+    const nextResource = Object.assign({}, resource);
 
-          const ast = babylon.parse(data, this._babylonOtions);
-          const dependencies = this._retreiveDependencies(ast);
-          resolve(
-            new Resource(id, Types.JAVASCRIPT, dependencies, {
+    return new Promise((resolve) => {
+      if (!this._canCompile(nextResource.id)) {
+        resolve(nextResource);
+      } else {
+        fs.readFile(nextResource.id, 'utf8', (err, data) => {
+          if (!err) {
+            const ast = babylon.parse(data, this._babylonOtions);
+            const dependencies = this._retreiveDependencies(ast);
+
+            nextResource.type = Types.JAVASCRIPT;
+            nextResource.dependencies = dependencies;
+            nextResource.props = {
               code: data,
               ast: ast
-            }));
+            };
+          }
+
+          resolve(nextResource);
         });
       }
     });
