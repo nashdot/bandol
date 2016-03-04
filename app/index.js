@@ -26,8 +26,8 @@ async function bandol(options) {
     },
     printResources: () => {
       console.log('Resources:');
-      for (const r of bundle.resources) {
-        console.log(r.id);
+      for (const r of bundle.resources.keys()) {
+        console.log(r);
       }
     }
   };

@@ -14,8 +14,9 @@ const plugins = [
 export default class Bundle {
   constructor(options) {
     this.entry = options.entry;
+    this.entryId = 'unknown';
 
-    this.resources = [];
+    this.resources = new Map();
 
     this.resolverPlugins = [];
     this.loaderPlugins = [];
@@ -39,6 +40,7 @@ export default class Bundle {
 
   async build() {
     try {
+      this.entryId = await this.resolveResource(this.entry, undefined);
       await this.buildResource(this.entry, undefined);
     } catch (error) {
       console.log(error.message);
@@ -48,10 +50,15 @@ export default class Bundle {
   async buildResource(importee, importer) {
     try {
       const id = await this.resolveResource(importee, importer);
+
+      if (this.resources.has(id)) {
+        return;
+      }
+
       const resource = await this.loadResource(id);
 
       // -- Register
-      this.resources.push(resource);
+      this.resources.set(resource.id, resource);
 
       // -- Fetch dependencies
       await this.buildDependencies(resource);
@@ -93,7 +100,7 @@ export default class Bundle {
   }
 
   generate() {
-    const resource = this.resources[0];
+    const resource = this.resources.get(this.entry);
     const result = { code: resource.props.code, ast: resource.props.ast };
     return result;
   }
