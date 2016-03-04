@@ -7,6 +7,8 @@ import traverse from 'babel-traverse';
 import Types from '../../Types';
 
 export default class Plugin {
+  name = 'loader-cjs';
+  version = '1.0.0';
   resourceType = Types.JAVASCRIPT;
 
   _supportedExtensions = ['.js', '.jsx'];
