@@ -7,6 +7,8 @@ import traverse from 'babel-traverse';
 import Types from '../../Types';
 
 export default class Plugin {
+  resourceType = Types.JAVASCRIPT;
+
   _supportedExtensions = ['.js', '.jsx'];
 
   _babylonPlugins = [
@@ -73,7 +75,7 @@ export default class Plugin {
     return new Promise((resolve) => {
       if (!this._canCompile(nextResource.id
         && nextResource.type !== Types.UNKNOWN
-        && nextResource.type !== Types.JAVASCRIPT)) {
+        && nextResource.type !== this.resourceType)) {
         resolve(nextResource);
       } else {
         let data = nextResource.props.data;
