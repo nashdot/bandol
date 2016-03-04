@@ -80,6 +80,7 @@ export default class Plugin extends BasePlugin {
       if (!this._canCompile(nextResource.id
         && nextResource.type !== Types.UNKNOWN
         && nextResource.type !== this.resourceType)) {
+        this.log(`Can't load ${resource.id}`);
         resolve(nextResource);
       } else {
         let data = nextResource.props.data;
@@ -105,6 +106,7 @@ export default class Plugin extends BasePlugin {
           };
         }
 
+        this.log(`Loaded ${resource.id}`);
         resolve(nextResource);
       }
     });
