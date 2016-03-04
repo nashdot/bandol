@@ -68,14 +68,14 @@ export default class Bundle {
 
   async resolveResource(importee, importer) {
     for (const plugin of this.resolverPlugins) {
-      const result = await plugin.resolveResource(importee, importer);
+      const id = await plugin.resolveResource(importee, importer);
 
-      if (result) {
-        return result;
+      if (id) {
+        return id;
       }
     }
 
-    return undefined;
+    throw new Error(`Cannot resolve resource "${importee}" in "${importer}`);
   }
 
   async loadResource(id) {
