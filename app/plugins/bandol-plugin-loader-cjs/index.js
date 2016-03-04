@@ -51,8 +51,8 @@ export default class Plugin extends BasePlugin {
     return !_.contains(this._supportedExtensions, ext);
   }
 
-  _retreiveDependencies(ast) {
-    const dependencies = [];
+  _retreiveDependencies(ast, originalDependencies) {
+    const dependencies = originalDependencies;
 
     traverse(ast, {
       CallExpression: (nodePath) => {
@@ -83,6 +83,7 @@ export default class Plugin extends BasePlugin {
         this.log(`Can't load ${resource.id}`);
         resolve(nextResource);
       } else {
+        let dependencies = nextResource.dependencies;
         let data = nextResource.props.data;
         let ast = nextResource.props.ast;
 
@@ -95,7 +96,7 @@ export default class Plugin extends BasePlugin {
           }
         }
 
-        const dependencies = this._retreiveDependencies(ast);
+        dependencies = this._retreiveDependencies(ast, dependencies);
 
         if (dependencies.length > 0) {
           nextResource.type = Types.JAVASCRIPT;
