@@ -4,6 +4,7 @@ import _ from 'lodash';
 import * as babylon from 'babylon';
 import traverse from 'babel-traverse';
 
+import Types from '../../Types';
 import Resource from '../../Resource'; // 'bandol/Resource';
 
 export default class Plugin {
@@ -74,7 +75,7 @@ export default class Plugin {
           const ast = babylon.parse(data, this._babylonOtions);
           const dependencies = this._retreiveDependencies(ast);
           resolve(
-            new Resource(id, dependencies, {
+            new Resource(id, Types.JAVASCRIPT, dependencies, {
               code: data,
               ast: ast
             }));
