@@ -1,8 +1,11 @@
 import resolveModule from 'resolve';
 import path from 'path';
 
-export default class Plugin {
+import BasePlugin from '../../BasePlugin';
+
+export default class Plugin extends BasePlugin {
   constructor(bundle) {
+    super(bundle);
     this.bundle = bundle;
   }
 

@@ -4,9 +4,10 @@ import _ from 'lodash';
 import * as babylon from 'babylon';
 import traverse from 'babel-traverse';
 
+import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
 
-export default class Plugin {
+export default class Plugin extends BasePlugin {
   name = 'loader-cjs';
   version = '1.0.0';
   resourceType = Types.JAVASCRIPT;
@@ -38,6 +39,7 @@ export default class Plugin {
   };
 
   constructor(bundle) {
+    super(bundle);
     this.bundle = bundle;
   }
 
