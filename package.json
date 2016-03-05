@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "pretest": "pwd && cd ./tests/fixtures/core/module && npm install",
+    "pretest": "cd ./tests/fixtures/core/module && npm install",
     "test": "ava -s",
     "start": "babel-node index.js"
   },
