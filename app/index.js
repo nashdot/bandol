@@ -25,14 +25,14 @@ async function bandol(options) {
     generate: opts => {
       return bundle.generate(opts);
     },
-    printResources: () => {
+    _printResources: () => {
       console.log('Resources:');
       for (const r of bundle.resources.values()) {
         console.log(r.id);
         console.log(`=> ${JSON.stringify(r.dependencies)}`);
       }
     },
-    printSorted: () => {
+    _printSorted: () => {
       console.log('Sorted:');
       const sorted = sortDependencies(bundle.resources);
 
