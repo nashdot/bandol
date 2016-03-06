@@ -54,6 +54,8 @@ export default class Plugin extends BasePlugin {
 
           resource.type = Types.JAVASCRIPT;
           resource.props = {
+            originalCode: code,
+            originalAst: ast,
             code: code,
             ast: ast
           };
