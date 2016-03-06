@@ -2,13 +2,15 @@ import Resource from './Resource';
 import Types from './Types';
 
 import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
-import es6LoaderPlugin from './plugins/bandol-plugin-loader-es6';
-import cjsLoaderPlugin from './plugins/bandol-plugin-loader-cjs';
+import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
+import cjsAnalyzerPlugin from './plugins/bandol-plugin-analyzer-cjs';
+import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
 
 const plugins = [
   nodeResolverPlugin,
-  cjsLoaderPlugin,
-  es6LoaderPlugin
+  jsLoaderPlugin,
+  cjsAnalyzerPlugin,
+  es6AnalyzerPlugin
 ];
 
 export default class Bundle {
@@ -20,6 +22,7 @@ export default class Bundle {
 
     this.resolverPlugins = [];
     this.loaderPlugins = [];
+    this.analyzerPlugins = [];
 
     this.initPlugins();
   }
@@ -34,6 +37,10 @@ export default class Bundle {
 
       if (worker.loadResource) {
         this.loaderPlugins.push(worker);
+      }
+
+      if (worker.analyzeResource) {
+        this.analyzerPlugins.push(worker);
       }
     }
   }
@@ -53,7 +60,8 @@ export default class Bundle {
         return;
       }
 
-      const resource = await this.loadResource(id);
+      let resource = await this.loadResource(id);
+      resource = await this.analyzeResource(resource);
 
       // -- Register
       this.resources.set(resource.id, resource);
@@ -92,6 +100,15 @@ export default class Bundle {
       if (resource.type !== Types.UNKNOWN) {
         return resource;
       }
+    }
+
+    return resource;
+  }
+
+  /* eslint no-param-reassign: 0 */
+  async analyzeResource(resource) {
+    for (const plugin of this.analyzerPlugins) {
+      resource = await plugin.analyzeResource(resource);
     }
 
     return resource;
