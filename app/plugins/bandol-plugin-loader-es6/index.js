@@ -88,7 +88,7 @@ export default class Plugin extends BasePlugin {
             data = fs.readFileSync(transformedResource.id, 'utf8');
             ast = babylon.parse(data, this._babylonOtions);
           } catch (err) {
-            resolve(transformedResource);
+            resolve(resource);
           }
         }
 
