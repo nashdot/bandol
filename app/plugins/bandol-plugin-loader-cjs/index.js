@@ -75,40 +75,40 @@ export default class Plugin extends BasePlugin {
 
   /* eslint no-param-reassign: 0 */
   loadResource(resource) {
-    const nextResource = Object.assign({}, resource);
-
     return new Promise((resolve) => {
-      if (!this._canCompile(nextResource.id
-        && nextResource.type !== Types.UNKNOWN
-        && nextResource.type !== this.resourceType)) {
+      if (!this._canCompile(resource.id
+        && resource.type !== Types.UNKNOWN
+        && resource.type !== this.resourceType)) {
         this.log(`Can't load ${resource.id}`);
-        resolve(nextResource);
+        resolve(resource);
       } else {
-        let dependencies = nextResource.dependencies;
-        let data = nextResource.props.data;
-        let ast = nextResource.props.ast;
+        const transformedResource = Object.assign({}, resource);
 
-        if (nextResource.type === Types.UNKNOWN) {
+        let dependencies = transformedResource.dependencies;
+        let data = transformedResource.props.data;
+        let ast = transformedResource.props.ast;
+
+        if (transformedResource.type === Types.UNKNOWN) {
           try {
-            data = fs.readFileSync(nextResource.id, 'utf8');
+            data = fs.readFileSync(transformedResource.id, 'utf8');
             ast = babylon.parse(data, this._babylonOtions);
           } catch (err) {
-            resolve(nextResource);
+            resolve(transformedResource);
           }
         }
 
         dependencies = this._retreiveDependencies(ast, dependencies, resource.id);
 
         if (dependencies.length > 0) {
-          nextResource.type = Types.JAVASCRIPT;
-          nextResource.dependencies = dependencies;
-          nextResource.props = {
+          transformedResource.type = Types.JAVASCRIPT;
+          transformedResource.dependencies = dependencies;
+          transformedResource.props = {
             code: data,
             ast: ast
           };
         }
 
-        resolve(nextResource);
+        resolve(transformedResource);
       }
     });
   }
