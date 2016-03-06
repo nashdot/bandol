@@ -1,6 +1,4 @@
 import fs from 'fs';
-import path from 'path';
-import _ from 'lodash';
 import * as babylon from 'babylon';
 import traverse from 'babel-traverse';
 
@@ -43,14 +41,6 @@ export default class Plugin extends BasePlugin {
     this.bundle = bundle;
   }
 
-  /**
-   * Test if a filename ends with a compilable extension.
-   */
-  _canCompile(filename) {
-    const ext = path.extname(filename);
-    return _.contains(this._supportedExtensions, ext);
-  }
-
   _retreiveDependencies(ast, originalDependencies, importerId) {
     const dependencies = originalDependencies;
 
@@ -76,7 +66,7 @@ export default class Plugin extends BasePlugin {
   /* eslint no-param-reassign: 0 */
   loadResource(resource) {
     return new Promise((resolve) => {
-      if (!this._canCompile(resource.id)
+      if (!this.isSupportedExtension(resource.id)
         && resource.type !== Types.UNKNOWN
         && resource.type !== this.resourceType) {
         this.log(`Can't load ${resource.id}`);
