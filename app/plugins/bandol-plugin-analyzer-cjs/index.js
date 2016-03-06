@@ -15,28 +15,6 @@ export default class Plugin extends BasePlugin {
     this.bundle = bundle;
   }
 
-  _retreiveDependencies(resource) {
-    const dependencies = resource.dependencies;
-
-    traverse(resource.props.ast, {
-      CallExpression: (nodePath) => {
-        const node = nodePath.node;
-
-        if (node.callee.name !== 'require') return;
-        if (node.arguments.length !== 1 || node.arguments[0].type !== 'StringLiteral') return; // TODO handle these weird cases?
-
-        const source = node.arguments[0].value;
-        const id = this.bundle.resolveResource(source, resource.id);
-
-        if (!~dependencies.indexOf(id)) {
-          dependencies.push(id);
-        }
-      }
-    });
-
-    return dependencies;
-  }
-
   /* eslint no-param-reassign: 0 */
   analyzeResource(resource) {
     return new Promise((resolve) => {
@@ -45,7 +23,24 @@ export default class Plugin extends BasePlugin {
         this.log(`Can't analyze ${resource.id}`);
         resolve(resource);
       } else {
-        const dependencies = this._retreiveDependencies(resource);
+        const dependencies = resource.dependencies;
+
+        traverse(resource.props.ast, {
+          CallExpression: (nodePath) => {
+            const node = nodePath.node;
+
+            if (node.callee.name !== 'require') return;
+            if (node.arguments.length !== 1 || node.arguments[0].type !== 'StringLiteral') return; // TODO handle these weird cases?
+
+            const source = node.arguments[0].value;
+            const id = this.bundle.resolveResource(source, resource.id);
+
+            if (!~dependencies.indexOf(id)) {
+              dependencies.push(id);
+            }
+          }
+        });
+
         resource.dependencies = dependencies;
         resolve(resource);
       }
