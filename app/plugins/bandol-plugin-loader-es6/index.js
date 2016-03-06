@@ -48,7 +48,7 @@ export default class Plugin extends BasePlugin {
    */
   _canCompile(filename) {
     const ext = path.extname(filename);
-    return !_.contains(this._supportedExtensions, ext);
+    return _.contains(this._supportedExtensions, ext);
   }
 
   _retreiveDependencies(ast, originalDependencies, importerId) {
@@ -71,9 +71,9 @@ export default class Plugin extends BasePlugin {
   /* eslint no-param-reassign: 0 */
   loadResource(resource) {
     return new Promise((resolve) => {
-      if (!this._canCompile(resource.id
+      if (!this._canCompile(resource.id)
         && resource.type !== Types.UNKNOWN
-        && resource.type !== this.resourceType)) {
+        && resource.type !== this.resourceType) {
         this.log(`Can't load ${resource.id}`);
         resolve(resource);
       } else {
