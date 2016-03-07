@@ -6,13 +6,15 @@ import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
 // import cjsAnalyzerPlugin from './plugins/bandol-plugin-analyzer-cjs';
 import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
 import jsNormalizerPlugin from './plugins/bandol-plugin-normalizer-js';
+import es6FinalizerPlugin from './plugins/bandol-plugin-finalizer-es6';
 
 const plugins = [
   nodeResolverPlugin,
   jsLoaderPlugin,
   // cjsAnalyzerPlugin,
   es6AnalyzerPlugin,
-  jsNormalizerPlugin
+  jsNormalizerPlugin,
+  es6FinalizerPlugin
 ];
 
 export default class Bundle {
@@ -26,6 +28,7 @@ export default class Bundle {
     this.loaderPlugins = [];
     this.analyzerPlugins = [];
     this.normalizerPlugins = [];
+    this.finalizerPlugins = [];
 
     this.initPlugins();
   }
@@ -48,6 +51,10 @@ export default class Bundle {
 
       if (worker.normalizeResource) {
         this.normalizerPlugins.push(worker);
+      }
+
+      if (worker.finalizeResource) {
+        this.finalizerPlugins.push(worker);
       }
     }
   }
@@ -130,9 +137,18 @@ export default class Bundle {
     return resource;
   }
 
-  generate() {
+  finalizeResource(id) {
+    for (const plugin of this.finalizerPlugins) {
+      plugin.finalizeResource(id);
+    }
+  }
+
+  generate(id) {
     const resource = this.resources.get(this.entry);
     const result = { code: resource.props.code, ast: resource.props.ast };
+
+    this.finalizeResource(id);
+
     return result;
   }
 }
