@@ -73,8 +73,8 @@ export default class Plugin extends BasePlugin {
         if (isOldJavascript) {
           const ast = recast.parse(resource.props.code);
           noStrictTransform(ast.program);
-          commonjsTransform(ast.program);
           classesTransform(ast.program);
+          commonjsTransform(ast.program);
           resource.props.code = recast.print(ast).code;
           resource.props.ast = babylon.parse(resource.props.code, this._babylonOtions);
         }
