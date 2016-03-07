@@ -4,6 +4,9 @@ import path from 'path';
 import BasePlugin from '../../BasePlugin';
 
 export default class Plugin extends BasePlugin {
+  name = 'resolver-node';
+  version = '1.0.0';
+
   constructor(bundle) {
     super(bundle);
     this.bundle = bundle;
