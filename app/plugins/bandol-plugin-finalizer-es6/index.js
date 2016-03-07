@@ -21,7 +21,7 @@ export default class Plugin extends BasePlugin {
 
     for (let i = 0; i < sorted.length; i++) {
       const resource = sorted[i];
-      if (resource.type === Types.JAVASCRIPT) {
+      if (resource.type === this.resourceType) {
         fs.appendFileSync(outputPath, `/* bandol: ${resource.id} */\n`);
         fs.appendFileSync(outputPath, `${resource.props.code}\n`);
         fs.appendFileSync(outputPath, `/* bandol: ------ */\n\n`);
