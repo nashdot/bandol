@@ -57,7 +57,8 @@ export default class Plugin extends BasePlugin {
             originalCode: code,
             originalAst: ast,
             code: code,
-            ast: ast
+            ast: ast,
+            imports: new Map()
           };
 
           resolve(resource);

@@ -23,6 +23,8 @@ export default class Plugin extends BasePlugin {
       const resource = sorted[i];
       if (resource.type === this.resourceType) {
         fs.appendFileSync(outputPath, `/* bandol: ${resource.id} */\n`);
+        fs.appendFileSync(outputPath, `/* dependencies:\n${JSON.stringify(resource.dependencies)}\n*/\n`);
+        fs.appendFileSync(outputPath, `/* imports:\n${JSON.stringify(resource.props.imports)}\n*/\n`);
         fs.appendFileSync(outputPath, `${resource.props.code}\n`);
         fs.appendFileSync(outputPath, `/* bandol: ------ */\n\n`);
       }
