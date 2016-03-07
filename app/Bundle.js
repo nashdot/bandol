@@ -7,6 +7,7 @@ import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
 import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
 import jsNormalizerPlugin from './plugins/bandol-plugin-normalizer-js';
 import es6FinalizerPlugin from './plugins/bandol-plugin-finalizer-es6';
+import es6OptimizerPlugin from './plugins/bandol-plugin-optimizer-es6';
 
 const plugins = [
   nodeResolverPlugin,
@@ -14,7 +15,8 @@ const plugins = [
   // cjsAnalyzerPlugin,
   es6AnalyzerPlugin,
   jsNormalizerPlugin,
-  es6FinalizerPlugin
+  es6FinalizerPlugin,
+  es6OptimizerPlugin
 ];
 
 export default class Bundle {
@@ -29,6 +31,7 @@ export default class Bundle {
     this.analyzerPlugins = [];
     this.normalizerPlugins = [];
     this.finalizerPlugins = [];
+    this.optimizerPlugins = [];
 
     this.initPlugins();
   }
@@ -56,6 +59,10 @@ export default class Bundle {
       if (worker.finalizeResource) {
         this.finalizerPlugins.push(worker);
       }
+
+      if (worker.optimizeResource) {
+        this.optimizerPlugins.push(worker);
+      }
     }
   }
 
@@ -77,6 +84,7 @@ export default class Bundle {
       let resource = await this.loadResource(id);
       resource = await this.normalizeResource(resource);
       resource = await this.analyzeResource(resource);
+      resource = await this.optimizeResource(resource);
 
       // -- Register
       this.resources.set(resource.id, resource);
@@ -124,6 +132,14 @@ export default class Bundle {
   async analyzeResource(resource) {
     for (const plugin of this.analyzerPlugins) {
       resource = await plugin.analyzeResource(resource);
+    }
+
+    return resource;
+  }
+
+  async optimizeResource(resource) {
+    for (const plugin of this.optimizerPlugins) {
+      resource = await plugin.optimizeResource(resource);
     }
 
     return resource;
