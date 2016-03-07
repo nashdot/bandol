@@ -1,3 +1,4 @@
+/* eslint no-param-reassign: 0 */
 import Resource from './Resource';
 import Types from './Types';
 
@@ -28,10 +29,10 @@ export default class Bundle {
 
     this.resolverPlugins = [];
     this.loaderPlugins = [];
-    this.analyzerPlugins = [];
     this.normalizerPlugins = [];
-    this.finalizerPlugins = [];
+    this.analyzerPlugins = [];
     this.optimizerPlugins = [];
+    this.finalizerPlugins = [];
 
     this.initPlugins();
   }
@@ -48,20 +49,20 @@ export default class Bundle {
         this.loaderPlugins.push(worker);
       }
 
-      if (worker.analyzeResource) {
-        this.analyzerPlugins.push(worker);
-      }
-
       if (worker.normalizeResource) {
         this.normalizerPlugins.push(worker);
       }
 
-      if (worker.finalizeResource) {
-        this.finalizerPlugins.push(worker);
+      if (worker.analyzeResource) {
+        this.analyzerPlugins.push(worker);
       }
 
       if (worker.optimizeResource) {
         this.optimizerPlugins.push(worker);
+      }
+
+      if (worker.finalizeResource) {
+        this.finalizerPlugins.push(worker);
       }
     }
   }
@@ -128,7 +129,14 @@ export default class Bundle {
     return resource;
   }
 
-  /* eslint no-param-reassign: 0 */
+  async normalizeResource(resource) {
+    for (const plugin of this.normalizerPlugins) {
+      resource = await plugin.normalizeResource(resource);
+    }
+
+    return resource;
+  }
+
   async analyzeResource(resource) {
     for (const plugin of this.analyzerPlugins) {
       resource = await plugin.analyzeResource(resource);
@@ -140,14 +148,6 @@ export default class Bundle {
   async optimizeResource(resource) {
     for (const plugin of this.optimizerPlugins) {
       resource = await plugin.optimizeResource(resource);
-    }
-
-    return resource;
-  }
-
-  async normalizeResource(resource) {
-    for (const plugin of this.normalizerPlugins) {
-      resource = await plugin.normalizeResource(resource);
     }
 
     return resource;
