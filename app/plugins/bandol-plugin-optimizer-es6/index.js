@@ -20,7 +20,7 @@ export default class Plugin extends BasePlugin {
     return new Promise((resolve) => {
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't optimze ${resource.id}`);
+        this.log(`Can't optimize ${resource.id}`);
         resolve(resource);
       } else {
         traverse(resource.props.ast, {
