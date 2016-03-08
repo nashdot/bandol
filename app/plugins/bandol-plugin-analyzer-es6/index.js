@@ -26,7 +26,7 @@ export default class Plugin extends BasePlugin {
         const dependencies = resource.dependencies;
         const imports = resource.props.imports;
 
-        // First pass to find imports/dependencies
+        // Collect imports/dependencies
         traverse(resource.props.ast, {
           ImportDeclaration: (nodePath) => {
             const node = nodePath.node;
