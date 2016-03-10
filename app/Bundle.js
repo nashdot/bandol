@@ -160,10 +160,10 @@ export default class Bundle {
   }
 
   generate(id) {
+    this.finalizeResource(id);
+
     const resource = this.resources.get(this.entry);
     const result = { code: resource.props.code, ast: resource.props.ast };
-
-    this.finalizeResource(id);
 
     return result;
   }

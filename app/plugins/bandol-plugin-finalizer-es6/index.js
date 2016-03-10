@@ -1,4 +1,5 @@
 import fs from 'fs';
+import generate from 'babel-generator';
 
 import sortDependencies from '../../utils/sortDependencies.js';
 
@@ -22,6 +23,12 @@ export default class Plugin extends BasePlugin {
     for (let i = 0; i < sorted.length; i++) {
       const resource = sorted[i];
       if (resource.type === this.resourceType) {
+        try {
+          resource.props.code = generate(resource.props.ast, { /* options */ }, resource.props.originalCode).code;
+        } catch (err) {
+          this.log(err.stack);
+        }
+
         fs.appendFileSync(outputPath, `/* bandol: ${resource.id} */\n`);
         fs.appendFileSync(outputPath, `/* dependencies:\n${JSON.stringify(resource.dependencies)}\n*/\n`);
         fs.appendFileSync(outputPath, `/* imports:\n${JSON.stringify(resource.props.imports)}\n*/\n`);

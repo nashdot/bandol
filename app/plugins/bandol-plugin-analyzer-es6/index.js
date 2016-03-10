@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import traverse from 'babel-traverse';
-import { transformFromAst } from 'babel-core';
 
 import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
@@ -128,11 +127,7 @@ export default class Plugin extends BasePlugin {
 
         resource.dependencies = dependencies;
         resource.props.imports = imports;
-        try {
-          resource.props.code = transformFromAst(resource.props.ast).code;
-        } catch (err) {
-          this.log(err.stack);
-        }
+
         resolve(resource);
       }
     });

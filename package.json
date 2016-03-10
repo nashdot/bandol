@@ -43,7 +43,7 @@
     "rimraf": "^2.5.2"
   },
   "dependencies": {
-    "babel-core": "^6.7.0",
+    "babel-generator": "^6.7.0",
     "babel-traverse": "^6.7.0",
     "babel-types": "^6.7.0",
     "babylon": "^6.7.0",
