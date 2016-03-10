@@ -90,7 +90,13 @@ export default class Plugin extends BasePlugin {
               if (node.declaration.type === 'Identifier') {
                 identifier = node.declaration.name;
               } else if (node.declaration.type === 'FunctionDeclaration') {
-                identifier = node.declaration.id.name;
+                if (node.declaration.id) {
+                  // Named function
+                  identifier = node.declaration.id.name;
+                } else {
+                  // Anonymous function
+                  identifier = '__bandol__anonymous_function';
+                }
               } else if (node.declaration.type === 'Literal') {
                 identifier = '__bandol__literal';
               }
