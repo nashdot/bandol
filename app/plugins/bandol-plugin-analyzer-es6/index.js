@@ -85,7 +85,7 @@ export default class Plugin extends BasePlugin {
                   name = specifier.imported.name;
                 }
 
-                imports.set(localName, { id: id, name: name, isUsed: false });
+                imports.set(localName, { id: id, name: name });
               });
             },
             ExportDefaultDeclaration: (nodePath) => {
