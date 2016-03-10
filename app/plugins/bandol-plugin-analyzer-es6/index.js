@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import traverse from 'babel-traverse';
 import { transformFromAst } from 'babel-core';
 
@@ -24,77 +26,95 @@ export default class Plugin extends BasePlugin {
         this.log(`Can't analyze ${resource.id}`);
         resolve(resource);
       } else {
+        this.log(`Analyzing ${resource.id}`);
         const dependencies = resource.dependencies;
         const imports = resource.props.imports;
 
         // Optimize unused
-        traverse(resource.props.ast, {
-          Program: (path) => {
-            Object.keys(path.scope.bindings).forEach((bindingName) => {
-              const binding = path.scope.bindings[bindingName];
-              if (!binding.isReferenced) {
-                binding.path.remove();
-              }
-            });
-          }
-        });
+        try {
+          traverse(resource.props.ast, {
+            Program: (path) => {
+              Object.keys(path.scope.bindings).forEach((bindingName) => {
+                const binding = path.scope.bindings[bindingName];
+                if (!binding.isReferenced) {
+                  binding.path.remove();
+                }
+              });
+            }
+          });
+        } catch (err) {
+          this.log(err.stack);
+          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
+          fs.writeFileSync(outputPath, resource.props.code);
+        }
 
         // Collect imports/dependencies
-        traverse(resource.props.ast, {
-          ImportDeclaration: (nodePath) => {
-            const node = nodePath.node;
-            const source = node.source.value;
-            const id = this.bundle.resolveResource(source, resource.id);
+        this.log('Collect imports/dependencies');
+        try {
+          traverse(resource.props.ast, {
+            ImportDeclaration: (nodePath) => {
+              const node = nodePath.node;
+              const source = node.source.value;
+              const id = this.bundle.resolveResource(source, resource.id);
 
-            if (!~dependencies.indexOf(id)) {
-              dependencies.push(id);
-            }
-
-            node.specifiers.forEach(specifier => {
-              const localName = specifier.local.name;
-
-              if (imports.has(localName)) {
-                const err = new Error(`Duplicated import '${localName}'`);
-                throw err;
+              if (!~dependencies.indexOf(id)) {
+                dependencies.push(id);
               }
 
-              const isDefault = specifier.type === 'ImportDefaultSpecifier';
-              const isNamespace = specifier.type === 'ImportNamespaceSpecifier';
+              node.specifiers.forEach(specifier => {
+                const localName = specifier.local.name;
 
-              let name;
-              if (isDefault) {
-                name = 'default';
-              } else if (isNamespace) {
-                name = '*';
-              } else {
-                name = specifier.imported.name;
+                if (imports.has(localName)) {
+                  const err = new Error(`Duplicated import '${localName}'`);
+                  throw err;
+                }
+
+                const isDefault = specifier.type === 'ImportDefaultSpecifier';
+                const isNamespace = specifier.type === 'ImportNamespaceSpecifier';
+
+                let name;
+                if (isDefault) {
+                  name = 'default';
+                } else if (isNamespace) {
+                  name = '*';
+                } else {
+                  name = specifier.imported.name;
+                }
+
+                imports.set(localName, { id: id, name: name, isUsed: false });
+              });
+            },
+            ExportDefaultDeclaration: (nodePath) => {
+              const node = nodePath.node;
+              let identifier;
+              if (node.declaration.type === 'Identifier') {
+                identifier = node.declaration.name;
+              } else if (node.declaration.type === 'FunctionDeclaration') {
+                identifier = node.declaration.id.name;
+              } else if (node.declaration.type === 'Literal') {
+                identifier = '__bandol__literal';
               }
-
-              imports.set(localName, { id: id, name: name, isUsed: false });
-            });
-          },
-          ExportDefaultDeclaration: (nodePath) => {
-            const node = nodePath.node;
-            let identifier;
-            if (node.declaration.type === 'Identifier') {
-              identifier = node.declaration.name;
-            } else if (node.declaration.type === 'FunctionDeclaration') {
-              identifier = node.declaration.id.name;
-            } else if (node.declaration.type === 'Literal') {
-              identifier = '__bandol__literal';
+            },
+            ExportNamedDeclaration: (nodePath) => {
+              const node = nodePath.node;
+            },
+            ExportAllDeclaration: (nodePath) => {
+              const node = nodePath.node;
             }
-          },
-          ExportNamedDeclaration: (nodePath) => {
-            const node = nodePath.node;
-          },
-          ExportAllDeclaration: (nodePath) => {
-            const node = nodePath.node;
-          }
-        });
+          });
+        } catch (err) {
+          this.log(err.stack);
+          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
+          fs.writeFileSync(outputPath, resource.props.code);
+        }
 
         resource.dependencies = dependencies;
         resource.props.imports = imports;
-        resource.props.code = transformFromAst(resource.props.ast).code;
+        try {
+          resource.props.code = transformFromAst(resource.props.ast).code;
+        } catch (err) {
+          this.log(err.stack);
+        }
         resolve(resource);
       }
     });
