@@ -39,16 +39,7 @@ export default class Plugin extends BasePlugin {
                   binding.path.remove();
                 }
               });
-            }
-          });
-        } catch (err) {
-          this.log(err.stack);
-          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
-          fs.writeFileSync(outputPath, resource.props.code);
-        }
-
-        try {
-          traverse(resource.props.ast, {
+            },
             ImportDeclaration: (nodePath) => {
               if (nodePath.node.specifiers.length === 0) {
                 this.log(`Remove unused import "${nodePath.node.source.value}"`);
@@ -58,6 +49,8 @@ export default class Plugin extends BasePlugin {
           });
         } catch (err) {
           this.log(err.stack);
+          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
+          fs.writeFileSync(outputPath, resource.props.code);
         }
 
         // Collect imports/dependencies
