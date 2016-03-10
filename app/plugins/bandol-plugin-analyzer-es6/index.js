@@ -90,26 +90,68 @@ export default class Plugin extends BasePlugin {
             },
             ExportDefaultDeclaration: (nodePath) => {
               const node = nodePath.node;
-              let identifier;
+
               if (node.declaration.type === 'Identifier') {
-                identifier = node.declaration.name;
+                resource.props.exports.set(node.declaration.name, {
+                  id: 'default',
+                  type: 'variable'
+                });
               } else if (node.declaration.type === 'FunctionDeclaration') {
                 if (node.declaration.id) {
-                  // Named function
-                  identifier = node.declaration.id.name;
+                  resource.props.exports.set(node.declaration.id.name, {
+                    id: 'default',
+                    type: 'function'
+                  });
                 } else {
-                  // Anonymous function
-                  identifier = '__bandol__anonymous_function';
+                  // TODO: convert to NamedFunction?
+                  resource.props.exports.set('default', {
+                    id: 'default',
+                    type: 'function'
+                  });
                 }
-              } else if (node.declaration.type === 'Literal') {
-                identifier = '__bandol__literal';
+              } else if (node.declaration.type === 'Literal' ||
+                        node.declaration.type === 'NumericLiteral' ||
+                        node.declaration.type === 'StringLiteral' ||
+                        node.declaration.type === 'BooleanLiteral' ||
+                        node.declaration.type === 'CallExpression' ||
+                        node.declaration.type === 'NewExpression' ||
+                        node.declaration.type === 'BinaryExpression') {
+                // TODO: assign to global var?
+                resource.props.exports.set('default', {
+                  id: 'default',
+                  type: 'variable'
+                });
               }
             },
             ExportNamedDeclaration: (nodePath) => {
               const node = nodePath.node;
+
+              if (node.declaration) {
+                if (node.declaration.type === 'FunctionDeclaration') {
+                  resource.props.exports.set(node.declaration.id.name, {
+                    id: node.declaration.id.name,
+                    type: 'function'
+                  });
+                } else {
+                  node.declaration.declarations.forEach(decl => {
+                    resource.props.exports.set(decl.id.name, {
+                      id: decl.id.name,
+                      type: 'variable'
+                    });
+                  });
+                }
+              } else {
+                node.declaration.specifiers.forEach(spec => {
+                  // TODO: exports from another source (export { xxx } from 'yyy';)
+                  resource.props.exports.set(spec.local.name, {
+                    id: spec.exported.name,
+                    type: 'any'
+                  });
+                });
+              }
             },
             ExportAllDeclaration: (nodePath) => {
-              const node = nodePath.node;
+              // TODO
             }
           });
         } catch (err) {

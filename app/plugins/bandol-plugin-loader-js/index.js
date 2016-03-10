@@ -58,7 +58,8 @@ export default class Plugin extends BasePlugin {
             originalAst: ast,
             code: code,
             ast: ast,
-            imports: new Map()
+            imports: new Map(),
+            exports: new Map()
           };
 
           resolve(resource);
