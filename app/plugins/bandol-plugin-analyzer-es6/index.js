@@ -33,10 +33,10 @@ export default class Plugin extends BasePlugin {
         // Optimize unused
         try {
           traverse(resource.props.ast, {
-            Program: (path) => {
-              Object.keys(path.scope.bindings).forEach((bindingName) => {
-                const binding = path.scope.bindings[bindingName];
-                if (!binding.isReferenced) {
+            Program: (nodePath) => {
+              Object.keys(nodePath.scope.bindings).forEach((bindingName) => {
+                const binding = nodePath.scope.bindings[bindingName];
+                if (binding.references === 0) {
                   binding.path.remove();
                 }
               });
@@ -48,8 +48,20 @@ export default class Plugin extends BasePlugin {
           fs.writeFileSync(outputPath, resource.props.code);
         }
 
+        try {
+          traverse(resource.props.ast, {
+            ImportDeclaration: (nodePath) => {
+              if (nodePath.node.specifiers.length === 0) {
+                this.log(`Remove unused import "${nodePath.node.source.value}"`);
+                nodePath.remove();
+              }
+            }
+          });
+        } catch (err) {
+          this.log(err.stack);
+        }
+
         // Collect imports/dependencies
-        this.log('Collect imports/dependencies');
         try {
           traverse(resource.props.ast, {
             ImportDeclaration: (nodePath) => {
