@@ -1,4 +1,5 @@
 import traverse from 'babel-traverse';
+import { transformFromAst } from 'babel-core';
 
 import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
@@ -25,6 +26,18 @@ export default class Plugin extends BasePlugin {
       } else {
         const dependencies = resource.dependencies;
         const imports = resource.props.imports;
+
+        // Optimize unused
+        traverse(resource.props.ast, {
+          Program: (path) => {
+            Object.keys(path.scope.bindings).forEach((bindingName) => {
+              const binding = path.scope.bindings[bindingName];
+              if (!binding.isReferenced) {
+                binding.path.remove();
+              }
+            });
+          }
+        });
 
         // Collect imports/dependencies
         traverse(resource.props.ast, {
@@ -59,56 +72,29 @@ export default class Plugin extends BasePlugin {
 
               imports.set(localName, { id: id, name: name, isUsed: false });
             });
-          }
-        });
-
-        // Optimize imports/dependencies
-        traverse(resource.props.ast, {
-          CallExpression: (nodePath) => {
+          },
+          ExportDefaultDeclaration: (nodePath) => {
             const node = nodePath.node;
-            if (node.callee.type === 'Identifier' && imports.has(node.callee.name)) {
-              const item = imports.get(node.callee.name);
-              item.isUsed = true;
-              imports.set(node.callee.name, item);
-            } else if (node.callee.type === 'MemberExpression' && imports.has(node.callee.object.name)) {
-              const item = imports.get(node.callee.object.name);
-              item.isUsed = true;
-              imports.set(node.callee.object.name, item);
+            let identifier;
+            if (node.declaration.type === 'Identifier') {
+              identifier = node.declaration.name;
+            } else if (node.declaration.type === 'FunctionDeclaration') {
+              identifier = node.declaration.id.name;
+            } else if (node.declaration.type === 'Literal') {
+              identifier = '__bandol__literal';
             }
           },
-          ObjectExpression: (nodePath) => {
+          ExportNamedDeclaration: (nodePath) => {
             const node = nodePath.node;
-            for (const property of node.properties) {
-              if (property.shorthand && imports.has(property.key.name)) {
-                const item = imports.get(property.key.name);
-                item.isUsed = true;
-                imports.set(property.key.name, item);
-              } else if (!property.shorthand && imports.has(property.value.name)) {
-                const item = imports.get(property.value.name);
-                item.isUsed = true;
-                imports.set(property.value.name, item);
-              }
-            }
+          },
+          ExportAllDeclaration: (nodePath) => {
+            const node = nodePath.node;
           }
         });
 
-        // Remove unused imports
-        imports.forEach((value, key) => {
-          if (!value.isUsed) {
-            imports.delete(key);
-          }
-        });
-
-        // Leave only used dependencies
-        const usedDependencies = [];
-        imports.forEach((value) => {
-          if (!~usedDependencies.indexOf(value.id)) {
-            usedDependencies.push(value.id);
-          }
-        });
-
-        resource.dependencies = usedDependencies;
+        resource.dependencies = dependencies;
         resource.props.imports = imports;
+        resource.props.code = transformFromAst(resource.props.ast).code;
         resolve(resource);
       }
     });
