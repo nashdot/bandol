@@ -1,4 +1,5 @@
 /* eslint no-param-reassign: 0 */
+import Hashids from 'hashids';
 import Resource from './Resource';
 import Types from './Types';
 
@@ -34,6 +35,8 @@ export default class Bundle {
     this.optimizerPlugins = [];
     this.finalizerPlugins = [];
 
+    this._hashids = new Hashids('Oh Bandol');
+    this._varCounter = 1;
     this.initPlugins();
   }
 
@@ -166,5 +169,9 @@ export default class Bundle {
     const result = { code: resource.props.code, ast: resource.props.ast };
 
     return result;
+  }
+
+  generateUid() {
+    return `b${this._hashids.encode(this._varCounter++)}`;
   }
 }

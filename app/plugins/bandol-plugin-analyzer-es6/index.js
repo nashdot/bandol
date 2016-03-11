@@ -166,6 +166,24 @@ export default class Plugin extends BasePlugin {
           fs.writeFileSync(outputPath, resource.props.code);
         }
 
+        // Rename not exported globals
+        try {
+          traverse(resource.props.ast, {
+            Program: (nodePath) => {
+              Object.keys(nodePath.scope.bindings).forEach((bindingName) => {
+                const binding = nodePath.scope.bindings[bindingName];
+                if (binding.kind !== 'module' && !moduleExports.has(bindingName)) {
+                  nodePath.scope.rename(bindingName, this.bundle.generateUid());
+                }
+              });
+            }
+          });
+        } catch (err) {
+          this.log(err.stack);
+          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
+          fs.writeFileSync(outputPath, resource.props.code);
+        }
+
         resource.dependencies = dependencies;
         resource.props.imports = moduleImports;
         resource.props.exports = moduleExports;
