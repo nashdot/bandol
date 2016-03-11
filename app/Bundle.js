@@ -9,7 +9,8 @@ import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
 // import cjsAnalyzerPlugin from './plugins/bandol-plugin-analyzer-cjs';
 import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
 import jsNormalizerPlugin from './plugins/bandol-plugin-normalizer-js';
-import es6FinalizerPlugin from './plugins/bandol-plugin-finalizer-es6';
+// import es6FinalizerPlugin from './plugins/bandol-plugin-finalizer-es6';
+import iifeFinalizerPlugin from './plugins/bandol-plugin-finalizer-iife';
 import es6OptimizerPlugin from './plugins/bandol-plugin-optimizer-es6';
 
 const plugins = [
@@ -18,7 +19,8 @@ const plugins = [
   // cjsAnalyzerPlugin,
   es6AnalyzerPlugin,
   jsNormalizerPlugin,
-  es6FinalizerPlugin,
+  // es6FinalizerPlugin,
+  iifeFinalizerPlugin,
   es6OptimizerPlugin
 ];
 
