@@ -21,7 +21,7 @@ export default class Plugin extends BasePlugin {
     const srcBasePath = path.dirname(this.bundle.entryId);
 
     const intro = '(function () {\n';
-    const outro = '\n}();';
+    const outro = '\n}());';
 
     fs.appendFileSync(outputPath, `${intro}`);
 
