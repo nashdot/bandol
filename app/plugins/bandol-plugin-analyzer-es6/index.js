@@ -27,8 +27,8 @@ export default class Plugin extends BasePlugin {
       } else {
         this.log(`Analyzing ${resource.id}`);
         const dependencies = resource.dependencies;
-        const modeuleImports = resource.props.imports;
-        const modeuleExports = resource.props.exports;
+        const moduleImports = resource.props.imports;
+        const moduleExports = resource.props.exports;
 
         // Optimize unused
         try {
@@ -69,7 +69,7 @@ export default class Plugin extends BasePlugin {
               node.specifiers.forEach(specifier => {
                 const localName = specifier.local.name;
 
-                if (modeuleImports.has(localName)) {
+                if (moduleImports.has(localName)) {
                   const err = new Error(`Duplicated import '${localName}'`);
                   throw err;
                 }
@@ -86,26 +86,26 @@ export default class Plugin extends BasePlugin {
                   name = specifier.imported.name;
                 }
 
-                modeuleImports.set(localName, { id: id, name: name });
+                moduleImports.set(localName, { id: id, name: name });
               });
             },
             ExportDefaultDeclaration: (nodePath) => {
               const node = nodePath.node;
 
               if (node.declaration.type === 'Identifier') {
-                modeuleExports.set(node.declaration.name, {
+                moduleExports.set(node.declaration.name, {
                   id: 'default',
                   type: 'variable'
                 });
               } else if (node.declaration.type === 'FunctionDeclaration') {
                 if (node.declaration.id) {
-                  modeuleExports.set(node.declaration.id.name, {
+                  moduleExports.set(node.declaration.id.name, {
                     id: 'default',
                     type: 'function'
                   });
                 } else {
                   // TODO: convert to NamedFunction?
-                  modeuleExports.set('default', {
+                  moduleExports.set('default', {
                     id: 'default',
                     type: 'function'
                   });
@@ -120,7 +120,7 @@ export default class Plugin extends BasePlugin {
                         node.declaration.type === 'MemberExpression' ||
                         node.declaration.type === 'BinaryExpression') {
                 // TODO: assign to global var?
-                modeuleExports.set('default', {
+                moduleExports.set('default', {
                   id: 'default',
                   type: 'variable'
                 });
@@ -133,13 +133,13 @@ export default class Plugin extends BasePlugin {
 
               if (node.declaration) {
                 if (node.declaration.type === 'FunctionDeclaration') {
-                  modeuleExports.set(node.declaration.id.name, {
+                  moduleExports.set(node.declaration.id.name, {
                     id: node.declaration.id.name,
                     type: 'function'
                   });
                 } else {
                   node.declaration.declarations.forEach(decl => {
-                    modeuleExports.set(decl.id.name, {
+                    moduleExports.set(decl.id.name, {
                       id: decl.id.name,
                       type: 'variable'
                     });
@@ -148,7 +148,7 @@ export default class Plugin extends BasePlugin {
               } else {
                 node.declaration.specifiers.forEach(spec => {
                   // TODO: exports from another source (export { xxx } from 'yyy';)
-                  modeuleExports.set(spec.local.name, {
+                  moduleExports.set(spec.local.name, {
                     id: spec.exported.name,
                     type: 'any'
                   });
@@ -167,8 +167,8 @@ export default class Plugin extends BasePlugin {
         }
 
         resource.dependencies = dependencies;
-        resource.props.imports = modeuleImports;
-        resource.props.exports = modeuleExports;
+        resource.props.imports = moduleImports;
+        resource.props.exports = moduleExports;
 
         resolve(resource);
       }
