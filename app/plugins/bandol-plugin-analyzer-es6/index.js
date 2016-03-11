@@ -112,14 +112,14 @@ export default class Plugin extends BasePlugin {
                   });
                 }
               } else if (node.declaration.type === 'Literal' ||
-                        node.declaration.type === 'NumericLiteral' ||
-                        node.declaration.type === 'StringLiteral' ||
-                        node.declaration.type === 'BooleanLiteral' ||
-                        node.declaration.type === 'CallExpression' ||
-                        node.declaration.type === 'NewExpression' ||
-                        node.declaration.type === 'ObjectExpression' ||
-                        node.declaration.type === 'MemberExpression' ||
-                        node.declaration.type === 'BinaryExpression') {
+                         node.declaration.type === 'NumericLiteral' ||
+                         node.declaration.type === 'StringLiteral' ||
+                         node.declaration.type === 'BooleanLiteral' ||
+                         node.declaration.type === 'CallExpression' ||
+                         node.declaration.type === 'NewExpression' ||
+                         node.declaration.type === 'ObjectExpression' ||
+                         node.declaration.type === 'MemberExpression' ||
+                         node.declaration.type === 'BinaryExpression') {
                 // TODO: assign to global var?
                 moduleExports.set('default', {
                   id: 'default',
