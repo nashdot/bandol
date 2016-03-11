@@ -96,13 +96,13 @@ export default class Plugin extends BasePlugin {
               if (node.declaration.type === 'Identifier') {
                 moduleExports.set(node.declaration.name, {
                   id: 'default',
-                  type: 'variable'
+                  type: 'named_variable'
                 });
               } else if (node.declaration.type === 'FunctionDeclaration') {
                 if (node.declaration.id) {
                   moduleExports.set(node.declaration.id.name, {
                     id: 'default',
-                    type: 'function'
+                    type: 'named_function'
                   });
                 } else {
                   // TODO: convert to NamedFunction?

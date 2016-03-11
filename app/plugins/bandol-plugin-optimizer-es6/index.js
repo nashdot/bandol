@@ -29,7 +29,10 @@ export default class Plugin extends BasePlugin {
             nodePath.remove();
           },
           ExportDefaultDeclaration: (nodePath) => {
-            nodePath.remove();
+            if (nodePath.node.declaration.type === 'Identifier' ||
+                (nodePath.node.declaration.type === 'FunctionDeclaration' && nodePath.node.declaration.id)) {
+              nodePath.remove();
+            }
           }
         });
       }
