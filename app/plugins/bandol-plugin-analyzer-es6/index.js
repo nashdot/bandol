@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import traverse from 'babel-traverse';
+import * as t from 'babel-types';
 
 import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
@@ -166,7 +167,7 @@ export default class Plugin extends BasePlugin {
           fs.writeFileSync(outputPath, resource.props.code);
         }
 
-        // Rename not exported globals
+        // Optimizations
         try {
           traverse(resource.props.ast, {
             Program: (nodePath) => {
@@ -176,6 +177,14 @@ export default class Plugin extends BasePlugin {
                   nodePath.scope.rename(bindingName, this.bundle.generateUid());
                 }
               });
+            },
+            MemberExpression: (nodePath) => {
+              if (nodePath.get('object').matchesPattern('process.env')) {
+                const key = nodePath.toComputedKey();
+                if (t.isStringLiteral(key)) {
+                  nodePath.replaceWith(t.valueToNode(process.env[key.value]));
+                }
+              }
             }
           });
         } catch (err) {
