@@ -64,7 +64,7 @@ export default class Bundle {
         this.analyzerPlugins.push(worker);
       }
 
-      if (worker.optimizeResource) {
+      if (worker.optimizeBundle) {
         this.optimizerPlugins.push(worker);
       }
 
@@ -78,7 +78,9 @@ export default class Bundle {
     try {
       this.entryId = this.resolveResource(this.entry, undefined);
       await this.buildResource(this.entryId);
+
       this.sortedResources = sortDependencies(this.resources);
+      this.optimizeBundle();
     } catch (error) {
       console.log(error.message);
     }
@@ -93,7 +95,6 @@ export default class Bundle {
       let resource = await this.loadResource(id);
       resource = await this.normalizeResource(resource);
       resource = await this.analyzeResource(resource);
-      resource = await this.optimizeResource(resource);
 
       // -- Register
       this.resources.set(resource.id, resource);
@@ -153,12 +154,10 @@ export default class Bundle {
     return resource;
   }
 
-  async optimizeResource(resource) {
+  async optimizeBundle() {
     for (const plugin of this.optimizerPlugins) {
-      resource = await plugin.optimizeResource(resource);
+      plugin.optimizeBundle();
     }
-
-    return resource;
   }
 
   finalizeResource(id) {

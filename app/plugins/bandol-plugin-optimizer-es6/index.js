@@ -16,12 +16,13 @@ export default class Plugin extends BasePlugin {
   }
 
   /* eslint no-param-reassign: 0 */
-  optimizeResource(resource) {
-    return new Promise((resolve) => {
+  optimizeBundle() {
+    for (let i = 0; i < this.bundle.sortedResources.length; i++) {
+      const resource = this.bundle.sortedResources[i];
+
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
         this.log(`Can't optimize ${resource.id}`);
-        resolve(resource);
       } else {
         traverse(resource.props.ast, {
           ImportDeclaration: (nodePath) => {
@@ -31,9 +32,7 @@ export default class Plugin extends BasePlugin {
             nodePath.remove();
           }
         });
-
-        resolve(resource);
       }
-    });
+    }
   }
 }
