@@ -6,7 +6,6 @@ import Types from '../../Types';
 import recast from 'recast';
 import noStrictTransform from 'lebab/lib/transformation/no-strict';
 import commonjsTransform from 'lebab/lib/transformation/commonjs';
-import classesTransform from 'lebab/lib/transformation/classes';
 
 import * as babylon from 'babylon';
 
@@ -73,7 +72,6 @@ export default class Plugin extends BasePlugin {
         if (isOldJavascript) {
           const ast = recast.parse(resource.props.code);
           noStrictTransform(ast.program);
-          classesTransform(ast.program);
           commonjsTransform(ast.program);
           resource.props.code = recast.print(ast).code;
           resource.props.ast = babylon.parse(resource.props.code, this._babylonOtions);
