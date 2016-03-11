@@ -2,6 +2,7 @@
 import Hashids from 'hashids';
 import Resource from './Resource';
 import Types from './Types';
+import sortDependencies from './utils/sortDependencies.js';
 
 import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
 import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
@@ -27,6 +28,7 @@ export default class Bundle {
     this.entryId = 'unknown';
 
     this.resources = new Map();
+    this.sortedResources = [];
 
     this.resolverPlugins = [];
     this.loaderPlugins = [];
@@ -74,6 +76,7 @@ export default class Bundle {
     try {
       this.entryId = this.resolveResource(this.entry, undefined);
       await this.buildResource(this.entryId);
+      this.sortedResources = sortDependencies(this.resources);
     } catch (error) {
       console.log(error.message);
     }

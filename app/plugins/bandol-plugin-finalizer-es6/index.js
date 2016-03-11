@@ -1,7 +1,6 @@
 import fs from 'fs';
+import path from 'path';
 import generate from 'babel-generator';
-
-import sortDependencies from '../../utils/sortDependencies.js';
 
 import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
@@ -17,11 +16,12 @@ export default class Plugin extends BasePlugin {
   }
 
   finalizeResource(id) {
-    const outputPath = `${process.cwd()}/out/${id}.js`;
-    const sorted = sortDependencies(this.bundle.resources);
+    const currentPath = process.cwd();
+    const outputPath = `${currentPath}/out/${id}.js`;
+    const srcBasePath = path.dirname(this.bundle.entryId);
 
-    for (let i = 0; i < sorted.length; i++) {
-      const resource = sorted[i];
+    for (let i = 0; i < this.bundle.sortedResources.length; i++) {
+      const resource = this.bundle.sortedResources[i];
       if (resource.type === this.resourceType) {
         try {
           resource.props.code = generate(resource.props.ast, { /* options */ }, resource.props.originalCode).code;
@@ -29,7 +29,7 @@ export default class Plugin extends BasePlugin {
           this.log(err.stack);
         }
 
-        fs.appendFileSync(outputPath, `/* bandol: ${resource.id} */\n`);
+        fs.appendFileSync(outputPath, `/* bandol: ${path.relative(srcBasePath, resource.id)} */\n`);
         fs.appendFileSync(outputPath, `/* dependencies:\n${JSON.stringify(resource.dependencies, null, ' ')}\n*/\n`);
         fs.appendFileSync(outputPath, `/* imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`);
         fs.appendFileSync(outputPath, `/* exports:\n${JSON.stringify(resource.props.exports, null, ' ')}\n*/\n`);
@@ -37,6 +37,7 @@ export default class Plugin extends BasePlugin {
         fs.appendFileSync(outputPath, `/* bandol: ------ */\n\n`);
       }
     }
+
     return outputPath;
   }
 }
