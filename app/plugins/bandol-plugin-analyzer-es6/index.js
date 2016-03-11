@@ -27,7 +27,8 @@ export default class Plugin extends BasePlugin {
       } else {
         this.log(`Analyzing ${resource.id}`);
         const dependencies = resource.dependencies;
-        const imports = resource.props.imports;
+        const modeuleImports = resource.props.imports;
+        const modeuleExports = resource.props.exports;
 
         // Optimize unused
         try {
@@ -53,7 +54,7 @@ export default class Plugin extends BasePlugin {
           fs.writeFileSync(outputPath, resource.props.code);
         }
 
-        // Collect imports/dependencies
+        // Collect imports/exports/...
         try {
           traverse(resource.props.ast, {
             ImportDeclaration: (nodePath) => {
@@ -68,7 +69,7 @@ export default class Plugin extends BasePlugin {
               node.specifiers.forEach(specifier => {
                 const localName = specifier.local.name;
 
-                if (imports.has(localName)) {
+                if (modeuleImports.has(localName)) {
                   const err = new Error(`Duplicated import '${localName}'`);
                   throw err;
                 }
@@ -85,26 +86,26 @@ export default class Plugin extends BasePlugin {
                   name = specifier.imported.name;
                 }
 
-                imports.set(localName, { id: id, name: name });
+                modeuleImports.set(localName, { id: id, name: name });
               });
             },
             ExportDefaultDeclaration: (nodePath) => {
               const node = nodePath.node;
 
               if (node.declaration.type === 'Identifier') {
-                resource.props.exports.set(node.declaration.name, {
+                modeuleExports.set(node.declaration.name, {
                   id: 'default',
                   type: 'variable'
                 });
               } else if (node.declaration.type === 'FunctionDeclaration') {
                 if (node.declaration.id) {
-                  resource.props.exports.set(node.declaration.id.name, {
+                  modeuleExports.set(node.declaration.id.name, {
                     id: 'default',
                     type: 'function'
                   });
                 } else {
                   // TODO: convert to NamedFunction?
-                  resource.props.exports.set('default', {
+                  modeuleExports.set('default', {
                     id: 'default',
                     type: 'function'
                   });
@@ -115,12 +116,16 @@ export default class Plugin extends BasePlugin {
                         node.declaration.type === 'BooleanLiteral' ||
                         node.declaration.type === 'CallExpression' ||
                         node.declaration.type === 'NewExpression' ||
+                        node.declaration.type === 'ObjectExpression' ||
+                        node.declaration.type === 'MemberExpression' ||
                         node.declaration.type === 'BinaryExpression') {
                 // TODO: assign to global var?
-                resource.props.exports.set('default', {
+                modeuleExports.set('default', {
                   id: 'default',
                   type: 'variable'
                 });
+              } else {
+                this.log(`BUG: Export with ${node.declaration.type}`);
               }
             },
             ExportNamedDeclaration: (nodePath) => {
@@ -128,13 +133,13 @@ export default class Plugin extends BasePlugin {
 
               if (node.declaration) {
                 if (node.declaration.type === 'FunctionDeclaration') {
-                  resource.props.exports.set(node.declaration.id.name, {
+                  modeuleExports.set(node.declaration.id.name, {
                     id: node.declaration.id.name,
                     type: 'function'
                   });
                 } else {
                   node.declaration.declarations.forEach(decl => {
-                    resource.props.exports.set(decl.id.name, {
+                    modeuleExports.set(decl.id.name, {
                       id: decl.id.name,
                       type: 'variable'
                     });
@@ -143,7 +148,7 @@ export default class Plugin extends BasePlugin {
               } else {
                 node.declaration.specifiers.forEach(spec => {
                   // TODO: exports from another source (export { xxx } from 'yyy';)
-                  resource.props.exports.set(spec.local.name, {
+                  modeuleExports.set(spec.local.name, {
                     id: spec.exported.name,
                     type: 'any'
                   });
@@ -152,6 +157,7 @@ export default class Plugin extends BasePlugin {
             },
             ExportAllDeclaration: (nodePath) => {
               // TODO
+              this.log(`TODO: ExportAllDeclaration from ${nodePath.node.source.value}`);
             }
           });
         } catch (err) {
@@ -161,7 +167,8 @@ export default class Plugin extends BasePlugin {
         }
 
         resource.dependencies = dependencies;
-        resource.props.imports = imports;
+        resource.props.imports = modeuleImports;
+        resource.props.exports = modeuleExports;
 
         resolve(resource);
       }
