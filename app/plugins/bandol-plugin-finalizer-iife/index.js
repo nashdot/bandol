@@ -32,8 +32,7 @@ export default class Plugin extends BasePlugin {
           resource.props.code = generate(
             resource.props.ast,
             {
-              comments: false,
-              minified: true
+              comments: false
             },
             resource.props.originalCode).code;
         } catch (err) {

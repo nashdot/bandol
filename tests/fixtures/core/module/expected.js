@@ -1,1 +1,3 @@
-render(React.createElement('h1',null,'Hallo Welt'),document.getElementById('content'));
+
+
+render(React.createElement('h1', null, 'Hallo Welt'), document.getElementById('content'));
