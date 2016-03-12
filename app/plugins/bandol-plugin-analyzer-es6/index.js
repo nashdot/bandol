@@ -111,23 +111,22 @@ export default class Plugin extends BasePlugin {
                     type: 'function'
                   });
                 }
-              } else if (node.declaration.type === 'Literal' ||
-                         node.declaration.type === 'NumericLiteral' ||
-                         node.declaration.type === 'StringLiteral' ||
-                         node.declaration.type === 'BooleanLiteral' ||
-                         node.declaration.type === 'CallExpression' ||
-                         node.declaration.type === 'NewExpression' ||
-                         node.declaration.type === 'ObjectExpression' ||
-                         node.declaration.type === 'MemberExpression' ||
-                         node.declaration.type === 'BinaryExpression') {
-                // TODO: assign to global var?
-                moduleExports.set('default', {
-                  id: 'default',
-                  type: 'variable'
-                });
               } else {
-                this.log(`BUG: Export with ${node.declaration.type}`);
+                let newId = path.basename(resource.id, path.extname(resource.id));
+                if (nodePath.scope.hasBinding(newId)) {
+                  newId = nodePath.scope.generateUid(newId);
+                }
+
+                moduleExports.set(newId, {
+                  id: 'default',
+                  type: 'named_variable'
+                });
+
+                nodePath.replaceWith(t.variableDeclaration('var', [
+                  t.variableDeclarator(t.identifier(newId), node.declaration)
+                ]));
               }
+              nodePath.remove();
             },
             ExportNamedDeclaration: (nodePath) => {
               const node = nodePath.node;
