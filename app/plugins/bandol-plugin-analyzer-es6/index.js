@@ -48,6 +48,30 @@ export default class Plugin extends BasePlugin {
           fs.writeFileSync(outputPath, resource.props.code);
         }
 
+        // Remove falsy blocks
+        try {
+          traverse(resource.props.ast, {
+            IfStatement: (nodePath) => {
+              const evaluated = nodePath.get('test').evaluate();
+              if (evaluated.confident) {
+                if (evaluated.value === true) {
+                  nodePath.replaceWith(nodePath.consequent);
+                } else if (evaluated.value === false) {
+                  if (nodePath.alternate) {
+                    nodePath.replaceWith(nodePath.alternate);
+                  } else {
+                    nodePath.remove();
+                  }
+                }
+              }
+            }
+          });
+        } catch (err) {
+          this.log(err.stack);
+          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
+          fs.writeFileSync(outputPath, resource.props.code);
+        }
+
         // Optimize unused imports
         // TODO: Should we remove it in HotWatch mode?
         try {
