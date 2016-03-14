@@ -77,36 +77,28 @@ export default class Plugin extends BasePlugin {
                 }
               }
             },
-            VariableDeclaration: (nodePath) => {
+            VariableDeclarator: (nodePath) => {
               const node = nodePath.node;
 
-              if (t.isProgram(nodePath.parentPath.node)) {
-                for (let i = 0; i < node.declarations.length; i++) {
-                  const declarator = node.declarations[i];
-                  if (declarator.init && declarator.init.type === 'CallExpression'
-                      && this._isRequireCall(declarator.init)) {
-                    if (declarator.id.type === 'Identifier') {
-                      // Add import statement
-                      nodePath.insertAfter(
-                        t.importDeclaration(
-                          [t.importDefaultSpecifier(declarator.id)], t.stringLiteral(declarator.init.arguments[0].value)));
+              if (t.isVariableDeclaration(nodePath.parentPath.node)
+                    && t.isProgram(nodePath.parentPath.parentPath.node)) {
+                if (node.init && node.init.type === 'CallExpression'
+                    && this._isRequireCall(node.init)) {
+                  if (node.id.type === 'Identifier') {
+                    // Add import statement
+                    nodePath.parentPath.insertAfter(
+                      t.importDeclaration(
+                        [t.importDefaultSpecifier(node.id)], t.stringLiteral(node.init.arguments[0].value)));
 
-                      // Remove original declarator
-                      node.declarations.splice(i, 1);
+                    // Remove original declarator
+                    nodePath.remove();
 
-                      // Remove associated binding
-                      const binding = nodePath.parentPath.scope.bindings[declarator.id.name];
-                      if (binding) {
-                        binding.path.remove();
-                      }
-                    } else {
-                      this.log('TODO: require() - other cases');
-                    }
+                    // Change binding type if presents
+                    const binding = nodePath.parentPath.parentPath.scope.bindings[node.id.name];
+                    binding.kind = 'module';
+                  } else {
+                    this.log('TODO: require() - other cases');
                   }
-                }
-
-                if (node.declarations.length === 0) {
-                  nodePath.remove();
                 }
               }
             }
