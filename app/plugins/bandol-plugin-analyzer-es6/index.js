@@ -23,10 +23,10 @@ export default class Plugin extends BasePlugin {
     return new Promise((resolve) => {
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't analyze ${resource.id}`);
+        this.log(`Can't analyze ${this.bundle.getShortPath(resource.id)}`);
         resolve(resource);
       } else {
-        this.log(`Analyzing ${resource.id}`);
+        this.log(`Analyzing ${this.bundle.getShortPath(resource.id)}`);
         const dependencies = resource.dependencies;
         const moduleImports = resource.props.imports;
 
