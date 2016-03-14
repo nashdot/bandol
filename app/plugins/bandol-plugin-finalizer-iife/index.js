@@ -1,5 +1,4 @@
 import fs from 'fs';
-import path from 'path';
 import generate from 'babel-generator';
 
 import BasePlugin from '../../BasePlugin';
@@ -18,7 +17,6 @@ export default class Plugin extends BasePlugin {
   finalizeResource(id) {
     const currentPath = process.cwd();
     const outputPath = `${currentPath}/out/${id}.js`;
-    const srcBasePath = path.dirname(this.bundle.entryId);
 
     const intro = '(function () {\n';
     const outro = '\n}());';
@@ -39,7 +37,7 @@ export default class Plugin extends BasePlugin {
           this.log(err.stack);
         }
 
-        fs.appendFileSync(outputPath, `/* bandol: ${path.relative(srcBasePath, resource.id)} */\n`);
+        fs.appendFileSync(outputPath, `/* bandol: ${this.bundle.getShortPath(resource.id)} */\n`);
         fs.appendFileSync(outputPath, `/* dependencies:\n${JSON.stringify(resource.dependencies, null, ' ')}\n*/\n`);
         fs.appendFileSync(outputPath, `/* imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`);
         fs.appendFileSync(outputPath, `/* exports:\n${JSON.stringify(resource.props.exports, null, ' ')}\n*/\n`);

@@ -1,5 +1,6 @@
 /* eslint no-param-reassign: 0 */
 import fs from 'fs';
+import path from 'path';
 import Hashids from 'hashids';
 import generate from 'babel-generator';
 import stringify from 'json-stringify-safe';
@@ -32,6 +33,7 @@ export default class Bundle {
   constructor(options) {
     this.entry = options.entry;
     this.entryId = 'unknown';
+    this.srcBasePath = path.dirname(this.entryId);
 
     for (const prop in options.env) {
       if (options.env.hasOwnProperty(prop)) {
@@ -218,5 +220,9 @@ export default class Bundle {
     }
 
     fs.writeFileSync(outputPath, `${output}`);
+  }
+
+  getShortPath(id) {
+    return path.relative(this.srcBasePath, id);
   }
 }
