@@ -31,11 +31,17 @@ export default class Plugin extends BasePlugin {
 
         traverse(resource.props.ast, {
           ImportDeclaration: (nodePath) => {
+            // TODO:
+            // - Verfiy if imported name equal the exported one
+            // - If not: rename import and used variable name
             nodePath.remove();
           },
           ExportDefaultDeclaration: (nodePath) => {
             const node = nodePath.node;
 
+            // TODO:
+            // - Verify if exported name is in conflict with future exports from other modules
+            // - If so: rename it with original variable/function/class name
             if (node.declaration.type === 'Identifier') {
               moduleExports.set(node.declaration.name, {
                 id: 'default',
