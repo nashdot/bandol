@@ -25,7 +25,9 @@ export default class Plugin extends BasePlugin {
         this.log(`Can't optimize ${resource.id}`);
       } else {
         traverse(resource.props.ast, {
-          // TODO
+          ImportDeclaration: (nodePath) => {
+            nodePath.remove();
+          }
         });
       }
     }
