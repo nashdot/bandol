@@ -98,6 +98,7 @@ export default class Plugin extends BasePlugin {
                   id: 'default',
                   type: 'named_variable'
                 });
+                nodePath.remove();
               } else if (node.declaration.type === 'FunctionDeclaration') {
                 if (node.declaration.id) {
                   moduleExports.set(node.declaration.id.name, {
@@ -126,7 +127,6 @@ export default class Plugin extends BasePlugin {
                   t.variableDeclarator(t.identifier(newId), node.declaration)
                 ]));
               }
-              nodePath.remove();
             },
             ExportNamedDeclaration: (nodePath) => {
               const node = nodePath.node;
