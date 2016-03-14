@@ -42,6 +42,21 @@ export default class Plugin extends BasePlugin {
       && node.arguments[0].type === 'StringLiteral';
   }
 
+  _getProgramParent(nodePath) {
+    do {
+      if (t.isProgram(nodePath)) {
+        break;
+      }
+      nodePath = nodePath.parentPath;
+    } while (nodePath);
+
+    if (!nodePath || !t.isProgram(nodePath)) {
+      throw new Error('No Program node found');
+    }
+
+    return nodePath;
+  }
+
   /* eslint no-param-reassign: 0 */
   normalizeResource(resource) {
     return new Promise((resolve) => {
@@ -80,14 +95,14 @@ export default class Plugin extends BasePlugin {
             VariableDeclarator: (nodePath) => {
               const node = nodePath.node;
 
-              if (t.isVariableDeclaration(nodePath.parentPath.node)
-                    && t.isProgram(nodePath.parentPath.parentPath.node)) {
+              if (t.isVariableDeclaration(nodePath.parentPath.node)) {
                 if (node.init && node.init.type === 'CallExpression'
                     && this._isRequireCall(node.init)) {
                   if (node.id.type === 'Identifier') {
+                    const programPath = this._getProgramParent(nodePath);
+
                     // Add import statement
-                    nodePath.parentPath.insertAfter(
-                      t.importDeclaration(
+                    programPath.unshiftContainer('body', t.importDeclaration(
                         [t.importDefaultSpecifier(node.id)], t.stringLiteral(node.init.arguments[0].value)));
 
                     // Remove original declarator
@@ -95,7 +110,9 @@ export default class Plugin extends BasePlugin {
 
                     // Change binding type if presents
                     const binding = nodePath.parentPath.parentPath.scope.bindings[node.id.name];
-                    binding.kind = 'module';
+                    if (binding) {
+                      binding.kind = 'module';
+                    }
                   } else {
                     this.log('TODO: require() - other cases');
                   }
