@@ -9,7 +9,8 @@ const expected = testPath => { return fs.readFileSync(join(fixturesDir, testPath
 
 function doBandol(testPath) {
   return bandol({
-    entry: join(fixturesDir, testPath, 'actual.js')
+    entry: join(fixturesDir, testPath, 'actual.js'),
+    env: { NODE_ENV: 'production' }
   });
 }
 

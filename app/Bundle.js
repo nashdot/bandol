@@ -33,6 +33,12 @@ export default class Bundle {
     this.entry = options.entry;
     this.entryId = 'unknown';
 
+    for (const prop in options.env) {
+      if (options.env.hasOwnProperty(prop)) {
+        process.env[prop] = options.env[prop];
+      }
+    }
+
     this.resources = new Map();
     this.sortedResources = [];
 
