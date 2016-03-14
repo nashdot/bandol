@@ -29,7 +29,6 @@ export default class Plugin extends BasePlugin {
         this.log(`Analyzing ${resource.id}`);
         const dependencies = resource.dependencies;
         const moduleImports = resource.props.imports;
-        const moduleExports = resource.props.exports;
 
         // Optimize unused imports
         // TODO: Should we remove it in HotWatch mode?
@@ -56,7 +55,7 @@ export default class Plugin extends BasePlugin {
           fs.writeFileSync(outputPath, resource.props.code);
         }
 
-        // Collect imports/exports/...
+        // Collect imports
         try {
           traverse(resource.props.ast, {
             ImportDeclaration: (nodePath) => {
@@ -90,74 +89,6 @@ export default class Plugin extends BasePlugin {
 
                 moduleImports.set(localName, { id: id, name: name });
               });
-            },
-            ExportDefaultDeclaration: (nodePath) => {
-              const node = nodePath.node;
-
-              if (node.declaration.type === 'Identifier') {
-                moduleExports.set(node.declaration.name, {
-                  id: 'default',
-                  type: 'named_variable'
-                });
-              } else if (node.declaration.type === 'FunctionDeclaration') {
-                if (node.declaration.id) {
-                  moduleExports.set(node.declaration.id.name, {
-                    id: 'default',
-                    type: 'named_function'
-                  });
-                } else {
-                  // TODO: convert to NamedFunction?
-                  moduleExports.set('default', {
-                    id: 'default',
-                    type: 'function'
-                  });
-                }
-              } else {
-                let newId = path.basename(resource.id, path.extname(resource.id));
-                if (nodePath.scope.hasBinding(newId)) {
-                  newId = nodePath.scope.generateUid(newId);
-                }
-
-                moduleExports.set(newId, {
-                  id: 'default',
-                  type: 'named_variable'
-                });
-
-                nodePath.replaceWith(t.variableDeclaration('var', [
-                  t.variableDeclarator(t.identifier(newId), node.declaration)
-                ]));
-              }
-            },
-            ExportNamedDeclaration: (nodePath) => {
-              const node = nodePath.node;
-
-              if (node.declaration) {
-                if (node.declaration.type === 'FunctionDeclaration') {
-                  moduleExports.set(node.declaration.id.name, {
-                    id: node.declaration.id.name,
-                    type: 'function'
-                  });
-                } else {
-                  node.declaration.declarations.forEach(decl => {
-                    moduleExports.set(decl.id.name, {
-                      id: decl.id.name,
-                      type: 'variable'
-                    });
-                  });
-                }
-              } else {
-                node.declaration.specifiers.forEach(spec => {
-                  // TODO: exports from another source (export { xxx } from 'yyy';)
-                  moduleExports.set(spec.local.name, {
-                    id: spec.exported.name,
-                    type: 'any'
-                  });
-                });
-              }
-            },
-            ExportAllDeclaration: (nodePath) => {
-              // TODO
-              this.log(`TODO: ExportAllDeclaration from ${nodePath.node.source.value}`);
             }
           });
         } catch (err) {
@@ -169,14 +100,6 @@ export default class Plugin extends BasePlugin {
         // Optimizations
         try {
           traverse(resource.props.ast, {
-            Program: (nodePath) => {
-              Object.keys(nodePath.scope.bindings).forEach((bindingName) => {
-                const binding = nodePath.scope.bindings[bindingName];
-                if (binding.kind !== 'module' && !moduleExports.has(bindingName)) {
-                  nodePath.scope.rename(bindingName, this.bundle.generateUid());
-                }
-              });
-            },
             MemberExpression: (nodePath) => {
               if (nodePath.get('object').matchesPattern('process.env')) {
                 const key = nodePath.toComputedKey();
@@ -194,7 +117,6 @@ export default class Plugin extends BasePlugin {
 
         resource.dependencies = dependencies;
         resource.props.imports = moduleImports;
-        resource.props.exports = moduleExports;
 
         resolve(resource);
       }

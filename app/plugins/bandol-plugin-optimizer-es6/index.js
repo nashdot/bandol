@@ -1,4 +1,7 @@
+import fs from 'fs';
+import path from 'path';
 import traverse from 'babel-traverse';
+import * as t from 'babel-types';
 
 import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
@@ -24,16 +27,102 @@ export default class Plugin extends BasePlugin {
         && resource.type !== this.resourceType) {
         this.log(`Can't optimize ${resource.id}`);
       } else {
+        const moduleExports = resource.props.exports;
+
         traverse(resource.props.ast, {
           ImportDeclaration: (nodePath) => {
             nodePath.remove();
           },
           ExportDefaultDeclaration: (nodePath) => {
-            if (nodePath.node.declaration.type === 'Identifier') {
+            const node = nodePath.node;
+
+            if (node.declaration.type === 'Identifier') {
+              moduleExports.set(node.declaration.name, {
+                id: 'default',
+                type: 'named_variable'
+              });
               nodePath.remove();
+            } else if (node.declaration.type === 'FunctionDeclaration') {
+              if (node.declaration.id) {
+                moduleExports.set(node.declaration.id.name, {
+                  id: 'default',
+                  type: 'named_function'
+                });
+              } else {
+                // TODO: convert to NamedFunction?
+                moduleExports.set('default', {
+                  id: 'default',
+                  type: 'function'
+                });
+              }
+            } else {
+              let newId = path.basename(resource.id, path.extname(resource.id));
+              if (nodePath.scope.hasBinding(newId)) {
+                newId = nodePath.scope.generateUid(newId);
+              }
+
+              moduleExports.set(newId, {
+                id: 'default',
+                type: 'named_variable'
+              });
+
+              nodePath.replaceWith(t.variableDeclaration('var', [
+                t.variableDeclarator(t.identifier(newId), node.declaration)
+              ]));
             }
+          },
+          ExportNamedDeclaration: (nodePath) => {
+            const node = nodePath.node;
+
+            if (node.declaration) {
+              if (node.declaration.type === 'FunctionDeclaration') {
+                moduleExports.set(node.declaration.id.name, {
+                  id: node.declaration.id.name,
+                  type: 'function'
+                });
+              } else {
+                node.declaration.declarations.forEach(decl => {
+                  moduleExports.set(decl.id.name, {
+                    id: decl.id.name,
+                    type: 'variable'
+                  });
+                });
+              }
+            } else {
+              node.declaration.specifiers.forEach(spec => {
+                // TODO: exports from another source (export { xxx } from 'yyy';)
+                moduleExports.set(spec.local.name, {
+                  id: spec.exported.name,
+                  type: 'any'
+                });
+              });
+            }
+          },
+          ExportAllDeclaration: (nodePath) => {
+            // TODO
+            this.log(`TODO: ExportAllDeclaration from ${nodePath.node.source.value}`);
           }
         });
+
+        // Rename variables not used externally
+        try {
+          traverse(resource.props.ast, {
+            Program: (nodePath) => {
+              Object.keys(nodePath.scope.bindings).forEach((bindingName) => {
+                const binding = nodePath.scope.bindings[bindingName];
+                if (binding.kind !== 'module' && !moduleExports.has(bindingName)) {
+                  nodePath.scope.rename(bindingName, this.bundle.generateUid());
+                }
+              });
+            }
+          });
+        } catch (err) {
+          this.log(err.stack);
+          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
+          fs.writeFileSync(outputPath, resource.props.code);
+        }
+
+        resource.props.exports = moduleExports;
       }
     }
   }
