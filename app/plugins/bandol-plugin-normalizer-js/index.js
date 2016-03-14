@@ -109,7 +109,7 @@ export default class Plugin extends BasePlugin {
                     nodePath.remove();
 
                     // Change binding type if presents
-                    const binding = nodePath.parentPath.parentPath.scope.bindings[node.id.name];
+                    const binding = programPath.scope.bindings[node.id.name];
                     if (binding) {
                       binding.kind = 'module';
                     }
