@@ -18,6 +18,24 @@ export default class Plugin extends BasePlugin {
     this.bundle = bundle;
   }
 
+  _getPreferedDefaultExportName(index, id) {
+    let name = '';
+    for (let i = index; i < this.bundle.sortedResources.length; i++) {
+      const resource = this.bundle.sortedResources[i];
+      for (const [key, value] of resource.props.imports.entries()) {
+        if (value.id === id && value.name === 'default') {
+          if (name !== '' && name !== key) {
+            this.log(`Warning: the same default export have different import names: '${name}' vs '${key}'`);
+          }
+          name = key;
+          break;
+        }
+      }
+    }
+
+    return name;
+  }
+
   /* eslint no-param-reassign: 0 */
   optimizeBundle() {
     for (let i = 0; i < this.bundle.sortedResources.length; i++) {
@@ -43,7 +61,12 @@ export default class Plugin extends BasePlugin {
             // - Verify if exported name is in conflict with future exports from other modules
             // - If so: rename it with original variable/function/class name
             if (node.declaration.type === 'Identifier') {
-              moduleExports.set(node.declaration.name, {
+              const name = this._getPreferedDefaultExportName(i + 1, resource.id);
+              if (name !== node.declaration.name) {
+                this.log(`TODO: Rename export from '${node.declaration.name}' to '${name}'`);
+              }
+
+              moduleExports.set(name, {
                 id: 'default',
                 type: 'named_variable'
               });
