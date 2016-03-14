@@ -31,7 +31,8 @@ export default class Plugin extends BasePlugin {
         const moduleImports = resource.props.imports;
         const moduleExports = resource.props.exports;
 
-        // Optimize unused
+        // Optimize unused imports
+        // TODO: Should we remove it in HotWatch mode?
         try {
           traverse(resource.props.ast, {
             Program: (nodePath) => {
