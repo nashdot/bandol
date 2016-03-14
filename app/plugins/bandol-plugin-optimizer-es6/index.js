@@ -27,6 +27,11 @@ export default class Plugin extends BasePlugin {
         traverse(resource.props.ast, {
           ImportDeclaration: (nodePath) => {
             nodePath.remove();
+          },
+          ExportDefaultDeclaration: (nodePath) => {
+            if (nodePath.node.declaration.type === 'Identifier') {
+              nodePath.remove();
+            }
           }
         });
       }
