@@ -30,6 +30,24 @@ export default class Plugin extends BasePlugin {
         const dependencies = resource.dependencies;
         const moduleImports = resource.props.imports;
 
+        // Optimizations
+        try {
+          traverse(resource.props.ast, {
+            MemberExpression: (nodePath) => {
+              if (nodePath.get('object').matchesPattern('process.env')) {
+                const key = nodePath.toComputedKey();
+                if (t.isStringLiteral(key)) {
+                  nodePath.replaceWith(t.valueToNode(process.env[key.value]));
+                }
+              }
+            }
+          });
+        } catch (err) {
+          this.log(err.stack);
+          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
+          fs.writeFileSync(outputPath, resource.props.code);
+        }
+
         // Optimize unused imports
         // TODO: Should we remove it in HotWatch mode?
         try {
@@ -89,24 +107,6 @@ export default class Plugin extends BasePlugin {
 
                 moduleImports.set(localName, { id: id, name: name });
               });
-            }
-          });
-        } catch (err) {
-          this.log(err.stack);
-          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
-          fs.writeFileSync(outputPath, resource.props.code);
-        }
-
-        // Optimizations
-        try {
-          traverse(resource.props.ast, {
-            MemberExpression: (nodePath) => {
-              if (nodePath.get('object').matchesPattern('process.env')) {
-                const key = nodePath.toComputedKey();
-                if (t.isStringLiteral(key)) {
-                  nodePath.replaceWith(t.valueToNode(process.env[key.value]));
-                }
-              }
             }
           });
         } catch (err) {
