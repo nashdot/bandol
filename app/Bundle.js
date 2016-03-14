@@ -33,7 +33,7 @@ export default class Bundle {
   constructor(options) {
     this.entry = options.entry;
     this.entryId = 'unknown';
-    this.srcBasePath = path.dirname(this.entryId);
+    this.srcBasePath = 'unknown';
 
     for (const prop in options.env) {
       if (options.env.hasOwnProperty(prop)) {
@@ -89,6 +89,8 @@ export default class Bundle {
   async build() {
     try {
       this.entryId = this.resolveResource(this.entry, undefined);
+      this.srcBasePath = path.dirname(this.entryId);
+
       await this.buildResource(this.entryId);
 
       this.sortedResources = sortDependencies(this.resources);
