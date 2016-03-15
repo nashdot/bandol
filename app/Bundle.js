@@ -92,7 +92,7 @@ export default class Bundle {
       this.srcBasePath = path.dirname(this.entryId);
 
       console.log('Analyzing...');
-      await this.buildResource(this.entryId);
+      await this.processResource(this.entryId);
 
       this.sortedResources = sortDependencies(this.resources);
 
@@ -103,7 +103,7 @@ export default class Bundle {
     }
   }
 
-  async buildResource(id) {
+  async processResource(id) {
     try {
       if (this.resources.has(id)) {
         return;
@@ -117,15 +117,15 @@ export default class Bundle {
       this.resources.set(resource.id, resource);
 
       // -- Fetch dependencies
-      await this.buildDependencies(resource);
+      await this.processDependencies(resource);
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  async buildDependencies(resource) {
+  async processDependencies(resource) {
     for (const id of resource.dependencies) {
-      await this.buildResource(id);
+      await this.processResource(id);
     }
   }
 
