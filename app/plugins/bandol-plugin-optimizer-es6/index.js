@@ -139,6 +139,12 @@ export default class Plugin extends BasePlugin {
           }
         });
 
+        for (const [key, value] of resource.props.imports.entries()) {
+          if (value.name !== 'default') {
+            this.log(`TODO: Add namespace to: '${value.name}' in '${this.bundle.getShortPath(resource.id)}'`);
+          }
+        }
+
         // Rename variables not used externally
         try {
           traverse(resource.props.ast, {
