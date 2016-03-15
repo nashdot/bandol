@@ -5,7 +5,7 @@ import BasePlugin from '../../BasePlugin';
 
 export default class Plugin extends BasePlugin {
   name = 'resolver-node';
-  version = '1.0.0';
+  version = '0.1.0';
 
   constructor(bundle) {
     super(bundle);

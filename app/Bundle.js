@@ -91,9 +91,12 @@ export default class Bundle {
       this.entryId = this.resolveResource(this.entry, undefined);
       this.srcBasePath = path.dirname(this.entryId);
 
+      console.log('Analyzing...');
       await this.buildResource(this.entryId);
 
       this.sortedResources = sortDependencies(this.resources);
+
+      console.log('Optimizing...');
       this.optimizeBundle();
     } catch (error) {
       console.log(error.message);

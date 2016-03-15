@@ -8,7 +8,7 @@ import Types from '../../Types';
 
 export default class Plugin extends BasePlugin {
   name = 'analyzer-es6';
-  version = '1.0.0';
+  version = '0.1.0';
   resourceType = Types.JAVASCRIPT;
 
   supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
@@ -26,7 +26,6 @@ export default class Plugin extends BasePlugin {
         this.log(`Can't analyze ${this.bundle.getShortPath(resource.id)}`);
         resolve(resource);
       } else {
-        this.log(`Analyzing ${this.bundle.getShortPath(resource.id)}`);
         const dependencies = resource.dependencies;
         const moduleImports = resource.props.imports;
 

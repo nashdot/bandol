@@ -1,6 +1,6 @@
 {
   "name": "bandol",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Bandol",
   "main": "index.js",
   "scripts": {
