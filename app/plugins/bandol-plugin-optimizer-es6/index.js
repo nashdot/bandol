@@ -139,9 +139,21 @@ export default class Plugin extends BasePlugin {
           }
         });
 
-        for (const [key, value] of resource.props.imports.entries()) {
+        for (const value of resource.props.imports.values()) {
           if (value.name !== 'default') {
-            this.log(`TODO: Add namespace to: '${value.name}' in '${this.bundle.getShortPath(resource.id)}'`);
+            const exportedResource = this.bundle.resources.get(value.id);
+            let ns = '';
+            for (const [key2, value2] of exportedResource.props.exports.entries()) {
+              if (value2.name !== 'default') {
+                ns = key2;
+              }
+            }
+
+            if (ns === '') {
+              throw Error(`Error: Not found default export in '${this.bundle.getShortPath(exportedResource.id)}'`);
+            }
+
+            this.log(`TODO: Add namespace '${ns}' to '${value.name}' in '${this.bundle.getShortPath(resource.id)}'`);
           }
         }
 
