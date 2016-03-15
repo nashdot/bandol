@@ -63,8 +63,6 @@ export default class Plugin extends BasePlugin {
             if (node.declaration.type === 'Identifier') {
               const name = this._getPreferedDefaultExportName(i + 1, resource.id);
               if (name !== node.declaration.name) {
-                this.log(`TODO: Rename export from '${node.declaration.name}' to '${name}' in '${this.bundle.getShortPath(resource.id)}'`);
-
                 if (nodePath.parentPath.scope.bindings[name]) {
                   this.log(`Warning: new name '${name}' is used`);
                 } else {
@@ -154,12 +152,12 @@ export default class Plugin extends BasePlugin {
               throw Error(`Error: Not found default export in '${this.bundle.getShortPath(exportedResource.id)}'`);
             }
 
-            this.log(`TODO: Add namespace '${ns}' to '${value.name}' in '${this.bundle.getShortPath(resource.id)}'`);
             namespacedImports.set(value.name, ns);
           }
         }
 
         // Add namespaces
+        // TODO: Support other expression types
         if (namespacedImports.size > 0) {
           traverse(resource.props.ast, {
             CallExpression: (nodePath) => {

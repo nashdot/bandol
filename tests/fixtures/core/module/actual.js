@@ -6,5 +6,5 @@ render(
   React.createElement(
     'h1',
     null,
-    'Hallo Welt'
+    'Hello Bandol'
   ), document.getElementById('content'));
