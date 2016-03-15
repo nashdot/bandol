@@ -139,6 +139,7 @@ export default class Plugin extends BasePlugin {
           }
         });
 
+        const namespacedImports = new Map();
         for (const value of resource.props.imports.values()) {
           if (value.name !== 'default') {
             const exportedResource = this.bundle.resources.get(value.id);
@@ -154,7 +155,25 @@ export default class Plugin extends BasePlugin {
             }
 
             this.log(`TODO: Add namespace '${ns}' to '${value.name}' in '${this.bundle.getShortPath(resource.id)}'`);
+            namespacedImports.set(value.name, ns);
           }
+        }
+
+        // Add namespaces
+        if (namespacedImports.size > 0) {
+          traverse(resource.props.ast, {
+            CallExpression: (nodePath) => {
+              const callee = nodePath.node.callee;
+              if (callee.type === 'Identifier'
+                  && namespacedImports.has(callee.name)) {
+                nodePath.replaceWith(t.callExpression(
+                  t.memberExpression(
+                    t.identifier(namespacedImports.get(callee.name)),
+                    callee),
+                  nodePath.node.arguments));
+              }
+            }
+          });
         }
 
         // Rename variables not used externally
