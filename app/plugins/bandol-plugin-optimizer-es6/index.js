@@ -113,6 +113,8 @@ export default class Plugin extends BasePlugin {
                   id: node.declaration.id.name,
                   type: 'function'
                 });
+                const { id: id, params: params, body: body, generator: generator } = node.declaration;
+                nodePath.insertBefore(t.functionDeclaration(id, params, body, generator, node.declaration.async));
               } else {
                 node.declaration.declarations.forEach(decl => {
                   moduleExports.set(decl.id.name, {
