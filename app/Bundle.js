@@ -1,6 +1,6 @@
 /* eslint no-param-reassign: 0 */
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 import Hashids from 'hashids';
 import generate from 'babel-generator';
 import stringify from 'json-stringify-safe';

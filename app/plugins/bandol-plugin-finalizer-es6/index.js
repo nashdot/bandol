@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import generate from 'babel-generator';
 
 import BasePlugin from '../../BasePlugin';

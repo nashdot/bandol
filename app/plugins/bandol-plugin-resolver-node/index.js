@@ -1,5 +1,5 @@
 import resolveModule from 'resolve';
-import path from 'path';
+import * as path from 'path';
 
 import BasePlugin from '../../BasePlugin';
 

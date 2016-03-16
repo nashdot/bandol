@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import path from 'path';
+import * as path from 'path';
 
 export default class BasePlugin {
   name = 'base';
