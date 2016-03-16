@@ -48,6 +48,16 @@ test('core/namespaceImport', t => {
   });
 });
 
+test('core/namespaceImport-2', t => {
+  return doBandol('core/namespaceImport-2').then(b => {
+    b.generate('core_namespaceImport-2');
+    const generated = b.bundle.code;
+    // b._printResources();
+    // b._printSorted();
+    t.is(generated, expected('core/namespaceImport-2'));
+  });
+});
+
 test('core/module', t => {
   return doBandol('core/module').then(b => {
     b.generate('core_module');
