@@ -67,13 +67,16 @@ export default class Plugin extends BasePlugin {
         resolve(resource);
       } else {
         try {
+          // Transform namespace import to named imports
           const transformNamespaceImport = {
             MemberExpression: (nodePath) => {
+              // Found <namespace>.<varaible>
               if (nodePath.node.object.type === 'Identifier'
                   && nodePath.node.object.name === this.opts.namespace) {
                 const programPath = this._getProgramParent(nodePath);
                 const originalImportName = nodePath.node.property.name;
                 let importName = originalImportName;
+
                 if (programPath.scope.bindings[importName]) {
                   // Imported name is already in use, rename it
                   // TODO: Verify if this name is not used by module exports
@@ -81,6 +84,8 @@ export default class Plugin extends BasePlugin {
                   nodePath.parentPath.scope.rename(nodePath.node.property.name, importName);
                   nodePath.replaceWith(nodePath.node.property);
                 }
+
+                // Add named import
                 programPath.unshiftContainer(
                   'body',
                   t.importDeclaration(
@@ -122,11 +127,13 @@ export default class Plugin extends BasePlugin {
                   // Make alias identical to imported
                   specifier.local = _.clone(specifier.imported);
                 } else if (specifier.type === 'ImportNamespaceSpecifier') {
+                  // Temporary options object for worker visitor
                   this.opts = {
                     importedModule: nodePath.node.source.value,
                     namespace: specifier.local.name
                   };
                   nodePath.parentPath.traverse(transformNamespaceImport);
+                  delete this.opts;
                   nodePath.remove();
                 }
               });
