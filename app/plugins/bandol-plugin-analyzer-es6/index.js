@@ -117,14 +117,9 @@ export default class Plugin extends BasePlugin {
                   throw err;
                 }
 
-                const isDefault = specifier.type === 'ImportDefaultSpecifier';
-                const isNamespace = specifier.type === 'ImportNamespaceSpecifier';
-
                 let name;
-                if (isDefault) {
+                if (specifier.type === 'ImportDefaultSpecifier') {
                   name = 'default';
-                } else if (isNamespace) {
-                  name = '*';
                 } else {
                   name = specifier.imported.name;
                 }
