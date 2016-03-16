@@ -1,10 +1,11 @@
-var a = 'a';
-var b = 'b';
-var c = 'c';
-var d = 'd';
+function square(x) {
+  return x * x;
+}
 
-const bXz = a;
-const bRK = b;
-const bKv = d;
+function cube(x) {
+  return x * x * x;
+}
 
-console.log(`${ bXz }, ${ bRK }, ${ bKv }`);
+const bQr = cube(4);
+
+console.log(`${ bQr }`);
