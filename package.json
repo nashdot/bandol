@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/nashdot/bandol#readme",
   "devDependencies": {
-    "ava": "^0.12.0",
+    "ava": "^0.13.0",
     "babel-eslint": "^5.0.0",
     "babel-plugin-lodash": "^2.2.0",
     "babel-polyfill": "^6.6.1",
