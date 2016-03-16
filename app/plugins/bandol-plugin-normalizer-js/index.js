@@ -82,8 +82,10 @@ export default class Plugin extends BasePlugin {
                   // TODO: Verify if this name is not used by module exports
                   importName = this.bundle.generateUid();
                   nodePath.parentPath.scope.rename(nodePath.node.property.name, importName);
-                  nodePath.replaceWith(nodePath.node.property);
                 }
+
+                // Replace MemberExpression by Identifier
+                nodePath.replaceWith(nodePath.node.property);
 
                 // Add named import
                 programPath.unshiftContainer(
