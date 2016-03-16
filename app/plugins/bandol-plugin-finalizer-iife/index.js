@@ -23,6 +23,7 @@ export default class Plugin extends BasePlugin {
 
     fs.appendFileSync(outputPath, `${intro}`);
 
+    this.bundle.code = '';
     for (let i = 0; i < this.bundle.sortedResources.length; i++) {
       const resource = this.bundle.sortedResources[i];
       if (resource.type === this.resourceType) {
@@ -42,6 +43,7 @@ export default class Plugin extends BasePlugin {
         fs.appendFileSync(outputPath, `/* imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`);
         fs.appendFileSync(outputPath, `/* exports:\n${JSON.stringify(resource.props.exports, null, ' ')}\n*/\n`);
         fs.appendFileSync(outputPath, `${resource.props.code}\n`);
+        this.bundle.code += resource.props.code;
       }
     }
     fs.appendFileSync(outputPath, `${outro}`);

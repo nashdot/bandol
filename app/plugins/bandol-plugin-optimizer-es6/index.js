@@ -119,7 +119,11 @@ export default class Plugin extends BasePlugin {
                     id: decl.id.name,
                     type: 'variable'
                   });
+                  nodePath.insertBefore(t.variableDeclaration('var', [
+                    t.variableDeclarator(decl.id, decl.init)
+                  ]));
                 });
+                nodePath.remove();
               }
             } else {
               node.declaration.specifiers.forEach(spec => {

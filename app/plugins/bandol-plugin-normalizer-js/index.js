@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import traverse from 'babel-traverse';
 import * as t from 'babel-types';
 
@@ -66,6 +67,29 @@ export default class Plugin extends BasePlugin {
         resolve(resource);
       } else {
         try {
+          const transformNamespaceImport = {
+            MemberExpression: (nodePath) => {
+              if (nodePath.node.object.type === 'Identifier'
+                  && nodePath.node.object.name === this.opts.namespace) {
+                const programPath = this._getProgramParent(nodePath);
+                const originalImportName = nodePath.node.property.name;
+                let importName = originalImportName;
+                if (programPath.scope.bindings[importName]) {
+                  // Imported name is already in use, rename it
+                  // TODO: Verify if this name is not used by module exports
+                  importName = this.bundle.generateUid();
+                  nodePath.parentPath.scope.rename(nodePath.node.property.name, importName);
+                  nodePath.replaceWith(nodePath.node.property);
+                }
+                programPath.unshiftContainer(
+                  'body',
+                  t.importDeclaration(
+                    [t.importSpecifier(t.identifier(originalImportName), t.identifier(originalImportName))],
+                    t.stringLiteral(this.opts.importedModule)));
+              }
+            }
+          };
+
           traverse(resource.props.ast, {
             Program: (nodePath) => {
               const node = nodePath.node;
@@ -77,6 +101,37 @@ export default class Plugin extends BasePlugin {
                 }
               }
             },
+            // - 1. Remove aliases from named imports
+            // - 2. Expand namespace import to named imports
+            ImportDeclaration: (nodePath) => {
+              const node = nodePath.node;
+
+              node.specifiers.forEach(specifier => {
+                // ImportDefaultSpecifier don't have aliases
+                if (specifier.type === 'ImportSpecifier'
+                    && specifier.imported.name !== specifier.local.name) {
+                  if (nodePath.parentPath.scope.bindings[specifier.imported.name]) {
+                    // Imported name is already in use, rename it
+                    // TODO: Verify if this name is not used by module exports
+                    nodePath.parentPath.scope.rename(specifier.imported.name, this.bundle.generateUid());
+                  }
+
+                  // Rename referenced alias by real import name
+                  nodePath.parentPath.scope.rename(specifier.local.name, specifier.imported.name);
+
+                  // Make alias identical to imported
+                  specifier.local = _.clone(specifier.imported);
+                } else if (specifier.type === 'ImportNamespaceSpecifier') {
+                  this.opts = {
+                    importedModule: nodePath.node.source.value,
+                    namespace: specifier.local.name
+                  };
+                  nodePath.parentPath.traverse(transformNamespaceImport);
+                  nodePath.remove();
+                }
+              });
+            },
+            // Convert CommonJS to ES6 exports
             AssignmentExpression: (nodePath) => {
               const node = nodePath.node;
 
@@ -92,6 +147,7 @@ export default class Plugin extends BasePlugin {
                 }
               }
             },
+            // Convert CommonJS to ES6 imports
             VariableDeclarator: (nodePath) => {
               const node = nodePath.node;
 

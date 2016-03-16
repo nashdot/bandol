@@ -40,6 +40,7 @@ export default class Bundle {
         process.env[prop] = options.env[prop];
       }
     }
+    this.code = '';
 
     this.resources = new Map();
     this.sortedResources = [];
