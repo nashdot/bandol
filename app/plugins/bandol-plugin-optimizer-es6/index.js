@@ -57,15 +57,6 @@ export default class Plugin extends BasePlugin {
           fs.writeFileSync(outputPath, resource.props.code);
         }
 
-        traverse(resource.props.ast, {
-          ImportDeclaration: (nodePath) => {
-            // TODO:
-            // - Verfiy if imported name equal the exported one
-            // - If not: rename import and used variable name
-            nodePath.remove();
-          }
-        });
-
         resource.props.exports = moduleExports;
       }
     }
