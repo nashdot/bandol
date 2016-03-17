@@ -16,6 +16,7 @@ import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
 import jsNormalizerPlugin from './plugins/bandol-plugin-normalizer-js';
 // import es6FinalizerPlugin from './plugins/bandol-plugin-finalizer-es6';
 import iifeFinalizerPlugin from './plugins/bandol-plugin-finalizer-iife';
+import es6ExportsOptimizerPlugin from './plugins/bandol-plugin-optimizer-es6-exports';
 import es6OptimizerPlugin from './plugins/bandol-plugin-optimizer-es6';
 
 const plugins = [
@@ -26,6 +27,7 @@ const plugins = [
   jsNormalizerPlugin,
   // es6FinalizerPlugin,
   iifeFinalizerPlugin,
+  es6ExportsOptimizerPlugin,
   es6OptimizerPlugin
 ];
 
