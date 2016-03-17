@@ -68,12 +68,14 @@ test('core/namespaceImport-3', t => {
   });
 });
 
-// test('core/module', t => {
-//   return doBandol('core/module').then(b => {
-//     b.generate('core_module');
-//     const generated = b.bundle.code;
-//     // b._printResources();
-//     // b._printSorted();
-//     t.is(generated, expected('core/module'));
-//   });
-// });
+test('core/module', t => {
+  return doBandol('core/module').then(b => {
+    b.generate('core_module');
+    const generated = b.bundle.code;
+    const outputPath = `${process.cwd()}/out/1.js`;
+    fs.writeFileSync(outputPath, generated);
+    // b._printResources();
+    // b._printSorted();
+    t.is(generated, expected('core/module'));
+  });
+});

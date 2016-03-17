@@ -38,7 +38,9 @@ export default class Plugin extends BasePlugin {
 
   /* eslint no-param-reassign: 0 */
   optimizeBundle() {
-    for (let i = 0; i < this.bundle.sortedResources.length; i++) {
+    const imports = new Map();
+
+    for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
       const resource = this.bundle.sortedResources[i];
 
       if (!this.isSupportedExtension(resource.id)
@@ -46,6 +48,33 @@ export default class Plugin extends BasePlugin {
         this.log(`Can't optimize ${resource.id}`);
       } else {
         const moduleExports = resource.props.exports;
+
+        try {
+          traverse(resource.props.ast, {
+            ImportDeclaration: (nodePath) => {
+              const node = nodePath.node;
+              const source = node.source.value;
+              const id = this.bundle.resolveResource(source, resource.id);
+
+              node.specifiers.forEach(specifier => {
+                const localName = specifier.local.name;
+
+                if (imports.has(localName)) {
+                  if (imports.get(localName) === id) {
+                    return;
+                  }
+                  this.log(`BUG: Same import '${localName}' from different resource ('${id}' - '${imports.get(localName)}')`);
+                }
+
+                imports.set(localName, id);
+              });
+            }
+          });
+        } catch (err) {
+          this.log(err.stack);
+          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
+          fs.writeFileSync(outputPath, resource.props.code);
+        }
 
         traverse(resource.props.ast, {
           ImportDeclaration: (nodePath) => {
@@ -178,6 +207,11 @@ export default class Plugin extends BasePlugin {
 
         resource.props.exports = moduleExports;
       }
+    }
+
+    this.log('Imports');
+    for (const [key, value] of imports.entries()) {
+      this.log(`${this.bundle.getShortPath(value)}:${key}`);
     }
   }
 }
