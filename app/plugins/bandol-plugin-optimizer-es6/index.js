@@ -144,43 +144,6 @@ export default class Plugin extends BasePlugin {
           }
         });
 
-        const namespacedImports = new Map();
-        for (const value of resource.props.imports.values()) {
-          if (value.name !== 'default') {
-            const exportedResource = this.bundle.resources.get(value.id);
-            let ns = '';
-            for (const [key2, value2] of exportedResource.props.exports.entries()) {
-              if (value2.name !== 'default') {
-                ns = key2;
-              }
-            }
-
-            if (ns === '') {
-              throw Error(`Error: Not found default export in '${this.bundle.getShortPath(exportedResource.id)}'`);
-            }
-
-            namespacedImports.set(value.name, ns);
-          }
-        }
-
-        // Add namespaces
-        // TODO: Support other expression types
-        if (namespacedImports.size > 0) {
-          traverse(resource.props.ast, {
-            CallExpression: (nodePath) => {
-              const callee = nodePath.node.callee;
-              if (callee.type === 'Identifier'
-                  && namespacedImports.has(callee.name)) {
-                nodePath.replaceWith(t.callExpression(
-                  t.memberExpression(
-                    t.identifier(namespacedImports.get(callee.name)),
-                    callee),
-                  nodePath.node.arguments));
-              }
-            }
-          });
-        }
-
         // Rename variables not used externally
         try {
           traverse(resource.props.ast, {

@@ -85,7 +85,7 @@ export default class Plugin extends BasePlugin {
                 }
 
                 // Replace MemberExpression by Identifier
-                nodePath.replaceWith(nodePath.node.property);
+                nodePath.replaceWith(t.identifier(nodePath.node.property.name));
 
                 // Add named import
                 programPath.unshiftContainer(
