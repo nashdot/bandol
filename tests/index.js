@@ -1,6 +1,6 @@
 import test from 'ava';
 import 'babel-register';
-import fs from 'fs';
+import * as fs from 'fs';
 import { join } from 'path';
 import bandol from '..';
 
