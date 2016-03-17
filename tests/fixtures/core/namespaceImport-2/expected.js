@@ -6,6 +6,6 @@ function cube(x) {
   return x * x * x;
 }
 
-const bPq = cube(4);
+const bQr = cube(4);
 
-console.log(`${ bPq }`);
+console.log(`${ bQr }`);

@@ -8,7 +8,7 @@ class Test {
   }
 }
 
-const bxq = new Test();
-const bXz = bxq.square(4);
+const bQr = new Test();
+const bPq = bQr.square(4);
 
-console.log(`${ bXz }`);
+console.log(`${ bPq }`);
