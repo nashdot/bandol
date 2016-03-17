@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import traverse from 'babel-traverse';
-import * as t from 'babel-types';
 
 import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
@@ -16,24 +15,6 @@ export default class Plugin extends BasePlugin {
   constructor(bundle) {
     super(bundle);
     this.bundle = bundle;
-  }
-
-  _getPreferedDefaultExportName(index, id) {
-    let name = '';
-    for (let i = index; i < this.bundle.sortedResources.length; i++) {
-      const resource = this.bundle.sortedResources[i];
-      for (const [key, value] of resource.props.imports.entries()) {
-        if (value.id === id && value.name === 'default') {
-          if (name !== '' && name !== key) {
-            this.log(`Warning: the same default export have different import names: '${name}' vs '${key}'`);
-          }
-          name = key;
-          break;
-        }
-      }
-    }
-
-    return name;
   }
 
   /* eslint no-param-reassign: 0 */
