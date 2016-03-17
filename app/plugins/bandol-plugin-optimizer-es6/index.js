@@ -113,8 +113,22 @@ export default class Plugin extends BasePlugin {
                   id: node.declaration.id.name,
                   type: 'function'
                 });
+
                 const { id: id, params: params, body: body, generator: generator } = node.declaration;
                 nodePath.insertBefore(t.functionDeclaration(id, params, body, generator, node.declaration.async));
+                nodePath.remove();
+              } else if (node.declaration.type === 'ClassDeclaration') {
+                moduleExports.set(node.declaration.id.name, {
+                  id: node.declaration.id.name,
+                  type: 'class'
+                });
+
+                const { id: id, superClass: superClass, body: body, decorators: decorators } = node.declaration;
+                if (Array.isArray(decorators)) {
+                  nodePath.insertBefore(t.classDeclaration(id, superClass, body, decorators));
+                } else {
+                  nodePath.insertBefore(t.classDeclaration(id, superClass, body, []));
+                }
                 nodePath.remove();
               } else {
                 node.declaration.declarations.forEach(decl => {
