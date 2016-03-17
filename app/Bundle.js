@@ -209,7 +209,7 @@ export default class Bundle {
         },
         '').code;
     } catch (err) {
-      this.log(err.stack);
+      console.log(err.stack);
     }
 
     fs.writeFileSync(outputPath, `${output}`);
@@ -222,7 +222,7 @@ export default class Bundle {
     try {
       output = stringify(ast, null, 2);
     } catch (err) {
-      this.log(err.stack);
+      console.log(err.stack);
     }
 
     fs.writeFileSync(outputPath, `${output}`);
