@@ -6,7 +6,7 @@ import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
 
 export default class Plugin extends BasePlugin {
-  name = 'optimizer';
+  name = 'optimizer-es6';
   version = '0.1.0';
   resourceType = Types.JAVASCRIPT;
 
