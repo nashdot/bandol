@@ -11,33 +11,33 @@ import sortDependencies from './utils/sortDependencies.js';
 import hashidsUidPlugin from './plugins/bandol-plugin-uid-hashids';
 import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
 import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
-// import cjsAnalyzerPlugin from './plugins/bandol-plugin-analyzer-cjs';
-import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
 import cjsToEs6NormalizerPlugin from './plugins/bandol-plugin-normalizer-cjs-to-es6';
 import es6ImportsNormalizerPlugin from './plugins/bandol-plugin-normalizer-es6-imports';
-// import es6FinalizerPlugin from './plugins/bandol-plugin-finalizer-es6';
-import iifeFinalizerPlugin from './plugins/bandol-plugin-finalizer-iife';
+// import cjsAnalyzerPlugin from './plugins/bandol-plugin-analyzer-cjs';
+import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
 import es6ExportsOptimizerPlugin from './plugins/bandol-plugin-optimizer-es6-exports';
 import renameInternalsOptimizerPlugin from './plugins/bandol-plugin-optimizer-rename-internals';
 import removeImportsOptimizerPlugin from './plugins/bandol-plugin-optimizer-remove-imports';
 import removeUseStrictOptimizerPlugin from './plugins/bandol-plugin-optimizer-remove-use-strict';
 import optimizerPlugin from './plugins/bandol-plugin-optimizer';
+// import es6FinalizerPlugin from './plugins/bandol-plugin-finalizer-es6';
+import iifeFinalizerPlugin from './plugins/bandol-plugin-finalizer-iife';
 
 const plugins = [
   hashidsUidPlugin,
   nodeResolverPlugin,
   jsLoaderPlugin,
-  // cjsAnalyzerPlugin,
-  es6AnalyzerPlugin,
   cjsToEs6NormalizerPlugin,
   es6ImportsNormalizerPlugin,
-  // es6FinalizerPlugin,
-  iifeFinalizerPlugin,
+  // cjsAnalyzerPlugin,
+  es6AnalyzerPlugin,
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
   removeImportsOptimizerPlugin,
   removeUseStrictOptimizerPlugin,
-  optimizerPlugin
+  optimizerPlugin,
+  // es6FinalizerPlugin,
+  iifeFinalizerPlugin,
 ];
 
 export default class Bundle {
