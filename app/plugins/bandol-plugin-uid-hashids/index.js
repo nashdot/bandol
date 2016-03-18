@@ -11,6 +11,8 @@ export default class Plugin extends BasePlugin {
 
     this._hashids = new Hashids('Oh Bandol');
     this._varCounter = 1;
+
+    this.init();
   }
 
   generateUid() {

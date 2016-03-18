@@ -104,6 +104,8 @@ export default class Bundle {
       if (worker.finalizeResource) {
         this.finalizerPlugins.push(worker);
       }
+
+      console.log(`Registering "${worker.name}/${worker.version}" plugin. Available features: ${JSON.stringify(worker.features)}`);
     }
   }
 

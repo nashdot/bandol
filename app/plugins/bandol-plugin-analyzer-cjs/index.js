@@ -13,6 +13,7 @@ export default class Plugin extends BasePlugin {
   constructor(bundle) {
     super(bundle);
     this.bundle = bundle;
+    this.init();
   }
 
   /* eslint no-param-reassign: 0 */
