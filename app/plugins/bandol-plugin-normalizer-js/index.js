@@ -98,16 +98,6 @@ export default class Plugin extends BasePlugin {
           };
 
           traverse(resource.props.ast, {
-            Program: (nodePath) => {
-              const node = nodePath.node;
-              // Remove 'use strict' directives
-              for (let i = 0; i < node.directives.length; i++) {
-                const directive = node.directives[i];
-                if (directive.value.value === 'use strict') {
-                  node.directives.splice(i, 1);
-                }
-              }
-            },
             // - 1. Remove aliases from named imports
             // - 2. Expand namespace import to named imports
             ImportDeclaration: (nodePath) => {
