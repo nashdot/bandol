@@ -6,7 +6,7 @@ import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
 
 export default class Plugin extends BasePlugin {
-  name = 'normalizer-js';
+  name = 'normalizer-es6-imports';
   version = '0.1.0';
   resourceType = Types.JAVASCRIPT;
 
