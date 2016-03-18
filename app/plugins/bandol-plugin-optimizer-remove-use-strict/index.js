@@ -27,8 +27,8 @@ export default class Plugin extends BasePlugin {
         traverse(resource.props.ast, {
           Program: (nodePath) => {
             const node = nodePath.node;
-            for (let i = 0; i < node.directives.length; i++) {
-              const directive = node.directives[i];
+            for (let j = 0; j < node.directives.length; j++) {
+              const directive = node.directives[j];
               if (directive.value.value === 'use strict') {
                 node.directives.splice(i, 1);
               }

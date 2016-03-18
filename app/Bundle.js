@@ -37,7 +37,7 @@ const plugins = [
   removeUseStrictOptimizerPlugin,
   optimizerPlugin,
   // es6FinalizerPlugin,
-  iifeFinalizerPlugin,
+  iifeFinalizerPlugin
 ];
 
 export default class Bundle {

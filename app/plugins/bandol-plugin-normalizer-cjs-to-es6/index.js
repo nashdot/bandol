@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import traverse from 'babel-traverse';
 import * as t from 'babel-types';
 
