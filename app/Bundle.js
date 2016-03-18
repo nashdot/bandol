@@ -1,7 +1,6 @@
 /* eslint no-param-reassign: 0 */
 import * as fs from 'fs';
 import * as path from 'path';
-import Hashids from 'hashids';
 import generate from 'babel-generator';
 import stringify from 'json-stringify-safe';
 
@@ -9,6 +8,7 @@ import Resource from './Resource';
 import Types from './Types';
 import sortDependencies from './utils/sortDependencies.js';
 
+import hashidsUidPlugin from './plugins/bandol-plugin-uid-hashids';
 import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
 import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
 // import cjsAnalyzerPlugin from './plugins/bandol-plugin-analyzer-cjs';
@@ -22,6 +22,7 @@ import removeImportsOptimizerPlugin from './plugins/bandol-plugin-optimizer-remo
 import optimizerPlugin from './plugins/bandol-plugin-optimizer';
 
 const plugins = [
+  hashidsUidPlugin,
   nodeResolverPlugin,
   jsLoaderPlugin,
   // cjsAnalyzerPlugin,
@@ -56,17 +57,13 @@ export default class Bundle {
     this.sortedResources = [];
 
     // Plugins
+    this.uidPlugins = [];
     this.resolverPlugins = [];
     this.loaderPlugins = [];
     this.normalizerPlugins = [];
     this.analyzerPlugins = [];
     this.optimizerPlugins = [];
     this.finalizerPlugins = [];
-
-    // Hash generation options
-    // TODO: make a plugin for it
-    this._hashids = new Hashids('Oh Bandol');
-    this._varCounter = 1;
 
     // Init plugins
     this.initPlugins();
@@ -75,6 +72,10 @@ export default class Bundle {
   initPlugins() {
     for (const Plugin of plugins) {
       const worker = new Plugin(this);
+
+      if (worker.generateUid) {
+        this.uidPlugins.push(worker);
+      }
 
       if (worker.resolveResource) {
         this.resolverPlugins.push(worker);
@@ -208,9 +209,13 @@ export default class Bundle {
     return result;
   }
 
-  // TODO: make a plugin
   generateUid() {
-    return `b${this._hashids.encode(this._varCounter++)}`;
+    if (Array.isArray(this.uidPlugins)
+        && this.uidPlugins.length > 0) {
+      return this.uidPlugins[0].generateUid();
+    }
+
+    throw new Error("No 'uid plugin' found in this Bandol configuration.");
   }
 
   dumpCode(ast, id) {
