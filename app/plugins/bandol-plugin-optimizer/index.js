@@ -29,8 +29,6 @@ export default class Plugin extends BasePlugin {
         && resource.type !== this.resourceType) {
         this.log(`Can't optimize ${resource.id}`);
       } else {
-        const moduleExports = resource.props.exports;
-
         try {
           traverse(resource.props.ast, {
             ImportDeclaration: (nodePath) => {
@@ -57,8 +55,6 @@ export default class Plugin extends BasePlugin {
           const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
           fs.writeFileSync(outputPath, resource.props.code);
         }
-
-        resource.props.exports = moduleExports;
       }
     }
 
