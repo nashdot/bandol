@@ -22,17 +22,23 @@ import optimizerPlugin from './plugins/bandol-plugin-optimizer';
 import iifeFinalizerPlugin from './plugins/bandol-plugin-finalizer-iife';
 
 const plugins = [
+  // Utils
   hashidsUidPlugin,
   nodeResolverPlugin,
+  // Loaders
   jsLoaderPlugin,
+  // Normalisation
   cjsToEs6NormalizerPlugin,
   es6ImportsNormalizerPlugin,
+  // Analyse
   es6AnalyzerPlugin,
+  // Optimisation
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
   removeImportsOptimizerPlugin,
   removeUseStrictOptimizerPlugin,
   optimizerPlugin,
+  // Finalisation
   iifeFinalizerPlugin
 ];
 
