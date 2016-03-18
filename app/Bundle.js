@@ -208,6 +208,7 @@ export default class Bundle {
     return result;
   }
 
+  // TODO: make a plugin
   generateUid() {
     return `b${this._hashids.encode(this._varCounter++)}`;
   }
