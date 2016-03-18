@@ -13,6 +13,7 @@ import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
 import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
 // import cjsAnalyzerPlugin from './plugins/bandol-plugin-analyzer-cjs';
 import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
+import cjsToEs6NormalizerPlugin from './plugins/bandol-plugin-normalizer-cjs-to-es6';
 import jsNormalizerPlugin from './plugins/bandol-plugin-normalizer-js';
 // import es6FinalizerPlugin from './plugins/bandol-plugin-finalizer-es6';
 import iifeFinalizerPlugin from './plugins/bandol-plugin-finalizer-iife';
@@ -28,6 +29,7 @@ const plugins = [
   jsLoaderPlugin,
   // cjsAnalyzerPlugin,
   es6AnalyzerPlugin,
+  cjsToEs6NormalizerPlugin,
   jsNormalizerPlugin,
   // es6FinalizerPlugin,
   iifeFinalizerPlugin,
