@@ -19,28 +19,28 @@ export default class Plugin extends BasePlugin {
 
   // module.exports
   _isModuleExports(node) {
-    return node.left.type === 'MemberExpression'
-      && node.left.object.type === 'Identifier'
+    return t.isMemberExpression(node.left)
+      && t.isIdentifier(node.left.object)
       && node.left.object.name === 'module'
-      && node.left.property.type === 'Identifier'
+      && t.isIdentifier(node.left.property)
       && node.left.property.name === 'exports';
   }
 
   _isNamedModuleExports(node) {
-    return node.left.type === 'MemberExpression'
-      && node.left.object.type === 'MemberExpression'
-      && node.left.object.object.type === 'Identifier'
+    return t.isMemberExpression(node.left)
+      && t.isMemberExpression(node.left.object)
+      && t.isIdentifier(node.left.object.object)
       && node.left.object.object.name === 'module'
-      && node.left.object.property.type === 'Identifier'
+      && t.isIdentifier(node.left.object.property)
       && node.left.object.property.name === 'exports'
-      && node.left.property.type === 'Identifier';
+      && t.isIdentifier(node.left.property);
   }
 
   _isRequireCall(node) {
-    return node.callee.type === 'Identifier'
+    return t.isIdentifier(node.callee)
       && node.callee.name === 'require'
       && node.arguments.length === 1
-      && node.arguments[0].type === 'StringLiteral';
+      && t.isIdentifier(node.arguments[0]);
   }
 
   _getProgramParent(nodePath) {
@@ -89,9 +89,9 @@ export default class Plugin extends BasePlugin {
               const node = nodePath.node;
 
               if (t.isVariableDeclaration(nodePath.parentPath.node)) {
-                if (node.init && node.init.type === 'CallExpression'
+                if (t.isCallExpression(node.init)
                     && this._isRequireCall(node.init)) {
-                  if (node.id.type === 'Identifier') {
+                  if (t.isIdentifier(node.id)) {
                     const programPath = this._getProgramParent(nodePath);
 
                     // Add import statement

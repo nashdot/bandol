@@ -45,7 +45,7 @@ export default class Plugin extends BasePlugin {
           const transformNamespaceImport = {
             MemberExpression: (nodePath) => {
               // Found <namespace>.<varaible>
-              if (nodePath.node.object.type === 'Identifier'
+              if (t.isIdentifier(nodePath.node.object)
                   && nodePath.node.object.name === this.opts.namespace) {
                 const programPath = this._getProgramParent(nodePath);
                 const originalImportName = nodePath.node.property.name;
@@ -79,7 +79,7 @@ export default class Plugin extends BasePlugin {
 
               node.specifiers.forEach(specifier => {
                 // ImportDefaultSpecifier don't have aliases
-                if (specifier.type === 'ImportSpecifier'
+                if (t.isImportSpecifier(specifier)
                     && specifier.imported.name !== specifier.local.name) {
                   if (nodePath.parentPath.scope.bindings[specifier.imported.name]) {
                     // Imported name is already in use, rename it
@@ -92,7 +92,7 @@ export default class Plugin extends BasePlugin {
 
                   // Make alias identical to imported
                   specifier.local = _.clone(specifier.imported);
-                } else if (specifier.type === 'ImportNamespaceSpecifier') {
+                } else if (t.isImportNamespaceSpecifier(specifier)) {
                   // Temporary options object for worker visitor
                   this.opts = {
                     importedModule: nodePath.node.source.value,

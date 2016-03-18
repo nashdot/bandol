@@ -118,7 +118,7 @@ export default class Plugin extends BasePlugin {
                 }
 
                 let name;
-                if (specifier.type === 'ImportDefaultSpecifier') {
+                if (t.isImportDefaultSpecifier(specifier)) {
                   name = 'default';
                 } else {
                   name = specifier.imported.name;

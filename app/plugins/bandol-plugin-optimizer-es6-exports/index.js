@@ -53,7 +53,7 @@ export default class Plugin extends BasePlugin {
             // TODO:
             // - Verify if exported name is in conflict with future exports from other modules
             // - If so: rename it with original variable/function/class name
-            if (node.declaration.type === 'Identifier') {
+            if (t.isIdentifier(node.declaration)) {
               const name = this._getPreferedDefaultExportName(i + 1, resource.id);
               if (name !== node.declaration.name) {
                 if (nodePath.parentPath.scope.bindings[name]) {
@@ -68,7 +68,7 @@ export default class Plugin extends BasePlugin {
                 type: 'named_variable'
               });
               nodePath.remove();
-            } else if (node.declaration.type === 'FunctionDeclaration') {
+            } else if (t.isFunctionDeclaration(node.declaration)) {
               if (node.declaration.id) {
                 moduleExports.set(node.declaration.id.name, {
                   id: 'default',
@@ -101,7 +101,7 @@ export default class Plugin extends BasePlugin {
             const node = nodePath.node;
 
             if (node.declaration) {
-              if (node.declaration.type === 'FunctionDeclaration') {
+              if (t.isFunctionDeclaration(node.declaration)) {
                 moduleExports.set(node.declaration.id.name, {
                   id: node.declaration.id.name,
                   type: 'function'
@@ -110,7 +110,7 @@ export default class Plugin extends BasePlugin {
                 const { id: id, params: params, body: body, generator: generator } = node.declaration;
                 nodePath.insertBefore(t.functionDeclaration(id, params, body, generator, node.declaration.async));
                 nodePath.remove();
-              } else if (node.declaration.type === 'ClassDeclaration') {
+              } else if (t.isClassDeclaration(node.declaration)) {
                 moduleExports.set(node.declaration.id.name, {
                   id: node.declaration.id.name,
                   type: 'class'
