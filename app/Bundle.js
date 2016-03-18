@@ -37,20 +37,25 @@ const plugins = [
 
 export default class Bundle {
   constructor(options) {
+    // Entry and base path to all dependencies
     this.entry = options.entry;
     this.entryId = 'unknown';
     this.srcBasePath = 'unknown';
 
+    // Enhance environment by options provided to Bandol
     for (const prop in options.env) {
       if (options.env.hasOwnProperty(prop)) {
         process.env[prop] = options.env[prop];
       }
     }
+
+    // Final bundle genarated code source
     this.code = '';
 
     this.resources = new Map();
     this.sortedResources = [];
 
+    // Plugins
     this.resolverPlugins = [];
     this.loaderPlugins = [];
     this.normalizerPlugins = [];
@@ -58,8 +63,12 @@ export default class Bundle {
     this.optimizerPlugins = [];
     this.finalizerPlugins = [];
 
+    // Hash generation options
+    // TODO: make a plugin for it
     this._hashids = new Hashids('Oh Bandol');
     this._varCounter = 1;
+
+    // Init plugins
     this.initPlugins();
   }
 
