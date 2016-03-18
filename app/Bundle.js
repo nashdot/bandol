@@ -35,9 +35,9 @@ const plugins = [
   // Optimisation
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
+  optimizerPlugin,
   removeImportsOptimizerPlugin,
   removeUseStrictOptimizerPlugin,
-  optimizerPlugin,
   // Finalisation
   iifeFinalizerPlugin
 ];
