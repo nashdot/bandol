@@ -78,6 +78,16 @@ test('core/namedImport', t => {
   });
 });
 
+test('core/removeUseStrict', t => {
+  return doBandol('core/removeUseStrict').then(b => {
+    b.generate('core_removeUseStrict');
+    const generated = b.bundle.code;
+    // b._printResources();
+    // b._printSorted();
+    t.is(generated, expected('core/removeUseStrict'));
+  });
+});
+
 test('core/module', t => {
   return doBandol('core/module').then(b => {
     b.generate('core_module');
