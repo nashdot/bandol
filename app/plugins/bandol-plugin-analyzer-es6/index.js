@@ -30,31 +30,6 @@ export default class Plugin extends BasePlugin {
         const dependencies = resource.dependencies;
         const moduleImports = resource.props.imports;
 
-        // Optimize unused imports
-        // TODO: Should we remove it in HotWatch mode?
-        try {
-          traverse(resource.props.ast, {
-            Program: (nodePath) => {
-              Object.keys(nodePath.scope.bindings).forEach((bindingName) => {
-                const binding = nodePath.scope.bindings[bindingName];
-                if (binding.references === 0) {
-                  binding.path.remove();
-                }
-              });
-            },
-            ImportDeclaration: (nodePath) => {
-              if (nodePath.node.specifiers.length === 0) {
-                this.log(`Remove unused import "${nodePath.node.source.value}"`);
-                nodePath.remove();
-              }
-            }
-          });
-        } catch (err) {
-          this.log(err.stack);
-          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
-          fs.writeFileSync(outputPath, resource.props.code);
-        }
-
         // Collect imports
         try {
           traverse(resource.props.ast, {
