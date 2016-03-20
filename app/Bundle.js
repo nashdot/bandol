@@ -13,6 +13,7 @@ import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
 import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
 import cjsToEs6NormalizerPlugin from './plugins/bandol-plugin-normalizer-cjs-to-es6';
 import es6ImportsNormalizerPlugin from './plugins/bandol-plugin-normalizer-es6-imports';
+import processEnvNormalizerPlugin from './plugins/bandol-plugin-normalizer-process-env';
 import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
 import es6ExportsOptimizerPlugin from './plugins/bandol-plugin-optimizer-es6-exports';
 import renameInternalsOptimizerPlugin from './plugins/bandol-plugin-optimizer-rename-internals';
@@ -30,6 +31,7 @@ const plugins = [
   // Normalisation
   cjsToEs6NormalizerPlugin,
   es6ImportsNormalizerPlugin,
+  processEnvNormalizerPlugin,
   // Analyse
   es6AnalyzerPlugin,
   // Optimisation
