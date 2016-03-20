@@ -18,7 +18,6 @@ export default class Plugin extends BasePlugin {
     this.init();
   }
 
-  /* eslint no-param-reassign: 0 */
   optimizeBundle() {
     this.log('Processing...');
     for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {

@@ -17,7 +17,6 @@ export default class Plugin extends BasePlugin {
     this.init();
   }
 
-  /* eslint no-param-reassign: 0 */
   normalizeResource(resource) {
     return new Promise((resolve) => {
       if (!this.isSupportedExtension(resource.id)
