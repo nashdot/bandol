@@ -1,7 +1,8 @@
 'use strict';
 
-import { square } from './tests';
+import * as t from './tests';
 
-const a = square(4);
+const test = new t.Test();
+const a = test.square(4);
 
 console.log(`${a}`);

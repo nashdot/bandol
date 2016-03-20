@@ -31,7 +31,7 @@ export default class Plugin extends BasePlugin {
             for (let j = 0; j < node.directives.length; j++) {
               const directive = node.directives[j];
               if (directive.value.value === 'use strict') {
-                node.directives.splice(i, 1);
+                node.directives.splice(j, 1);
                 this.log(`Removed from ${this.bundle.getShortPath(resource.id)}`);
               }
             }
