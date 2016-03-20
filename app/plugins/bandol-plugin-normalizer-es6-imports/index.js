@@ -19,18 +19,11 @@ export default class Plugin extends BasePlugin {
   }
 
   _getProgramParent(nodePath) {
-    do {
-      if (t.isProgram(nodePath)) {
-        break;
-      }
-      nodePath = nodePath.parentPath;
-    } while (nodePath);
-
-    if (!nodePath || !t.isProgram(nodePath)) {
+    const programPath = nodePath.findParent((_path) => _path.isProgram());
+    if (!programPath) {
       throw new Error('No Program node found');
     }
-
-    return nodePath;
+    return programPath;
   }
 
   /* eslint no-param-reassign: 0 */
