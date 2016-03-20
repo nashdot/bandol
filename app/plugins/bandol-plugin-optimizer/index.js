@@ -60,7 +60,7 @@ export default class Plugin extends BasePlugin {
 
     this.log('Imports');
     for (const [key, value] of imports.entries()) {
-      this.log(`${this.bundle.getShortPath(value)}:${key}`);
+      this.log(`-> ${this.bundle.getShortPath(value)}:${key}`);
     }
   }
 }

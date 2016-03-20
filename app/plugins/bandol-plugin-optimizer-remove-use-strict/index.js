@@ -17,6 +17,7 @@ export default class Plugin extends BasePlugin {
   }
 
   optimizeBundle() {
+    this.log('Processing...');
     for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
       const resource = this.bundle.sortedResources[i];
 
@@ -31,6 +32,7 @@ export default class Plugin extends BasePlugin {
               const directive = node.directives[j];
               if (directive.value.value === 'use strict') {
                 node.directives.splice(i, 1);
+                this.log(`Removed from ${this.bundle.getShortPath(resource.id)}`);
               }
             }
           }

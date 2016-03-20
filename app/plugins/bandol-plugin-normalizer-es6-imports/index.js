@@ -42,6 +42,7 @@ export default class Plugin extends BasePlugin {
         resolve(resource);
       } else {
         try {
+          this.log('Processing...');
           // Transform namespace import to named imports
           const transformNamespaceImport = {
             MemberExpression: (nodePath) => {

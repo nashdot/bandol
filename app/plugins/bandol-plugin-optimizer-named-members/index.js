@@ -17,6 +17,7 @@ export default class Plugin extends BasePlugin {
   }
 
   optimizeBundle() {
+    this.log('Processing...');
     for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
       const resource = this.bundle.sortedResources[i];
 

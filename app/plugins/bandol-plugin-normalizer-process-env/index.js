@@ -25,6 +25,7 @@ export default class Plugin extends BasePlugin {
         this.log(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {
+        this.log('Processing...');
         try {
           traverse(resource.props.ast, {
             MemberExpression: (nodePath) => {

@@ -113,7 +113,7 @@ export default class Bundle {
         this.finalizerPlugins.push(worker);
       }
 
-      console.log(`Registering "${worker.name}/${worker.version}" plugin. Available features: ${JSON.stringify(worker.features)}`);
+      console.log(`budle: Registering "${worker.name}/${worker.version}" plugin. Available features: ${JSON.stringify(worker.features)}`);
     }
   }
 
@@ -122,12 +122,12 @@ export default class Bundle {
       this.entryId = this.resolveResource(this.entry, undefined);
       this.srcBasePath = path.dirname(this.entryId);
 
-      console.log('Analyzing...');
+      console.log('budle: Processing...');
       await this.processResource(this.entryId);
 
       this.sortedResources = sortDependencies(this.resources);
 
-      console.log('Optimizing...');
+      console.log('budle: Optimizing...');
       this.optimizeBundle();
     } catch (error) {
       console.log(error.message);
@@ -140,8 +140,13 @@ export default class Bundle {
         return;
       }
 
+      const shortId = this.getShortPath(id);
+
+      console.log(`budle: Loading "${shortId}"...`);
       let resource = await this.loadResource(id);
+      console.log(`budle: Normalizing "${shortId}"...`);
       resource = await this.normalizeResource(resource);
+      console.log(`budle: Analyzing "${shortId}"...`);
       resource = await this.analyzeResource(resource);
 
       // -- Register
@@ -169,7 +174,7 @@ export default class Bundle {
       }
     }
 
-    throw new Error(`Cannot resolve resource "${importee}" in "${importerId}`);
+    throw new Error(`budle: Cannot resolve resource "${importee}" in "${importerId}`);
   }
 
   async loadResource(id) {
@@ -179,6 +184,7 @@ export default class Bundle {
       resource = await plugin.loadResource(resource);
 
       if (resource.type !== Types.UNKNOWN) {
+        console.log(`budle: Loaded by "${plugin.name}/${plugin.version}"`);
         return resource;
       }
     }
