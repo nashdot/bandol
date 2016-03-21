@@ -31,7 +31,8 @@ export default class Plugin extends BasePlugin {
         fs.appendFileSync(outputPath, `/* bandol: ${this.bundle.getShortPath(resource.id)} */\n`);
         fs.appendFileSync(outputPath, `/* dependencies:\n${JSON.stringify(resource.dependencies, null, ' ')}\n*/\n`);
         fs.appendFileSync(outputPath, `/* imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`);
-        fs.appendFileSync(outputPath, `/* exports:\n${JSON.stringify(resource.props.exports, null, ' ')}\n*/\n`);
+        fs.appendFileSync(outputPath, `/* default export: ${this.bundle.defaultExportsById.get(resource.id)} */\n`);
+        fs.appendFileSync(outputPath, `/* exports:\n${JSON.stringify(this.bundle.namedExportsById.get(resource.id), null, ' ')}\n*/\n`);
         fs.appendFileSync(outputPath, `${resource.props.code}\n`);
         fs.appendFileSync(outputPath, `/* bandol: ------ */\n\n`);
       }

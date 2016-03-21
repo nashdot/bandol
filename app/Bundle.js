@@ -12,6 +12,7 @@ import hashidsUidPlugin from './plugins/bandol-plugin-uid-hashids';
 import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
 import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
 import cjsToEs6NormalizerPlugin from './plugins/bandol-plugin-normalizer-cjs-to-es6';
+import es6ExportsNormalizerPlugin from './plugins/bandol-plugin-normalizer-es6-exports';
 import es6ImportsNormalizerPlugin from './plugins/bandol-plugin-normalizer-es6-imports';
 import processEnvNormalizerPlugin from './plugins/bandol-plugin-normalizer-process-env';
 import removeFalsyBlocksNormalizerPlugin from './plugins/bandol-plugin-normalizer-remove-falsy-blocks';
@@ -32,6 +33,7 @@ const plugins = [
   jsLoaderPlugin,
   // Normalisation
   cjsToEs6NormalizerPlugin,
+  es6ExportsNormalizerPlugin,
   es6ImportsNormalizerPlugin,
   processEnvNormalizerPlugin,
   removeFalsyBlocksNormalizerPlugin,
@@ -67,6 +69,13 @@ export default class Bundle {
 
     this.resources = new Map();
     this.sortedResources = [];
+
+    // Exports
+    this.defaultExportsByName = new Map();
+    this.defaultExportsById = new Map();
+    this.namedExportsByName = new Map();
+    this.namedExportsById = new Map();
+    this.renamedExports = new Map();
 
     // Plugins
     this.uidPlugins = [];

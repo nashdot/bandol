@@ -33,8 +33,12 @@ export default class Plugin extends BasePlugin {
             Program: (nodePath) => {
               Object.keys(nodePath.scope.bindings).forEach((bindingName) => {
                 const binding = nodePath.scope.bindings[bindingName];
-                if (binding.kind !== 'module' && !resource.props.exports.has(bindingName)) {
-                  nodePath.scope.rename(bindingName, this.bundle.generateUid());
+                if (binding.kind !== 'module'
+                    && !this.bundle.defaultExportsByName.has(bindingName)
+                    && !this.bundle.namedExportsByName.has(bindingName)) {
+                  const newName = this.bundle.generateUid();
+                  this.log(`${this.bundle.getShortPath(resource.id)}: Renamed ${bindingName} to ${newName}`);
+                  nodePath.scope.rename(bindingName, newName);
                 }
               });
             }
