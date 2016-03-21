@@ -76,7 +76,6 @@ export default class Plugin extends BasePlugin {
                 if (nodePath.parentPath.scope.hasBinding(name)) {
                   nodePath.parentPath.scope.rename(name, this.bundle.generateUid());
                 }
-                nodePath.parentPath.scope.rename(node.declaration.id.name, name);
 
                 nodePath.insertBefore(t.variableDeclaration('var', [
                   t.variableDeclarator(t.identifier(name), node.declaration)
