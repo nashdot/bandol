@@ -20,9 +20,10 @@ import removeUnusedImportsNormalizerPlugin from './plugins/bandol-plugin-normali
 import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
 import es6ExportsOptimizerPlugin from './plugins/bandol-plugin-optimizer-es6-exports';
 import renameInternalsOptimizerPlugin from './plugins/bandol-plugin-optimizer-rename-internals';
+import namedMembersOptimizerPlugin from './plugins/bandol-plugin-optimizer-named-members';
+import optimizerPlugin from './plugins/bandol-plugin-optimizer';
 import removeImportsOptimizerPlugin from './plugins/bandol-plugin-optimizer-remove-imports';
 import removeUseStrictOptimizerPlugin from './plugins/bandol-plugin-optimizer-remove-use-strict';
-import optimizerPlugin from './plugins/bandol-plugin-optimizer';
 import iifeFinalizerPlugin from './plugins/bandol-plugin-finalizer-iife';
 
 const plugins = [
@@ -43,6 +44,7 @@ const plugins = [
   // Optimisation
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
+  namedMembersOptimizerPlugin,
   optimizerPlugin,
   removeImportsOptimizerPlugin,
   removeUseStrictOptimizerPlugin,

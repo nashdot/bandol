@@ -1,14 +1,13 @@
-class Test {
-  square(n) {
+var tests = {
+  square: function (n) {
     return n * n;
-  }
+  },
 
-  cube(x) {
+  cube: function (x) {
     return x * x * x;
   }
-}
+};
 
-const bQr = new Test();
-const bPq = bQr.square(4);
+const bQr = tests.square(4);
 
-console.log(`${ bPq }`);
+console.log(`${ bQr }`);

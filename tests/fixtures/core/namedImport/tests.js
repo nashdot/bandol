@@ -1,10 +1,10 @@
 
-export class Test {
-  square(n) {
+export default {
+  square: function (n) {
     return n * n;
-  }
+  },
 
-  cube(x) {
+  cube: function (x) {
     return x * x * x;
   }
-}
+};
