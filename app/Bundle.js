@@ -283,6 +283,11 @@ export default class Bundle {
   }
 
   getShortName(id) {
-    return path.basename(id, path.extname(id));
+    let name = path.basename(id, path.extname(id));
+    const names = name.split('.');
+    if (names.length > 0) {
+      name = names[names.length - 1];
+    }
+    return name;
   }
 }
