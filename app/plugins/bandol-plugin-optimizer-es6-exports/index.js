@@ -19,18 +19,11 @@ export default class Plugin extends BasePlugin {
   }
 
   _getPreferedDefaultExportName(index, id) {
-    let name = '';
-    for (let i = index; i < this.bundle.sortedResources.length; i++) {
-      const resource = this.bundle.sortedResources[i];
-      for (const [key, value] of resource.props.imports.entries()) {
-        if (value.id === id && value.name === 'default') {
-          if (name !== '' && name !== key) {
-            this.log(`Warning: the same default export have different import names: '${name}' vs '${key}'`);
-          }
-          name = key;
-          break;
-        }
-      }
+    // Name of the resource himself
+    let name = this.bundle.getShortName(id);
+    if (!this.bundle.exportsByName.has(name)) {
+      // Already used by another module
+      name = this.bundle.generateUid();
     }
 
     return name;
