@@ -30,18 +30,6 @@ export default class Plugin extends BasePlugin {
             Program: (nodePath) => {
               Object.keys(nodePath.scope.bindings).forEach((bindingName) => {
                 const binding = nodePath.scope.bindings[bindingName];
-                if (bindingName === 'ReactCurrentOwner') {
-                  this.log(`Binding: ${binding.references}`);
-                  const refPath = binding.referencePaths[0];
-                  const declPath = refPath.findParent((_path) => _path.node === null);
-                  // this.log(`${binding.referencePaths[0].parentPath.parentPath.parentPath.parentPath.parentPath.parentPath.node.type}`);
-                  if (declPath) {
-                    this.log(`.removed: ${declPath.removed}`);
-                    this.log(`.shouldSkip: ${declPath.shouldSkip}`);
-                    this.log(`.type: ${declPath.type}`);
-                    this.log(`.state: ${JSON.stringify(declPath.state)}`);
-                  }
-                }
                 if (binding.references === 0) {
                   binding.path.remove();
                 }

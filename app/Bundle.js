@@ -2,6 +2,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import generate from 'babel-generator';
+import traverse from 'babel-traverse';
 import stringify from 'json-stringify-safe';
 
 import Resource from './Resource';
@@ -210,6 +211,7 @@ export default class Bundle {
   async normalizeResource(resource) {
     for (const plugin of this.normalizerPlugins) {
       resource = await plugin.normalizeResource(resource);
+      traverse.clearCache();
     }
 
     return resource;
@@ -226,6 +228,7 @@ export default class Bundle {
   async optimizeBundle() {
     for (const plugin of this.optimizerPlugins) {
       plugin.optimizeBundle();
+      traverse.clearCache();
     }
   }
 
