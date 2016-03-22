@@ -32,8 +32,7 @@ export default class Plugin extends BasePlugin {
         try {
           traverse(resource.props.ast, {
             ImportDeclaration: (nodePath) => {
-              const node = nodePath.node;
-              const source = node.source.value;
+              const source = nodePath.node.source.value;
               const id = this.bundle.resolveResource(source, resource.id);
 
               if (!~dependencies.indexOf(id)) {
