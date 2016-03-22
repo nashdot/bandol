@@ -1,4 +1,3 @@
-import * as path from 'path';
 import traverse from 'babel-traverse';
 import * as t from 'babel-types';
 
