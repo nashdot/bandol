@@ -7,10 +7,18 @@ import bandol from '..';
 const fixturesDir = join(__dirname, 'fixtures');
 const expected = testPath => { return fs.readFileSync(join(fixturesDir, testPath, 'expected.js'), 'utf8'); };
 
+function createRunningContext() {
+  const context = new Map();
+  context.set('__REACT_DEVTOOLS_GLOBAL_HOOK__', 'undefined');
+
+  return context;
+}
+
 function doBandol(testPath) {
   return bandol({
     entry: join(fixturesDir, testPath, 'actual.js'),
-    env: { NODE_ENV: 'production' }
+    env: { NODE_ENV: 'production' },
+    runningContext: createRunningContext()
   });
 }
 

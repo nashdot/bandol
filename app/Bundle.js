@@ -15,6 +15,7 @@ import cjsToEs6NormalizerPlugin from './plugins/bandol-plugin-normalizer-cjs-to-
 import es6ExportsNormalizerPlugin from './plugins/bandol-plugin-normalizer-es6-exports';
 import es6ImportsNormalizerPlugin from './plugins/bandol-plugin-normalizer-es6-imports';
 import processEnvNormalizerPlugin from './plugins/bandol-plugin-normalizer-process-env';
+import runningContextNormalizerPlugin from './plugins/bandol-plugin-normalizer-running-context';
 import removeFalsyBlocksNormalizerPlugin from './plugins/bandol-plugin-normalizer-remove-falsy-blocks';
 import removeUnusedImportsNormalizerPlugin from './plugins/bandol-plugin-normalizer-remove-unused-imports';
 import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
@@ -37,6 +38,7 @@ const plugins = [
   es6ExportsNormalizerPlugin,
   es6ImportsNormalizerPlugin,
   processEnvNormalizerPlugin,
+  runningContextNormalizerPlugin,
   removeFalsyBlocksNormalizerPlugin,
   removeUnusedImportsNormalizerPlugin,
   // Analyse
@@ -65,6 +67,8 @@ export default class Bundle {
         process.env[prop] = options.env[prop];
       }
     }
+
+    this.runningContext = options.runningContext || new Map();
 
     // Final bundle genarated code source
     this.code = '';
