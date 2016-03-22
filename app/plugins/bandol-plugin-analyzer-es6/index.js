@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import traverse from 'babel-traverse';
-import * as t from 'babel-types';
 
 import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
@@ -28,9 +27,8 @@ export default class Plugin extends BasePlugin {
         resolve(resource);
       } else {
         const dependencies = resource.dependencies;
-        const moduleImports = resource.props.imports;
 
-        // Collect imports
+        // Collect dependencies
         try {
           traverse(resource.props.ast, {
             ImportDeclaration: (nodePath) => {
@@ -41,24 +39,6 @@ export default class Plugin extends BasePlugin {
               if (!~dependencies.indexOf(id)) {
                 dependencies.push(id);
               }
-
-              node.specifiers.forEach(specifier => {
-                const localName = specifier.local.name;
-
-                if (moduleImports.has(localName)) {
-                  const err = new Error(`Duplicated import '${localName}'`);
-                  throw err;
-                }
-
-                let name;
-                if (t.isImportDefaultSpecifier(specifier)) {
-                  name = 'default';
-                } else {
-                  name = specifier.imported.name;
-                }
-
-                moduleImports.set(localName, { id: id, name: name });
-              });
             }
           });
         } catch (err) {
@@ -68,7 +48,6 @@ export default class Plugin extends BasePlugin {
         }
 
         resource.dependencies = dependencies;
-        resource.props.imports = moduleImports;
 
         resolve(resource);
       }
