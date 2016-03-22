@@ -26,7 +26,6 @@ export default class Plugin extends BasePlugin {
         resolve(resource);
       } else {
         try {
-          this.log('Processing...');
           const name = this.bundle.getShortName(resource.id);
           traverse(resource.props.ast, {
             ExportDefaultDeclaration: (nodePath) => {

@@ -19,7 +19,6 @@ export default class Plugin extends BasePlugin {
   }
 
   optimizeBundle() {
-    this.log('Processing...');
     for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
       const resource = this.bundle.sortedResources[i];
 
@@ -37,7 +36,7 @@ export default class Plugin extends BasePlugin {
                     && !this.bundle.defaultExportsByName.has(bindingName)
                     && !this.bundle.namedExportsByName.has(bindingName)) {
                   const newName = this.bundle.generateUid();
-                  this.log(`${this.bundle.getShortPath(resource.id)}: Renamed ${bindingName} to ${newName}`);
+                  // this.log(`${this.bundle.getShortPath(resource.id)}: Renamed ${bindingName} to ${newName}`);
                   nodePath.scope.rename(bindingName, newName);
                 }
               });

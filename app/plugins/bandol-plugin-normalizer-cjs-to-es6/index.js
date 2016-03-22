@@ -58,7 +58,6 @@ export default class Plugin extends BasePlugin {
         this.log(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {
-        this.log('Processing...');
         try {
           traverse(resource.props.ast, {
             // Convert CommonJS to ES6 exports
@@ -85,7 +84,7 @@ export default class Plugin extends BasePlugin {
                 if (t.isCallExpression(node.init)
                     && this._isRequireCall(node.init)) {
                   if (t.isIdentifier(node.id)) {
-                    this.log(`Converting ${node.id.name}`);
+                    // this.log(`Converting ${node.id.name}`);
                     const programPath = this._getProgramParent(nodePath);
 
                     // Add import statement
