@@ -36,7 +36,9 @@ export default class Plugin extends BasePlugin {
                   if (nodePath.node.alternate) {
                     nodePath.replaceWith(nodePath.node.alternate);
                   } else {
+                    this.log(`.removed: ${nodePath.removed}`);
                     nodePath.remove();
+                    this.log(`.removed: ${nodePath.removed}`);
                   }
                 }
               }
