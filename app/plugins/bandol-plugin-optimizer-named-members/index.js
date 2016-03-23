@@ -5,14 +5,14 @@ import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
 
 export default class Plugin extends BasePlugin {
-  name = 'optimizer-named-members';
-  version = '0.1.0';
-  resourceType = Types.JAVASCRIPT;
-
-  supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
-
   constructor(bundle) {
     super(bundle);
+
+    this.name = 'optimizer-named-members';
+    this.version = '0.1.0';
+    this.resourceType = Types.JAVASCRIPT;
+    this.supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
+
     this.bundle = bundle;
     this.init();
   }

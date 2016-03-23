@@ -5,14 +5,14 @@ import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
 
 export default class Plugin extends BasePlugin {
-  name = 'normalizer-es6-exports';
-  version = '0.1.0';
-  resourceType = Types.JAVASCRIPT;
-
-  supportedExtensions = ['.js', '.jsx'];
-
   constructor(bundle) {
     super(bundle);
+
+    this.name = 'normalizer-es6-exports';
+    this.version = '0.1.0';
+    this.resourceType = Types.JAVASCRIPT;
+    this.supportedExtensions = ['.js', '.jsx'];
+
     this.bundle = bundle;
     this.init();
   }

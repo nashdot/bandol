@@ -5,38 +5,38 @@ import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
 
 export default class Plugin extends BasePlugin {
-  name = 'loader-js';
-  version = '0.1.0';
-  resourceType = Types.JAVASCRIPT;
-
-  supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
-
-  _babylonPlugins = [
-    'asyncFunctions',
-    'asyncGenerators',
-    'classConstructorCall',
-    'classProperties',
-    'decorators',
-    'doExpressions',
-    'exponentiationOperator',
-    'exportExtensions',
-    'flow',
-    'functionSent',
-    'functionBind',
-    'jsx',
-    'objectRestSpread',
-    'trailingFunctionCommas'
-  ];
-
-  _babylonOtions = {
-    sourceType: 'module',
-    allowImportExportEverywhere: false,
-    allowReturnOutsideFunction: false,
-    plugins: this._babylonPlugins.slice(0)
-  };
-
   constructor(bundle) {
     super(bundle);
+
+    this.name = 'loader-js';
+    this.version = '0.1.0';
+    this.resourceType = Types.JAVASCRIPT;
+    this.supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
+
+    this._babylonPlugins = [
+      'asyncFunctions',
+      'asyncGenerators',
+      'classConstructorCall',
+      'classProperties',
+      'decorators',
+      'doExpressions',
+      'exponentiationOperator',
+      'exportExtensions',
+      'flow',
+      'functionSent',
+      'functionBind',
+      'jsx',
+      'objectRestSpread',
+      'trailingFunctionCommas'
+    ];
+
+    this._babylonOtions = {
+      sourceType: 'module',
+      allowImportExportEverywhere: false,
+      allowReturnOutsideFunction: false,
+      plugins: this._babylonPlugins.slice(0)
+    };
+
     this.bundle = bundle;
     this.init();
   }

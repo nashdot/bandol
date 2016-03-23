@@ -5,12 +5,13 @@ import BasePlugin from '../../BasePlugin';
 import Types from '../../Types';
 
 export default class Plugin extends BasePlugin {
-  name = 'finalizer-es6';
-  version = '0.1.0';
-  resourceType = Types.JAVASCRIPT;
-
   constructor(bundle) {
     super(bundle);
+
+    this.name = 'finalizer-es6';
+    this.version = '0.1.0';
+    this.resourceType = Types.JAVASCRIPT;
+
     this.bundle = bundle;
     this.init();
   }

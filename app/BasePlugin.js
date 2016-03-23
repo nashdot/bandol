@@ -2,11 +2,13 @@ import _ from 'lodash';
 import * as path from 'path';
 
 export default class BasePlugin {
-  name = 'base';
-  version = '0.0.0';
-  supportedExtensions = [];
-  features = [];
-  dependencies = [];
+  constructor() {
+    this.name = 'base';
+    this.version = '0.0.0';
+    this.supportedExtensions = [];
+    this.features = [];
+    this.dependencies = [];
+  }
 
   init() {
     // Add default feature: plugin name itself
