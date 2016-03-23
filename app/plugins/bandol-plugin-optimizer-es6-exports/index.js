@@ -37,6 +37,25 @@ export default class Plugin extends BasePlugin {
         && resource.type !== this.resourceType) {
         this.log(`Can't optimize ${resource.id}`);
       } else {
+        const transformExportedDeclaration = {
+          Identifier: (nodePath) => {
+            // Last condition: traverse going inside new added statement
+            if (nodePath.node.name === this.opts.identifier
+                && nodePath.parentPath.node.type !== this.opts.excludeType) {
+              const parentType = nodePath.parentPath.node.type;
+              // VariableDeclarator
+              if (parentType === 'VariableDeclarator') {
+                this.log(`VariableDeclarator: ${nodePath.parentPath.node.init.type}`);
+              }
+              // MemberExpression
+              // CallExpression
+              // FunctionDeclaration
+              // AssignmentExpression
+              this.opts.type = nodePath.parentPath.node.type;
+            }
+          }
+        };
+
         traverse(resource.props.ast, {
           ExportDefaultDeclaration: (nodePath) => {
             const node = nodePath.node;
@@ -49,6 +68,18 @@ export default class Plugin extends BasePlugin {
                 name = this.bundle.generateUid();
                 nodePath.parentPath.scope.rename(node.declaration.name, name);
               }
+
+              const type = '';
+              this.opts = {
+                identifier: name,
+                type: type,
+                excludeType: 'ExportDefaultDeclaration'
+              };
+              nodePath.parentPath.traverse(transformExportedDeclaration);
+
+              // const declPath = nodePath.getSibling(name);
+              this.log(`Declaration type for ${name}: '${this.opts.type}'`);
+              delete this.opts;
 
               this.bundle.defaultExportsByName.set(name, resource.id);
               this.bundle.defaultExportsById.set(resource.id, name);
