@@ -1,6 +1,5 @@
 'use strict';
 
-
 export class Test {
   square(n) {
     return n * n;
