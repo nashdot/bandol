@@ -23,12 +23,18 @@ import removeImportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer
 import removeUseStrictOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-remove-use-strict';
 import iifeFinalizerPlugin from '../app/plugins/bandol-plugin-finalizer-iife';
 
-const plugins = [
+const basePlugins = [
   // Utils
   hashidsUidPlugin,
   nodeResolverPlugin,
   // Loaders
   jsLoaderPlugin,
+  // Finalisation
+  iifeFinalizerPlugin
+];
+
+const allPlugins = [
+  ...basePlugins,
   // Normalisation
   cjsToEs6NormalizerPlugin,
   processEnvNormalizerPlugin,
@@ -45,9 +51,7 @@ const plugins = [
   namedMembersOptimizerPlugin,
   // optimizerPlugin,
   removeImportsOptimizerPlugin,
-  removeUseStrictOptimizerPlugin,
-  // Finalisation
-  iifeFinalizerPlugin
+  removeUseStrictOptimizerPlugin
 ];
 
 const fixturesDir = join(__dirname, 'fixtures');
@@ -66,7 +70,7 @@ function getOptions(testPath, opts) {
 
 test('core/basic', t => {
   const opts = getOptions('core/basic', {
-    plugins: plugins
+    plugins: allPlugins
   });
   return bandol(opts).then(b => {
     b.finalize();
@@ -76,7 +80,7 @@ test('core/basic', t => {
 
 test('core/basic-2', t => {
   const opts = getOptions('core/basic-2', {
-    plugins: plugins
+    plugins: allPlugins
   });
   return bandol(opts).then(b => {
     b.finalize();
@@ -86,7 +90,7 @@ test('core/basic-2', t => {
 
 test('core/namespaceImport', t => {
   const opts = getOptions('core/namespaceImport', {
-    plugins: plugins
+    plugins: allPlugins
   });
   return bandol(opts).then(b => {
     b.finalize();
@@ -96,7 +100,7 @@ test('core/namespaceImport', t => {
 
 test('core/namespaceImport-2', t => {
   const opts = getOptions('core/namespaceImport-2', {
-    plugins: plugins
+    plugins: allPlugins
   });
   return bandol(opts).then(b => {
     b.finalize();
@@ -106,7 +110,7 @@ test('core/namespaceImport-2', t => {
 
 test('core/namespaceImport-3', t => {
   const opts = getOptions('core/namespaceImport-3', {
-    plugins: plugins
+    plugins: allPlugins
   });
   return bandol(opts).then(b => {
     b.finalize();
@@ -116,7 +120,7 @@ test('core/namespaceImport-3', t => {
 
 test('core/namedImport', t => {
   const opts = getOptions('core/namedImport', {
-    plugins: plugins
+    plugins: allPlugins
   });
   return bandol(opts).then(b => {
     b.finalize();
@@ -126,7 +130,7 @@ test('core/namedImport', t => {
 
 test('core/removeUseStrict', t => {
   const opts = getOptions('core/removeUseStrict', {
-    plugins: plugins
+    plugins: allPlugins
   });
   return bandol(opts).then(b => {
     b.finalize();
@@ -138,7 +142,7 @@ test('core/module', t => {
   const opts = getOptions('core/module', {
     env: { NODE_ENV: 'production' },
     runningContext: createRunningContext(),
-    plugins: plugins
+    plugins: allPlugins
   });
   return bandol(opts).then(b => {
     b.finalize({ debug: true });
