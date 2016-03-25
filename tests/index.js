@@ -29,6 +29,8 @@ const basePlugins = [
   nodeResolverPlugin,
   // Loaders
   jsLoaderPlugin,
+  // Analyse
+  es6AnalyzerPlugin,
   // Finalisation
   iifeFinalizerPlugin
 ];
@@ -43,8 +45,6 @@ const allPlugins = [
   es6ExportsNormalizerPlugin,
   es6ImportsNormalizerPlugin,
   removeUnusedImportsNormalizerPlugin,
-  // Analyse
-  es6AnalyzerPlugin,
   // Optimisation
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
