@@ -1,8 +1,8 @@
 (function () {
-/* bandol: node_modules/react/lib/deprecated.js */
-/* imports: - */
-/* default export: deprecated */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/deprecated.js */
+/**bandol> imports: - */
+/**bandol> default export: deprecated */
+/**bandol> exports: - */
 
 function deprecated(fnName, newModule, newPackage, ctx, fn) {
   var warned = false;
@@ -10,10 +10,10 @@ function deprecated(fnName, newModule, newPackage, ctx, fn) {
 
   return fn;
 }
-/* bandol: node_modules/react/lib/Object.assign.js */
-/* imports: - */
-/* default export: assign */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/Object.assign.js */
+/**bandol> imports: - */
+/**bandol> default export: assign */
+/**bandol> exports: - */
 
 
 function assign(target, sources) {
@@ -41,10 +41,10 @@ function assign(target, sources) {
 
   return to;
 }
-/* bandol: node_modules/fbjs/lib/invariant.js */
-/* imports: - */
-/* default export: invariant */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/invariant.js */
+/**bandol> imports: - */
+/**bandol> default export: invariant */
+/**bandol> exports: - */
 
 
 function invariant(condition, format, a, b, c, d, e, f) {
@@ -66,19 +66,19 @@ function invariant(condition, format, a, b, c, d, e, f) {
     throw error;
   }
 }
-/* bandol: node_modules/react/lib/ReactCurrentOwner.js */
-/* imports: - */
-/* default export: ReactCurrentOwner */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactCurrentOwner.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactCurrentOwner */
+/**bandol> exports: - */
 
 var ReactCurrentOwner = {
   current: null
 
 };
-/* bandol: node_modules/react/lib/ReactElement.js */
-/* imports: - */
-/* default export: ReactElement */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactElement.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactElement */
+/**bandol> exports: - */
 
 var bQ6L = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
 
@@ -216,24 +216,24 @@ ReactElement.cloneElement = function (element, config, children) {
 ReactElement.isValidElement = function (object) {
   return typeof object === 'object' && object !== null && object.$$typeof === bQ6L;
 };
-/* bandol: node_modules/react/lib/onlyChild.js */
-/* imports: - */
-/* default export: onlyChild */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/onlyChild.js */
+/**bandol> imports: - */
+/**bandol> default export: onlyChild */
+/**bandol> exports: - */
 
 function onlyChild(children) {
   !ReactElement.isValidElement(children) ? 'production' !== 'production' ? invariant(false, 'onlyChild must be passed a children with exactly one child.') : invariant(false) : undefined;
   return children;
 }
-/* bandol: node_modules/react/lib/ReactVersion.js */
-/* imports: - */
-/* default export: ReactVersion */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactVersion.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactVersion */
+/**bandol> exports: - */
 var ReactVersion = '0.14.7';
-/* bandol: node_modules/react/lib/getIteratorFn.js */
-/* imports: - */
-/* default export: getIteratorFn */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/getIteratorFn.js */
+/**bandol> imports: - */
+/**bandol> default export: getIteratorFn */
+/**bandol> exports: - */
 
 var byaM = typeof Symbol === 'function' && Symbol.iterator;
 var brEK = '@@iterator';
@@ -243,10 +243,10 @@ function getIteratorFn(maybeIterable) {
     return iteratorFn;
   }
 }
-/* bandol: node_modules/fbjs/lib/emptyFunction.js */
-/* imports: - */
-/* default export: emptyFunction */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/emptyFunction.js */
+/**bandol> imports: - */
+/**bandol> default export: emptyFunction */
+/**bandol> exports: - */
 
 
 function bqJy(arg) {
@@ -267,17 +267,17 @@ emptyFunction.thatReturnsThis = function () {
 emptyFunction.thatReturnsArgument = function (arg) {
   return arg;
 };
-/* bandol: node_modules/react/lib/ReactPropTypeLocationNames.js */
-/* imports: - */
-/* default export: ReactPropTypeLocationNames */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactPropTypeLocationNames.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactPropTypeLocationNames */
+/**bandol> exports: - */
 
 
 var ReactPropTypeLocationNames = {};
-/* bandol: node_modules/react/lib/ReactPropTypes.js */
-/* imports: - */
-/* default export: ReactPropTypes */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactPropTypes.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactPropTypes */
+/**bandol> exports: - */
 
 
 var bY7a = '<<anonymous>>';
@@ -558,10 +558,10 @@ function bJB2(propValue) {
   }
   return propValue.constructor.name;
 }
-/* bandol: node_modules/fbjs/lib/mapObject.js */
-/* imports: - */
-/* default export: mapObject */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/mapObject.js */
+/**bandol> imports: - */
+/**bandol> default export: mapObject */
+/**bandol> exports: - */
 
 
 var bBPz = Object.prototype.hasOwnProperty;
@@ -578,10 +578,10 @@ function mapObject(object, callback, context) {
   }
   return result;
 }
-/* bandol: node_modules/react/lib/ReactDOMFactories.js */
-/* imports: - */
-/* default export: ReactDOMFactories */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMFactories.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMFactories */
+/**bandol> exports: - */
 
 function bee6(tag) {
   return ReactElement.createFactory(tag);
@@ -723,17 +723,17 @@ var ReactDOMFactories = mapObject({
   tspan: 'tspan'
 
 }, bee6);
-/* bandol: node_modules/fbjs/lib/warning.js */
-/* imports: - */
-/* default export: warning */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/warning.js */
+/**bandol> imports: - */
+/**bandol> default export: warning */
+/**bandol> exports: - */
 
 
 var warning = emptyFunction;
-/* bandol: node_modules/fbjs/lib/keyOf.js */
-/* imports: - */
-/* default export: keyOf */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/keyOf.js */
+/**bandol> imports: - */
+/**bandol> default export: keyOf */
+/**bandol> exports: - */
 
 
 var keyOf = function (oneKeyObj) {
@@ -746,10 +746,10 @@ var keyOf = function (oneKeyObj) {
   }
   return null;
 };
-/* bandol: node_modules/fbjs/lib/keyMirror.js */
-/* imports: - */
-/* default export: keyMirror */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/keyMirror.js */
+/**bandol> imports: - */
+/**bandol> default export: keyMirror */
+/**bandol> exports: - */
 
 var keyMirror = function (obj) {
   var ret = {};
@@ -763,17 +763,17 @@ var keyMirror = function (obj) {
   }
   return ret;
 };
-/* bandol: node_modules/fbjs/lib/emptyObject.js */
-/* imports: - */
-/* default export: emptyObject */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/emptyObject.js */
+/**bandol> imports: - */
+/**bandol> default export: emptyObject */
+/**bandol> exports: - */
 
 
 var emptyObject = {};
-/* bandol: node_modules/react/lib/ReactNoopUpdateQueue.js */
-/* imports: - */
-/* default export: ReactNoopUpdateQueue */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactNoopUpdateQueue.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactNoopUpdateQueue */
+/**bandol> exports: - */
 
 
 function b2p4(publicInstance, callerName) {}
@@ -806,10 +806,10 @@ var ReactNoopUpdateQueue = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactComponent.js */
-/* imports: - */
-/* default export: ReactComponent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactComponent.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactComponent */
+/**bandol> exports: - */
 
 function ReactComponent(props, context, updater) {
   this.props = props;
@@ -836,10 +836,10 @@ ReactComponent.prototype.forceUpdate = function (callback) {
     this.updater.enqueueCallback(this, callback);
   }
 };
-/* bandol: node_modules/react/lib/ReactClass.js */
-/* imports: - */
-/* default export: ReactClass */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactClass.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactClass */
+/**bandol> exports: - */
 
 
 var bG43 = keyOf({ mixins: null });
@@ -1147,10 +1147,10 @@ var ReactClass = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactRootIndex.js */
-/* imports: - */
-/* default export: ReactRootIndex */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactRootIndex.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactRootIndex */
+/**bandol> exports: - */
 
 
 var b4dK = {
@@ -1163,10 +1163,10 @@ var ReactRootIndex = {
   createReactRootIndex: null,
   injection: b4dK
 };
-/* bandol: node_modules/react/lib/ReactInstanceHandles.js */
-/* imports: - */
-/* default export: ReactInstanceHandles */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactInstanceHandles.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactInstanceHandles */
+/**bandol> exports: - */
 
 
 var bG4p = '.';
@@ -1305,10 +1305,10 @@ var ReactInstanceHandles = {
   SEPARATOR: bG4p
 
 };
-/* bandol: node_modules/react/lib/traverseAllChildren.js */
-/* imports: - */
-/* default export: traverseAllChildren */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/traverseAllChildren.js */
+/**bandol> imports: - */
+/**bandol> default export: traverseAllChildren */
+/**bandol> exports: - */
 
 
 var byP8 = ReactInstanceHandles.SEPARATOR;
@@ -1405,10 +1405,10 @@ function traverseAllChildren(children, callback, traverseContext) {
 
   return b4Rp(children, '', callback, traverseContext);
 }
-/* bandol: node_modules/react/lib/PooledClass.js */
-/* imports: - */
-/* default export: PooledClass */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/PooledClass.js */
+/**bandol> imports: - */
+/**bandol> default export: PooledClass */
+/**bandol> exports: - */
 
 var b7OL = function (copyFieldsFrom) {
   var Klass = this;
@@ -1496,10 +1496,10 @@ var PooledClass = {
   fourArgumentPooler: b1Pn,
   fiveArgumentPooler: bwr6
 };
-/* bandol: node_modules/react/lib/ReactChildren.js */
-/* imports: - */
-/* default export: ReactChildren */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactChildren.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactChildren */
+/**bandol> exports: - */
 
 
 var bzxb = PooledClass.twoArgumentPooler;
@@ -1611,10 +1611,10 @@ var ReactChildren = {
   count: bE5d,
   toArray: toArray
 };
-/* bandol: node_modules/react/lib/ReactIsomorphic.js */
-/* imports: - */
-/* default export: ReactIsomorphic */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactIsomorphic.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactIsomorphic */
+/**bandol> exports: - */
 
 
 var bpLE = ReactElement.createElement;
@@ -1650,10 +1650,10 @@ var ReactIsomorphic = {
 
   __spread: assign
 };
-/* bandol: node_modules/react/lib/ReactNativeComponent.js */
-/* imports: - */
-/* default export: ReactNativeComponent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactNativeComponent.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactNativeComponent */
+/**bandol> exports: - */
 
 
 var bbx3 = null;
@@ -1708,10 +1708,10 @@ var ReactNativeComponent = {
   isTextComponent: b3XV,
   injection: bM7k
 };
-/* bandol: node_modules/react/lib/ReactOwner.js */
-/* imports: - */
-/* default export: ReactOwner */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactOwner.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactOwner */
+/**bandol> exports: - */
 
 var ReactOwner = {
   isValidOwner: function (object) {
@@ -1732,10 +1732,10 @@ var ReactOwner = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactRef.js */
-/* imports: - */
-/* default export: ReactRef */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactRef.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactRef */
+/**bandol> exports: - */
 
 
 var ReactRef = {};
@@ -1783,10 +1783,10 @@ ReactRef.detachRefs = function (instance, element) {
     bGZp(ref, instance, element._owner);
   }
 };
-/* bandol: node_modules/react/lib/ReactReconciler.js */
-/* imports: - */
-/* default export: ReactReconciler */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactReconciler.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactReconciler */
+/**bandol> exports: - */
 
 function bKG2() {
   ReactRef.attachRefs(this, this._currentElement);
@@ -1831,10 +1831,10 @@ var ReactReconciler = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactEmptyComponentRegistry.js */
-/* imports: - */
-/* default export: ReactEmptyComponentRegistry */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactEmptyComponentRegistry.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactEmptyComponentRegistry */
+/**bandol> exports: - */
 
 var bPnO = {};
 
@@ -1855,10 +1855,10 @@ var ReactEmptyComponentRegistry = {
   registerNullComponentID: bXxp,
   deregisterNullComponentID: bR7P
 };
-/* bandol: node_modules/react/lib/ReactEmptyComponent.js */
-/* imports: - */
-/* default export: ReactEmptyComponent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactEmptyComponent.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactEmptyComponent */
+/**bandol> exports: - */
 
 
 var brL3;
@@ -1891,10 +1891,10 @@ assign(ReactEmptyComponent.prototype, {
 });
 
 ReactEmptyComponent.injection = bQ0m;
-/* bandol: node_modules/react/lib/shouldUpdateReactComponent.js */
-/* imports: - */
-/* default export: shouldUpdateReactComponent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/shouldUpdateReactComponent.js */
+/**bandol> imports: - */
+/**bandol> default export: shouldUpdateReactComponent */
+/**bandol> exports: - */
 
 function shouldUpdateReactComponent(prevElement, nextElement) {
   var prevEmpty = prevElement === null || prevElement === false;
@@ -1912,10 +1912,10 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
   }
   return false;
 }
-/* bandol: node_modules/react/lib/Transaction.js */
-/* imports: - */
-/* default export: Transaction */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/Transaction.js */
+/**bandol> imports: - */
+/**bandol> default export: Transaction */
+/**bandol> exports: - */
 
 var by68 = {
   reinitializeTransaction: function () {
@@ -2012,10 +2012,10 @@ var Transaction = {
   OBSERVED_ERROR: {}
 
 };
-/* bandol: node_modules/react/lib/ReactPerf.js */
-/* imports: - */
-/* default export: ReactPerf */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactPerf.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactPerf */
+/**bandol> exports: - */
 
 var ReactPerf = {
   enableMeasure: false,
@@ -2038,10 +2038,10 @@ var ReactPerf = {
 function bq93(objName, fnName, func) {
   return func;
 }
-/* bandol: node_modules/react/lib/CallbackQueue.js */
-/* imports: - */
-/* default export: CallbackQueue */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/CallbackQueue.js */
+/**bandol> imports: - */
+/**bandol> default export: CallbackQueue */
+/**bandol> exports: - */
 
 function CallbackQueue() {
   this._callbacks = null;
@@ -2083,10 +2083,10 @@ assign(CallbackQueue.prototype, {
 });
 
 PooledClass.addPoolingTo(CallbackQueue);
-/* bandol: node_modules/react/lib/ReactUpdates.js */
-/* imports: - */
-/* default export: ReactUpdates */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactUpdates.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactUpdates */
+/**bandol> exports: - */
 
 
 var bBAL = [];
@@ -2241,10 +2241,10 @@ var ReactUpdates = {
   injection: bJeN,
   asap: b50Y
 };
-/* bandol: node_modules/react/lib/ReactInstanceMap.js */
-/* imports: - */
-/* default export: ReactInstanceMap */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactInstanceMap.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactInstanceMap */
+/**bandol> exports: - */
 
 var ReactInstanceMap = {
   remove: function (key) {
@@ -2264,10 +2264,10 @@ var ReactInstanceMap = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactUpdateQueue.js */
-/* imports: - */
-/* default export: ReactUpdateQueue */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactUpdateQueue.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactUpdateQueue */
+/**bandol> exports: - */
 
 
 function b2ly(internalInstance) {
@@ -2403,10 +2403,10 @@ var ReactUpdateQueue = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactPropTypeLocations.js */
-/* imports: - */
-/* default export: ReactPropTypeLocations */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactPropTypeLocations.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactPropTypeLocations */
+/**bandol> exports: - */
 
 
 var ReactPropTypeLocations = keyMirror({
@@ -2414,10 +2414,10 @@ var ReactPropTypeLocations = keyMirror({
   context: null,
   childContext: null
 });
-/* bandol: node_modules/react/lib/ReactComponentEnvironment.js */
-/* imports: - */
-/* default export: ReactComponentEnvironment */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactComponentEnvironment.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactComponentEnvironment */
+/**bandol> exports: - */
 
 
 var bagV = false;
@@ -2440,10 +2440,10 @@ var ReactComponentEnvironment = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactCompositeComponent.js */
-/* imports: - */
-/* default export: ReactCompositeComponent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactCompositeComponent.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactCompositeComponent */
+/**bandol> exports: - */
 
 
 function bmLz(component) {
@@ -2828,10 +2828,10 @@ var ReactCompositeComponent = {
   Mixin: bvNp
 
 };
-/* bandol: node_modules/react/lib/instantiateReactComponent.js */
-/* imports: - */
-/* default export: instantiateReactComponent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/instantiateReactComponent.js */
+/**bandol> imports: - */
+/**bandol> default export: instantiateReactComponent */
+/**bandol> exports: - */
 
 var bAge = function () {};
 assign(bAge.prototype, ReactCompositeComponent.Mixin, {
@@ -2881,10 +2881,10 @@ function instantiateReactComponent(node) {
 
   return instance;
 }
-/* bandol: node_modules/react/lib/ReactServerRenderingTransaction.js */
-/* imports: - */
-/* default export: ReactServerRenderingTransaction */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactServerRenderingTransaction.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactServerRenderingTransaction */
+/**bandol> exports: - */
 
 var bM2k = {
   initialize: function () {
@@ -2921,20 +2921,20 @@ var bZRR = {
 assign(ReactServerRenderingTransaction.prototype, Transaction.Mixin, bZRR);
 
 PooledClass.addPoolingTo(ReactServerRenderingTransaction);
-/* bandol: node_modules/react/lib/ReactServerBatchingStrategy.js */
-/* imports: - */
-/* default export: ReactServerBatchingStrategy */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactServerBatchingStrategy.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactServerBatchingStrategy */
+/**bandol> exports: - */
 
 
 var ReactServerBatchingStrategy = {
   isBatchingUpdates: false,
   batchedUpdates: function (callback) {}
 };
-/* bandol: node_modules/react/lib/adler32.js */
-/* imports: - */
-/* default export: adler32 */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/adler32.js */
+/**bandol> imports: - */
+/**bandol> default export: adler32 */
+/**bandol> exports: - */
 
 
 var bgv3 = 65521;
@@ -2959,10 +2959,10 @@ function adler32(data) {
   b %= bgv3;
   return a | b << 16;
 }
-/* bandol: node_modules/react/lib/ReactMarkupChecksum.js */
-/* imports: - */
-/* default export: ReactMarkupChecksum */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactMarkupChecksum.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactMarkupChecksum */
+/**bandol> exports: - */
 
 
 var bVQv = /\/?>/;
@@ -2983,10 +2983,10 @@ var ReactMarkupChecksum = {
     return markupChecksum === existingChecksum;
   }
 };
-/* bandol: node_modules/react/lib/ReactDefaultBatchingStrategy.js */
-/* imports: - */
-/* default export: ReactDefaultBatchingStrategy */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDefaultBatchingStrategy.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDefaultBatchingStrategy */
+/**bandol> exports: - */
 
 
 var bKv2 = {
@@ -3030,10 +3030,10 @@ var ReactDefaultBatchingStrategy = {
     }
   }
 };
-/* bandol: node_modules/react/lib/ReactServerRendering.js */
-/* imports: - */
-/* default export: ReactServerRendering */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactServerRendering.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactServerRendering */
+/**bandol> exports: - */
 
 function bXOp(element) {
   !ReactElement.isValidElement(element) ? 'production' !== 'production' ? invariant(false, 'renderToString(): You must pass a valid ReactElement.') : invariant(false) : undefined;
@@ -3082,10 +3082,10 @@ var ReactServerRendering = {
   renderToString: bXOp,
   renderToStaticMarkup: bRpP
 };
-/* bandol: node_modules/react/lib/DOMProperty.js */
-/* imports: - */
-/* default export: DOMProperty */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/DOMProperty.js */
+/**bandol> imports: - */
+/**bandol> default export: DOMProperty */
+/**bandol> exports: - */
 
 
 function bQAm(value, bitmask) {
@@ -3196,10 +3196,10 @@ var DOMProperty = {
 
   injection: bPZO
 };
-/* bandol: node_modules/react/lib/SVGDOMPropertyConfig.js */
-/* imports: - */
-/* default export: SVGDOMPropertyConfig */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SVGDOMPropertyConfig.js */
+/**bandol> imports: - */
+/**bandol> default export: SVGDOMPropertyConfig */
+/**bandol> exports: - */
 
 
 var bVB8 = DOMProperty.injection.MUST_USE_ATTRIBUTE;
@@ -3312,10 +3312,10 @@ var SVGDOMPropertyConfig = {
     xmlSpace: 'xml:space'
   }
 };
-/* bandol: node_modules/react/lib/getEventCharCode.js */
-/* imports: - */
-/* default export: getEventCharCode */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/getEventCharCode.js */
+/**bandol> imports: - */
+/**bandol> default export: getEventCharCode */
+/**bandol> exports: - */
 
 function getEventCharCode(nativeEvent) {
   var charCode;
@@ -3337,10 +3337,10 @@ function getEventCharCode(nativeEvent) {
 
   return 0;
 }
-/* bandol: node_modules/react/lib/getEventModifierState.js */
-/* imports: - */
-/* default export: getEventModifierState */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/getEventModifierState.js */
+/**bandol> imports: - */
+/**bandol> default export: getEventModifierState */
+/**bandol> exports: - */
 
 
 var bbBz = {
@@ -3363,10 +3363,10 @@ function blrg(keyArg) {
 function getEventModifierState(nativeEvent) {
   return blrg;
 }
-/* bandol: node_modules/react/lib/ViewportMetrics.js */
-/* imports: - */
-/* default export: ViewportMetrics */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ViewportMetrics.js */
+/**bandol> imports: - */
+/**bandol> default export: ViewportMetrics */
+/**bandol> exports: - */
 
 
 var ViewportMetrics = {
@@ -3381,20 +3381,20 @@ var ViewportMetrics = {
   }
 
 };
-/* bandol: node_modules/react/lib/getEventTarget.js */
-/* imports: - */
-/* default export: getEventTarget */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/getEventTarget.js */
+/**bandol> imports: - */
+/**bandol> default export: getEventTarget */
+/**bandol> exports: - */
 
 function getEventTarget(nativeEvent) {
   var target = nativeEvent.target || nativeEvent.srcElement || window;
 
   return target.nodeType === 3 ? target.parentNode : target;
 }
-/* bandol: node_modules/react/lib/SyntheticEvent.js */
-/* imports: - */
-/* default export: SyntheticEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticEvent */
+/**bandol> exports: - */
 
 var bGey = {
   type: null,
@@ -3510,10 +3510,10 @@ SyntheticEvent.augmentClass = function (Class, Interface) {
 };
 
 PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
-/* bandol: node_modules/react/lib/SyntheticUIEvent.js */
-/* imports: - */
-/* default export: SyntheticUIEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticUIEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticUIEvent */
+/**bandol> exports: - */
 
 var b4y3 = {
   view: function (event) {
@@ -3544,10 +3544,10 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 }
 
 SyntheticEvent.augmentClass(SyntheticUIEvent, b4y3);
-/* bandol: node_modules/react/lib/SyntheticMouseEvent.js */
-/* imports: - */
-/* default export: SyntheticMouseEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticMouseEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticMouseEvent */
+/**bandol> exports: - */
 
 var bKvr = {
   screenX: null,
@@ -3585,10 +3585,10 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 }
 
 SyntheticUIEvent.augmentClass(SyntheticMouseEvent, bKvr);
-/* bandol: node_modules/react/lib/SyntheticWheelEvent.js */
-/* imports: - */
-/* default export: SyntheticWheelEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticWheelEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticWheelEvent */
+/**bandol> exports: - */
 
 var bRp9 = {
   deltaX: function (event) {
@@ -3607,10 +3607,10 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 }
 
 SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, bRp9);
-/* bandol: node_modules/react/lib/SyntheticTouchEvent.js */
-/* imports: - */
-/* default export: SyntheticTouchEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticTouchEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticTouchEvent */
+/**bandol> exports: - */
 
 var bXO3 = {
   touches: null,
@@ -3628,10 +3628,10 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 }
 
 SyntheticUIEvent.augmentClass(SyntheticTouchEvent, bXO3);
-/* bandol: node_modules/react/lib/SyntheticDragEvent.js */
-/* imports: - */
-/* default export: SyntheticDragEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticDragEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticDragEvent */
+/**bandol> exports: - */
 
 var bxMV = {
   dataTransfer: null
@@ -3642,10 +3642,10 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
 }
 
 SyntheticMouseEvent.augmentClass(SyntheticDragEvent, bxMV);
-/* bandol: node_modules/react/lib/getEventKey.js */
-/* imports: - */
-/* default export: getEventKey */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/getEventKey.js */
+/**bandol> imports: - */
+/**bandol> default export: getEventKey */
+/**bandol> exports: - */
 
 var bQAd = {
   'Esc': 'Escape',
@@ -3709,10 +3709,10 @@ function getEventKey(nativeEvent) {
   }
   return '';
 }
-/* bandol: node_modules/react/lib/SyntheticKeyboardEvent.js */
-/* imports: - */
-/* default export: SyntheticKeyboardEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticKeyboardEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticKeyboardEvent */
+/**bandol> exports: - */
 
 var brrx = {
   key: getEventKey,
@@ -3753,10 +3753,10 @@ function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nat
 }
 
 SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, brrx);
-/* bandol: node_modules/react/lib/SyntheticFocusEvent.js */
-/* imports: - */
-/* default export: SyntheticFocusEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticFocusEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticFocusEvent */
+/**bandol> exports: - */
 
 var by4Q = {
   relatedTarget: null
@@ -3767,10 +3767,10 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 }
 
 SyntheticUIEvent.augmentClass(SyntheticFocusEvent, by4Q);
-/* bandol: node_modules/react/lib/SyntheticClipboardEvent.js */
-/* imports: - */
-/* default export: SyntheticClipboardEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticClipboardEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticClipboardEvent */
+/**bandol> exports: - */
 
 var bqRO = {
   clipboardData: function (event) {
@@ -3783,10 +3783,10 @@ function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 }
 
 SyntheticEvent.augmentClass(SyntheticClipboardEvent, bqRO);
-/* bandol: node_modules/fbjs/lib/ExecutionEnvironment.js */
-/* imports: - */
-/* default export: ExecutionEnvironment */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/ExecutionEnvironment.js */
+/**bandol> imports: - */
+/**bandol> default export: ExecutionEnvironment */
+/**bandol> exports: - */
 
 
 var bJpQ = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
@@ -3802,10 +3802,10 @@ var ExecutionEnvironment = {
   canUseViewport: bJpQ && !!window.screen,
 
   isInWorker: !bJpQ };
-/* bandol: node_modules/react/lib/setInnerHTML.js */
-/* imports: - */
-/* default export: setInnerHTML */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/setInnerHTML.js */
+/**bandol> imports: - */
+/**bandol> default export: setInnerHTML */
+/**bandol> exports: - */
 
 
 var bwR2 = /^[ \r\n\t\f]/;
@@ -3847,27 +3847,27 @@ if (ExecutionEnvironment.canUseDOM) {
     };
   }
 }
-/* bandol: node_modules/fbjs/lib/isNode.js */
-/* imports: - */
-/* default export: isNode */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/isNode.js */
+/**bandol> imports: - */
+/**bandol> default export: isNode */
+/**bandol> exports: - */
 
 
 function isNode(object) {
   return !!(object && (typeof Node === 'function' ? object instanceof Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
 }
-/* bandol: node_modules/fbjs/lib/isTextNode.js */
-/* imports: - */
-/* default export: isTextNode */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/isTextNode.js */
+/**bandol> imports: - */
+/**bandol> default export: isTextNode */
+/**bandol> exports: - */
 
 function isTextNode(object) {
   return isNode(object) && object.nodeType == 3;
 }
-/* bandol: node_modules/fbjs/lib/containsNode.js */
-/* imports: - */
-/* default export: containsNode */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/containsNode.js */
+/**bandol> imports: - */
+/**bandol> default export: containsNode */
+/**bandol> exports: - */
 
 function containsNode(_x, _x2) {
   var _again = true;
@@ -3897,19 +3897,19 @@ function containsNode(_x, _x2) {
     }
   }
 }
-/* bandol: node_modules/react/lib/ReactDOMFeatureFlags.js */
-/* imports: - */
-/* default export: ReactDOMFeatureFlags */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMFeatureFlags.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMFeatureFlags */
+/**bandol> exports: - */
 
 
 var ReactDOMFeatureFlags = {
   useCreateElement: false
 };
-/* bandol: node_modules/react/lib/isEventSupported.js */
-/* imports: - */
-/* default export: isEventSupported */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/isEventSupported.js */
+/**bandol> imports: - */
+/**bandol> default export: isEventSupported */
+/**bandol> exports: - */
 
 
 var b1v8;
@@ -3951,10 +3951,10 @@ function isEventSupported(eventNameSuffix, capture) {
 
   return isSupported;
 }
-/* bandol: node_modules/react/lib/forEachAccumulated.js */
-/* imports: - */
-/* default export: forEachAccumulated */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/forEachAccumulated.js */
+/**bandol> imports: - */
+/**bandol> default export: forEachAccumulated */
+/**bandol> exports: - */
 
 var forEachAccumulated = function (arr, cb, scope) {
   if (Array.isArray(arr)) {
@@ -3963,10 +3963,10 @@ var forEachAccumulated = function (arr, cb, scope) {
     cb.call(scope, arr);
   }
 };
-/* bandol: node_modules/react/lib/accumulateInto.js */
-/* imports: - */
-/* default export: accumulateInto */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/accumulateInto.js */
+/**bandol> imports: - */
+/**bandol> default export: accumulateInto */
+/**bandol> exports: - */
 
 
 function accumulateInto(current, next) {
@@ -3994,10 +3994,10 @@ function accumulateInto(current, next) {
 
   return [current, next];
 }
-/* bandol: node_modules/react/lib/ReactErrorUtils.js */
-/* imports: - */
-/* default export: ReactErrorUtils */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactErrorUtils.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactErrorUtils */
+/**bandol> exports: - */
 
 
 var bL3O = null;
@@ -4026,10 +4026,10 @@ var ReactErrorUtils = {
     }
   }
 };
-/* bandol: node_modules/react/lib/EventConstants.js */
-/* imports: - */
-/* default export: EventConstants */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/EventConstants.js */
+/**bandol> imports: - */
+/**bandol> default export: EventConstants */
+/**bandol> exports: - */
 
 
 var bEO0 = keyMirror({ bubbled: null, captured: null });
@@ -4104,10 +4104,10 @@ var EventConstants = {
   topLevelTypes: b7Qd,
   PropagationPhases: bEO0
 };
-/* bandol: node_modules/react/lib/EventPluginUtils.js */
-/* imports: - */
-/* default export: EventPluginUtils */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/EventPluginUtils.js */
+/**bandol> imports: - */
+/**bandol> default export: EventPluginUtils */
+/**bandol> exports: - */
 
 var bvXV = {
   Mount: null,
@@ -4221,10 +4221,10 @@ var EventPluginUtils = {
 
   injection: bvXV
 };
-/* bandol: node_modules/react/lib/EventPluginRegistry.js */
-/* imports: - */
-/* default export: EventPluginRegistry */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/EventPluginRegistry.js */
+/**bandol> imports: - */
+/**bandol> default export: EventPluginRegistry */
+/**bandol> exports: - */
 
 var b3Ng = null;
 
@@ -4352,10 +4352,10 @@ var EventPluginRegistry = {
   }
 
 };
-/* bandol: node_modules/react/lib/EventPluginHub.js */
-/* imports: - */
-/* default export: EventPluginHub */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/EventPluginHub.js */
+/**bandol> imports: - */
+/**bandol> default export: EventPluginHub */
+/**bandol> exports: - */
 
 var bV38 = {};
 
@@ -4489,10 +4489,10 @@ var EventPluginHub = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactEventEmitterMixin.js */
-/* imports: - */
-/* default export: ReactEventEmitterMixin */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactEventEmitterMixin.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactEventEmitterMixin */
+/**bandol> exports: - */
 
 
 function blKg(events) {
@@ -4506,10 +4506,10 @@ var ReactEventEmitterMixin = {
     blKg(events);
   }
 };
-/* bandol: node_modules/react/lib/ReactBrowserEventEmitter.js */
-/* imports: - */
-/* default export: ReactBrowserEventEmitter */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactBrowserEventEmitter.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactBrowserEventEmitter */
+/**bandol> exports: - */
 
 
 var bXr3 = {};
@@ -4688,10 +4688,10 @@ ReactPerf.measureMethods(ReactBrowserEventEmitter, 'ReactBrowserEventEmitter', {
   putListener: 'putListener',
   deleteListener: 'deleteListener'
 });
-/* bandol: node_modules/react/lib/ReactMount.js */
-/* imports: - */
-/* default export: ReactMount */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactMount.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactMount */
+/**bandol> exports: - */
 
 
 var bnkv = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -5130,10 +5130,10 @@ ReactPerf.measureMethods(ReactMount, 'ReactMount', {
   _renderNewRootComponent: '_renderNewRootComponent',
   _mountImageIntoNode: '_mountImageIntoNode'
 });
-/* bandol: node_modules/react/lib/EventPropagators.js */
-/* imports: - */
-/* default export: EventPropagators */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/EventPropagators.js */
+/**bandol> imports: - */
+/**bandol> default export: EventPropagators */
+/**bandol> exports: - */
 
 
 var bGay = EventConstants.PropagationPhases;
@@ -5204,10 +5204,10 @@ var EventPropagators = {
   accumulateDirectDispatches: bm4x,
   accumulateEnterLeaveDispatches: bplm
 };
-/* bandol: node_modules/fbjs/lib/EventListener.js */
-/* imports: - */
-/* default export: EventListener */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/EventListener.js */
+/**bandol> imports: - */
+/**bandol> default export: EventListener */
+/**bandol> exports: - */
 
 var EventListener = {
   listen: function (target, eventType, callback) {
@@ -5245,10 +5245,10 @@ var EventListener = {
 
   registerDefault: function () {}
 };
-/* bandol: node_modules/react/lib/SimpleEventPlugin.js */
-/* imports: - */
-/* default export: SimpleEventPlugin */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SimpleEventPlugin.js */
+/**bandol> imports: - */
+/**bandol> default export: SimpleEventPlugin */
+/**bandol> exports: - */
 
 
 var bP75 = EventConstants.topLevelTypes;
@@ -5784,10 +5784,10 @@ var SimpleEventPlugin = {
   }
 
 };
-/* bandol: node_modules/react/lib/ServerReactRootIndex.js */
-/* imports: - */
-/* default export: ServerReactRootIndex */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ServerReactRootIndex.js */
+/**bandol> imports: - */
+/**bandol> default export: ServerReactRootIndex */
+/**bandol> exports: - */
 
 var bQRd = Math.pow(2, 53);
 
@@ -5796,10 +5796,10 @@ var ServerReactRootIndex = {
     return Math.ceil(Math.random() * bQRd);
   }
 };
-/* bandol: node_modules/fbjs/lib/shallowEqual.js */
-/* imports: - */
-/* default export: shallowEqual */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/shallowEqual.js */
+/**bandol> imports: - */
+/**bandol> default export: shallowEqual */
+/**bandol> exports: - */
 
 
 var brKx = Object.prototype.hasOwnProperty;
@@ -5829,10 +5829,10 @@ function shallowEqual(objA, objB) {
 
   return true;
 }
-/* bandol: node_modules/react/lib/isTextInputElement.js */
-/* imports: - */
-/* default export: isTextInputElement */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/isTextInputElement.js */
+/**bandol> imports: - */
+/**bandol> default export: isTextInputElement */
+/**bandol> exports: - */
 
 var bVqg = {
   'color': true,
@@ -5856,10 +5856,10 @@ function isTextInputElement(elem) {
   var nodeName = elem && elem.nodeName && elem.nodeName.toLowerCase();
   return nodeName && (nodeName === 'input' && bVqg[elem.type] || nodeName === 'textarea');
 }
-/* bandol: node_modules/fbjs/lib/getActiveElement.js */
-/* imports: - */
-/* default export: getActiveElement */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/getActiveElement.js */
+/**bandol> imports: - */
+/**bandol> default export: getActiveElement */
+/**bandol> exports: - */
 
 
 function getActiveElement() {
@@ -5872,20 +5872,20 @@ function getActiveElement() {
     return document.body;
   }
 }
-/* bandol: node_modules/fbjs/lib/focusNode.js */
-/* imports: - */
-/* default export: focusNode */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/focusNode.js */
+/**bandol> imports: - */
+/**bandol> default export: focusNode */
+/**bandol> exports: - */
 
 function focusNode(node) {
   try {
     node.focus();
   } catch (e) {}
 }
-/* bandol: node_modules/react/lib/getTextContentAccessor.js */
-/* imports: - */
-/* default export: getTextContentAccessor */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/getTextContentAccessor.js */
+/**bandol> imports: - */
+/**bandol> default export: getTextContentAccessor */
+/**bandol> exports: - */
 
 
 var bl2J = null;
@@ -5896,10 +5896,10 @@ function getTextContentAccessor() {
   }
   return bl2J;
 }
-/* bandol: node_modules/react/lib/getNodeForCharacterOffset.js */
-/* imports: - */
-/* default export: getNodeForCharacterOffset */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/getNodeForCharacterOffset.js */
+/**bandol> imports: - */
+/**bandol> default export: getNodeForCharacterOffset */
+/**bandol> exports: - */
 
 function bGa8(node) {
   while (node && node.firstChild) {
@@ -5939,10 +5939,10 @@ function getNodeForCharacterOffset(root, offset) {
     node = bGa8(bbJX(node));
   }
 }
-/* bandol: node_modules/react/lib/ReactDOMSelection.js */
-/* imports: - */
-/* default export: ReactDOMSelection */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMSelection.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMSelection */
+/**bandol> exports: - */
 
 function bP7V(anchorNode, anchorOffset, focusNode, focusOffset) {
   return anchorNode === focusNode && anchorOffset === focusOffset;
@@ -6074,10 +6074,10 @@ var ReactDOMSelection = {
 
   setOffsets: b4Lx ? bR0l : bK7N
 };
-/* bandol: node_modules/react/lib/ReactInputSelection.js */
-/* imports: - */
-/* default export: ReactInputSelection */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactInputSelection.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactInputSelection */
+/**bandol> exports: - */
 
 
 function bQRw(node) {
@@ -6156,10 +6156,10 @@ var ReactInputSelection = {
     }
   }
 };
-/* bandol: node_modules/react/lib/SelectEventPlugin.js */
-/* imports: - */
-/* default export: SelectEventPlugin */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SelectEventPlugin.js */
+/**bandol> imports: - */
+/**bandol> default export: SelectEventPlugin */
+/**bandol> exports: - */
 
 
 var b7ma = EventConstants.topLevelTypes;
@@ -6281,10 +6281,10 @@ var SelectEventPlugin = {
     }
   }
 };
-/* bandol: node_modules/react/lib/ReactReconcileTransaction.js */
-/* imports: - */
-/* default export: ReactReconcileTransaction */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactReconcileTransaction.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactReconcileTransaction */
+/**bandol> exports: - */
 
 var b853 = {
   initialize: ReactInputSelection.getSelectionInformation,
@@ -6342,10 +6342,10 @@ var bEZz = {
 assign(ReactReconcileTransaction.prototype, Transaction.Mixin, bEZz);
 
 PooledClass.addPoolingTo(ReactReconcileTransaction);
-/* bandol: node_modules/react/lib/ReactInjection.js */
-/* imports: - */
-/* default export: ReactInjection */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactInjection.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactInjection */
+/**bandol> exports: - */
 
 
 var ReactInjection = {
@@ -6360,10 +6360,10 @@ var ReactInjection = {
   RootIndex: ReactRootIndex.injection,
   Updates: ReactUpdates.injection
 };
-/* bandol: node_modules/fbjs/lib/getUnboundedScrollPosition.js */
-/* imports: - */
-/* default export: getUnboundedScrollPosition */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/getUnboundedScrollPosition.js */
+/**bandol> imports: - */
+/**bandol> default export: getUnboundedScrollPosition */
+/**bandol> exports: - */
 
 function getUnboundedScrollPosition(scrollable) {
   if (scrollable === window) {
@@ -6377,10 +6377,10 @@ function getUnboundedScrollPosition(scrollable) {
     y: scrollable.scrollTop
   };
 }
-/* bandol: node_modules/react/lib/ReactEventListener.js */
-/* imports: - */
-/* default export: ReactEventListener */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactEventListener.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactEventListener */
+/**bandol> exports: - */
 
 
 var bv3v = 11;
@@ -6518,10 +6518,10 @@ var ReactEventListener = {
     }
   }
 };
-/* bandol: node_modules/react/lib/escapeTextContentForBrowser.js */
-/* imports: - */
-/* default export: escapeTextContentForBrowser */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/escapeTextContentForBrowser.js */
+/**bandol> imports: - */
+/**bandol> default export: escapeTextContentForBrowser */
+/**bandol> exports: - */
 
 
 var bmP0 = {
@@ -6541,10 +6541,10 @@ function bzk5(match) {
 function escapeTextContentForBrowser(text) {
   return ('' + text).replace(bnGw, bzk5);
 }
-/* bandol: node_modules/react/lib/setTextContent.js */
-/* imports: - */
-/* default export: setTextContent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/setTextContent.js */
+/**bandol> imports: - */
+/**bandol> default export: setTextContent */
+/**bandol> exports: - */
 
 var setTextContent = function (node, text) {
   node.textContent = text;
@@ -6557,18 +6557,18 @@ if (ExecutionEnvironment.canUseDOM) {
     };
   }
 }
-/* bandol: node_modules/react/lib/quoteAttributeValueForBrowser.js */
-/* imports: - */
-/* default export: quoteAttributeValueForBrowser */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/quoteAttributeValueForBrowser.js */
+/**bandol> imports: - */
+/**bandol> default export: quoteAttributeValueForBrowser */
+/**bandol> exports: - */
 
 function quoteAttributeValueForBrowser(value) {
   return '"' + escapeTextContentForBrowser(value) + '"';
 }
-/* bandol: node_modules/react/lib/DOMPropertyOperations.js */
-/* imports: - */
-/* default export: DOMPropertyOperations */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/DOMPropertyOperations.js */
+/**bandol> imports: - */
+/**bandol> default export: DOMPropertyOperations */
+/**bandol> exports: - */
 
 var b6dE = /^[a-zA-Z_][\w\.\-]*$/;
 var bZzy = {};
@@ -6699,10 +6699,10 @@ ReactPerf.measureMethods(DOMPropertyOperations, 'DOMPropertyOperations', {
   setValueForAttribute: 'setValueForAttribute',
   deleteValueForProperty: 'deleteValueForProperty'
 });
-/* bandol: node_modules/react/lib/ReactMultiChildUpdateTypes.js */
-/* imports: - */
-/* default export: ReactMultiChildUpdateTypes */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactMultiChildUpdateTypes.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactMultiChildUpdateTypes */
+/**bandol> exports: - */
 
 var ReactMultiChildUpdateTypes = keyMirror({
   INSERT_MARKUP: null,
@@ -6711,10 +6711,10 @@ var ReactMultiChildUpdateTypes = keyMirror({
   SET_MARKUP: null,
   TEXT_CONTENT: null
 });
-/* bandol: node_modules/fbjs/lib/getMarkupWrap.js */
-/* imports: - */
-/* default export: getMarkupWrap */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/getMarkupWrap.js */
+/**bandol> imports: - */
+/**bandol> default export: getMarkupWrap */
+/**bandol> exports: - */
 
 var bKVN = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
 
@@ -6769,10 +6769,10 @@ function getMarkupWrap(nodeName) {
   }
   return b4gx[nodeName] ? bgk8[nodeName] : null;
 }
-/* bandol: node_modules/fbjs/lib/toArray.js */
-/* imports: - */
-/* default export: toArray */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/toArray.js */
+/**bandol> imports: - */
+/**bandol> default export: toArray */
+/**bandol> exports: - */
 
 function toArray(obj) {
   var length = obj.length;
@@ -6795,10 +6795,10 @@ function toArray(obj) {
   }
   return ret;
 }
-/* bandol: node_modules/fbjs/lib/createArrayFromMixed.js */
-/* imports: - */
-/* default export: createArrayFromMixed */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/createArrayFromMixed.js */
+/**bandol> imports: - */
+/**bandol> default export: createArrayFromMixed */
+/**bandol> exports: - */
 
 function bR3l(obj) {
   return !!obj && (typeof obj == 'object' || typeof obj == 'function') && 'length' in obj && !('setInterval' in obj) && typeof obj.nodeType != 'number' && (Array.isArray(obj) || 'callee' in obj || 'item' in obj);
@@ -6813,10 +6813,10 @@ function createArrayFromMixed(obj) {
     return toArray(obj);
   }
 }
-/* bandol: node_modules/fbjs/lib/createNodesFromMarkup.js */
-/* imports: - */
-/* default export: createNodesFromMarkup */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/createNodesFromMarkup.js */
+/**bandol> imports: - */
+/**bandol> default export: createNodesFromMarkup */
+/**bandol> exports: - */
 
 var bPBV = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
 
@@ -6856,10 +6856,10 @@ function createNodesFromMarkup(markup, handleScript) {
   }
   return nodes;
 }
-/* bandol: node_modules/react/lib/Danger.js */
-/* imports: - */
-/* default export: Danger */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/Danger.js */
+/**bandol> imports: - */
+/**bandol> default export: Danger */
+/**bandol> exports: - */
 
 
 var byMb = /^(<[^ \/>]+)/;
@@ -6939,10 +6939,10 @@ var Danger = {
   }
 
 };
-/* bandol: node_modules/react/lib/DOMChildrenOperations.js */
-/* imports: - */
-/* default export: DOMChildrenOperations */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/DOMChildrenOperations.js */
+/**bandol> imports: - */
+/**bandol> default export: DOMChildrenOperations */
+/**bandol> exports: - */
 
 function bqKJ(parentNode, childNode, index) {
   var beforeChild = index >= parentNode.childNodes.length ? null : parentNode.childNodes.item(index);
@@ -7021,10 +7021,10 @@ var DOMChildrenOperations = {
 ReactPerf.measureMethods(DOMChildrenOperations, 'DOMChildrenOperations', {
   updateTextContent: 'updateTextContent'
 });
-/* bandol: node_modules/react/lib/ReactDOMIDOperations.js */
-/* imports: - */
-/* default export: ReactDOMIDOperations */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMIDOperations.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMIDOperations */
+/**bandol> exports: - */
 
 var bJlz = {
   dangerouslySetInnerHTML: '`dangerouslySetInnerHTML` must be set using `updateInnerHTMLByID()`.',
@@ -7060,10 +7060,10 @@ ReactPerf.measureMethods(ReactDOMIDOperations, 'ReactDOMIDOperations', {
   dangerouslyReplaceNodeWithMarkupByID: 'dangerouslyReplaceNodeWithMarkupByID',
   dangerouslyProcessChildrenUpdates: 'dangerouslyProcessChildrenUpdates'
 });
-/* bandol: node_modules/react/lib/ReactComponentBrowserEnvironment.js */
-/* imports: - */
-/* default export: ReactComponentBrowserEnvironment */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactComponentBrowserEnvironment.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactComponentBrowserEnvironment */
+/**bandol> exports: - */
 
 var ReactComponentBrowserEnvironment = {
 
@@ -7076,10 +7076,10 @@ var ReactComponentBrowserEnvironment = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactDOMTextComponent.js */
-/* imports: - */
-/* default export: ReactDOMTextComponent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMTextComponent.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMTextComponent */
+/**bandol> exports: - */
 
 var ReactDOMTextComponent = function (props) {};
 
@@ -7131,24 +7131,24 @@ assign(ReactDOMTextComponent.prototype, {
   }
 
 });
-/* bandol: node_modules/react/lib/validateDOMNesting.js */
-/* imports: - */
-/* default export: validateDOMNesting */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/validateDOMNesting.js */
+/**bandol> imports: - */
+/**bandol> default export: validateDOMNesting */
+/**bandol> exports: - */
 
 
 var validateDOMNesting = emptyFunction;
-/* bandol: node_modules/react/lib/canDefineProperty.js */
-/* imports: - */
-/* default export: canDefineProperty */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/canDefineProperty.js */
+/**bandol> imports: - */
+/**bandol> default export: canDefineProperty */
+/**bandol> exports: - */
 
 
 var canDefineProperty = false;
-/* bandol: node_modules/react/lib/flattenChildren.js */
-/* imports: - */
-/* default export: flattenChildren */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/flattenChildren.js */
+/**bandol> imports: - */
+/**bandol> default export: flattenChildren */
+/**bandol> exports: - */
 
 function b5NK(traverseContext, child, name) {
   var result = traverseContext;
@@ -7167,10 +7167,10 @@ function flattenChildren(children) {
   traverseAllChildren(children, b5NK, result);
   return result;
 }
-/* bandol: node_modules/react/lib/ReactChildReconciler.js */
-/* imports: - */
-/* default export: ReactChildReconciler */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactChildReconciler.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactChildReconciler */
+/**bandol> exports: - */
 
 
 function bkr9(childInstances, child, name) {
@@ -7234,10 +7234,10 @@ var ReactChildReconciler = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactMultiChild.js */
-/* imports: - */
-/* default export: ReactMultiChild */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactMultiChild.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactMultiChild */
+/**bandol> exports: - */
 
 var b8a3 = 0;
 
@@ -7503,10 +7503,10 @@ var ReactMultiChild = {
   }
 
 };
-/* bandol: node_modules/react/lib/LinkedValueUtils.js */
-/* imports: - */
-/* default export: LinkedValueUtils */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/LinkedValueUtils.js */
+/**bandol> imports: - */
+/**bandol> default export: LinkedValueUtils */
+/**bandol> exports: - */
 
 
 var bvVv = {
@@ -7602,10 +7602,10 @@ var LinkedValueUtils = {
     }
   }
 };
-/* bandol: node_modules/react/lib/ReactDOMTextarea.js */
-/* imports: - */
-/* default export: ReactDOMTextarea */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMTextarea.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMTextarea */
+/**bandol> exports: - */
 
 
 function bnxw() {
@@ -7668,10 +7668,10 @@ function bzG5(event) {
   ReactUpdates.asap(bnxw, this);
   return returnValue;
 }
-/* bandol: node_modules/react/lib/ReactDOMSelect.js */
-/* imports: - */
-/* default export: ReactDOMSelect */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMSelect.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMSelect */
+/**bandol> exports: - */
 
 
 var b6NE = '__ReactDOMSelect_value$' + Math.random().toString(36).slice(2);
@@ -7787,10 +7787,10 @@ function bm60(event) {
   ReactUpdates.asap(bZpy, this);
   return returnValue;
 }
-/* bandol: node_modules/react/lib/ReactDOMOption.js */
-/* imports: - */
-/* default export: ReactDOMOption */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMOption.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMOption */
+/**bandol> exports: - */
 
 
 var bMQd = ReactDOMSelect.valueContextKey;
@@ -7845,10 +7845,10 @@ var ReactDOMOption = {
   }
 
 };
-/* bandol: node_modules/react/lib/ReactDOMInput.js */
-/* imports: - */
-/* default export: ReactDOMInput */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMInput.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMInput */
+/**bandol> exports: - */
 
 
 var blvJ = {};
@@ -7943,10 +7943,10 @@ function bg58(event) {
 
   return returnValue;
 }
-/* bandol: node_modules/react/lib/ReactDOMButton.js */
-/* imports: - */
-/* default export: ReactDOMButton */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMButton.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMButton */
+/**bandol> exports: - */
 
 
 var bblX = {
@@ -7979,10 +7979,10 @@ var ReactDOMButton = {
     return nativeProps;
   }
 };
-/* bandol: node_modules/fbjs/lib/memoizeStringOnly.js */
-/* imports: - */
-/* default export: memoizeStringOnly */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/memoizeStringOnly.js */
+/**bandol> imports: - */
+/**bandol> default export: memoizeStringOnly */
+/**bandol> exports: - */
 
 function memoizeStringOnly(callback) {
   var cache = {};
@@ -7993,10 +7993,10 @@ function memoizeStringOnly(callback) {
     return cache[string];
   };
 }
-/* bandol: node_modules/fbjs/lib/hyphenate.js */
-/* imports: - */
-/* default export: hyphenate */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/hyphenate.js */
+/**bandol> imports: - */
+/**bandol> default export: hyphenate */
+/**bandol> exports: - */
 
 
 var bGX8 = /([A-Z])/g;
@@ -8004,10 +8004,10 @@ var bGX8 = /([A-Z])/g;
 function hyphenate(string) {
   return string.replace(bGX8, '-$1').toLowerCase();
 }
-/* bandol: node_modules/fbjs/lib/hyphenateStyleName.js */
-/* imports: - */
-/* default export: hyphenateStyleName */
-/* exports: - */
+/**bandol> resource: node_modules/fbjs/lib/hyphenateStyleName.js */
+/**bandol> imports: - */
+/**bandol> default export: hyphenateStyleName */
+/**bandol> exports: - */
 
 
 var b4Ax = /^ms-/;
@@ -8015,10 +8015,10 @@ var b4Ax = /^ms-/;
 function hyphenateStyleName(string) {
   return hyphenate(string).replace(b4Ax, '-ms-');
 }
-/* bandol: node_modules/react/lib/CSSProperty.js */
-/* imports: - */
-/* default export: CSSProperty */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/CSSProperty.js */
+/**bandol> imports: - */
+/**bandol> default export: CSSProperty */
+/**bandol> exports: - */
 
 var bxKA = {
   animationIterationCount: true,
@@ -8119,10 +8119,10 @@ var CSSProperty = {
   isUnitlessNumber: bxKA,
   shorthandPropertyExpansions: bKkN
 };
-/* bandol: node_modules/react/lib/dangerousStyleValue.js */
-/* imports: - */
-/* default export: dangerousStyleValue */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/dangerousStyleValue.js */
+/**bandol> imports: - */
+/**bandol> default export: dangerousStyleValue */
+/**bandol> exports: - */
 
 
 var bPqV = CSSProperty.isUnitlessNumber;
@@ -8144,10 +8144,10 @@ function dangerousStyleValue(name, value) {
   }
   return value + 'px';
 }
-/* bandol: node_modules/react/lib/CSSPropertyOperations.js */
-/* imports: - */
-/* default export: CSSPropertyOperations */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/CSSPropertyOperations.js */
+/**bandol> imports: - */
+/**bandol> default export: CSSPropertyOperations */
+/**bandol> exports: - */
 
 
 var blvM = memoizeStringOnly(function (styleName) {
@@ -8217,10 +8217,10 @@ var CSSPropertyOperations = {
 ReactPerf.measureMethods(CSSPropertyOperations, 'CSSPropertyOperations', {
   setValueForStyles: 'setValueForStyles'
 });
-/* bandol: node_modules/react/lib/findDOMNode.js */
-/* imports: - */
-/* default export: findDOMNode */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/findDOMNode.js */
+/**bandol> imports: - */
+/**bandol> default export: findDOMNode */
+/**bandol> exports: - */
 
 function findDOMNode(componentOrElement) {
   if (componentOrElement == null) {
@@ -8235,10 +8235,10 @@ function findDOMNode(componentOrElement) {
   !(componentOrElement.render == null || typeof componentOrElement.render !== 'function') ? 'production' !== 'production' ? invariant(false, 'findDOMNode was called on an unmounted component.') : invariant(false) : undefined;
   !false ? 'production' !== 'production' ? invariant(false, 'Element appears to be neither ReactComponent nor DOMNode (keys: %s)', Object.keys(componentOrElement)) : invariant(false) : undefined;
 }
-/* bandol: node_modules/react/lib/AutoFocusUtils.js */
-/* imports: - */
-/* default export: AutoFocusUtils */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/AutoFocusUtils.js */
+/**bandol> imports: - */
+/**bandol> default export: AutoFocusUtils */
+/**bandol> exports: - */
 
 
 var bble = {
@@ -8256,10 +8256,10 @@ var AutoFocusUtils = {
     focusNode(ReactMount.getNode(this._rootNodeID));
   }
 };
-/* bandol: node_modules/react/lib/ReactDOMComponent.js */
-/* imports: - */
-/* default export: ReactDOMComponent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMComponent.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMComponent */
+/**bandol> exports: - */
 
 
 var ba6d = ReactBrowserEventEmitter.deleteListener;
@@ -8905,10 +8905,10 @@ ReactPerf.measureMethods(ReactDOMComponent, 'ReactDOMComponent', {
 });
 
 assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);
-/* bandol: node_modules/react/lib/ReactBrowserComponentMixin.js */
-/* imports: - */
-/* default export: ReactBrowserComponentMixin */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactBrowserComponentMixin.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactBrowserComponentMixin */
+/**bandol> exports: - */
 
 
 var bva9 = '_getDOMNodeDidWarn';
@@ -8920,10 +8920,10 @@ var ReactBrowserComponentMixin = {
     return findDOMNode(this);
   }
 };
-/* bandol: node_modules/react/lib/HTMLDOMPropertyConfig.js */
-/* imports: - */
-/* default export: HTMLDOMPropertyConfig */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/HTMLDOMPropertyConfig.js */
+/**bandol> imports: - */
+/**bandol> default export: HTMLDOMPropertyConfig */
+/**bandol> exports: - */
 
 
 var bMla = DOMProperty.injection.MUST_USE_ATTRIBUTE;
@@ -9116,10 +9116,10 @@ var HTMLDOMPropertyConfig = {
     srcSet: 'srcset'
   }
 };
-/* bandol: node_modules/react/lib/EnterLeaveEventPlugin.js */
-/* imports: - */
-/* default export: EnterLeaveEventPlugin */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/EnterLeaveEventPlugin.js */
+/**bandol> imports: - */
+/**bandol> default export: EnterLeaveEventPlugin */
+/**bandol> exports: - */
 
 
 var bb3e = EventConstants.topLevelTypes;
@@ -9205,16 +9205,16 @@ var EnterLeaveEventPlugin = {
   }
 
 };
-/* bandol: node_modules/react/lib/DefaultEventPluginOrder.js */
-/* imports: - */
-/* default export: DefaultEventPluginOrder */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/DefaultEventPluginOrder.js */
+/**bandol> imports: - */
+/**bandol> default export: DefaultEventPluginOrder */
+/**bandol> exports: - */
 
 var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ SimpleEventPlugin: null }), keyOf({ TapEventPlugin: null }), keyOf({ EnterLeaveEventPlugin: null }), keyOf({ ChangeEventPlugin: null }), keyOf({ SelectEventPlugin: null }), keyOf({ BeforeInputEventPlugin: null })];
-/* bandol: node_modules/react/lib/ClientReactRootIndex.js */
-/* imports: - */
-/* default export: ClientReactRootIndex */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ClientReactRootIndex.js */
+/**bandol> imports: - */
+/**bandol> default export: ClientReactRootIndex */
+/**bandol> exports: - */
 
 
 var bGKZ = 0;
@@ -9224,10 +9224,10 @@ var ClientReactRootIndex = {
     return bGKZ++;
   }
 };
-/* bandol: node_modules/react/lib/ChangeEventPlugin.js */
-/* imports: - */
-/* default export: ChangeEventPlugin */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ChangeEventPlugin.js */
+/**bandol> imports: - */
+/**bandol> default export: ChangeEventPlugin */
+/**bandol> exports: - */
 
 
 var bOG = EventConstants.topLevelTypes;
@@ -9424,10 +9424,10 @@ var ChangeEventPlugin = {
   }
 
 };
-/* bandol: node_modules/react/lib/SyntheticInputEvent.js */
-/* imports: - */
-/* default export: SyntheticInputEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticInputEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticInputEvent */
+/**bandol> exports: - */
 
 var bY4 = {
   data: null
@@ -9438,10 +9438,10 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 }
 
 SyntheticEvent.augmentClass(SyntheticInputEvent, bY4);
-/* bandol: node_modules/react/lib/SyntheticCompositionEvent.js */
-/* imports: - */
-/* default export: SyntheticCompositionEvent */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/SyntheticCompositionEvent.js */
+/**bandol> imports: - */
+/**bandol> default export: SyntheticCompositionEvent */
+/**bandol> exports: - */
 
 var bBE = {
   data: null
@@ -9452,10 +9452,10 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
 }
 
 SyntheticEvent.augmentClass(SyntheticCompositionEvent, bBE);
-/* bandol: node_modules/react/lib/FallbackCompositionState.js */
-/* imports: - */
-/* default export: FallbackCompositionState */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/FallbackCompositionState.js */
+/**bandol> imports: - */
+/**bandol> default export: FallbackCompositionState */
+/**bandol> exports: - */
 
 function FallbackCompositionState(root) {
   this._root = root;
@@ -9509,10 +9509,10 @@ assign(FallbackCompositionState.prototype, {
 });
 
 PooledClass.addPoolingTo(FallbackCompositionState);
-/* bandol: node_modules/react/lib/BeforeInputEventPlugin.js */
-/* imports: - */
-/* default export: BeforeInputEventPlugin */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/BeforeInputEventPlugin.js */
+/**bandol> imports: - */
+/**bandol> default export: BeforeInputEventPlugin */
+/**bandol> exports: - */
 
 
 var bXz = [9, 13, 27, 32];
@@ -9740,10 +9740,10 @@ var BeforeInputEventPlugin = {
     return [bv9(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget), bel(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget)];
   }
 };
-/* bandol: node_modules/react/lib/ReactDefaultInjection.js */
-/* imports: - */
-/* default export: ReactDefaultInjection */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDefaultInjection.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDefaultInjection */
+/**bandol> exports: - */
 
 
 var bPq = false;
@@ -9790,10 +9790,10 @@ function bxq() {
 var ReactDefaultInjection = {
   inject: bxq
 };
-/* bandol: node_modules/react/lib/ReactDOMServer.js */
-/* imports: - */
-/* default export: ReactDOMServer */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOMServer.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOMServer */
+/**bandol> exports: - */
 
 
 ReactDefaultInjection.inject();
@@ -9803,15 +9803,15 @@ var ReactDOMServer = {
   renderToStaticMarkup: ReactServerRendering.renderToStaticMarkup,
   version: ReactVersion
 };
-/* bandol: node_modules/react/lib/renderSubtreeIntoContainer.js */
-/* imports: - */
-/* default export: renderSubtreeIntoContainer */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/renderSubtreeIntoContainer.js */
+/**bandol> imports: - */
+/**bandol> default export: renderSubtreeIntoContainer */
+/**bandol> exports: - */
 var renderSubtreeIntoContainer = ReactMount.renderSubtreeIntoContainer;
-/* bandol: node_modules/react/lib/ReactDOM.js */
-/* imports: - */
-/* default export: ReactDOM */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/ReactDOM.js */
+/**bandol> imports: - */
+/**bandol> default export: ReactDOM */
+/**bandol> exports: - */
 
 
 ReactDefaultInjection.inject();
@@ -9827,10 +9827,10 @@ var ReactDOM = {
   unstable_batchedUpdates: ReactUpdates.batchedUpdates,
   unstable_renderSubtreeIntoContainer: renderSubtreeIntoContainer
 };
-/* bandol: node_modules/react/lib/React.js */
-/* imports: - */
-/* default export: React */
-/* exports: - */
+/**bandol> resource: node_modules/react/lib/React.js */
+/**bandol> imports: - */
+/**bandol> default export: React */
+/**bandol> exports: - */
 
 var React = {};
 
@@ -9847,10 +9847,10 @@ assign(React, {
 
 React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOM;
 React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;
-/* bandol: actual.js */
-/* imports: - */
-/* default export: - */
-/* exports: - */
+/**bandol> resource: actual.js */
+/**bandol> imports: - */
+/**bandol> default export: - */
+/**bandol> exports: - */
 
 
 ReactDOM.render(React.createElement('h1', null, 'Hello Bandol'), document.getElementById('content'));
