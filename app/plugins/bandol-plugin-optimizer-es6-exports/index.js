@@ -45,7 +45,9 @@ export default class Plugin extends BasePlugin {
               const parentType = nodePath.parentPath.node.type;
               // VariableDeclarator
               if (parentType === 'VariableDeclarator') {
-                this.log(`VariableDeclarator: ${nodePath.parentPath.node.init.type}`);
+                // this.log(`VariableDeclarator: ${nodePath.parentPath.node.init.type}`);
+                // this.log(`Resource: ${this.bundle.getShortName(resource.id)}`);
+                // this.logAst(nodePath.parentPath.node);
               }
               // MemberExpression
               // CallExpression

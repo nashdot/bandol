@@ -1,3 +1,4 @@
+(function () {
 function square(x) {
   return x * x;
 }
@@ -9,3 +10,4 @@ function cube(x) {
 const bQr = cube(4);
 
 console.log(`${ bQr }`);
+}());

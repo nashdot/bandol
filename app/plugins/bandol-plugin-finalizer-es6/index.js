@@ -1,4 +1,3 @@
-import * as fs from 'fs';
 import generate from 'babel-generator';
 
 import BasePlugin from '../../BasePlugin';
@@ -16,10 +15,7 @@ export default class Plugin extends BasePlugin {
     this.init();
   }
 
-  finalizeResource(id) {
-    const currentPath = process.cwd();
-    const outputPath = `${currentPath}/out/${id}.js`;
-
+  finalize() {
     for (let i = 0; i < this.bundle.sortedResources.length; i++) {
       const resource = this.bundle.sortedResources[i];
       if (resource.type === this.resourceType) {
@@ -29,16 +25,16 @@ export default class Plugin extends BasePlugin {
           this.log(err.stack);
         }
 
-        fs.appendFileSync(outputPath, `/* bandol: ${this.bundle.getShortPath(resource.id)} */\n`);
-        fs.appendFileSync(outputPath, `/* dependencies:\n${JSON.stringify(resource.dependencies, null, ' ')}\n*/\n`);
-        fs.appendFileSync(outputPath, `/* imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`);
-        fs.appendFileSync(outputPath, `/* default export: ${this.bundle.defaultExportsById.get(resource.id)} */\n`);
-        fs.appendFileSync(outputPath, `/* exports:\n${JSON.stringify(this.bundle.namedExportsById.get(resource.id), null, ' ')}\n*/\n`);
-        fs.appendFileSync(outputPath, `${resource.props.code}\n`);
-        fs.appendFileSync(outputPath, `/* bandol: ------ */\n\n`);
+        if (opts.debug) {
+          this.bundle.code += `/* bandol: ${this.bundle.getShortPath(resource.id)} */\n`;
+          this.bundle.code += `/* dependencies:\n${JSON.stringify(resource.dependencies, null, ' ')}\n*/\n`;
+          this.bundle.code += `/* imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`;
+          this.bundle.code += `/* default export: ${this.bundle.defaultExportsById.get(resource.id)} */\n`;
+          this.bundle.code += `/* exports:\n${JSON.stringify(this.bundle.namedExportsById.get(resource.id), null, ' ')}\n*/\n`;
+        }
+
+        this.bundle.code += `${resource.props.code}\n`;
       }
     }
-
-    return outputPath;
   }
 }

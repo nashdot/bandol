@@ -1,3 +1,4 @@
+(function () {
 var tests = {
   square: function (n) {
     return n * n;
@@ -11,3 +12,4 @@ var tests = {
 const bQr = tests.square(4);
 
 console.log(`${ bQr }`);
+}());

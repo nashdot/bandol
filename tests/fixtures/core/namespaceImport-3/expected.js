@@ -1,3 +1,4 @@
+(function () {
 class Test {
   square(n) {
     return n * n;
@@ -12,3 +13,4 @@ const bQr = new Test();
 const bPq = bQr.square(4);
 
 console.log(`${ bPq }`);
+}());

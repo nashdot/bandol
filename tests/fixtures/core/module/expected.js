@@ -1,10 +1,33 @@
+(function () {
+/* bandol: node_modules\react\lib\deprecated.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: deprecated */
+/* exports:
+undefined
+*/
 
 function deprecated(fnName, newModule, newPackage, ctx, fn) {
   var warned = false;
 
 
   return fn;
-}
+}/* bandol: node_modules\react\lib\Object.assign.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: assign */
+/* exports:
+undefined
+*/
+
 
 function assign(target, sources) {
   if (target == null) {
@@ -30,7 +53,18 @@ function assign(target, sources) {
   }
 
   return to;
-}
+}/* bandol: node_modules\fbjs\lib\invariant.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: invariant */
+/* exports:
+undefined
+*/
+
 
 function invariant(condition, format, a, b, c, d, e, f) {
 
@@ -50,11 +84,36 @@ function invariant(condition, format, a, b, c, d, e, f) {
     error.framesToPop = 1;
     throw error;
   }
-}
+}/* bandol: node_modules\react\lib\ReactCurrentOwner.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactCurrentOwner */
+/* exports:
+undefined
+*/
+
 var ReactCurrentOwner = {
   current: null
 
-};
+};/* bandol: node_modules\react\lib\ReactElement.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactCurrentOwner.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactElement */
+/* exports:
+undefined
+*/
+
 var bQ6L = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
 
 var bPAZ = {
@@ -190,11 +249,47 @@ ReactElement.cloneElement = function (element, config, children) {
 
 ReactElement.isValidElement = function (object) {
   return typeof object === 'object' && object !== null && object.$$typeof === bQ6L;
-};
+};/* bandol: node_modules\react\lib\onlyChild.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: onlyChild */
+/* exports:
+undefined
+*/
+
 function onlyChild(children) {
   !ReactElement.isValidElement(children) ? 'production' !== 'production' ? invariant(false, 'onlyChild must be passed a children with exactly one child.') : invariant(false) : undefined;
   return children;
-}var ReactVersion = '0.14.7';
+}/* bandol: node_modules\react\lib\ReactVersion.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactVersion */
+/* exports:
+undefined
+*/
+var ReactVersion = '0.14.7';/* bandol: node_modules\react\lib\getIteratorFn.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: getIteratorFn */
+/* exports:
+undefined
+*/
+
 var byaM = typeof Symbol === 'function' && Symbol.iterator;
 var brEK = '@@iterator';
 function getIteratorFn(maybeIterable) {
@@ -202,7 +297,18 @@ function getIteratorFn(maybeIterable) {
   if (typeof iteratorFn === 'function') {
     return iteratorFn;
   }
-}
+}/* bandol: node_modules\fbjs\lib\emptyFunction.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: emptyFunction */
+/* exports:
+undefined
+*/
+
 
 function bqJy(arg) {
   return function () {
@@ -221,9 +327,36 @@ emptyFunction.thatReturnsThis = function () {
 };
 emptyFunction.thatReturnsArgument = function (arg) {
   return arg;
-};
+};/* bandol: node_modules\react\lib\ReactPropTypeLocationNames.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactPropTypeLocationNames */
+/* exports:
+undefined
+*/
 
-var ReactPropTypeLocationNames = {};
+
+var ReactPropTypeLocationNames = {};/* bandol: node_modules\react\lib\ReactPropTypes.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getIteratorFn.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyFunction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactPropTypes */
+/* exports:
+undefined
+*/
+
 
 var bY7a = '<<anonymous>>';
 
@@ -502,7 +635,18 @@ function bJB2(propValue) {
     return '<<anonymous>>';
   }
   return propValue.constructor.name;
-}
+}/* bandol: node_modules\fbjs\lib\mapObject.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: mapObject */
+/* exports:
+undefined
+*/
+
 
 var bBPz = Object.prototype.hasOwnProperty;
 
@@ -517,7 +661,21 @@ function mapObject(object, callback, context) {
     }
   }
   return result;
-}
+}/* bandol: node_modules\react\lib\ReactDOMFactories.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\mapObject.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMFactories */
+/* exports:
+undefined
+*/
+
 function bee6(tag) {
   return ReactElement.createFactory(tag);
 }
@@ -657,9 +815,33 @@ var ReactDOMFactories = mapObject({
   text: 'text',
   tspan: 'tspan'
 
-}, bee6);
+}, bee6);/* bandol: node_modules\fbjs\lib\warning.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyFunction.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: warning */
+/* exports:
+undefined
+*/
 
-var warning = emptyFunction;
+
+var warning = emptyFunction;/* bandol: node_modules\fbjs\lib\keyOf.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: keyOf */
+/* exports:
+undefined
+*/
+
 
 var keyOf = function (oneKeyObj) {
   var key;
@@ -670,7 +852,20 @@ var keyOf = function (oneKeyObj) {
     return key;
   }
   return null;
-};
+};/* bandol: node_modules\fbjs\lib\keyMirror.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: keyMirror */
+/* exports:
+undefined
+*/
+
 var keyMirror = function (obj) {
   var ret = {};
   var key;
@@ -682,9 +877,31 @@ var keyMirror = function (obj) {
     ret[key] = key;
   }
   return ret;
-};
+};/* bandol: node_modules\fbjs\lib\emptyObject.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: emptyObject */
+/* exports:
+undefined
+*/
 
-var emptyObject = {};
+
+var emptyObject = {};/* bandol: node_modules\react\lib\ReactNoopUpdateQueue.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactNoopUpdateQueue */
+/* exports:
+undefined
+*/
+
 
 function b2p4(publicInstance, callerName) {}
 
@@ -715,7 +932,22 @@ var ReactNoopUpdateQueue = {
     b2p4(publicInstance, 'replaceProps');
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactComponent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyObject.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactComponent */
+/* exports:
+undefined
+*/
+
 function ReactComponent(props, context, updater) {
   this.props = props;
   this.context = context;
@@ -740,7 +972,29 @@ ReactComponent.prototype.forceUpdate = function (callback) {
   if (callback) {
     this.updater.enqueueCallback(this, callback);
   }
-};
+};/* bandol: node_modules\react\lib\ReactClass.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\warning.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyOf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyMirror.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyObject.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactComponent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactClass */
+/* exports:
+undefined
+*/
+
 
 var bG43 = keyOf({ mixins: null });
 
@@ -1046,7 +1300,18 @@ var ReactClass = {
     }
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactRootIndex.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactRootIndex */
+/* exports:
+undefined
+*/
+
 
 var b4dK = {
   injectCreateReactRootIndex: function (_createReactRootIndex) {
@@ -1057,7 +1322,21 @@ var b4dK = {
 var ReactRootIndex = {
   createReactRootIndex: null,
   injection: b4dK
-};
+};/* bandol: node_modules\react\lib\ReactInstanceHandles.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactRootIndex.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactInstanceHandles */
+/* exports:
+undefined
+*/
+
 
 var bG4p = '.';
 var bbe3 = bG4p.length;
@@ -1194,7 +1473,23 @@ var ReactInstanceHandles = {
 
   SEPARATOR: bG4p
 
-};
+};/* bandol: node_modules\react\lib\traverseAllChildren.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getIteratorFn.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInstanceHandles.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: traverseAllChildren */
+/* exports:
+undefined
+*/
+
 
 var byP8 = ReactInstanceHandles.SEPARATOR;
 var brq3 = ':';
@@ -1289,7 +1584,20 @@ function traverseAllChildren(children, callback, traverseContext) {
   }
 
   return b4Rp(children, '', callback, traverseContext);
-}
+}/* bandol: node_modules\react\lib\PooledClass.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: PooledClass */
+/* exports:
+undefined
+*/
+
 var b7OL = function (copyFieldsFrom) {
   var Klass = this;
   if (Klass.instancePool.length) {
@@ -1375,7 +1683,23 @@ var PooledClass = {
   threeArgumentPooler: b0QR,
   fourArgumentPooler: b1Pn,
   fiveArgumentPooler: bwr6
-};
+};/* bandol: node_modules\react\lib\ReactChildren.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\traverseAllChildren.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyFunction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\PooledClass.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactChildren */
+/* exports:
+undefined
+*/
+
 
 var bzxb = PooledClass.twoArgumentPooler;
 var bv6p = PooledClass.fourArgumentPooler;
@@ -1485,7 +1809,28 @@ var ReactChildren = {
   mapIntoWithKeyPrefixInternal: bN2E,
   count: bE5d,
   toArray: toArray
-};
+};/* bandol: node_modules\react\lib\ReactIsomorphic.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\onlyChild.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactVersion.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPropTypes.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMFactories.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactClass.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactChildren.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactIsomorphic */
+/* exports:
+undefined
+*/
+
 
 var bpLE = ReactElement.createElement;
 var bmKz = ReactElement.createFactory;
@@ -1519,7 +1864,21 @@ var ReactIsomorphic = {
   version: ReactVersion,
 
   __spread: assign
-};
+};/* bandol: node_modules\react\lib\ReactNativeComponent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactNativeComponent */
+/* exports:
+undefined
+*/
+
 
 var bbx3 = null;
 var blRv = null;
@@ -1572,7 +1931,20 @@ var ReactNativeComponent = {
   createInstanceForText: bAee,
   isTextComponent: b3XV,
   injection: bM7k
-};
+};/* bandol: node_modules\react\lib\ReactOwner.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactOwner */
+/* exports:
+undefined
+*/
+
 var ReactOwner = {
   isValidOwner: function (object) {
     return !!(object && typeof object.attachRef === 'function' && typeof object.detachRef === 'function');
@@ -1591,7 +1963,20 @@ var ReactOwner = {
     }
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactRef.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactOwner.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactRef */
+/* exports:
+undefined
+*/
+
 
 var ReactRef = {};
 
@@ -1637,7 +2022,20 @@ ReactRef.detachRefs = function (instance, element) {
   if (ref != null) {
     bGZp(ref, instance, element._owner);
   }
-};
+};/* bandol: node_modules\react\lib\ReactReconciler.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactRef.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactReconciler */
+/* exports:
+undefined
+*/
+
 function bKG2() {
   ReactRef.attachRefs(this, this._currentElement);
 }
@@ -1680,7 +2078,18 @@ var ReactReconciler = {
     internalInstance.performUpdateIfNecessary(transaction);
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactEmptyComponentRegistry.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactEmptyComponentRegistry */
+/* exports:
+undefined
+*/
+
 var bPnO = {};
 
 function bxEx(id) {
@@ -1699,7 +2108,23 @@ var ReactEmptyComponentRegistry = {
   isNullComponentID: bxEx,
   registerNullComponentID: bXxp,
   deregisterNullComponentID: bR7P
-};
+};/* bandol: node_modules\react\lib\ReactEmptyComponent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactReconciler.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactEmptyComponentRegistry.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactEmptyComponent */
+/* exports:
+undefined
+*/
+
 
 var brL3;
 
@@ -1730,7 +2155,18 @@ assign(ReactEmptyComponent.prototype, {
   }
 });
 
-ReactEmptyComponent.injection = bQ0m;
+ReactEmptyComponent.injection = bQ0m;/* bandol: node_modules\react\lib\shouldUpdateReactComponent.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: shouldUpdateReactComponent */
+/* exports:
+undefined
+*/
+
 function shouldUpdateReactComponent(prevElement, nextElement) {
   var prevEmpty = prevElement === null || prevElement === false;
   var nextEmpty = nextElement === null || nextElement === false;
@@ -1746,7 +2182,20 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
     return nextType === 'object' && prevElement.type === nextElement.type && prevElement.key === nextElement.key;
   }
   return false;
-}
+}/* bandol: node_modules\react\lib\Transaction.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: Transaction */
+/* exports:
+undefined
+*/
+
 var by68 = {
   reinitializeTransaction: function () {
     this.transactionWrappers = this.getTransactionWrappers();
@@ -1841,7 +2290,18 @@ var Transaction = {
 
   OBSERVED_ERROR: {}
 
-};
+};/* bandol: node_modules\react\lib\ReactPerf.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactPerf */
+/* exports:
+undefined
+*/
+
 var ReactPerf = {
   enableMeasure: false,
 
@@ -1862,7 +2322,22 @@ var ReactPerf = {
 
 function bq93(objName, fnName, func) {
   return func;
-}
+}/* bandol: node_modules\react\lib\CallbackQueue.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\PooledClass.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: CallbackQueue */
+/* exports:
+undefined
+*/
+
 function CallbackQueue() {
   this._callbacks = null;
   this._contexts = null;
@@ -1902,7 +2377,26 @@ assign(CallbackQueue.prototype, {
 
 });
 
-PooledClass.addPoolingTo(CallbackQueue);
+PooledClass.addPoolingTo(CallbackQueue);/* bandol: node_modules\react\lib\ReactUpdates.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Transaction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactReconciler.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\PooledClass.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\CallbackQueue.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactUpdates */
+/* exports:
+undefined
+*/
+
 
 var bBAL = [];
 var bYX2 = CallbackQueue.getPooled();
@@ -2055,7 +2549,18 @@ var ReactUpdates = {
   flushBatchedUpdates: bw36,
   injection: bJeN,
   asap: b50Y
-};
+};/* bandol: node_modules\react\lib\ReactInstanceMap.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactInstanceMap */
+/* exports:
+undefined
+*/
+
 var ReactInstanceMap = {
   remove: function (key) {
     key._reactInternalInstance = undefined;
@@ -2073,7 +2578,24 @@ var ReactInstanceMap = {
     key._reactInternalInstance = value;
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactUpdateQueue.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInstanceMap.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactUpdateQueue */
+/* exports:
+undefined
+*/
+
 
 function b2ly(internalInstance) {
   ReactUpdates.enqueueUpdate(internalInstance);
@@ -2207,13 +2729,39 @@ var ReactUpdateQueue = {
     b2ly(internalInstance);
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactPropTypeLocations.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyMirror.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactPropTypeLocations */
+/* exports:
+undefined
+*/
+
 
 var ReactPropTypeLocations = keyMirror({
   prop: null,
   context: null,
   childContext: null
-});
+});/* bandol: node_modules\react\lib\ReactComponentEnvironment.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactComponentEnvironment */
+/* exports:
+undefined
+*/
+
 
 var bagV = false;
 
@@ -2234,7 +2782,33 @@ var ReactComponentEnvironment = {
     }
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactCompositeComponent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\warning.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\shouldUpdateReactComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyObject.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdateQueue.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactReconciler.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPropTypeLocations.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInstanceMap.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactCurrentOwner.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactComponentEnvironment.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactCompositeComponent */
+/* exports:
+undefined
+*/
+
 
 function bmLz(component) {
   var owner = component._currentElement._owner || null;
@@ -2619,7 +3193,24 @@ var ReactCompositeComponent = {
 
   Mixin: bvNp
 
-};
+};/* bandol: node_modules\react\lib\instantiateReactComponent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactNativeComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactEmptyComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactCompositeComponent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: instantiateReactComponent */
+/* exports:
+undefined
+*/
+
 var bAge = function () {};
 assign(bAge.prototype, ReactCompositeComponent.Mixin, {
   _instantiateReactComponent: instantiateReactComponent
@@ -2667,7 +3258,24 @@ function instantiateReactComponent(node) {
   instance._mountImage = null;
 
   return instance;
-}
+}/* bandol: node_modules\react\lib\ReactServerRenderingTransaction.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyFunction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Transaction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\CallbackQueue.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\PooledClass.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactServerRenderingTransaction */
+/* exports:
+undefined
+*/
+
 var bM2k = {
   initialize: function () {
     this.reactMountReady.reset();
@@ -2702,12 +3310,34 @@ var bZRR = {
 
 assign(ReactServerRenderingTransaction.prototype, Transaction.Mixin, bZRR);
 
-PooledClass.addPoolingTo(ReactServerRenderingTransaction);
+PooledClass.addPoolingTo(ReactServerRenderingTransaction);/* bandol: node_modules\react\lib\ReactServerBatchingStrategy.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactServerBatchingStrategy */
+/* exports:
+undefined
+*/
+
 
 var ReactServerBatchingStrategy = {
   isBatchingUpdates: false,
   batchedUpdates: function (callback) {}
-};
+};/* bandol: node_modules\react\lib\adler32.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: adler32 */
+/* exports:
+undefined
+*/
+
 
 var bgv3 = 65521;
 
@@ -2730,7 +3360,20 @@ function adler32(data) {
   a %= bgv3;
   b %= bgv3;
   return a | b << 16;
-}
+}/* bandol: node_modules\react\lib\ReactMarkupChecksum.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\adler32.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactMarkupChecksum */
+/* exports:
+undefined
+*/
+
 
 var bVQv = /\/?>/;
 
@@ -2749,7 +3392,23 @@ var ReactMarkupChecksum = {
     var markupChecksum = adler32(markup);
     return markupChecksum === existingChecksum;
   }
-};
+};/* bandol: node_modules\react\lib\ReactDefaultBatchingStrategy.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyFunction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Transaction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDefaultBatchingStrategy */
+/* exports:
+undefined
+*/
+
 
 var bKv2 = {
   initialize: emptyFunction,
@@ -2791,7 +3450,29 @@ var ReactDefaultBatchingStrategy = {
       blev.perform(callback, null, a, b, c, d, e);
     }
   }
-};
+};/* bandol: node_modules\react\lib\ReactServerRendering.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\instantiateReactComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyObject.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactServerRenderingTransaction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactServerBatchingStrategy.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMarkupChecksum.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInstanceHandles.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDefaultBatchingStrategy.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactServerRendering */
+/* exports:
+undefined
+*/
+
 function bXOp(element) {
   !ReactElement.isValidElement(element) ? 'production' !== 'production' ? invariant(false, 'renderToString(): You must pass a valid ReactElement.') : invariant(false) : undefined;
 
@@ -2838,7 +3519,20 @@ function bRpP(element) {
 var ReactServerRendering = {
   renderToString: bXOp,
   renderToStaticMarkup: bRpP
-};
+};/* bandol: node_modules\react\lib\DOMProperty.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: DOMProperty */
+/* exports:
+undefined
+*/
+
 
 function bQAm(value, bitmask) {
   return (value & bitmask) === bitmask;
@@ -2947,7 +3641,20 @@ var DOMProperty = {
   },
 
   injection: bPZO
-};
+};/* bandol: node_modules\react\lib\SVGDOMPropertyConfig.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMProperty.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SVGDOMPropertyConfig */
+/* exports:
+undefined
+*/
+
 
 var bVB8 = DOMProperty.injection.MUST_USE_ATTRIBUTE;
 
@@ -3058,7 +3765,18 @@ var SVGDOMPropertyConfig = {
     xmlLang: 'xml:lang',
     xmlSpace: 'xml:space'
   }
-};
+};/* bandol: node_modules\react\lib\getEventCharCode.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: getEventCharCode */
+/* exports:
+undefined
+*/
+
 function getEventCharCode(nativeEvent) {
   var charCode;
   var keyCode = nativeEvent.keyCode;
@@ -3078,7 +3796,18 @@ function getEventCharCode(nativeEvent) {
   }
 
   return 0;
-}
+}/* bandol: node_modules\react\lib\getEventModifierState.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: getEventModifierState */
+/* exports:
+undefined
+*/
+
 
 var bbBz = {
   'Alt': 'altKey',
@@ -3099,7 +3828,18 @@ function blrg(keyArg) {
 
 function getEventModifierState(nativeEvent) {
   return blrg;
-}
+}/* bandol: node_modules\react\lib\ViewportMetrics.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ViewportMetrics */
+/* exports:
+undefined
+*/
+
 
 var ViewportMetrics = {
 
@@ -3112,12 +3852,38 @@ var ViewportMetrics = {
     ViewportMetrics.currentScrollTop = scrollPosition.y;
   }
 
-};
+};/* bandol: node_modules\react\lib\getEventTarget.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: getEventTarget */
+/* exports:
+undefined
+*/
+
 function getEventTarget(nativeEvent) {
   var target = nativeEvent.target || nativeEvent.srcElement || window;
 
   return target.nodeType === 3 ? target.parentNode : target;
-}
+}/* bandol: node_modules\react\lib\SyntheticEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyFunction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\PooledClass.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticEvent */
+/* exports:
+undefined
+*/
+
 var bGey = {
   type: null,
   target: null,
@@ -3231,7 +3997,21 @@ SyntheticEvent.augmentClass = function (Class, Interface) {
   PooledClass.addPoolingTo(Class, PooledClass.fourArgumentPooler);
 };
 
-PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
+PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);/* bandol: node_modules\react\lib\SyntheticUIEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getEventTarget.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticEvent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticUIEvent */
+/* exports:
+undefined
+*/
+
 var b4y3 = {
   view: function (event) {
     if (event.view) {
@@ -3260,7 +4040,22 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticUIEvent, b4y3);
+SyntheticEvent.augmentClass(SyntheticUIEvent, b4y3);/* bandol: node_modules\react\lib\SyntheticMouseEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getEventModifierState.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ViewportMetrics.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticUIEvent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticMouseEvent */
+/* exports:
+undefined
+*/
+
 var bKvr = {
   screenX: null,
   screenY: null,
@@ -3296,7 +4091,20 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticMouseEvent, bKvr);
+SyntheticUIEvent.augmentClass(SyntheticMouseEvent, bKvr);/* bandol: node_modules\react\lib\SyntheticWheelEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticMouseEvent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticWheelEvent */
+/* exports:
+undefined
+*/
+
 var bRp9 = {
   deltaX: function (event) {
     return 'deltaX' in event ? event.deltaX : 'wheelDeltaX' in event ? -event.wheelDeltaX : 0;
@@ -3313,7 +4121,21 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, bRp9);
+SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, bRp9);/* bandol: node_modules\react\lib\SyntheticTouchEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getEventModifierState.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticUIEvent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticTouchEvent */
+/* exports:
+undefined
+*/
+
 var bXO3 = {
   touches: null,
   targetTouches: null,
@@ -3329,7 +4151,20 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticTouchEvent, bXO3);
+SyntheticUIEvent.augmentClass(SyntheticTouchEvent, bXO3);/* bandol: node_modules\react\lib\SyntheticDragEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticMouseEvent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticDragEvent */
+/* exports:
+undefined
+*/
+
 var bxMV = {
   dataTransfer: null
 };
@@ -3338,7 +4173,20 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
   SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticMouseEvent.augmentClass(SyntheticDragEvent, bxMV);
+SyntheticMouseEvent.augmentClass(SyntheticDragEvent, bxMV);/* bandol: node_modules\react\lib\getEventKey.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getEventCharCode.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: getEventKey */
+/* exports:
+undefined
+*/
+
 var bQAd = {
   'Esc': 'Escape',
   'Spacebar': ' ',
@@ -3400,7 +4248,23 @@ function getEventKey(nativeEvent) {
     return bPZ5[nativeEvent.keyCode] || 'Unidentified';
   }
   return '';
-}
+}/* bandol: node_modules\react\lib\SyntheticKeyboardEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getEventModifierState.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getEventKey.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getEventCharCode.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticUIEvent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticKeyboardEvent */
+/* exports:
+undefined
+*/
+
 var brrx = {
   key: getEventKey,
   location: null,
@@ -3439,7 +4303,20 @@ function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nat
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, brrx);
+SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, brrx);/* bandol: node_modules\react\lib\SyntheticFocusEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticUIEvent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticFocusEvent */
+/* exports:
+undefined
+*/
+
 var by4Q = {
   relatedTarget: null
 };
@@ -3448,7 +4325,20 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticFocusEvent, by4Q);
+SyntheticUIEvent.augmentClass(SyntheticFocusEvent, by4Q);/* bandol: node_modules\react\lib\SyntheticClipboardEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticEvent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticClipboardEvent */
+/* exports:
+undefined
+*/
+
 var bqRO = {
   clipboardData: function (event) {
     return 'clipboardData' in event ? event.clipboardData : window.clipboardData;
@@ -3459,7 +4349,18 @@ function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, na
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticClipboardEvent, bqRO);
+SyntheticEvent.augmentClass(SyntheticClipboardEvent, bqRO);/* bandol: node_modules\fbjs\lib\ExecutionEnvironment.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ExecutionEnvironment */
+/* exports:
+undefined
+*/
+
 
 var bJpQ = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
@@ -3473,7 +4374,20 @@ var ExecutionEnvironment = {
 
   canUseViewport: bJpQ && !!window.screen,
 
-  isInWorker: !bJpQ };
+  isInWorker: !bJpQ };/* bandol: node_modules\react\lib\setInnerHTML.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: setInnerHTML */
+/* exports:
+undefined
+*/
+
 
 var bwR2 = /^[ \r\n\t\f]/;
 var bkRQ = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
@@ -3513,14 +4427,51 @@ if (ExecutionEnvironment.canUseDOM) {
       }
     };
   }
-}
+}/* bandol: node_modules\fbjs\lib\isNode.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: isNode */
+/* exports:
+undefined
+*/
+
 
 function isNode(object) {
   return !!(object && (typeof Node === 'function' ? object instanceof Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
-}
+}/* bandol: node_modules\fbjs\lib\isTextNode.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\isNode.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: isTextNode */
+/* exports:
+undefined
+*/
+
 function isTextNode(object) {
   return isNode(object) && object.nodeType == 3;
-}
+}/* bandol: node_modules\fbjs\lib\containsNode.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\isTextNode.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: containsNode */
+/* exports:
+undefined
+*/
+
 function containsNode(_x, _x2) {
   var _again = true;
 
@@ -3548,11 +4499,35 @@ function containsNode(_x, _x2) {
       return false;
     }
   }
-}
+}/* bandol: node_modules\react\lib\ReactDOMFeatureFlags.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMFeatureFlags */
+/* exports:
+undefined
+*/
+
 
 var ReactDOMFeatureFlags = {
   useCreateElement: false
-};
+};/* bandol: node_modules\react\lib\isEventSupported.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: isEventSupported */
+/* exports:
+undefined
+*/
+
 
 var b1v8;
 if (ExecutionEnvironment.canUseDOM) {
@@ -3592,14 +4567,38 @@ function isEventSupported(eventNameSuffix, capture) {
   }
 
   return isSupported;
-}
+}/* bandol: node_modules\react\lib\forEachAccumulated.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: forEachAccumulated */
+/* exports:
+undefined
+*/
+
 var forEachAccumulated = function (arr, cb, scope) {
   if (Array.isArray(arr)) {
     arr.forEach(cb, scope);
   } else if (arr) {
     cb.call(scope, arr);
   }
-};
+};/* bandol: node_modules\react\lib\accumulateInto.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: accumulateInto */
+/* exports:
+undefined
+*/
+
 
 function accumulateInto(current, next) {
   !(next != null) ? 'production' !== 'production' ? invariant(false, 'accumulateInto(...): Accumulated items must not be null or undefined.') : invariant(false) : undefined;
@@ -3625,7 +4624,18 @@ function accumulateInto(current, next) {
   }
 
   return [current, next];
-}
+}/* bandol: node_modules\react\lib\ReactErrorUtils.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactErrorUtils */
+/* exports:
+undefined
+*/
+
 
 var bL3O = null;
 
@@ -3652,7 +4662,20 @@ var ReactErrorUtils = {
       throw error;
     }
   }
-};
+};/* bandol: node_modules\react\lib\EventConstants.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyMirror.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: EventConstants */
+/* exports:
+undefined
+*/
+
 
 var bEO0 = keyMirror({ bubbled: null, captured: null });
 
@@ -3725,7 +4748,22 @@ var b7Qd = keyMirror({
 var EventConstants = {
   topLevelTypes: b7Qd,
   PropagationPhases: bEO0
-};
+};/* bandol: node_modules\react\lib\EventPluginUtils.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactErrorUtils.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventConstants.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: EventPluginUtils */
+/* exports:
+undefined
+*/
+
 var bvXV = {
   Mount: null,
   injectMount: function (InjectedMount) {
@@ -3837,7 +4875,20 @@ var EventPluginUtils = {
   },
 
   injection: bvXV
-};
+};/* bandol: node_modules\react\lib\EventPluginRegistry.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: EventPluginRegistry */
+/* exports:
+undefined
+*/
+
 var b3Ng = null;
 
 var bpNm = {};
@@ -3963,7 +5014,26 @@ var EventPluginRegistry = {
     }
   }
 
-};
+};/* bandol: node_modules\react\lib\EventPluginHub.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\warning.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\forEachAccumulated.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\accumulateInto.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactErrorUtils.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPluginUtils.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPluginRegistry.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: EventPluginHub */
+/* exports:
+undefined
+*/
+
 var bV38 = {};
 
 var bgGK = null;
@@ -4095,7 +5165,20 @@ var EventPluginHub = {
     return bV38;
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactEventEmitterMixin.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPluginHub.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactEventEmitterMixin */
+/* exports:
+undefined
+*/
+
 
 function blKg(events) {
   EventPluginHub.enqueueEvents(events);
@@ -4107,7 +5190,27 @@ var ReactEventEmitterMixin = {
     var events = EventPluginHub.extractEvents(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget);
     blKg(events);
   }
-};
+};/* bandol: node_modules\react\lib\ReactBrowserEventEmitter.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\isEventSupported.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ViewportMetrics.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactEventEmitterMixin.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPluginRegistry.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPluginHub.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventConstants.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactBrowserEventEmitter */
+/* exports:
+undefined
+*/
+
 
 var bXr3 = {};
 var bRK9 = false;
@@ -4284,7 +5387,40 @@ var ReactBrowserEventEmitter = assign({}, ReactEventEmitterMixin, {
 ReactPerf.measureMethods(ReactBrowserEventEmitter, 'ReactBrowserEventEmitter', {
   putListener: 'putListener',
   deleteListener: 'deleteListener'
-});
+});/* bandol: node_modules\react\lib\ReactMount.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\warning.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\shouldUpdateReactComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\setInnerHTML.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\instantiateReactComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\containsNode.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyObject.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdateQueue.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactReconciler.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMarkupChecksum.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInstanceMap.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInstanceHandles.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactEmptyComponentRegistry.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactElement.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMFeatureFlags.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactCurrentOwner.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMProperty.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactMount */
+/* exports:
+undefined
+*/
+
 
 var bnkv = DOMProperty.ID_ATTRIBUTE_NAME;
 var bzYE = {};
@@ -4721,7 +5857,23 @@ var ReactMount = {
 ReactPerf.measureMethods(ReactMount, 'ReactMount', {
   _renderNewRootComponent: '_renderNewRootComponent',
   _mountImageIntoNode: '_mountImageIntoNode'
-});
+});/* bandol: node_modules\react\lib\EventPropagators.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\forEachAccumulated.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\accumulateInto.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPluginHub.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventConstants.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: EventPropagators */
+/* exports:
+undefined
+*/
+
 
 var bGay = EventConstants.PropagationPhases;
 var bbJz = EventPluginHub.getListener;
@@ -4790,7 +5942,20 @@ var EventPropagators = {
   accumulateTwoPhaseDispatchesSkipTarget: b3Lg,
   accumulateDirectDispatches: bm4x,
   accumulateEnterLeaveDispatches: bplm
-};
+};/* bandol: node_modules\fbjs\lib\EventListener.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyFunction.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: EventListener */
+/* exports:
+undefined
+*/
+
 var EventListener = {
   listen: function (target, eventType, callback) {
     if (target.addEventListener) {
@@ -4826,7 +5991,36 @@ var EventListener = {
   },
 
   registerDefault: function () {}
-};
+};/* bandol: node_modules\react\lib\SimpleEventPlugin.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyOf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getEventCharCode.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyFunction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticWheelEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticUIEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticTouchEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticDragEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticMouseEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticKeyboardEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticFocusEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticClipboardEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPropagators.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\EventListener.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventConstants.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SimpleEventPlugin */
+/* exports:
+undefined
+*/
+
 
 var bP75 = EventConstants.topLevelTypes;
 
@@ -5360,14 +6554,36 @@ var SimpleEventPlugin = {
     }
   }
 
-};
+};/* bandol: node_modules\react\lib\ServerReactRootIndex.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ServerReactRootIndex */
+/* exports:
+undefined
+*/
+
 var bQRd = Math.pow(2, 53);
 
 var ServerReactRootIndex = {
   createReactRootIndex: function () {
     return Math.ceil(Math.random() * bQRd);
   }
-};
+};/* bandol: node_modules\fbjs\lib\shallowEqual.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: shallowEqual */
+/* exports:
+undefined
+*/
+
 
 var brKx = Object.prototype.hasOwnProperty;
 
@@ -5395,7 +6611,18 @@ function shallowEqual(objA, objB) {
   }
 
   return true;
-}
+}/* bandol: node_modules\react\lib\isTextInputElement.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: isTextInputElement */
+/* exports:
+undefined
+*/
+
 var bVqg = {
   'color': true,
   'date': true,
@@ -5417,7 +6644,18 @@ var bVqg = {
 function isTextInputElement(elem) {
   var nodeName = elem && elem.nodeName && elem.nodeName.toLowerCase();
   return nodeName && (nodeName === 'input' && bVqg[elem.type] || nodeName === 'textarea');
-}
+}/* bandol: node_modules\fbjs\lib\getActiveElement.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: getActiveElement */
+/* exports:
+undefined
+*/
+
 
 function getActiveElement() {
   if (typeof document === 'undefined') {
@@ -5428,12 +6666,36 @@ function getActiveElement() {
   } catch (e) {
     return document.body;
   }
-}
+}/* bandol: node_modules\fbjs\lib\focusNode.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: focusNode */
+/* exports:
+undefined
+*/
+
 function focusNode(node) {
   try {
     node.focus();
   } catch (e) {}
-}
+}/* bandol: node_modules\react\lib\getTextContentAccessor.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: getTextContentAccessor */
+/* exports:
+undefined
+*/
+
 
 var bl2J = null;
 
@@ -5442,7 +6704,18 @@ function getTextContentAccessor() {
     bl2J = 'textContent' in document.documentElement ? 'textContent' : 'innerText';
   }
   return bl2J;
-}
+}/* bandol: node_modules\react\lib\getNodeForCharacterOffset.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: getNodeForCharacterOffset */
+/* exports:
+undefined
+*/
+
 function bGa8(node) {
   while (node && node.firstChild) {
     node = node.firstChild;
@@ -5480,7 +6753,22 @@ function getNodeForCharacterOffset(root, offset) {
 
     node = bGa8(bbJX(node));
   }
-}
+}/* bandol: node_modules\react\lib\ReactDOMSelection.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getTextContentAccessor.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getNodeForCharacterOffset.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMSelection */
+/* exports:
+undefined
+*/
+
 function bP7V(anchorNode, anchorOffset, focusNode, focusOffset) {
   return anchorNode === focusNode && anchorOffset === focusOffset;
 }
@@ -5610,7 +6898,23 @@ var ReactDOMSelection = {
   getOffsets: b4Lx ? bxvA : bXzy,
 
   setOffsets: b4Lx ? bR0l : bK7N
-};
+};/* bandol: node_modules\react\lib\ReactInputSelection.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\getActiveElement.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\focusNode.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\containsNode.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMSelection.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactInputSelection */
+/* exports:
+undefined
+*/
+
 
 function bQRw(node) {
   return containsNode(document.documentElement, node);
@@ -5687,7 +6991,28 @@ var ReactInputSelection = {
       ReactDOMSelection.setOffsets(input, offsets);
     }
   }
-};
+};/* bandol: node_modules\react\lib\SelectEventPlugin.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\shallowEqual.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyOf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\isTextInputElement.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\getActiveElement.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInputSelection.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPropagators.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventConstants.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SelectEventPlugin */
+/* exports:
+undefined
+*/
+
 
 var b7ma = EventConstants.topLevelTypes;
 
@@ -5807,7 +7132,26 @@ var SelectEventPlugin = {
       bJ0z = true;
     }
   }
-};
+};/* bandol: node_modules\react\lib\ReactReconcileTransaction.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Transaction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInputSelection.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMFeatureFlags.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\PooledClass.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\CallbackQueue.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactReconcileTransaction */
+/* exports:
+undefined
+*/
+
 var b853 = {
   initialize: ReactInputSelection.getSelectionInformation,
 
@@ -5863,7 +7207,29 @@ var bEZz = {
 
 assign(ReactReconcileTransaction.prototype, Transaction.Mixin, bEZz);
 
-PooledClass.addPoolingTo(ReactReconcileTransaction);
+PooledClass.addPoolingTo(ReactReconcileTransaction);/* bandol: node_modules\react\lib\ReactInjection.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactRootIndex.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactNativeComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactEmptyComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactClass.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactComponentEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPluginHub.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMProperty.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactInjection */
+/* exports:
+undefined
+*/
+
 
 var ReactInjection = {
   Component: ReactComponentEnvironment.injection,
@@ -5876,7 +7242,18 @@ var ReactInjection = {
   Perf: ReactPerf.injection,
   RootIndex: ReactRootIndex.injection,
   Updates: ReactUpdates.injection
-};
+};/* bandol: node_modules\fbjs\lib\getUnboundedScrollPosition.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: getUnboundedScrollPosition */
+/* exports:
+undefined
+*/
+
 function getUnboundedScrollPosition(scrollable) {
   if (scrollable === window) {
     return {
@@ -5888,7 +7265,28 @@ function getUnboundedScrollPosition(scrollable) {
     x: scrollable.scrollLeft,
     y: scrollable.scrollTop
   };
-}
+}/* bandol: node_modules\react\lib\ReactEventListener.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\getUnboundedScrollPosition.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getEventTarget.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInstanceHandles.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\PooledClass.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\EventListener.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactEventListener */
+/* exports:
+undefined
+*/
+
 
 var bv3v = 11;
 
@@ -6024,7 +7422,18 @@ var ReactEventListener = {
       b2A1.release(bookKeeping);
     }
   }
-};
+};/* bandol: node_modules\react\lib\escapeTextContentForBrowser.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: escapeTextContentForBrowser */
+/* exports:
+undefined
+*/
+
 
 var bmP0 = {
   '&': '&amp;',
@@ -6042,7 +7451,22 @@ function bzk5(match) {
 
 function escapeTextContentForBrowser(text) {
   return ('' + text).replace(bnGw, bzk5);
-}
+}/* bandol: node_modules\react\lib\setTextContent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\setInnerHTML.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\escapeTextContentForBrowser.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: setTextContent */
+/* exports:
+undefined
+*/
+
 var setTextContent = function (node, text) {
   node.textContent = text;
 };
@@ -6053,10 +7477,39 @@ if (ExecutionEnvironment.canUseDOM) {
       setInnerHTML(node, escapeTextContentForBrowser(text));
     };
   }
-}
+}/* bandol: node_modules\react\lib\quoteAttributeValueForBrowser.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\escapeTextContentForBrowser.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: quoteAttributeValueForBrowser */
+/* exports:
+undefined
+*/
+
 function quoteAttributeValueForBrowser(value) {
   return '"' + escapeTextContentForBrowser(value) + '"';
-}
+}/* bandol: node_modules\react\lib\DOMPropertyOperations.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\warning.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\quoteAttributeValueForBrowser.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMProperty.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: DOMPropertyOperations */
+/* exports:
+undefined
+*/
+
 var b6dE = /^[a-zA-Z_][\w\.\-]*$/;
 var bZzy = {};
 var bArv = {};
@@ -6185,14 +7638,41 @@ ReactPerf.measureMethods(DOMPropertyOperations, 'DOMPropertyOperations', {
   setValueForProperty: 'setValueForProperty',
   setValueForAttribute: 'setValueForAttribute',
   deleteValueForProperty: 'deleteValueForProperty'
-});
+});/* bandol: node_modules\react\lib\ReactMultiChildUpdateTypes.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyMirror.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactMultiChildUpdateTypes */
+/* exports:
+undefined
+*/
+
 var ReactMultiChildUpdateTypes = keyMirror({
   INSERT_MARKUP: null,
   MOVE_EXISTING: null,
   REMOVE_NODE: null,
   SET_MARKUP: null,
   TEXT_CONTENT: null
-});
+});/* bandol: node_modules\fbjs\lib\getMarkupWrap.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: getMarkupWrap */
+/* exports:
+undefined
+*/
+
 var bKVN = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
 
 var b4gx = {};
@@ -6245,7 +7725,20 @@ function getMarkupWrap(nodeName) {
     b4gx[nodeName] = !bKVN.firstChild;
   }
   return b4gx[nodeName] ? bgk8[nodeName] : null;
-}
+}/* bandol: node_modules\fbjs\lib\toArray.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: toArray */
+/* exports:
+undefined
+*/
+
 function toArray(obj) {
   var length = obj.length;
 
@@ -6266,7 +7759,20 @@ function toArray(obj) {
     ret[ii] = obj[ii];
   }
   return ret;
-}
+}/* bandol: node_modules\fbjs\lib\createArrayFromMixed.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\toArray.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: createArrayFromMixed */
+/* exports:
+undefined
+*/
+
 function bR3l(obj) {
   return !!obj && (typeof obj == 'object' || typeof obj == 'function') && 'length' in obj && !('setInterval' in obj) && typeof obj.nodeType != 'number' && (Array.isArray(obj) || 'callee' in obj || 'item' in obj);
 }
@@ -6279,7 +7785,23 @@ function createArrayFromMixed(obj) {
   } else {
     return toArray(obj);
   }
-}
+}/* bandol: node_modules\fbjs\lib\createNodesFromMarkup.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\getMarkupWrap.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\createArrayFromMixed.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: createNodesFromMarkup */
+/* exports:
+undefined
+*/
+
 var bPBV = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
 
 var bxqA = /^\s*<(\w+)/;
@@ -6317,7 +7839,24 @@ function createNodesFromMarkup(markup, handleScript) {
     node.removeChild(node.lastChild);
   }
   return nodes;
-}
+}/* bandol: node_modules\react\lib\Danger.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\getMarkupWrap.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyFunction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\createNodesFromMarkup.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: Danger */
+/* exports:
+undefined
+*/
+
 
 var byMb = /^(<[^ \/>]+)/;
 var brNl = 'data-danger-index';
@@ -6395,7 +7934,25 @@ var Danger = {
     oldChild.parentNode.replaceChild(newChild, oldChild);
   }
 
-};
+};/* bandol: node_modules\react\lib\DOMChildrenOperations.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\setTextContent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\setInnerHTML.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Danger.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: DOMChildrenOperations */
+/* exports:
+undefined
+*/
+
 function bqKJ(parentNode, childNode, index) {
   var beforeChild = index >= parentNode.childNodes.length ? null : parentNode.childNodes.item(index);
 
@@ -6472,7 +8029,24 @@ var DOMChildrenOperations = {
 
 ReactPerf.measureMethods(DOMChildrenOperations, 'DOMChildrenOperations', {
   updateTextContent: 'updateTextContent'
-});
+});/* bandol: node_modules\react\lib\ReactDOMIDOperations.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMPropertyOperations.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMChildrenOperations.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMIDOperations */
+/* exports:
+undefined
+*/
+
 var bJlz = {
   dangerouslySetInnerHTML: '`dangerouslySetInnerHTML` must be set using `updateInnerHTMLByID()`.',
   style: '`style` must be set using `updateStylesByID()`.'
@@ -6506,7 +8080,21 @@ var ReactDOMIDOperations = {
 ReactPerf.measureMethods(ReactDOMIDOperations, 'ReactDOMIDOperations', {
   dangerouslyReplaceNodeWithMarkupByID: 'dangerouslyReplaceNodeWithMarkupByID',
   dangerouslyProcessChildrenUpdates: 'dangerouslyProcessChildrenUpdates'
-});
+});/* bandol: node_modules\react\lib\ReactComponentBrowserEnvironment.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMIDOperations.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactComponentBrowserEnvironment */
+/* exports:
+undefined
+*/
+
 var ReactComponentBrowserEnvironment = {
 
   processChildrenUpdates: ReactDOMIDOperations.dangerouslyProcessChildrenUpdates,
@@ -6517,7 +8105,26 @@ var ReactComponentBrowserEnvironment = {
     ReactMount.purgeID(rootNodeID);
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactDOMTextComponent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\setTextContent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\escapeTextContentForBrowser.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMPropertyOperations.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMChildrenOperations.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMTextComponent */
+/* exports:
+undefined
+*/
+
 var ReactDOMTextComponent = function (props) {};
 
 assign(ReactDOMTextComponent.prototype, {
@@ -6567,11 +8174,48 @@ assign(ReactDOMTextComponent.prototype, {
     ReactComponentBrowserEnvironment.unmountIDFromEnvironment(this._rootNodeID);
   }
 
-});
+});/* bandol: node_modules\react\lib\validateDOMNesting.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\emptyFunction.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: validateDOMNesting */
+/* exports:
+undefined
+*/
 
-var validateDOMNesting = emptyFunction;
 
-var canDefineProperty = false;
+var validateDOMNesting = emptyFunction;/* bandol: node_modules\react\lib\canDefineProperty.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: canDefineProperty */
+/* exports:
+undefined
+*/
+
+
+var canDefineProperty = false;/* bandol: node_modules\react\lib\flattenChildren.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\traverseAllChildren.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: flattenChildren */
+/* exports:
+undefined
+*/
+
 function b5NK(traverseContext, child, name) {
   var result = traverseContext;
   var keyUnique = result[name] === undefined;
@@ -6588,7 +8232,23 @@ function flattenChildren(children) {
   var result = {};
   traverseAllChildren(children, b5NK, result);
   return result;
-}
+}/* bandol: node_modules\react\lib\ReactChildReconciler.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\traverseAllChildren.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\shouldUpdateReactComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\instantiateReactComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactReconciler.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactChildReconciler */
+/* exports:
+undefined
+*/
+
 
 function bkr9(childInstances, child, name) {
   var keyUnique = childInstances[name] === undefined;
@@ -6650,7 +8310,24 @@ var ReactChildReconciler = {
     }
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactMultiChild.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\flattenChildren.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactChildReconciler.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactReconciler.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactComponentEnvironment.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactMultiChild */
+/* exports:
+undefined
+*/
+
 var b8a3 = 0;
 
 var bNMy = [];
@@ -6914,7 +8591,23 @@ var ReactMultiChild = {
 
   }
 
-};
+};/* bandol: node_modules\react\lib\LinkedValueUtils.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\warning.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPropTypeLocations.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPropTypes.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: LinkedValueUtils */
+/* exports:
+undefined
+*/
+
 
 var bvVv = {
   'button': true,
@@ -7008,7 +8701,24 @@ var LinkedValueUtils = {
       return inputProps.onChange.call(undefined, event);
     }
   }
-};
+};/* bandol: node_modules\react\lib\ReactDOMTextarea.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMIDOperations.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\LinkedValueUtils.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMTextarea */
+/* exports:
+undefined
+*/
+
 
 function bnxw() {
   if (this._rootNodeID) {
@@ -7069,7 +8779,24 @@ function bzG5(event) {
   var returnValue = LinkedValueUtils.executeOnChange(props, event);
   ReactUpdates.asap(bnxw, this);
   return returnValue;
-}
+}/* bandol: node_modules\react\lib\ReactDOMSelect.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\warning.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\LinkedValueUtils.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMSelect */
+/* exports:
+undefined
+*/
+
 
 var b6NE = '__ReactDOMSelect_value$' + Math.random().toString(36).slice(2);
 
@@ -7183,7 +8910,23 @@ function bm60(event) {
   this._wrapperState.pendingUpdate = true;
   ReactUpdates.asap(bZpy, this);
   return returnValue;
-}
+}/* bandol: node_modules\react\lib\ReactDOMOption.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\warning.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMSelect.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactChildren.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMOption */
+/* exports:
+undefined
+*/
+
 
 var bMQd = ReactDOMSelect.valueContextKey;
 
@@ -7236,7 +8979,25 @@ var ReactDOMOption = {
     return nativeProps;
   }
 
-};
+};/* bandol: node_modules\react\lib\ReactDOMInput.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\LinkedValueUtils.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMIDOperations.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMInput */
+/* exports:
+undefined
+*/
+
 
 var blvJ = {};
 
@@ -7329,7 +9090,18 @@ function bg58(event) {
   }
 
   return returnValue;
-}
+}/* bandol: node_modules\react\lib\ReactDOMButton.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMButton */
+/* exports:
+undefined
+*/
+
 
 var bblX = {
   onClick: true,
@@ -7360,7 +9132,18 @@ var ReactDOMButton = {
 
     return nativeProps;
   }
-};
+};/* bandol: node_modules\fbjs\lib\memoizeStringOnly.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: memoizeStringOnly */
+/* exports:
+undefined
+*/
+
 function memoizeStringOnly(callback) {
   var cache = {};
   return function (string) {
@@ -7369,19 +9152,54 @@ function memoizeStringOnly(callback) {
     }
     return cache[string];
   };
-}
+}/* bandol: node_modules\fbjs\lib\hyphenate.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: hyphenate */
+/* exports:
+undefined
+*/
+
 
 var bGX8 = /([A-Z])/g;
 
 function hyphenate(string) {
   return string.replace(bGX8, '-$1').toLowerCase();
-}
+}/* bandol: node_modules\fbjs\lib\hyphenateStyleName.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\hyphenate.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: hyphenateStyleName */
+/* exports:
+undefined
+*/
+
 
 var b4Ax = /^ms-/;
 
 function hyphenateStyleName(string) {
   return hyphenate(string).replace(b4Ax, '-ms-');
-}
+}/* bandol: node_modules\react\lib\CSSProperty.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: CSSProperty */
+/* exports:
+undefined
+*/
+
 var bxKA = {
   animationIterationCount: true,
   boxFlex: true,
@@ -7480,7 +9298,20 @@ var bKkN = {
 var CSSProperty = {
   isUnitlessNumber: bxKA,
   shorthandPropertyExpansions: bKkN
-};
+};/* bandol: node_modules\react\lib\dangerousStyleValue.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\CSSProperty.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: dangerousStyleValue */
+/* exports:
+undefined
+*/
+
 
 var bPqV = CSSProperty.isUnitlessNumber;
 
@@ -7500,7 +9331,25 @@ function dangerousStyleValue(name, value) {
     value = value.trim();
   }
   return value + 'px';
-}
+}/* bandol: node_modules\react\lib\CSSPropertyOperations.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\memoizeStringOnly.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\hyphenateStyleName.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\dangerousStyleValue.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\CSSProperty.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: CSSPropertyOperations */
+/* exports:
+undefined
+*/
+
 
 var blvM = memoizeStringOnly(function (styleName) {
   return hyphenateStyleName(styleName);
@@ -7568,7 +9417,22 @@ var CSSPropertyOperations = {
 
 ReactPerf.measureMethods(CSSPropertyOperations, 'CSSPropertyOperations', {
   setValueForStyles: 'setValueForStyles'
-});
+});/* bandol: node_modules\react\lib\findDOMNode.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInstanceMap.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: findDOMNode */
+/* exports:
+undefined
+*/
+
 function findDOMNode(componentOrElement) {
   if (componentOrElement == null) {
     return null;
@@ -7581,7 +9445,22 @@ function findDOMNode(componentOrElement) {
   }
   !(componentOrElement.render == null || typeof componentOrElement.render !== 'function') ? 'production' !== 'production' ? invariant(false, 'findDOMNode was called on an unmounted component.') : invariant(false) : undefined;
   !false ? 'production' !== 'production' ? invariant(false, 'Element appears to be neither ReactComponent nor DOMNode (keys: %s)', Object.keys(componentOrElement)) : invariant(false) : undefined;
-}
+}/* bandol: node_modules\react\lib\AutoFocusUtils.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\focusNode.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\findDOMNode.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: AutoFocusUtils */
+/* exports:
+undefined
+*/
+
 
 var bble = {
   componentDidMount: function () {
@@ -7597,7 +9476,45 @@ var AutoFocusUtils = {
   focusDOMComponent: function () {
     focusNode(ReactMount.getNode(this._rootNodeID));
   }
-};
+};/* bandol: node_modules\react\lib\ReactDOMComponent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\warning.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\validateDOMNesting.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\shallowEqual.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\setTextContent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\setInnerHTML.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyOf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\invariant.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\escapeTextContentForBrowser.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\canDefineProperty.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdateQueue.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMultiChild.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMTextarea.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMSelect.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMOption.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMInput.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMButton.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventConstants.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMPropertyOperations.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMProperty.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\CSSPropertyOperations.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\AutoFocusUtils.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMComponent */
+/* exports:
+undefined
+*/
+
 
 var ba6d = ReactBrowserEventEmitter.deleteListener;
 var b2Nk = ReactBrowserEventEmitter.listenTo;
@@ -8242,7 +10159,22 @@ ReactPerf.measureMethods(ReactDOMComponent, 'ReactDOMComponent', {
   updateComponent: 'updateComponent'
 });
 
-assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);
+assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);/* bandol: node_modules\react\lib\ReactBrowserComponentMixin.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\warning.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\findDOMNode.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInstanceMap.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactBrowserComponentMixin */
+/* exports:
+undefined
+*/
+
 
 var bva9 = '_getDOMNodeDidWarn';
 
@@ -8252,7 +10184,21 @@ var ReactBrowserComponentMixin = {
     this.constructor[bva9] = true;
     return findDOMNode(this);
   }
-};
+};/* bandol: node_modules\react\lib\HTMLDOMPropertyConfig.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DOMProperty.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: HTMLDOMPropertyConfig */
+/* exports:
+undefined
+*/
+
 
 var bMla = DOMProperty.injection.MUST_USE_ATTRIBUTE;
 var b63p = DOMProperty.injection.MUST_USE_PROPERTY;
@@ -8443,7 +10389,24 @@ var HTMLDOMPropertyConfig = {
     srcDoc: 'srcdoc',
     srcSet: 'srcset'
   }
-};
+};/* bandol: node_modules\react\lib\EnterLeaveEventPlugin.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyOf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticMouseEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPropagators.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventConstants.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: EnterLeaveEventPlugin */
+/* exports:
+undefined
+*/
+
 
 var bb3e = EventConstants.topLevelTypes;
 var blYM = ReactMount.getFirstReactDOM;
@@ -8527,8 +10490,32 @@ var EnterLeaveEventPlugin = {
     return bgnL;
   }
 
-};
-var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ SimpleEventPlugin: null }), keyOf({ TapEventPlugin: null }), keyOf({ EnterLeaveEventPlugin: null }), keyOf({ ChangeEventPlugin: null }), keyOf({ SelectEventPlugin: null }), keyOf({ BeforeInputEventPlugin: null })];
+};/* bandol: node_modules\react\lib\DefaultEventPluginOrder.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyOf.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: DefaultEventPluginOrder */
+/* exports:
+undefined
+*/
+
+var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ SimpleEventPlugin: null }), keyOf({ TapEventPlugin: null }), keyOf({ EnterLeaveEventPlugin: null }), keyOf({ ChangeEventPlugin: null }), keyOf({ SelectEventPlugin: null }), keyOf({ BeforeInputEventPlugin: null })];/* bandol: node_modules\react\lib\ClientReactRootIndex.js */
+/* dependencies:
+[]
+*/
+/* imports:
+[]
+*/
+/* default export: ClientReactRootIndex */
+/* exports:
+undefined
+*/
+
 
 var bGKZ = 0;
 
@@ -8536,7 +10523,29 @@ var ClientReactRootIndex = {
   createReactRootIndex: function () {
     return bGKZ++;
   }
-};
+};/* bandol: node_modules\react\lib\ChangeEventPlugin.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyOf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\isTextInputElement.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\isEventSupported.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getEventTarget.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPropagators.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPluginHub.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventConstants.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ChangeEventPlugin */
+/* exports:
+undefined
+*/
+
 
 var bOG = EventConstants.topLevelTypes;
 
@@ -8731,7 +10740,20 @@ var ChangeEventPlugin = {
     }
   }
 
-};
+};/* bandol: node_modules\react\lib\SyntheticInputEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticEvent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticInputEvent */
+/* exports:
+undefined
+*/
+
 var bY4 = {
   data: null
 };
@@ -8740,7 +10762,20 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticInputEvent, bY4);
+SyntheticEvent.augmentClass(SyntheticInputEvent, bY4);/* bandol: node_modules\react\lib\SyntheticCompositionEvent.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticEvent.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: SyntheticCompositionEvent */
+/* exports:
+undefined
+*/
+
 var bBE = {
   data: null
 };
@@ -8749,7 +10784,22 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticCompositionEvent, bBE);
+SyntheticEvent.augmentClass(SyntheticCompositionEvent, bBE);/* bandol: node_modules\react\lib\FallbackCompositionState.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\getTextContentAccessor.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\PooledClass.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: FallbackCompositionState */
+/* exports:
+undefined
+*/
+
 function FallbackCompositionState(root) {
   this._root = root;
   this._startText = this.getText();
@@ -8801,7 +10851,26 @@ assign(FallbackCompositionState.prototype, {
   }
 });
 
-PooledClass.addPoolingTo(FallbackCompositionState);
+PooledClass.addPoolingTo(FallbackCompositionState);/* bandol: node_modules\react\lib\BeforeInputEventPlugin.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\keyOf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticInputEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SyntheticCompositionEvent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\FallbackCompositionState.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventPropagators.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EventConstants.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: BeforeInputEventPlugin */
+/* exports:
+undefined
+*/
+
 
 var bXz = [9, 13, 27, 32];
 var bRK = 229;
@@ -9027,7 +11096,40 @@ var BeforeInputEventPlugin = {
   extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
     return [bv9(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget), bel(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget)];
   }
-};
+};/* bandol: node_modules\react\lib\ReactDefaultInjection.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SVGDOMPropertyConfig.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SimpleEventPlugin.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ServerReactRootIndex.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\SelectEventPlugin.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactReconcileTransaction.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInstanceHandles.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactInjection.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactEventListener.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMTextComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMComponent.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDefaultBatchingStrategy.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactBrowserComponentMixin.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\HTMLDOMPropertyConfig.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\EnterLeaveEventPlugin.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\DefaultEventPluginOrder.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ClientReactRootIndex.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ChangeEventPlugin.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\BeforeInputEventPlugin.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDefaultInjection */
+/* exports:
+undefined
+*/
+
 
 var bPq = false;
 
@@ -9072,7 +11174,22 @@ function bxq() {
 
 var ReactDefaultInjection = {
   inject: bxq
-};
+};/* bandol: node_modules\react\lib\ReactDOMServer.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactVersion.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactServerRendering.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDefaultInjection.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOMServer */
+/* exports:
+undefined
+*/
+
 
 ReactDefaultInjection.inject();
 
@@ -9080,7 +11197,39 @@ var ReactDOMServer = {
   renderToString: ReactServerRendering.renderToString,
   renderToStaticMarkup: ReactServerRendering.renderToStaticMarkup,
   version: ReactVersion
-};var renderSubtreeIntoContainer = ReactMount.renderSubtreeIntoContainer;
+};/* bandol: node_modules\react\lib\renderSubtreeIntoContainer.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: renderSubtreeIntoContainer */
+/* exports:
+undefined
+*/
+var renderSubtreeIntoContainer = ReactMount.renderSubtreeIntoContainer;/* bandol: node_modules\react\lib\ReactDOM.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\renderSubtreeIntoContainer.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\findDOMNode.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactVersion.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactUpdates.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactPerf.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactMount.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDefaultInjection.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: ReactDOM */
+/* exports:
+undefined
+*/
+
 
 ReactDefaultInjection.inject();
 
@@ -9094,7 +11243,24 @@ var ReactDOM = {
 
   unstable_batchedUpdates: ReactUpdates.batchedUpdates,
   unstable_renderSubtreeIntoContainer: renderSubtreeIntoContainer
-};
+};/* bandol: node_modules\react\lib\React.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\deprecated.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\Object.assign.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactIsomorphic.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOMServer.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOM.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: React */
+/* exports:
+undefined
+*/
+
 var React = {};
 
 assign(React, ReactIsomorphic);
@@ -9109,6 +11275,21 @@ assign(React, {
 });
 
 React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOM;
-React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;
+React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;/* bandol: actual.js */
+/* dependencies:
+[
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\React.js",
+ "c:\\Users\\slesniko\\Projects\\bandol\\tests\\fixtures\\core\\module\\node_modules\\react\\lib\\ReactDOM.js"
+]
+*/
+/* imports:
+[]
+*/
+/* default export: undefined */
+/* exports:
+undefined
+*/
+
 
 ReactDOM.render(React.createElement('h1', null, 'Hello Bandol'), document.getElementById('content'));
+}());

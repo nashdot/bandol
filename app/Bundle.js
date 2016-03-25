@@ -80,7 +80,7 @@ export default class Bundle {
         this.optimizerPlugins.push(worker);
       }
 
-      if (worker.finalizeResource) {
+      if (worker.finalize) {
         this.finalizerPlugins.push(worker);
       }
 
@@ -187,19 +187,10 @@ export default class Bundle {
     }
   }
 
-  finalizeResource(id) {
+  finalize(opts) {
     for (const plugin of this.finalizerPlugins) {
-      plugin.finalizeResource(id);
+      plugin.finalize(opts);
     }
-  }
-
-  generate(id) {
-    this.finalizeResource(id);
-
-    const resource = this.resources.get(this.entry);
-    const result = { code: resource.props.code, ast: resource.props.ast };
-
-    return result;
   }
 
   generateUid() {
