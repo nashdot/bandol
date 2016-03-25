@@ -1,4 +1,3 @@
-import * as fs from 'fs';
 import generate from 'babel-generator';
 
 import BasePlugin from '../../BasePlugin';
@@ -16,9 +15,7 @@ export default class Plugin extends BasePlugin {
     this.init();
   }
 
-  finalize(opts) {
-    opts = opts || { debug: false };
-
+  finalize(opts = { debug: false }) {
     const intro = '(function () {\n';
     const outro = '\n}());';
 
@@ -40,7 +37,6 @@ export default class Plugin extends BasePlugin {
 
         if (opts.debug) {
           this.bundle.code += `/* bandol: ${this.bundle.getShortPath(resource.id)} */\n`;
-          this.bundle.code += `/* dependencies:\n${JSON.stringify(resource.dependencies, null, ' ')}\n*/\n`;
           this.bundle.code += `/* imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`;
           this.bundle.code += `/* default export: ${this.bundle.defaultExportsById.get(resource.id)} */\n`;
           this.bundle.code += `/* exports:\n${JSON.stringify(this.bundle.namedExportsById.get(resource.id), null, ' ')}\n*/\n`;

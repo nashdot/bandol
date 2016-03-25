@@ -15,7 +15,7 @@ export default class Plugin extends BasePlugin {
     this.init();
   }
 
-  finalize() {
+  finalize(opts = { debug: false }) {
     for (let i = 0; i < this.bundle.sortedResources.length; i++) {
       const resource = this.bundle.sortedResources[i];
       if (resource.type === this.resourceType) {
@@ -27,7 +27,6 @@ export default class Plugin extends BasePlugin {
 
         if (opts.debug) {
           this.bundle.code += `/* bandol: ${this.bundle.getShortPath(resource.id)} */\n`;
-          this.bundle.code += `/* dependencies:\n${JSON.stringify(resource.dependencies, null, ' ')}\n*/\n`;
           this.bundle.code += `/* imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`;
           this.bundle.code += `/* default export: ${this.bundle.defaultExportsById.get(resource.id)} */\n`;
           this.bundle.code += `/* exports:\n${JSON.stringify(this.bundle.namedExportsById.get(resource.id), null, ' ')}\n*/\n`;
