@@ -13,7 +13,8 @@ function deprecated(fnName, newModule, newPackage, ctx, fn) {
 
 
   return fn;
-}/* bandol: node_modules/react/lib/Object.assign.js */
+}
+/* bandol: node_modules/react/lib/Object.assign.js */
 /* imports:
 []
 */
@@ -47,7 +48,8 @@ function assign(target, sources) {
   }
 
   return to;
-}/* bandol: node_modules/fbjs/lib/invariant.js */
+}
+/* bandol: node_modules/fbjs/lib/invariant.js */
 /* imports:
 []
 */
@@ -75,7 +77,8 @@ function invariant(condition, format, a, b, c, d, e, f) {
     error.framesToPop = 1;
     throw error;
   }
-}/* bandol: node_modules/react/lib/ReactCurrentOwner.js */
+}
+/* bandol: node_modules/react/lib/ReactCurrentOwner.js */
 /* imports:
 []
 */
@@ -87,7 +90,8 @@ undefined
 var ReactCurrentOwner = {
   current: null
 
-};/* bandol: node_modules/react/lib/ReactElement.js */
+};
+/* bandol: node_modules/react/lib/ReactElement.js */
 /* imports:
 []
 */
@@ -231,7 +235,8 @@ ReactElement.cloneElement = function (element, config, children) {
 
 ReactElement.isValidElement = function (object) {
   return typeof object === 'object' && object !== null && object.$$typeof === bQ6L;
-};/* bandol: node_modules/react/lib/onlyChild.js */
+};
+/* bandol: node_modules/react/lib/onlyChild.js */
 /* imports:
 []
 */
@@ -243,7 +248,8 @@ undefined
 function onlyChild(children) {
   !ReactElement.isValidElement(children) ? 'production' !== 'production' ? invariant(false, 'onlyChild must be passed a children with exactly one child.') : invariant(false) : undefined;
   return children;
-}/* bandol: node_modules/react/lib/ReactVersion.js */
+}
+/* bandol: node_modules/react/lib/ReactVersion.js */
 /* imports:
 []
 */
@@ -251,7 +257,8 @@ function onlyChild(children) {
 /* exports:
 undefined
 */
-var ReactVersion = '0.14.7';/* bandol: node_modules/react/lib/getIteratorFn.js */
+var ReactVersion = '0.14.7';
+/* bandol: node_modules/react/lib/getIteratorFn.js */
 /* imports:
 []
 */
@@ -267,7 +274,8 @@ function getIteratorFn(maybeIterable) {
   if (typeof iteratorFn === 'function') {
     return iteratorFn;
   }
-}/* bandol: node_modules/fbjs/lib/emptyFunction.js */
+}
+/* bandol: node_modules/fbjs/lib/emptyFunction.js */
 /* imports:
 []
 */
@@ -294,7 +302,8 @@ emptyFunction.thatReturnsThis = function () {
 };
 emptyFunction.thatReturnsArgument = function (arg) {
   return arg;
-};/* bandol: node_modules/react/lib/ReactPropTypeLocationNames.js */
+};
+/* bandol: node_modules/react/lib/ReactPropTypeLocationNames.js */
 /* imports:
 []
 */
@@ -304,7 +313,8 @@ undefined
 */
 
 
-var ReactPropTypeLocationNames = {};/* bandol: node_modules/react/lib/ReactPropTypes.js */
+var ReactPropTypeLocationNames = {};
+/* bandol: node_modules/react/lib/ReactPropTypes.js */
 /* imports:
 []
 */
@@ -591,7 +601,8 @@ function bJB2(propValue) {
     return '<<anonymous>>';
   }
   return propValue.constructor.name;
-}/* bandol: node_modules/fbjs/lib/mapObject.js */
+}
+/* bandol: node_modules/fbjs/lib/mapObject.js */
 /* imports:
 []
 */
@@ -614,7 +625,8 @@ function mapObject(object, callback, context) {
     }
   }
   return result;
-}/* bandol: node_modules/react/lib/ReactDOMFactories.js */
+}
+/* bandol: node_modules/react/lib/ReactDOMFactories.js */
 /* imports:
 []
 */
@@ -762,7 +774,8 @@ var ReactDOMFactories = mapObject({
   text: 'text',
   tspan: 'tspan'
 
-}, bee6);/* bandol: node_modules/fbjs/lib/warning.js */
+}, bee6);
+/* bandol: node_modules/fbjs/lib/warning.js */
 /* imports:
 []
 */
@@ -772,7 +785,8 @@ undefined
 */
 
 
-var warning = emptyFunction;/* bandol: node_modules/fbjs/lib/keyOf.js */
+var warning = emptyFunction;
+/* bandol: node_modules/fbjs/lib/keyOf.js */
 /* imports:
 []
 */
@@ -791,7 +805,8 @@ var keyOf = function (oneKeyObj) {
     return key;
   }
   return null;
-};/* bandol: node_modules/fbjs/lib/keyMirror.js */
+};
+/* bandol: node_modules/fbjs/lib/keyMirror.js */
 /* imports:
 []
 */
@@ -811,7 +826,8 @@ var keyMirror = function (obj) {
     ret[key] = key;
   }
   return ret;
-};/* bandol: node_modules/fbjs/lib/emptyObject.js */
+};
+/* bandol: node_modules/fbjs/lib/emptyObject.js */
 /* imports:
 []
 */
@@ -821,7 +837,8 @@ undefined
 */
 
 
-var emptyObject = {};/* bandol: node_modules/react/lib/ReactNoopUpdateQueue.js */
+var emptyObject = {};
+/* bandol: node_modules/react/lib/ReactNoopUpdateQueue.js */
 /* imports:
 []
 */
@@ -860,7 +877,8 @@ var ReactNoopUpdateQueue = {
     b2p4(publicInstance, 'replaceProps');
   }
 
-};/* bandol: node_modules/react/lib/ReactComponent.js */
+};
+/* bandol: node_modules/react/lib/ReactComponent.js */
 /* imports:
 []
 */
@@ -893,7 +911,8 @@ ReactComponent.prototype.forceUpdate = function (callback) {
   if (callback) {
     this.updater.enqueueCallback(this, callback);
   }
-};/* bandol: node_modules/react/lib/ReactClass.js */
+};
+/* bandol: node_modules/react/lib/ReactClass.js */
 /* imports:
 []
 */
@@ -1207,7 +1226,8 @@ var ReactClass = {
     }
   }
 
-};/* bandol: node_modules/react/lib/ReactRootIndex.js */
+};
+/* bandol: node_modules/react/lib/ReactRootIndex.js */
 /* imports:
 []
 */
@@ -1226,7 +1246,8 @@ var b4dK = {
 var ReactRootIndex = {
   createReactRootIndex: null,
   injection: b4dK
-};/* bandol: node_modules/react/lib/ReactInstanceHandles.js */
+};
+/* bandol: node_modules/react/lib/ReactInstanceHandles.js */
 /* imports:
 []
 */
@@ -1371,7 +1392,8 @@ var ReactInstanceHandles = {
 
   SEPARATOR: bG4p
 
-};/* bandol: node_modules/react/lib/traverseAllChildren.js */
+};
+/* bandol: node_modules/react/lib/traverseAllChildren.js */
 /* imports:
 []
 */
@@ -1474,7 +1496,8 @@ function traverseAllChildren(children, callback, traverseContext) {
   }
 
   return b4Rp(children, '', callback, traverseContext);
-}/* bandol: node_modules/react/lib/PooledClass.js */
+}
+/* bandol: node_modules/react/lib/PooledClass.js */
 /* imports:
 []
 */
@@ -1568,7 +1591,8 @@ var PooledClass = {
   threeArgumentPooler: b0QR,
   fourArgumentPooler: b1Pn,
   fiveArgumentPooler: bwr6
-};/* bandol: node_modules/react/lib/ReactChildren.js */
+};
+/* bandol: node_modules/react/lib/ReactChildren.js */
 /* imports:
 []
 */
@@ -1686,7 +1710,8 @@ var ReactChildren = {
   mapIntoWithKeyPrefixInternal: bN2E,
   count: bE5d,
   toArray: toArray
-};/* bandol: node_modules/react/lib/ReactIsomorphic.js */
+};
+/* bandol: node_modules/react/lib/ReactIsomorphic.js */
 /* imports:
 []
 */
@@ -1728,7 +1753,8 @@ var ReactIsomorphic = {
   version: ReactVersion,
 
   __spread: assign
-};/* bandol: node_modules/react/lib/ReactNativeComponent.js */
+};
+/* bandol: node_modules/react/lib/ReactNativeComponent.js */
 /* imports:
 []
 */
@@ -1789,7 +1815,8 @@ var ReactNativeComponent = {
   createInstanceForText: bAee,
   isTextComponent: b3XV,
   injection: bM7k
-};/* bandol: node_modules/react/lib/ReactOwner.js */
+};
+/* bandol: node_modules/react/lib/ReactOwner.js */
 /* imports:
 []
 */
@@ -1816,7 +1843,8 @@ var ReactOwner = {
     }
   }
 
-};/* bandol: node_modules/react/lib/ReactRef.js */
+};
+/* bandol: node_modules/react/lib/ReactRef.js */
 /* imports:
 []
 */
@@ -1870,7 +1898,8 @@ ReactRef.detachRefs = function (instance, element) {
   if (ref != null) {
     bGZp(ref, instance, element._owner);
   }
-};/* bandol: node_modules/react/lib/ReactReconciler.js */
+};
+/* bandol: node_modules/react/lib/ReactReconciler.js */
 /* imports:
 []
 */
@@ -1921,7 +1950,8 @@ var ReactReconciler = {
     internalInstance.performUpdateIfNecessary(transaction);
   }
 
-};/* bandol: node_modules/react/lib/ReactEmptyComponentRegistry.js */
+};
+/* bandol: node_modules/react/lib/ReactEmptyComponentRegistry.js */
 /* imports:
 []
 */
@@ -1948,7 +1978,8 @@ var ReactEmptyComponentRegistry = {
   isNullComponentID: bxEx,
   registerNullComponentID: bXxp,
   deregisterNullComponentID: bR7P
-};/* bandol: node_modules/react/lib/ReactEmptyComponent.js */
+};
+/* bandol: node_modules/react/lib/ReactEmptyComponent.js */
 /* imports:
 []
 */
@@ -1987,7 +2018,8 @@ assign(ReactEmptyComponent.prototype, {
   }
 });
 
-ReactEmptyComponent.injection = bQ0m;/* bandol: node_modules/react/lib/shouldUpdateReactComponent.js */
+ReactEmptyComponent.injection = bQ0m;
+/* bandol: node_modules/react/lib/shouldUpdateReactComponent.js */
 /* imports:
 []
 */
@@ -2011,7 +2043,8 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
     return nextType === 'object' && prevElement.type === nextElement.type && prevElement.key === nextElement.key;
   }
   return false;
-}/* bandol: node_modules/react/lib/Transaction.js */
+}
+/* bandol: node_modules/react/lib/Transaction.js */
 /* imports:
 []
 */
@@ -2114,7 +2147,8 @@ var Transaction = {
 
   OBSERVED_ERROR: {}
 
-};/* bandol: node_modules/react/lib/ReactPerf.js */
+};
+/* bandol: node_modules/react/lib/ReactPerf.js */
 /* imports:
 []
 */
@@ -2143,7 +2177,8 @@ var ReactPerf = {
 
 function bq93(objName, fnName, func) {
   return func;
-}/* bandol: node_modules/react/lib/CallbackQueue.js */
+}
+/* bandol: node_modules/react/lib/CallbackQueue.js */
 /* imports:
 []
 */
@@ -2191,7 +2226,8 @@ assign(CallbackQueue.prototype, {
 
 });
 
-PooledClass.addPoolingTo(CallbackQueue);/* bandol: node_modules/react/lib/ReactUpdates.js */
+PooledClass.addPoolingTo(CallbackQueue);
+/* bandol: node_modules/react/lib/ReactUpdates.js */
 /* imports:
 []
 */
@@ -2352,7 +2388,8 @@ var ReactUpdates = {
   flushBatchedUpdates: bw36,
   injection: bJeN,
   asap: b50Y
-};/* bandol: node_modules/react/lib/ReactInstanceMap.js */
+};
+/* bandol: node_modules/react/lib/ReactInstanceMap.js */
 /* imports:
 []
 */
@@ -2378,7 +2415,8 @@ var ReactInstanceMap = {
     key._reactInternalInstance = value;
   }
 
-};/* bandol: node_modules/react/lib/ReactUpdateQueue.js */
+};
+/* bandol: node_modules/react/lib/ReactUpdateQueue.js */
 /* imports:
 []
 */
@@ -2520,7 +2558,8 @@ var ReactUpdateQueue = {
     b2ly(internalInstance);
   }
 
-};/* bandol: node_modules/react/lib/ReactPropTypeLocations.js */
+};
+/* bandol: node_modules/react/lib/ReactPropTypeLocations.js */
 /* imports:
 []
 */
@@ -2534,7 +2573,8 @@ var ReactPropTypeLocations = keyMirror({
   prop: null,
   context: null,
   childContext: null
-});/* bandol: node_modules/react/lib/ReactComponentEnvironment.js */
+});
+/* bandol: node_modules/react/lib/ReactComponentEnvironment.js */
 /* imports:
 []
 */
@@ -2563,7 +2603,8 @@ var ReactComponentEnvironment = {
     }
   }
 
-};/* bandol: node_modules/react/lib/ReactCompositeComponent.js */
+};
+/* bandol: node_modules/react/lib/ReactCompositeComponent.js */
 /* imports:
 []
 */
@@ -2954,7 +2995,8 @@ var ReactCompositeComponent = {
 
   Mixin: bvNp
 
-};/* bandol: node_modules/react/lib/instantiateReactComponent.js */
+};
+/* bandol: node_modules/react/lib/instantiateReactComponent.js */
 /* imports:
 []
 */
@@ -3010,7 +3052,8 @@ function instantiateReactComponent(node) {
   instance._mountImage = null;
 
   return instance;
-}/* bandol: node_modules/react/lib/ReactServerRenderingTransaction.js */
+}
+/* bandol: node_modules/react/lib/ReactServerRenderingTransaction.js */
 /* imports:
 []
 */
@@ -3053,7 +3096,8 @@ var bZRR = {
 
 assign(ReactServerRenderingTransaction.prototype, Transaction.Mixin, bZRR);
 
-PooledClass.addPoolingTo(ReactServerRenderingTransaction);/* bandol: node_modules/react/lib/ReactServerBatchingStrategy.js */
+PooledClass.addPoolingTo(ReactServerRenderingTransaction);
+/* bandol: node_modules/react/lib/ReactServerBatchingStrategy.js */
 /* imports:
 []
 */
@@ -3066,7 +3110,8 @@ undefined
 var ReactServerBatchingStrategy = {
   isBatchingUpdates: false,
   batchedUpdates: function (callback) {}
-};/* bandol: node_modules/react/lib/adler32.js */
+};
+/* bandol: node_modules/react/lib/adler32.js */
 /* imports:
 []
 */
@@ -3097,7 +3142,8 @@ function adler32(data) {
   a %= bgv3;
   b %= bgv3;
   return a | b << 16;
-}/* bandol: node_modules/react/lib/ReactMarkupChecksum.js */
+}
+/* bandol: node_modules/react/lib/ReactMarkupChecksum.js */
 /* imports:
 []
 */
@@ -3124,7 +3170,8 @@ var ReactMarkupChecksum = {
     var markupChecksum = adler32(markup);
     return markupChecksum === existingChecksum;
   }
-};/* bandol: node_modules/react/lib/ReactDefaultBatchingStrategy.js */
+};
+/* bandol: node_modules/react/lib/ReactDefaultBatchingStrategy.js */
 /* imports:
 []
 */
@@ -3174,7 +3221,8 @@ var ReactDefaultBatchingStrategy = {
       blev.perform(callback, null, a, b, c, d, e);
     }
   }
-};/* bandol: node_modules/react/lib/ReactServerRendering.js */
+};
+/* bandol: node_modules/react/lib/ReactServerRendering.js */
 /* imports:
 []
 */
@@ -3229,7 +3277,8 @@ function bRpP(element) {
 var ReactServerRendering = {
   renderToString: bXOp,
   renderToStaticMarkup: bRpP
-};/* bandol: node_modules/react/lib/DOMProperty.js */
+};
+/* bandol: node_modules/react/lib/DOMProperty.js */
 /* imports:
 []
 */
@@ -3346,7 +3395,8 @@ var DOMProperty = {
   },
 
   injection: bPZO
-};/* bandol: node_modules/react/lib/SVGDOMPropertyConfig.js */
+};
+/* bandol: node_modules/react/lib/SVGDOMPropertyConfig.js */
 /* imports:
 []
 */
@@ -3465,7 +3515,8 @@ var SVGDOMPropertyConfig = {
     xmlLang: 'xml:lang',
     xmlSpace: 'xml:space'
   }
-};/* bandol: node_modules/react/lib/getEventCharCode.js */
+};
+/* bandol: node_modules/react/lib/getEventCharCode.js */
 /* imports:
 []
 */
@@ -3493,7 +3544,8 @@ function getEventCharCode(nativeEvent) {
   }
 
   return 0;
-}/* bandol: node_modules/react/lib/getEventModifierState.js */
+}
+/* bandol: node_modules/react/lib/getEventModifierState.js */
 /* imports:
 []
 */
@@ -3522,7 +3574,8 @@ function blrg(keyArg) {
 
 function getEventModifierState(nativeEvent) {
   return blrg;
-}/* bandol: node_modules/react/lib/ViewportMetrics.js */
+}
+/* bandol: node_modules/react/lib/ViewportMetrics.js */
 /* imports:
 []
 */
@@ -3543,7 +3596,8 @@ var ViewportMetrics = {
     ViewportMetrics.currentScrollTop = scrollPosition.y;
   }
 
-};/* bandol: node_modules/react/lib/getEventTarget.js */
+};
+/* bandol: node_modules/react/lib/getEventTarget.js */
 /* imports:
 []
 */
@@ -3556,7 +3610,8 @@ function getEventTarget(nativeEvent) {
   var target = nativeEvent.target || nativeEvent.srcElement || window;
 
   return target.nodeType === 3 ? target.parentNode : target;
-}/* bandol: node_modules/react/lib/SyntheticEvent.js */
+}
+/* bandol: node_modules/react/lib/SyntheticEvent.js */
 /* imports:
 []
 */
@@ -3678,7 +3733,8 @@ SyntheticEvent.augmentClass = function (Class, Interface) {
   PooledClass.addPoolingTo(Class, PooledClass.fourArgumentPooler);
 };
 
-PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);/* bandol: node_modules/react/lib/SyntheticUIEvent.js */
+PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
+/* bandol: node_modules/react/lib/SyntheticUIEvent.js */
 /* imports:
 []
 */
@@ -3715,7 +3771,8 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticUIEvent, b4y3);/* bandol: node_modules/react/lib/SyntheticMouseEvent.js */
+SyntheticEvent.augmentClass(SyntheticUIEvent, b4y3);
+/* bandol: node_modules/react/lib/SyntheticMouseEvent.js */
 /* imports:
 []
 */
@@ -3759,7 +3816,8 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticMouseEvent, bKvr);/* bandol: node_modules/react/lib/SyntheticWheelEvent.js */
+SyntheticUIEvent.augmentClass(SyntheticMouseEvent, bKvr);
+/* bandol: node_modules/react/lib/SyntheticWheelEvent.js */
 /* imports:
 []
 */
@@ -3784,7 +3842,8 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, bRp9);/* bandol: node_modules/react/lib/SyntheticTouchEvent.js */
+SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, bRp9);
+/* bandol: node_modules/react/lib/SyntheticTouchEvent.js */
 /* imports:
 []
 */
@@ -3808,7 +3867,8 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticTouchEvent, bXO3);/* bandol: node_modules/react/lib/SyntheticDragEvent.js */
+SyntheticUIEvent.augmentClass(SyntheticTouchEvent, bXO3);
+/* bandol: node_modules/react/lib/SyntheticDragEvent.js */
 /* imports:
 []
 */
@@ -3825,7 +3885,8 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
   SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticMouseEvent.augmentClass(SyntheticDragEvent, bxMV);/* bandol: node_modules/react/lib/getEventKey.js */
+SyntheticMouseEvent.augmentClass(SyntheticDragEvent, bxMV);
+/* bandol: node_modules/react/lib/getEventKey.js */
 /* imports:
 []
 */
@@ -3895,7 +3956,8 @@ function getEventKey(nativeEvent) {
     return bPZ5[nativeEvent.keyCode] || 'Unidentified';
   }
   return '';
-}/* bandol: node_modules/react/lib/SyntheticKeyboardEvent.js */
+}
+/* bandol: node_modules/react/lib/SyntheticKeyboardEvent.js */
 /* imports:
 []
 */
@@ -3942,7 +4004,8 @@ function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nat
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, brrx);/* bandol: node_modules/react/lib/SyntheticFocusEvent.js */
+SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, brrx);
+/* bandol: node_modules/react/lib/SyntheticFocusEvent.js */
 /* imports:
 []
 */
@@ -3959,7 +4022,8 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticFocusEvent, by4Q);/* bandol: node_modules/react/lib/SyntheticClipboardEvent.js */
+SyntheticUIEvent.augmentClass(SyntheticFocusEvent, by4Q);
+/* bandol: node_modules/react/lib/SyntheticClipboardEvent.js */
 /* imports:
 []
 */
@@ -3978,7 +4042,8 @@ function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, na
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticClipboardEvent, bqRO);/* bandol: node_modules/fbjs/lib/ExecutionEnvironment.js */
+SyntheticEvent.augmentClass(SyntheticClipboardEvent, bqRO);
+/* bandol: node_modules/fbjs/lib/ExecutionEnvironment.js */
 /* imports:
 []
 */
@@ -4000,7 +4065,8 @@ var ExecutionEnvironment = {
 
   canUseViewport: bJpQ && !!window.screen,
 
-  isInWorker: !bJpQ };/* bandol: node_modules/react/lib/setInnerHTML.js */
+  isInWorker: !bJpQ };
+/* bandol: node_modules/react/lib/setInnerHTML.js */
 /* imports:
 []
 */
@@ -4048,7 +4114,8 @@ if (ExecutionEnvironment.canUseDOM) {
       }
     };
   }
-}/* bandol: node_modules/fbjs/lib/isNode.js */
+}
+/* bandol: node_modules/fbjs/lib/isNode.js */
 /* imports:
 []
 */
@@ -4060,7 +4127,8 @@ undefined
 
 function isNode(object) {
   return !!(object && (typeof Node === 'function' ? object instanceof Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
-}/* bandol: node_modules/fbjs/lib/isTextNode.js */
+}
+/* bandol: node_modules/fbjs/lib/isTextNode.js */
 /* imports:
 []
 */
@@ -4071,7 +4139,8 @@ undefined
 
 function isTextNode(object) {
   return isNode(object) && object.nodeType == 3;
-}/* bandol: node_modules/fbjs/lib/containsNode.js */
+}
+/* bandol: node_modules/fbjs/lib/containsNode.js */
 /* imports:
 []
 */
@@ -4107,7 +4176,8 @@ function containsNode(_x, _x2) {
       return false;
     }
   }
-}/* bandol: node_modules/react/lib/ReactDOMFeatureFlags.js */
+}
+/* bandol: node_modules/react/lib/ReactDOMFeatureFlags.js */
 /* imports:
 []
 */
@@ -4119,7 +4189,8 @@ undefined
 
 var ReactDOMFeatureFlags = {
   useCreateElement: false
-};/* bandol: node_modules/react/lib/isEventSupported.js */
+};
+/* bandol: node_modules/react/lib/isEventSupported.js */
 /* imports:
 []
 */
@@ -4167,7 +4238,8 @@ function isEventSupported(eventNameSuffix, capture) {
   }
 
   return isSupported;
-}/* bandol: node_modules/react/lib/forEachAccumulated.js */
+}
+/* bandol: node_modules/react/lib/forEachAccumulated.js */
 /* imports:
 []
 */
@@ -4182,7 +4254,8 @@ var forEachAccumulated = function (arr, cb, scope) {
   } else if (arr) {
     cb.call(scope, arr);
   }
-};/* bandol: node_modules/react/lib/accumulateInto.js */
+};
+/* bandol: node_modules/react/lib/accumulateInto.js */
 /* imports:
 []
 */
@@ -4216,7 +4289,8 @@ function accumulateInto(current, next) {
   }
 
   return [current, next];
-}/* bandol: node_modules/react/lib/ReactErrorUtils.js */
+}
+/* bandol: node_modules/react/lib/ReactErrorUtils.js */
 /* imports:
 []
 */
@@ -4251,7 +4325,8 @@ var ReactErrorUtils = {
       throw error;
     }
   }
-};/* bandol: node_modules/react/lib/EventConstants.js */
+};
+/* bandol: node_modules/react/lib/EventConstants.js */
 /* imports:
 []
 */
@@ -4332,7 +4407,8 @@ var b7Qd = keyMirror({
 var EventConstants = {
   topLevelTypes: b7Qd,
   PropagationPhases: bEO0
-};/* bandol: node_modules/react/lib/EventPluginUtils.js */
+};
+/* bandol: node_modules/react/lib/EventPluginUtils.js */
 /* imports:
 []
 */
@@ -4452,7 +4528,8 @@ var EventPluginUtils = {
   },
 
   injection: bvXV
-};/* bandol: node_modules/react/lib/EventPluginRegistry.js */
+};
+/* bandol: node_modules/react/lib/EventPluginRegistry.js */
 /* imports:
 []
 */
@@ -4586,7 +4663,8 @@ var EventPluginRegistry = {
     }
   }
 
-};/* bandol: node_modules/react/lib/EventPluginHub.js */
+};
+/* bandol: node_modules/react/lib/EventPluginHub.js */
 /* imports:
 []
 */
@@ -4726,7 +4804,8 @@ var EventPluginHub = {
     return bV38;
   }
 
-};/* bandol: node_modules/react/lib/ReactEventEmitterMixin.js */
+};
+/* bandol: node_modules/react/lib/ReactEventEmitterMixin.js */
 /* imports:
 []
 */
@@ -4746,7 +4825,8 @@ var ReactEventEmitterMixin = {
     var events = EventPluginHub.extractEvents(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget);
     blKg(events);
   }
-};/* bandol: node_modules/react/lib/ReactBrowserEventEmitter.js */
+};
+/* bandol: node_modules/react/lib/ReactBrowserEventEmitter.js */
 /* imports:
 []
 */
@@ -4931,7 +5011,8 @@ var ReactBrowserEventEmitter = assign({}, ReactEventEmitterMixin, {
 ReactPerf.measureMethods(ReactBrowserEventEmitter, 'ReactBrowserEventEmitter', {
   putListener: 'putListener',
   deleteListener: 'deleteListener'
-});/* bandol: node_modules/react/lib/ReactMount.js */
+});
+/* bandol: node_modules/react/lib/ReactMount.js */
 /* imports:
 []
 */
@@ -5376,7 +5457,8 @@ var ReactMount = {
 ReactPerf.measureMethods(ReactMount, 'ReactMount', {
   _renderNewRootComponent: '_renderNewRootComponent',
   _mountImageIntoNode: '_mountImageIntoNode'
-});/* bandol: node_modules/react/lib/EventPropagators.js */
+});
+/* bandol: node_modules/react/lib/EventPropagators.js */
 /* imports:
 []
 */
@@ -5453,7 +5535,8 @@ var EventPropagators = {
   accumulateTwoPhaseDispatchesSkipTarget: b3Lg,
   accumulateDirectDispatches: bm4x,
   accumulateEnterLeaveDispatches: bplm
-};/* bandol: node_modules/fbjs/lib/EventListener.js */
+};
+/* bandol: node_modules/fbjs/lib/EventListener.js */
 /* imports:
 []
 */
@@ -5497,7 +5580,8 @@ var EventListener = {
   },
 
   registerDefault: function () {}
-};/* bandol: node_modules/react/lib/SimpleEventPlugin.js */
+};
+/* bandol: node_modules/react/lib/SimpleEventPlugin.js */
 /* imports:
 []
 */
@@ -6039,7 +6123,8 @@ var SimpleEventPlugin = {
     }
   }
 
-};/* bandol: node_modules/react/lib/ServerReactRootIndex.js */
+};
+/* bandol: node_modules/react/lib/ServerReactRootIndex.js */
 /* imports:
 []
 */
@@ -6054,7 +6139,8 @@ var ServerReactRootIndex = {
   createReactRootIndex: function () {
     return Math.ceil(Math.random() * bQRd);
   }
-};/* bandol: node_modules/fbjs/lib/shallowEqual.js */
+};
+/* bandol: node_modules/fbjs/lib/shallowEqual.js */
 /* imports:
 []
 */
@@ -6090,7 +6176,8 @@ function shallowEqual(objA, objB) {
   }
 
   return true;
-}/* bandol: node_modules/react/lib/isTextInputElement.js */
+}
+/* bandol: node_modules/react/lib/isTextInputElement.js */
 /* imports:
 []
 */
@@ -6120,7 +6207,8 @@ var bVqg = {
 function isTextInputElement(elem) {
   var nodeName = elem && elem.nodeName && elem.nodeName.toLowerCase();
   return nodeName && (nodeName === 'input' && bVqg[elem.type] || nodeName === 'textarea');
-}/* bandol: node_modules/fbjs/lib/getActiveElement.js */
+}
+/* bandol: node_modules/fbjs/lib/getActiveElement.js */
 /* imports:
 []
 */
@@ -6139,7 +6227,8 @@ function getActiveElement() {
   } catch (e) {
     return document.body;
   }
-}/* bandol: node_modules/fbjs/lib/focusNode.js */
+}
+/* bandol: node_modules/fbjs/lib/focusNode.js */
 /* imports:
 []
 */
@@ -6152,7 +6241,8 @@ function focusNode(node) {
   try {
     node.focus();
   } catch (e) {}
-}/* bandol: node_modules/react/lib/getTextContentAccessor.js */
+}
+/* bandol: node_modules/react/lib/getTextContentAccessor.js */
 /* imports:
 []
 */
@@ -6169,7 +6259,8 @@ function getTextContentAccessor() {
     bl2J = 'textContent' in document.documentElement ? 'textContent' : 'innerText';
   }
   return bl2J;
-}/* bandol: node_modules/react/lib/getNodeForCharacterOffset.js */
+}
+/* bandol: node_modules/react/lib/getNodeForCharacterOffset.js */
 /* imports:
 []
 */
@@ -6215,7 +6306,8 @@ function getNodeForCharacterOffset(root, offset) {
 
     node = bGa8(bbJX(node));
   }
-}/* bandol: node_modules/react/lib/ReactDOMSelection.js */
+}
+/* bandol: node_modules/react/lib/ReactDOMSelection.js */
 /* imports:
 []
 */
@@ -6353,7 +6445,8 @@ var ReactDOMSelection = {
   getOffsets: b4Lx ? bxvA : bXzy,
 
   setOffsets: b4Lx ? bR0l : bK7N
-};/* bandol: node_modules/react/lib/ReactInputSelection.js */
+};
+/* bandol: node_modules/react/lib/ReactInputSelection.js */
 /* imports:
 []
 */
@@ -6438,7 +6531,8 @@ var ReactInputSelection = {
       ReactDOMSelection.setOffsets(input, offsets);
     }
   }
-};/* bandol: node_modules/react/lib/SelectEventPlugin.js */
+};
+/* bandol: node_modules/react/lib/SelectEventPlugin.js */
 /* imports:
 []
 */
@@ -6566,7 +6660,8 @@ var SelectEventPlugin = {
       bJ0z = true;
     }
   }
-};/* bandol: node_modules/react/lib/ReactReconcileTransaction.js */
+};
+/* bandol: node_modules/react/lib/ReactReconcileTransaction.js */
 /* imports:
 []
 */
@@ -6630,7 +6725,8 @@ var bEZz = {
 
 assign(ReactReconcileTransaction.prototype, Transaction.Mixin, bEZz);
 
-PooledClass.addPoolingTo(ReactReconcileTransaction);/* bandol: node_modules/react/lib/ReactInjection.js */
+PooledClass.addPoolingTo(ReactReconcileTransaction);
+/* bandol: node_modules/react/lib/ReactInjection.js */
 /* imports:
 []
 */
@@ -6651,7 +6747,8 @@ var ReactInjection = {
   Perf: ReactPerf.injection,
   RootIndex: ReactRootIndex.injection,
   Updates: ReactUpdates.injection
-};/* bandol: node_modules/fbjs/lib/getUnboundedScrollPosition.js */
+};
+/* bandol: node_modules/fbjs/lib/getUnboundedScrollPosition.js */
 /* imports:
 []
 */
@@ -6671,7 +6768,8 @@ function getUnboundedScrollPosition(scrollable) {
     x: scrollable.scrollLeft,
     y: scrollable.scrollTop
   };
-}/* bandol: node_modules/react/lib/ReactEventListener.js */
+}
+/* bandol: node_modules/react/lib/ReactEventListener.js */
 /* imports:
 []
 */
@@ -6815,7 +6913,8 @@ var ReactEventListener = {
       b2A1.release(bookKeeping);
     }
   }
-};/* bandol: node_modules/react/lib/escapeTextContentForBrowser.js */
+};
+/* bandol: node_modules/react/lib/escapeTextContentForBrowser.js */
 /* imports:
 []
 */
@@ -6841,7 +6940,8 @@ function bzk5(match) {
 
 function escapeTextContentForBrowser(text) {
   return ('' + text).replace(bnGw, bzk5);
-}/* bandol: node_modules/react/lib/setTextContent.js */
+}
+/* bandol: node_modules/react/lib/setTextContent.js */
 /* imports:
 []
 */
@@ -6860,7 +6960,8 @@ if (ExecutionEnvironment.canUseDOM) {
       setInnerHTML(node, escapeTextContentForBrowser(text));
     };
   }
-}/* bandol: node_modules/react/lib/quoteAttributeValueForBrowser.js */
+}
+/* bandol: node_modules/react/lib/quoteAttributeValueForBrowser.js */
 /* imports:
 []
 */
@@ -6871,7 +6972,8 @@ undefined
 
 function quoteAttributeValueForBrowser(value) {
   return '"' + escapeTextContentForBrowser(value) + '"';
-}/* bandol: node_modules/react/lib/DOMPropertyOperations.js */
+}
+/* bandol: node_modules/react/lib/DOMPropertyOperations.js */
 /* imports:
 []
 */
@@ -7008,7 +7110,8 @@ ReactPerf.measureMethods(DOMPropertyOperations, 'DOMPropertyOperations', {
   setValueForProperty: 'setValueForProperty',
   setValueForAttribute: 'setValueForAttribute',
   deleteValueForProperty: 'deleteValueForProperty'
-});/* bandol: node_modules/react/lib/ReactMultiChildUpdateTypes.js */
+});
+/* bandol: node_modules/react/lib/ReactMultiChildUpdateTypes.js */
 /* imports:
 []
 */
@@ -7023,7 +7126,8 @@ var ReactMultiChildUpdateTypes = keyMirror({
   REMOVE_NODE: null,
   SET_MARKUP: null,
   TEXT_CONTENT: null
-});/* bandol: node_modules/fbjs/lib/getMarkupWrap.js */
+});
+/* bandol: node_modules/fbjs/lib/getMarkupWrap.js */
 /* imports:
 []
 */
@@ -7084,7 +7188,8 @@ function getMarkupWrap(nodeName) {
     b4gx[nodeName] = !bKVN.firstChild;
   }
   return b4gx[nodeName] ? bgk8[nodeName] : null;
-}/* bandol: node_modules/fbjs/lib/toArray.js */
+}
+/* bandol: node_modules/fbjs/lib/toArray.js */
 /* imports:
 []
 */
@@ -7113,7 +7218,8 @@ function toArray(obj) {
     ret[ii] = obj[ii];
   }
   return ret;
-}/* bandol: node_modules/fbjs/lib/createArrayFromMixed.js */
+}
+/* bandol: node_modules/fbjs/lib/createArrayFromMixed.js */
 /* imports:
 []
 */
@@ -7134,7 +7240,8 @@ function createArrayFromMixed(obj) {
   } else {
     return toArray(obj);
   }
-}/* bandol: node_modules/fbjs/lib/createNodesFromMarkup.js */
+}
+/* bandol: node_modules/fbjs/lib/createNodesFromMarkup.js */
 /* imports:
 []
 */
@@ -7180,7 +7287,8 @@ function createNodesFromMarkup(markup, handleScript) {
     node.removeChild(node.lastChild);
   }
   return nodes;
-}/* bandol: node_modules/react/lib/Danger.js */
+}
+/* bandol: node_modules/react/lib/Danger.js */
 /* imports:
 []
 */
@@ -7266,7 +7374,8 @@ var Danger = {
     oldChild.parentNode.replaceChild(newChild, oldChild);
   }
 
-};/* bandol: node_modules/react/lib/DOMChildrenOperations.js */
+};
+/* bandol: node_modules/react/lib/DOMChildrenOperations.js */
 /* imports:
 []
 */
@@ -7351,7 +7460,8 @@ var DOMChildrenOperations = {
 
 ReactPerf.measureMethods(DOMChildrenOperations, 'DOMChildrenOperations', {
   updateTextContent: 'updateTextContent'
-});/* bandol: node_modules/react/lib/ReactDOMIDOperations.js */
+});
+/* bandol: node_modules/react/lib/ReactDOMIDOperations.js */
 /* imports:
 []
 */
@@ -7393,7 +7503,8 @@ var ReactDOMIDOperations = {
 ReactPerf.measureMethods(ReactDOMIDOperations, 'ReactDOMIDOperations', {
   dangerouslyReplaceNodeWithMarkupByID: 'dangerouslyReplaceNodeWithMarkupByID',
   dangerouslyProcessChildrenUpdates: 'dangerouslyProcessChildrenUpdates'
-});/* bandol: node_modules/react/lib/ReactComponentBrowserEnvironment.js */
+});
+/* bandol: node_modules/react/lib/ReactComponentBrowserEnvironment.js */
 /* imports:
 []
 */
@@ -7412,7 +7523,8 @@ var ReactComponentBrowserEnvironment = {
     ReactMount.purgeID(rootNodeID);
   }
 
-};/* bandol: node_modules/react/lib/ReactDOMTextComponent.js */
+};
+/* bandol: node_modules/react/lib/ReactDOMTextComponent.js */
 /* imports:
 []
 */
@@ -7470,7 +7582,8 @@ assign(ReactDOMTextComponent.prototype, {
     ReactComponentBrowserEnvironment.unmountIDFromEnvironment(this._rootNodeID);
   }
 
-});/* bandol: node_modules/react/lib/validateDOMNesting.js */
+});
+/* bandol: node_modules/react/lib/validateDOMNesting.js */
 /* imports:
 []
 */
@@ -7480,7 +7593,8 @@ undefined
 */
 
 
-var validateDOMNesting = emptyFunction;/* bandol: node_modules/react/lib/canDefineProperty.js */
+var validateDOMNesting = emptyFunction;
+/* bandol: node_modules/react/lib/canDefineProperty.js */
 /* imports:
 []
 */
@@ -7490,7 +7604,8 @@ undefined
 */
 
 
-var canDefineProperty = false;/* bandol: node_modules/react/lib/flattenChildren.js */
+var canDefineProperty = false;
+/* bandol: node_modules/react/lib/flattenChildren.js */
 /* imports:
 []
 */
@@ -7515,7 +7630,8 @@ function flattenChildren(children) {
   var result = {};
   traverseAllChildren(children, b5NK, result);
   return result;
-}/* bandol: node_modules/react/lib/ReactChildReconciler.js */
+}
+/* bandol: node_modules/react/lib/ReactChildReconciler.js */
 /* imports:
 []
 */
@@ -7585,7 +7701,8 @@ var ReactChildReconciler = {
     }
   }
 
-};/* bandol: node_modules/react/lib/ReactMultiChild.js */
+};
+/* bandol: node_modules/react/lib/ReactMultiChild.js */
 /* imports:
 []
 */
@@ -7857,7 +7974,8 @@ var ReactMultiChild = {
 
   }
 
-};/* bandol: node_modules/react/lib/LinkedValueUtils.js */
+};
+/* bandol: node_modules/react/lib/LinkedValueUtils.js */
 /* imports:
 []
 */
@@ -7959,7 +8077,8 @@ var LinkedValueUtils = {
       return inputProps.onChange.call(undefined, event);
     }
   }
-};/* bandol: node_modules/react/lib/ReactDOMTextarea.js */
+};
+/* bandol: node_modules/react/lib/ReactDOMTextarea.js */
 /* imports:
 []
 */
@@ -8028,7 +8147,8 @@ function bzG5(event) {
   var returnValue = LinkedValueUtils.executeOnChange(props, event);
   ReactUpdates.asap(bnxw, this);
   return returnValue;
-}/* bandol: node_modules/react/lib/ReactDOMSelect.js */
+}
+/* bandol: node_modules/react/lib/ReactDOMSelect.js */
 /* imports:
 []
 */
@@ -8150,7 +8270,8 @@ function bm60(event) {
   this._wrapperState.pendingUpdate = true;
   ReactUpdates.asap(bZpy, this);
   return returnValue;
-}/* bandol: node_modules/react/lib/ReactDOMOption.js */
+}
+/* bandol: node_modules/react/lib/ReactDOMOption.js */
 /* imports:
 []
 */
@@ -8211,7 +8332,8 @@ var ReactDOMOption = {
     return nativeProps;
   }
 
-};/* bandol: node_modules/react/lib/ReactDOMInput.js */
+};
+/* bandol: node_modules/react/lib/ReactDOMInput.js */
 /* imports:
 []
 */
@@ -8312,7 +8434,8 @@ function bg58(event) {
   }
 
   return returnValue;
-}/* bandol: node_modules/react/lib/ReactDOMButton.js */
+}
+/* bandol: node_modules/react/lib/ReactDOMButton.js */
 /* imports:
 []
 */
@@ -8351,7 +8474,8 @@ var ReactDOMButton = {
 
     return nativeProps;
   }
-};/* bandol: node_modules/fbjs/lib/memoizeStringOnly.js */
+};
+/* bandol: node_modules/fbjs/lib/memoizeStringOnly.js */
 /* imports:
 []
 */
@@ -8368,7 +8492,8 @@ function memoizeStringOnly(callback) {
     }
     return cache[string];
   };
-}/* bandol: node_modules/fbjs/lib/hyphenate.js */
+}
+/* bandol: node_modules/fbjs/lib/hyphenate.js */
 /* imports:
 []
 */
@@ -8382,7 +8507,8 @@ var bGX8 = /([A-Z])/g;
 
 function hyphenate(string) {
   return string.replace(bGX8, '-$1').toLowerCase();
-}/* bandol: node_modules/fbjs/lib/hyphenateStyleName.js */
+}
+/* bandol: node_modules/fbjs/lib/hyphenateStyleName.js */
 /* imports:
 []
 */
@@ -8396,7 +8522,8 @@ var b4Ax = /^ms-/;
 
 function hyphenateStyleName(string) {
   return hyphenate(string).replace(b4Ax, '-ms-');
-}/* bandol: node_modules/react/lib/CSSProperty.js */
+}
+/* bandol: node_modules/react/lib/CSSProperty.js */
 /* imports:
 []
 */
@@ -8503,7 +8630,8 @@ var bKkN = {
 var CSSProperty = {
   isUnitlessNumber: bxKA,
   shorthandPropertyExpansions: bKkN
-};/* bandol: node_modules/react/lib/dangerousStyleValue.js */
+};
+/* bandol: node_modules/react/lib/dangerousStyleValue.js */
 /* imports:
 []
 */
@@ -8531,7 +8659,8 @@ function dangerousStyleValue(name, value) {
     value = value.trim();
   }
   return value + 'px';
-}/* bandol: node_modules/react/lib/CSSPropertyOperations.js */
+}
+/* bandol: node_modules/react/lib/CSSPropertyOperations.js */
 /* imports:
 []
 */
@@ -8607,7 +8736,8 @@ var CSSPropertyOperations = {
 
 ReactPerf.measureMethods(CSSPropertyOperations, 'CSSPropertyOperations', {
   setValueForStyles: 'setValueForStyles'
-});/* bandol: node_modules/react/lib/findDOMNode.js */
+});
+/* bandol: node_modules/react/lib/findDOMNode.js */
 /* imports:
 []
 */
@@ -8628,7 +8758,8 @@ function findDOMNode(componentOrElement) {
   }
   !(componentOrElement.render == null || typeof componentOrElement.render !== 'function') ? 'production' !== 'production' ? invariant(false, 'findDOMNode was called on an unmounted component.') : invariant(false) : undefined;
   !false ? 'production' !== 'production' ? invariant(false, 'Element appears to be neither ReactComponent nor DOMNode (keys: %s)', Object.keys(componentOrElement)) : invariant(false) : undefined;
-}/* bandol: node_modules/react/lib/AutoFocusUtils.js */
+}
+/* bandol: node_modules/react/lib/AutoFocusUtils.js */
 /* imports:
 []
 */
@@ -8652,7 +8783,8 @@ var AutoFocusUtils = {
   focusDOMComponent: function () {
     focusNode(ReactMount.getNode(this._rootNodeID));
   }
-};/* bandol: node_modules/react/lib/ReactDOMComponent.js */
+};
+/* bandol: node_modules/react/lib/ReactDOMComponent.js */
 /* imports:
 []
 */
@@ -9304,7 +9436,8 @@ ReactPerf.measureMethods(ReactDOMComponent, 'ReactDOMComponent', {
   updateComponent: 'updateComponent'
 });
 
-assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);/* bandol: node_modules/react/lib/ReactBrowserComponentMixin.js */
+assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);
+/* bandol: node_modules/react/lib/ReactBrowserComponentMixin.js */
 /* imports:
 []
 */
@@ -9322,7 +9455,8 @@ var ReactBrowserComponentMixin = {
     this.constructor[bva9] = true;
     return findDOMNode(this);
   }
-};/* bandol: node_modules/react/lib/HTMLDOMPropertyConfig.js */
+};
+/* bandol: node_modules/react/lib/HTMLDOMPropertyConfig.js */
 /* imports:
 []
 */
@@ -9521,7 +9655,8 @@ var HTMLDOMPropertyConfig = {
     srcDoc: 'srcdoc',
     srcSet: 'srcset'
   }
-};/* bandol: node_modules/react/lib/EnterLeaveEventPlugin.js */
+};
+/* bandol: node_modules/react/lib/EnterLeaveEventPlugin.js */
 /* imports:
 []
 */
@@ -9613,7 +9748,8 @@ var EnterLeaveEventPlugin = {
     return bgnL;
   }
 
-};/* bandol: node_modules/react/lib/DefaultEventPluginOrder.js */
+};
+/* bandol: node_modules/react/lib/DefaultEventPluginOrder.js */
 /* imports:
 []
 */
@@ -9622,7 +9758,8 @@ var EnterLeaveEventPlugin = {
 undefined
 */
 
-var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ SimpleEventPlugin: null }), keyOf({ TapEventPlugin: null }), keyOf({ EnterLeaveEventPlugin: null }), keyOf({ ChangeEventPlugin: null }), keyOf({ SelectEventPlugin: null }), keyOf({ BeforeInputEventPlugin: null })];/* bandol: node_modules/react/lib/ClientReactRootIndex.js */
+var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ SimpleEventPlugin: null }), keyOf({ TapEventPlugin: null }), keyOf({ EnterLeaveEventPlugin: null }), keyOf({ ChangeEventPlugin: null }), keyOf({ SelectEventPlugin: null }), keyOf({ BeforeInputEventPlugin: null })];
+/* bandol: node_modules/react/lib/ClientReactRootIndex.js */
 /* imports:
 []
 */
@@ -9638,7 +9775,8 @@ var ClientReactRootIndex = {
   createReactRootIndex: function () {
     return bGKZ++;
   }
-};/* bandol: node_modules/react/lib/ChangeEventPlugin.js */
+};
+/* bandol: node_modules/react/lib/ChangeEventPlugin.js */
 /* imports:
 []
 */
@@ -9841,7 +9979,8 @@ var ChangeEventPlugin = {
     }
   }
 
-};/* bandol: node_modules/react/lib/SyntheticInputEvent.js */
+};
+/* bandol: node_modules/react/lib/SyntheticInputEvent.js */
 /* imports:
 []
 */
@@ -9858,7 +9997,8 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticInputEvent, bY4);/* bandol: node_modules/react/lib/SyntheticCompositionEvent.js */
+SyntheticEvent.augmentClass(SyntheticInputEvent, bY4);
+/* bandol: node_modules/react/lib/SyntheticCompositionEvent.js */
 /* imports:
 []
 */
@@ -9875,7 +10015,8 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticCompositionEvent, bBE);/* bandol: node_modules/react/lib/FallbackCompositionState.js */
+SyntheticEvent.augmentClass(SyntheticCompositionEvent, bBE);
+/* bandol: node_modules/react/lib/FallbackCompositionState.js */
 /* imports:
 []
 */
@@ -9935,7 +10076,8 @@ assign(FallbackCompositionState.prototype, {
   }
 });
 
-PooledClass.addPoolingTo(FallbackCompositionState);/* bandol: node_modules/react/lib/BeforeInputEventPlugin.js */
+PooledClass.addPoolingTo(FallbackCompositionState);
+/* bandol: node_modules/react/lib/BeforeInputEventPlugin.js */
 /* imports:
 []
 */
@@ -10169,7 +10311,8 @@ var BeforeInputEventPlugin = {
   extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
     return [bv9(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget), bel(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget)];
   }
-};/* bandol: node_modules/react/lib/ReactDefaultInjection.js */
+};
+/* bandol: node_modules/react/lib/ReactDefaultInjection.js */
 /* imports:
 []
 */
@@ -10222,7 +10365,8 @@ function bxq() {
 
 var ReactDefaultInjection = {
   inject: bxq
-};/* bandol: node_modules/react/lib/ReactDOMServer.js */
+};
+/* bandol: node_modules/react/lib/ReactDOMServer.js */
 /* imports:
 []
 */
@@ -10238,7 +10382,8 @@ var ReactDOMServer = {
   renderToString: ReactServerRendering.renderToString,
   renderToStaticMarkup: ReactServerRendering.renderToStaticMarkup,
   version: ReactVersion
-};/* bandol: node_modules/react/lib/renderSubtreeIntoContainer.js */
+};
+/* bandol: node_modules/react/lib/renderSubtreeIntoContainer.js */
 /* imports:
 []
 */
@@ -10246,7 +10391,8 @@ var ReactDOMServer = {
 /* exports:
 undefined
 */
-var renderSubtreeIntoContainer = ReactMount.renderSubtreeIntoContainer;/* bandol: node_modules/react/lib/ReactDOM.js */
+var renderSubtreeIntoContainer = ReactMount.renderSubtreeIntoContainer;
+/* bandol: node_modules/react/lib/ReactDOM.js */
 /* imports:
 []
 */
@@ -10268,7 +10414,8 @@ var ReactDOM = {
 
   unstable_batchedUpdates: ReactUpdates.batchedUpdates,
   unstable_renderSubtreeIntoContainer: renderSubtreeIntoContainer
-};/* bandol: node_modules/react/lib/React.js */
+};
+/* bandol: node_modules/react/lib/React.js */
 /* imports:
 []
 */
@@ -10291,7 +10438,8 @@ assign(React, {
 });
 
 React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOM;
-React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;/* bandol: actual.js */
+React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;
+/* bandol: actual.js */
 /* imports:
 []
 */
@@ -10302,4 +10450,5 @@ undefined
 
 
 ReactDOM.render(React.createElement('h1', null, 'Hello Bandol'), document.getElementById('content'));
+
 }());
