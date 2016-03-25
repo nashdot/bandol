@@ -68,6 +68,19 @@ function getOptions(testPath, opts) {
   return Object.assign({}, { entry: join(fixturesDir, testPath, 'actual.js') }, opts);
 }
 
+test('normalizer/cjs-to-es6', t => {
+  const opts = getOptions('normalizer/cjs-to-es6', {
+    plugins: [
+      ...basePlugins,
+      cjsToEs6NormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/cjs-to-es6'));
+  });
+});
+
 test('core/basic', t => {
   const opts = getOptions('core/basic', {
     plugins: allPlugins
