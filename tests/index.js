@@ -155,6 +155,20 @@ test('normalizer/running-context', t => {
   });
 });
 
+test('normalizer/es6-imports', t => {
+  const opts = getOptions('normalizer/es6-imports', {
+    runningContext: createRunningContext2(),
+    plugins: [
+      ...basePlugins,
+      es6ImportsNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/es6-imports'));
+  });
+});
+
 test('core/basic', t => {
   const opts = getOptions('core/basic', {
     plugins: allPlugins
