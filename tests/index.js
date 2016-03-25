@@ -169,6 +169,19 @@ test('normalizer/es6-imports', t => {
   });
 });
 
+test('normalizer/es6-exports', t => {
+  const opts = getOptions('normalizer/es6-exports', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/es6-exports'));
+  });
+});
+
 test('core/basic', t => {
   const opts = getOptions('core/basic', {
     plugins: allPlugins
