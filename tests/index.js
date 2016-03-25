@@ -60,66 +60,87 @@ function createRunningContext() {
   return context;
 }
 
-function doBandol(testPath) {
-  return bandol({
-    entry: join(fixturesDir, testPath, 'actual.js'),
-    env: { NODE_ENV: 'production' },
-    runningContext: createRunningContext(),
-    plugins: plugins
-  });
+function getOptions(testPath, opts) {
+  return Object.assign({}, { entry: join(fixturesDir, testPath, 'actual.js') }, opts);
 }
 
 test('core/basic', t => {
-  return doBandol('core/basic').then(b => {
+  const opts = getOptions('core/basic', {
+    plugins: plugins
+  });
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/basic'));
   });
 });
 
 test('core/basic-2', t => {
-  return doBandol('core/basic-2').then(b => {
+  const opts = getOptions('core/basic-2', {
+    plugins: plugins
+  });
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/basic-2'));
   });
 });
 
 test('core/namespaceImport', t => {
-  return doBandol('core/namespaceImport').then(b => {
+  const opts = getOptions('core/namespaceImport', {
+    plugins: plugins
+  });
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/namespaceImport'));
   });
 });
 
 test('core/namespaceImport-2', t => {
-  return doBandol('core/namespaceImport-2').then(b => {
+  const opts = getOptions('core/namespaceImport-2', {
+    plugins: plugins
+  });
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/namespaceImport-2'));
   });
 });
 
 test('core/namespaceImport-3', t => {
-  return doBandol('core/namespaceImport-3').then(b => {
+  const opts = getOptions('core/namespaceImport-3', {
+    plugins: plugins
+  });
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/namespaceImport-3'));
   });
 });
 
 test('core/namedImport', t => {
-  return doBandol('core/namedImport').then(b => {
+  const opts = getOptions('core/namedImport', {
+    plugins: plugins
+  });
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/namedImport'));
   });
 });
 
 test('core/removeUseStrict', t => {
-  return doBandol('core/removeUseStrict').then(b => {
+  const opts = getOptions('core/removeUseStrict', {
+    plugins: plugins
+  });
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/removeUseStrict'));
   });
 });
 
 test('core/module', t => {
-  return doBandol('core/module').then(b => {
+  const opts = getOptions('core/module', {
+    env: { NODE_ENV: 'production' },
+    runningContext: createRunningContext(),
+    plugins: plugins
+  });
+  return bandol(opts).then(b => {
     b.finalize({ debug: true });
     const outputPath = `${process.cwd()}/out/core_module.js`;
     fs.writeFileSync(outputPath, b.code);
