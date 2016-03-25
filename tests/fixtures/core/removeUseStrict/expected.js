@@ -9,8 +9,10 @@ class Test {
   }
 }
 
+
 const bQr = new Test();
 const bPq = bQr.square(4);
 
 console.log(`${ bPq }`);
+
 }());

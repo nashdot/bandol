@@ -42,7 +42,7 @@ export default class Plugin extends BasePlugin {
           this.bundle.code += `/* exports:\n${JSON.stringify(this.bundle.namedExportsById.get(resource.id), null, ' ')}\n*/\n`;
         }
 
-        this.bundle.code += `${resource.props.code}`;
+        this.bundle.code += `${resource.props.code}\n`;
       }
     }
 

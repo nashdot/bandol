@@ -9,7 +9,9 @@ var tests = {
   }
 };
 
+
 const bQr = tests.square(4);
 
 console.log(`${ bQr }`);
+
 }());
