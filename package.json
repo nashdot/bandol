@@ -47,7 +47,6 @@
     "babel-traverse": "^6.7.0",
     "babel-types": "^6.7.0",
     "babylon": "^6.7.0",
-    "cdir": "^0.1.2",
     "debug": "^2.2.0",
     "hashids": "^1.0.2",
     "json-stringify-safe": "^5.0.1",
