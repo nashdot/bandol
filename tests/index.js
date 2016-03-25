@@ -81,6 +81,19 @@ test('normalizer/cjs-to-es6', t => {
   });
 });
 
+test('normalizer/process-env', t => {
+  const opts = getOptions('normalizer/process-env', {
+    plugins: [
+      ...basePlugins,
+      processEnvNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/process-env'));
+  });
+});
+
 test('core/basic', t => {
   const opts = getOptions('core/basic', {
     plugins: allPlugins
