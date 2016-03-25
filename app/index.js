@@ -5,7 +5,8 @@ import sortDependencies from './utils/sortDependencies.js';
 const ALLOWED_KEYS = [
   'entry',
   'env',
-  'runningContext'
+  'runningContext',
+  'plugins'
 ];
 
 async function bandol(options) {

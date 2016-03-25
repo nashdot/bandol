@@ -9,52 +9,6 @@ import Resource from './Resource';
 import Types from './Types';
 import sortDependencies from './utils/sortDependencies.js';
 
-import hashidsUidPlugin from './plugins/bandol-plugin-uid-hashids';
-import nodeResolverPlugin from './plugins/bandol-plugin-resolver-node';
-import jsLoaderPlugin from './plugins/bandol-plugin-loader-js';
-import cjsToEs6NormalizerPlugin from './plugins/bandol-plugin-normalizer-cjs-to-es6';
-import es6ExportsNormalizerPlugin from './plugins/bandol-plugin-normalizer-es6-exports';
-import es6ImportsNormalizerPlugin from './plugins/bandol-plugin-normalizer-es6-imports';
-import processEnvNormalizerPlugin from './plugins/bandol-plugin-normalizer-process-env';
-import runningContextNormalizerPlugin from './plugins/bandol-plugin-normalizer-running-context';
-import removeFalsyBlocksNormalizerPlugin from './plugins/bandol-plugin-normalizer-remove-falsy-blocks';
-import removeUnusedImportsNormalizerPlugin from './plugins/bandol-plugin-normalizer-remove-unused-imports';
-import es6AnalyzerPlugin from './plugins/bandol-plugin-analyzer-es6';
-import es6ExportsOptimizerPlugin from './plugins/bandol-plugin-optimizer-es6-exports';
-import renameInternalsOptimizerPlugin from './plugins/bandol-plugin-optimizer-rename-internals';
-import namedMembersOptimizerPlugin from './plugins/bandol-plugin-optimizer-named-members';
-// import optimizerPlugin from './plugins/bandol-plugin-optimizer';
-import removeImportsOptimizerPlugin from './plugins/bandol-plugin-optimizer-remove-imports';
-import removeUseStrictOptimizerPlugin from './plugins/bandol-plugin-optimizer-remove-use-strict';
-import iifeFinalizerPlugin from './plugins/bandol-plugin-finalizer-iife';
-
-const plugins = [
-  // Utils
-  hashidsUidPlugin,
-  nodeResolverPlugin,
-  // Loaders
-  jsLoaderPlugin,
-  // Normalisation
-  cjsToEs6NormalizerPlugin,
-  processEnvNormalizerPlugin,
-  runningContextNormalizerPlugin,
-  removeFalsyBlocksNormalizerPlugin,
-  es6ExportsNormalizerPlugin,
-  es6ImportsNormalizerPlugin,
-  removeUnusedImportsNormalizerPlugin,
-  // Analyse
-  es6AnalyzerPlugin,
-  // Optimisation
-  es6ExportsOptimizerPlugin,
-  renameInternalsOptimizerPlugin,
-  namedMembersOptimizerPlugin,
-  // optimizerPlugin,
-  removeImportsOptimizerPlugin,
-  removeUseStrictOptimizerPlugin,
-  // Finalisation
-  iifeFinalizerPlugin
-];
-
 export default class Bundle {
   constructor(options) {
     // Entry and base path to all dependencies
@@ -70,6 +24,7 @@ export default class Bundle {
     }
 
     this.runningContext = options.runningContext || new Map();
+    this.plugins = options.plugins || [];
 
     // Final bundle genarated code source
     this.code = '';
@@ -98,7 +53,7 @@ export default class Bundle {
   }
 
   initPlugins() {
-    for (const Plugin of plugins) {
+    for (const Plugin of this.plugins) {
       const worker = new Plugin(this);
 
       if (worker.generateUid) {
