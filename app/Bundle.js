@@ -234,7 +234,7 @@ export default class Bundle {
   }
 
   getShortPath(id) {
-    return path.relative(this.srcBasePath, id);
+    return path.relative(this.srcBasePath, id).replace(/\\/g, '/');
   }
 
   getShortName(id) {
