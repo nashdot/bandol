@@ -37,9 +37,18 @@ export default class Plugin extends BasePlugin {
 
         if (opts.debug) {
           this.bundle.code += `/* bandol: ${this.bundle.getShortPath(resource.id)} */\n`;
-          this.bundle.code += `/* imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`;
-          this.bundle.code += `/* default export: ${this.bundle.defaultExportsById.get(resource.id)} */\n`;
-          this.bundle.code += `/* exports:\n${JSON.stringify(this.bundle.namedExportsById.get(resource.id), null, ' ')}\n*/\n`;
+          if (resource.props.imports.length > 0) {
+            this.bundle.code += `/* imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`;
+          } else {
+            this.bundle.code += `/* imports: - */\n`;
+          }
+          this.bundle.code += `/* default export: ${this.bundle.defaultExportsById.get(resource.id) || '-'} */\n`;
+          const exports = this.bundle.namedExportsById.get(resource.id) || '-';
+          if (exports === '-') {
+            this.bundle.code += `/* exports: ${exports} */\n`;
+          } else {
+            this.bundle.code += `/* exports:\n${JSON.stringify(exports, null, ' ')}\n*/\n`;
+          }
         }
 
         this.bundle.code += `${resource.props.code}\n`;
