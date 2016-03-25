@@ -94,6 +94,20 @@ test('normalizer/process-env', t => {
   });
 });
 
+test('normalizer/process-env_2', t => {
+  const opts = getOptions('normalizer/process-env_2', {
+    env: { NODE_ENV: 'production' },
+    plugins: [
+      ...basePlugins,
+      processEnvNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/process-env_2'));
+  });
+});
+
 test('core/basic', t => {
   const opts = getOptions('core/basic', {
     plugins: allPlugins
