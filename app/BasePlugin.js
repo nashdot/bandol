@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import * as path from 'path';
+import stringify from 'json-stringify-safe';
 
 export default class BasePlugin {
   constructor() {
@@ -17,6 +18,11 @@ export default class BasePlugin {
 
   log(message) {
     console.log(`${this.name}/${this.version}: ${message}`);
+  }
+
+  logAst(ast) {
+    const message = stringify(ast, null, 2);
+    console.log(message);
   }
 
   /**
