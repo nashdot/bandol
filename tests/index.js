@@ -121,6 +121,19 @@ test('normalizer/remove-falsy-blocks', t => {
   });
 });
 
+test('normalizer/remove-unused-imports', t => {
+  const opts = getOptions('normalizer/remove-unused-imports', {
+    plugins: [
+      ...basePlugins,
+      removeUnusedImportsNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/remove-unused-imports'));
+  });
+});
+
 test('core/basic', t => {
   const opts = getOptions('core/basic', {
     plugins: allPlugins
@@ -191,16 +204,16 @@ test('core/removeUseStrict', t => {
   });
 });
 
-test('core/module', t => {
-  const opts = getOptions('core/module', {
-    env: { NODE_ENV: 'production' },
-    runningContext: createRunningContext(),
-    plugins: allPlugins
-  });
-  return bandol(opts).then(b => {
-    b.finalize({ debug: true });
-    const outputPath = `${process.cwd()}/out/core_module.js`;
-    fs.writeFileSync(outputPath, b.code);
-    t.is(b.code, expected('core/module'));
-  });
-});
+// test('core/module', t => {
+//   const opts = getOptions('core/module', {
+//     env: { NODE_ENV: 'production' },
+//     runningContext: createRunningContext(),
+//     plugins: allPlugins
+//   });
+//   return bandol(opts).then(b => {
+//     b.finalize({ debug: true });
+//     const outputPath = `${process.cwd()}/out/core_module.js`;
+//     fs.writeFileSync(outputPath, b.code);
+//     t.is(b.code, expected('core/module'));
+//   });
+// });
