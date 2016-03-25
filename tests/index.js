@@ -108,6 +108,19 @@ test('normalizer/process-env_2', t => {
   });
 });
 
+test('normalizer/remove-falsy-blocks', t => {
+  const opts = getOptions('normalizer/remove-falsy-blocks', {
+    plugins: [
+      ...basePlugins,
+      removeFalsyBlocksNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/remove-falsy-blocks'));
+  });
+});
+
 test('core/basic', t => {
   const opts = getOptions('core/basic', {
     plugins: allPlugins

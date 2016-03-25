@@ -2628,9 +2628,7 @@ var bvNp = {
     var canInstantiate = 'prototype' in Component;
 
     if (canInstantiate) {
-      {
-        inst = new Component(publicProps, publicContext, ReactUpdateQueue);
-      }
+      inst = new Component(publicProps, publicContext, ReactUpdateQueue);
     }
 
     if (!canInstantiate || inst === null || inst === false || ReactElement.isValidElement(inst)) {
@@ -9291,9 +9289,8 @@ ReactDOMComponent.Mixin = {
       node.setProps = bL7m;
       node.replaceProps = b0A1;
 
-      {
-        node.props = this._currentElement.props;
-      }
+      node.props = this._currentElement.props;
+
 
       this._nodeWithLegacyProperties = node;
     }

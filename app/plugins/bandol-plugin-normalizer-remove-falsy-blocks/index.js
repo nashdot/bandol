@@ -31,10 +31,10 @@ export default class Plugin extends BasePlugin {
               const evaluated = test.evaluate();
               if (evaluated.confident) {
                 if (evaluated.value === true) {
-                  nodePath.replaceWith(nodePath.node.consequent);
+                  nodePath.replaceWithMultiple(nodePath.node.consequent.body);
                 } else if (evaluated.value === false) {
                   if (nodePath.node.alternate) {
-                    nodePath.replaceWith(nodePath.node.alternate);
+                    nodePath.replaceWithMultiple(nodePath.node.alternate.body);
                   } else {
                     nodePath.remove();
                   }
