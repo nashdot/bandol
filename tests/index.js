@@ -64,6 +64,13 @@ function createRunningContext() {
   return context;
 }
 
+function createRunningContext2() {
+  const context = new Map();
+  context.set('__TEST__', '\'test\'');
+
+  return context;
+}
+
 function getOptions(testPath, opts) {
   return Object.assign({}, { entry: join(fixturesDir, testPath, 'actual.js') }, opts);
 }
@@ -131,6 +138,20 @@ test('normalizer/remove-unused-imports', t => {
   return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/remove-unused-imports'));
+  });
+});
+
+test('normalizer/running-context', t => {
+  const opts = getOptions('normalizer/running-context', {
+    runningContext: createRunningContext2(),
+    plugins: [
+      ...basePlugins,
+      runningContextNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/running-context'));
   });
 });
 
@@ -204,16 +225,16 @@ test('core/removeUseStrict', t => {
   });
 });
 
-// test('core/module', t => {
-//   const opts = getOptions('core/module', {
-//     env: { NODE_ENV: 'production' },
-//     runningContext: createRunningContext(),
-//     plugins: allPlugins
-//   });
-//   return bandol(opts).then(b => {
-//     b.finalize({ debug: true });
-//     const outputPath = `${process.cwd()}/out/core_module.js`;
-//     fs.writeFileSync(outputPath, b.code);
-//     t.is(b.code, expected('core/module'));
-//   });
-// });
+test('core/module', t => {
+  const opts = getOptions('core/module', {
+    env: { NODE_ENV: 'production' },
+    runningContext: createRunningContext(),
+    plugins: allPlugins
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    const outputPath = `${process.cwd()}/out/core_module.js`;
+    fs.writeFileSync(outputPath, b.code);
+    t.is(b.code, expected('core/module'));
+  });
+});
