@@ -69,72 +69,60 @@ function doBandol(testPath) {
   });
 }
 
-// https://github.com/sindresorhus/serialize-error/issues/4
-// Use: const generated = b.generate().code; t.is(generated, ...
-// and not direct call inside t.is()
-
 test('core/basic', t => {
   return doBandol('core/basic').then(b => {
     b.finalize();
-    const generated = b.code;
-    t.is(generated, expected('core/basic'));
+    t.is(b.code, expected('core/basic'));
   });
 });
 
 test('core/basic-2', t => {
   return doBandol('core/basic-2').then(b => {
     b.finalize();
-    const generated = b.code;
-    t.is(generated, expected('core/basic-2'));
+    t.is(b.code, expected('core/basic-2'));
   });
 });
 
 test('core/namespaceImport', t => {
   return doBandol('core/namespaceImport').then(b => {
     b.finalize();
-    const generated = b.code;
-    t.is(generated, expected('core/namespaceImport'));
+    t.is(b.code, expected('core/namespaceImport'));
   });
 });
 
 test('core/namespaceImport-2', t => {
   return doBandol('core/namespaceImport-2').then(b => {
     b.finalize();
-    const generated = b.code;
-    t.is(generated, expected('core/namespaceImport-2'));
+    t.is(b.code, expected('core/namespaceImport-2'));
   });
 });
 
 test('core/namespaceImport-3', t => {
   return doBandol('core/namespaceImport-3').then(b => {
     b.finalize();
-    const generated = b.code;
-    t.is(generated, expected('core/namespaceImport-3'));
+    t.is(b.code, expected('core/namespaceImport-3'));
   });
 });
 
 test('core/namedImport', t => {
   return doBandol('core/namedImport').then(b => {
     b.finalize();
-    const generated = b.code;
-    t.is(generated, expected('core/namedImport'));
+    t.is(b.code, expected('core/namedImport'));
   });
 });
 
 test('core/removeUseStrict', t => {
   return doBandol('core/removeUseStrict').then(b => {
     b.finalize();
-    const generated = b.code;
-    t.is(generated, expected('core/removeUseStrict'));
+    t.is(b.code, expected('core/removeUseStrict'));
   });
 });
 
 test('core/module', t => {
   return doBandol('core/module').then(b => {
     b.finalize({ debug: true });
-    const generated = b.code;
     const outputPath = `${process.cwd()}/out/core_module.js`;
-    fs.writeFileSync(outputPath, generated);
-    t.is(generated, expected('core/module'));
+    fs.writeFileSync(outputPath, b.code);
+    t.is(b.code, expected('core/module'));
   });
 });
