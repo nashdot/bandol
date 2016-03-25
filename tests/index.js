@@ -76,7 +76,7 @@ function doBandol(testPath) {
 test('core/basic', t => {
   return doBandol('core/basic').then(b => {
     b.generate('core_basic');
-    const generated = b.bundle.code;
+    const generated = b.code;
     t.is(generated, expected('core/basic'));
   });
 });
@@ -84,7 +84,7 @@ test('core/basic', t => {
 test('core/basic-2', t => {
   return doBandol('core/basic-2').then(b => {
     b.generate('core_basic2');
-    const generated = b.bundle.code;
+    const generated = b.code;
     t.is(generated, expected('core/basic-2'));
   });
 });
@@ -92,7 +92,7 @@ test('core/basic-2', t => {
 test('core/namespaceImport', t => {
   return doBandol('core/namespaceImport').then(b => {
     b.generate('core_namespaceImport');
-    const generated = b.bundle.code;
+    const generated = b.code;
     t.is(generated, expected('core/namespaceImport'));
   });
 });
@@ -100,7 +100,7 @@ test('core/namespaceImport', t => {
 test('core/namespaceImport-2', t => {
   return doBandol('core/namespaceImport-2').then(b => {
     b.generate('core_namespaceImport-2');
-    const generated = b.bundle.code;
+    const generated = b.code;
     t.is(generated, expected('core/namespaceImport-2'));
   });
 });
@@ -108,7 +108,7 @@ test('core/namespaceImport-2', t => {
 test('core/namespaceImport-3', t => {
   return doBandol('core/namespaceImport-3').then(b => {
     b.generate('core_namespaceImport-3');
-    const generated = b.bundle.code;
+    const generated = b.code;
     t.is(generated, expected('core/namespaceImport-3'));
   });
 });
@@ -116,7 +116,7 @@ test('core/namespaceImport-3', t => {
 test('core/namedImport', t => {
   return doBandol('core/namedImport').then(b => {
     b.generate('core_namedImport');
-    const generated = b.bundle.code;
+    const generated = b.code;
     t.is(generated, expected('core/namedImport'));
   });
 });
@@ -124,7 +124,7 @@ test('core/namedImport', t => {
 test('core/removeUseStrict', t => {
   return doBandol('core/removeUseStrict').then(b => {
     b.generate('core_removeUseStrict');
-    const generated = b.bundle.code;
+    const generated = b.code;
     t.is(generated, expected('core/removeUseStrict'));
   });
 });
@@ -132,7 +132,7 @@ test('core/removeUseStrict', t => {
 test('core/module', t => {
   return doBandol('core/module').then(b => {
     b.generate('core_module');
-    const generated = b.bundle.code;
+    const generated = b.code;
     const outputPath = `${process.cwd()}/out/1.js`;
     fs.writeFileSync(outputPath, generated);
     t.is(generated, expected('core/module'));

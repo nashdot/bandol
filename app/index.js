@@ -23,12 +23,7 @@ async function bandol(options) {
   const bundle = new Bundle(options);
   await bundle.build();
 
-  return {
-    bundle: bundle,
-    generate: opts => {
-      return bundle.generate(opts);
-    }
-  };
+  return bundle;
 }
 
 export default bandol;
