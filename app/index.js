@@ -1,6 +1,5 @@
 import Bundle from './Bundle.js';
 import validateKeys from './utils/validateKeys.js';
-import sortDependencies from './utils/sortDependencies.js';
 
 const ALLOWED_KEYS = [
   'entry',
