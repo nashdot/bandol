@@ -91,6 +91,10 @@ export default class Bundle {
   async build() {
     try {
       this.entryId = this.resolveResource(this.entry, undefined);
+      if (this.entryId === undefined) {
+        throw new Error(`Bundle.build: can't resolve entry ${this.entry}`);
+      }
+
       this.srcBasePath = path.dirname(this.entryId);
 
       console.log('budle: Processing...');
