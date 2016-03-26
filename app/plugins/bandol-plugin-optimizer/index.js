@@ -26,7 +26,7 @@ export default class Plugin extends BasePlugin {
 
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't optimize ${resource.id}`);
+        this.log.info(`Can't optimize ${resource.id}`);
       } else {
         try {
           traverse(resource.props.ast, {
@@ -42,7 +42,7 @@ export default class Plugin extends BasePlugin {
                   if (imports.get(localName) === id) {
                     return;
                   }
-                  this.log(`BUG: Same import '${localName}' from different resource ('${id}' - '${imports.get(localName)}')`);
+                  this.log.info(`BUG: Same import '${localName}' from different resource ('${id}' - '${imports.get(localName)}')`);
                 }
 
                 imports.set(localName, id);
@@ -50,16 +50,16 @@ export default class Plugin extends BasePlugin {
             }
           });
         } catch (err) {
-          this.log(err.stack);
+          this.log.info(err.stack);
           const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
           fs.writeFileSync(outputPath, resource.props.code);
         }
       }
     }
 
-    this.log('Imports');
+    this.log.info('Imports');
     for (const [key, value] of imports.entries()) {
-      this.log(`-> ${this.bundle.getShortPath(value)}:${key}`);
+      this.log.info(`-> ${this.bundle.getShortPath(value)}:${key}`);
     }
   }
 }

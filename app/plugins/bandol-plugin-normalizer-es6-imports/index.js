@@ -30,7 +30,7 @@ export default class Plugin extends BasePlugin {
     return new Promise((resolve) => {
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't normalize ${resource.id}`);
+        this.log.info(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {
         try {
@@ -99,7 +99,7 @@ export default class Plugin extends BasePlugin {
             }
           });
         } catch (e) {
-          this.log(e.stack);
+          this.log.info(e.stack);
         }
 
         resolve(resource);

@@ -5,7 +5,8 @@ const ALLOWED_KEYS = [
   'entry',
   'env',
   'runningContext',
-  'plugins'
+  'plugins',
+  'logLevel'
 ];
 
 async function bandol(options) {

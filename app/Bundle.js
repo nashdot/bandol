@@ -4,6 +4,7 @@ import * as path from 'path';
 import generate from 'babel-generator';
 import traverse from 'babel-traverse';
 import stringify from 'json-stringify-safe';
+import log from 'loglevel';
 
 import Resource from './Resource';
 import Types from './Types';
@@ -15,6 +16,11 @@ export default class Bundle {
     this.entry = options.entry;
     this.entryId = 'unknown';
     this.srcBasePath = 'unknown';
+
+    // Initialize logging
+    const logLevel = options.logLevel || log.levels.SILENT;
+    this.log = log;
+    this.log.setLevel(logLevel);
 
     // Enhance environment by options provided to Bandol
     for (const prop in options.env) {
@@ -84,7 +90,7 @@ export default class Bundle {
         this.finalizerPlugins.push(worker);
       }
 
-      console.log(`budle: Registering "${worker.name}/${worker.version}" plugin. Available features: ${JSON.stringify(worker.features)}`);
+      this.log.info(`Registering "${worker.name}/${worker.version}" plugin. Available features: ${JSON.stringify(worker.features)}`);
     }
   }
 
@@ -97,15 +103,15 @@ export default class Bundle {
 
       this.srcBasePath = path.dirname(this.entryId);
 
-      console.log('budle: Processing...');
+      this.log.info('Processing...');
       await this.processResource(this.entryId);
 
       this.sortedResources = sortDependencies(this.resources);
 
-      console.log('budle: Optimizing...');
+      this.log.info('Optimizing...');
       this.optimizeBundle();
     } catch (error) {
-      console.log(error.message);
+      this.log.info(error.message);
     }
   }
 
@@ -117,11 +123,11 @@ export default class Bundle {
 
       const shortId = this.getShortPath(id);
 
-      console.log(`budle: Loading "${shortId}"...`);
+      this.log.info(`Loading "${shortId}"...`);
       let resource = await this.loadResource(id);
-      console.log(`budle: Normalizing "${shortId}"...`);
+      this.log.info(`Normalizing "${shortId}"...`);
       resource = await this.normalizeResource(resource);
-      console.log(`budle: Analyzing "${shortId}"...`);
+      this.log.info(`Analyzing "${shortId}"...`);
       resource = await this.analyzeResource(resource);
 
       // -- Register
@@ -130,7 +136,7 @@ export default class Bundle {
       // -- Fetch dependencies
       await this.processDependencies(resource);
     } catch (error) {
-      console.log(error.message);
+      this.log.info(error.message);
     }
   }
 
@@ -159,7 +165,7 @@ export default class Bundle {
       resource = await plugin.loadResource(resource);
 
       if (resource.type !== Types.UNKNOWN) {
-        console.log(`budle: Loaded by "${plugin.name}/${plugin.version}"`);
+        this.log.info(`Loaded by "${plugin.name}/${plugin.version}"`);
         return resource;
       }
     }
@@ -218,7 +224,7 @@ export default class Bundle {
         },
         '').code;
     } catch (err) {
-      console.log(err.stack);
+      this.log.info(err.stack);
     }
 
     fs.writeFileSync(outputPath, `${output}`);
@@ -231,7 +237,7 @@ export default class Bundle {
     try {
       output = stringify(ast, null, 2);
     } catch (err) {
-      console.log(err.stack);
+      this.log.info(err.stack);
     }
 
     fs.writeFileSync(outputPath, `${output}`);

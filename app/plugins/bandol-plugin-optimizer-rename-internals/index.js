@@ -21,7 +21,7 @@ export default class Plugin extends BasePlugin {
 
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't optimize ${resource.id}`);
+        this.log.info(`Can't optimize ${resource.id}`);
       } else {
         // Rename global but internally used variables
         try {
@@ -33,14 +33,14 @@ export default class Plugin extends BasePlugin {
                     && !this.bundle.defaultExportsByName.has(bindingName)
                     && !this.bundle.namedExportsByName.has(bindingName)) {
                   const newName = this.bundle.generateUid();
-                  // this.log(`${this.bundle.getShortPath(resource.id)}: Renamed ${bindingName} to ${newName}`);
+                  // this.log.info(`${this.bundle.getShortPath(resource.id)}: Renamed ${bindingName} to ${newName}`);
                   nodePath.scope.rename(bindingName, newName);
                 }
               });
             }
           });
         } catch (err) {
-          this.log(err.stack);
+          this.log.info(err.stack);
         }
       }
     }

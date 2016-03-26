@@ -20,7 +20,7 @@ export default class Plugin extends BasePlugin {
     return new Promise((resolve) => {
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't analyze ${this.bundle.getShortPath(resource.id)}`);
+        this.log.info(`Can't analyze ${this.bundle.getShortPath(resource.id)}`);
         resolve(resource);
       } else {
         const dependencies = resource.dependencies;
@@ -38,7 +38,7 @@ export default class Plugin extends BasePlugin {
             }
           });
         } catch (err) {
-          this.log(err.stack);
+          this.log.info(err.stack);
         }
 
         resource.dependencies = dependencies;

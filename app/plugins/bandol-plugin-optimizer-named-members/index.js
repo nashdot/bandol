@@ -22,7 +22,7 @@ export default class Plugin extends BasePlugin {
 
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't optimize ${resource.id}`);
+        this.log.info(`Can't optimize ${resource.id}`);
       } else {
         try {
           const transformNamespaceVariables = {
@@ -61,7 +61,7 @@ export default class Plugin extends BasePlugin {
             }
           });
         } catch (err) {
-          this.log(err.stack);
+          this.log.info(err.stack);
         }
       }
     }

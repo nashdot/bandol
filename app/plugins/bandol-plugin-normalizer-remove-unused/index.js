@@ -20,7 +20,7 @@ export default class Plugin extends BasePlugin {
     return new Promise((resolve) => {
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't normalize ${resource.id}`);
+        this.log.info(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {
         // TODO: Should we remove it in HotWatch mode?
@@ -36,13 +36,13 @@ export default class Plugin extends BasePlugin {
             },
             ImportDeclaration: (nodePath) => {
               if (nodePath.node.specifiers.length === 0) {
-                this.log(`Remove unused import "${nodePath.node.source.value}"`);
+                this.log.info(`Remove unused import "${nodePath.node.source.value}"`);
                 nodePath.remove();
               }
             }
           });
         } catch (err) {
-          this.log(err.stack);
+          this.log.info(err.stack);
         }
         resolve(resource);
       }

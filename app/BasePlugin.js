@@ -4,6 +4,7 @@ import stringify from 'json-stringify-safe';
 export default class BasePlugin {
   constructor(bundle) {
     this.bundle = bundle;
+    this.log = this.bundle.log;
 
     this.name = 'base';
     this.version = '0.0.0';
@@ -15,10 +16,6 @@ export default class BasePlugin {
   init() {
     // Add default feature: plugin name itself
     this.features.unshift(this.name);
-  }
-
-  log(message) {
-    console.log(`${this.name}/${this.version}: ${message}`);
   }
 
   logAst(ast) {

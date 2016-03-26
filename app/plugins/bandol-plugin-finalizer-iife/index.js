@@ -31,7 +31,7 @@ export default class Plugin extends BasePlugin {
             },
             resource.props.originalCode).code;
         } catch (err) {
-          this.log(err.stack);
+          this.log.info(err.stack);
         }
 
         if (opts.debug) {

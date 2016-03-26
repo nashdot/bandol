@@ -54,7 +54,7 @@ export default class Plugin extends BasePlugin {
     return new Promise((resolve) => {
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't normalize ${resource.id}`);
+        this.log.info(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {
         try {
@@ -71,7 +71,7 @@ export default class Plugin extends BasePlugin {
                 } else if (this._isNamedModuleExports(node)) {
                   // module.exports.<id> = expression
                   const id = node.left.property.name;
-                  this.log(`TODO: module.exports.${id} = ...`);
+                  this.log.info(`TODO: module.exports.${id} = ...`);
                 }
               }
             },
@@ -83,7 +83,7 @@ export default class Plugin extends BasePlugin {
                 if (t.isCallExpression(node.init)
                     && this._isRequireCall(node.init)) {
                   if (t.isIdentifier(node.id)) {
-                    // this.log(`Converting ${node.id.name}`);
+                    // this.log.info(`Converting ${node.id.name}`);
                     const programPath = this._getProgramParent(nodePath);
 
                     // Add import statement
@@ -99,14 +99,14 @@ export default class Plugin extends BasePlugin {
                       binding.kind = 'module';
                     }
                   } else {
-                    this.log('TODO: require() - other cases');
+                    this.log.info('TODO: require() - other cases');
                   }
                 }
               }
             }
           });
         } catch (e) {
-          this.log(e.stack);
+          this.log.info(e.stack);
         }
 
         resolve(resource);

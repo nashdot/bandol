@@ -21,7 +21,7 @@ export default class Plugin extends BasePlugin {
     return new Promise((resolve) => {
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't normalize ${resource.id}`);
+        this.log.info(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {
         try {
@@ -109,7 +109,7 @@ export default class Plugin extends BasePlugin {
                 }
               } else if (node.source) {
                 node.specifiers.forEach(spec => {
-                  this.log(`TODO: export { ${spec.exported.name} as ${spec.local.name} } from ${node.source.value}`);
+                  this.log.info(`TODO: export { ${spec.exported.name} as ${spec.local.name} } from ${node.source.value}`);
                   // Convert to import + assign + export
                 });
               }
@@ -117,7 +117,7 @@ export default class Plugin extends BasePlugin {
             }
           });
         } catch (e) {
-          this.log(e.stack);
+          this.log.info(e.stack);
         }
 
         resolve(resource);

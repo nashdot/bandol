@@ -34,7 +34,7 @@ export default class Plugin extends BasePlugin {
 
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't optimize ${resource.id}`);
+        this.log.info(`Can't optimize ${resource.id}`);
       } else {
         const transformExportedDeclaration = {
           Identifier: (nodePath) => {
@@ -44,8 +44,8 @@ export default class Plugin extends BasePlugin {
               const parentType = nodePath.parentPath.node.type;
               // VariableDeclarator
               if (parentType === 'VariableDeclarator') {
-                // this.log(`VariableDeclarator: ${nodePath.parentPath.node.init.type}`);
-                // this.log(`Resource: ${this.bundle.getShortName(resource.id)}`);
+                // this.log.info(`VariableDeclarator: ${nodePath.parentPath.node.init.type}`);
+                // this.log.info(`Resource: ${this.bundle.getShortName(resource.id)}`);
                 // this.logAst(nodePath.parentPath.node);
               }
               // MemberExpression
@@ -79,7 +79,7 @@ export default class Plugin extends BasePlugin {
               nodePath.parentPath.traverse(transformExportedDeclaration);
 
               // const declPath = nodePath.getSibling(name);
-              this.log(`Declaration type for ${name}: '${this.opts.type}'`);
+              this.log.info(`Declaration type for ${name}: '${this.opts.type}'`);
               delete this.opts;
 
               this.bundle.defaultExportsByName.set(name, resource.id);
@@ -112,12 +112,12 @@ export default class Plugin extends BasePlugin {
                 nodePath.remove();
               });
             } else {
-              this.log('ERROR: found export with declaration');
+              this.log.info('ERROR: found export with declaration');
             }
           },
           ExportAllDeclaration: (nodePath) => {
             // TODO
-            this.log(`TODO: ExportAllDeclaration from ${nodePath.node.source.value}`);
+            this.log.info(`TODO: ExportAllDeclaration from ${nodePath.node.source.value}`);
           }
         });
       }

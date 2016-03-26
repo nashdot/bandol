@@ -21,7 +21,7 @@ export default class Plugin extends BasePlugin {
 
       if (!this.isSupportedExtension(resource.id)
         && resource.type !== this.resourceType) {
-        this.log(`Can't optimize ${resource.id}`);
+        this.log.info(`Can't optimize ${resource.id}`);
       } else {
         traverse(resource.props.ast, {
           ImportDeclaration: (nodePath) => {
