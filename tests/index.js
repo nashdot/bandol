@@ -195,26 +195,6 @@ test('optimizer/remove-use-strict', t => {
   });
 });
 
-test('core/basic', t => {
-  const opts = getOptions('core/basic', {
-    plugins: allPlugins
-  });
-  return bandol(opts).then(b => {
-    b.finalize();
-    t.is(b.code, expected('core/basic'));
-  });
-});
-
-test('core/basic-2', t => {
-  const opts = getOptions('core/basic-2', {
-    plugins: allPlugins
-  });
-  return bandol(opts).then(b => {
-    b.finalize();
-    t.is(b.code, expected('core/basic-2'));
-  });
-});
-
 test('core/namespaceImport', t => {
   const opts = getOptions('core/namespaceImport', {
     plugins: allPlugins
