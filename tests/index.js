@@ -242,6 +242,20 @@ test('finalizer/iife', t => {
   });
 });
 
+test('finalizer/iife_2', t => {
+  const opts = getOptions('finalizer/iife_2', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('finalizer/iife_2'));
+  });
+});
+
 test('core/namespaceImport', t => {
   const opts = getOptions('core/namespaceImport', {
     plugins: allPlugins
