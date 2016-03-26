@@ -1,5 +1,3 @@
-import * as fs from 'fs';
-import * as path from 'path';
 import traverse from 'babel-traverse';
 
 import BasePlugin from '../../BasePlugin';
@@ -44,8 +42,6 @@ export default class Plugin extends BasePlugin {
           });
         } catch (err) {
           this.log(err.stack);
-          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
-          fs.writeFileSync(outputPath, resource.props.code);
         }
       }
     }
