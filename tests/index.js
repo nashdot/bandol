@@ -195,8 +195,8 @@ test('optimizer/remove-use-strict', t => {
   });
 });
 
-test('optimizer/es6-exports', t => {
-  const opts = getOptions('optimizer/es6-exports', {
+test('optimizer/es6-exports-imports', t => {
+  const opts = getOptions('optimizer/es6-exports-imports', {
     plugins: [
       ...basePlugins,
       es6ExportsOptimizerPlugin,
@@ -205,12 +205,12 @@ test('optimizer/es6-exports', t => {
   });
   return bandol(opts).then(b => {
     b.finalize();
-    t.is(b.code, expected('optimizer/es6-exports'));
+    t.is(b.code, expected('optimizer/es6-exports-imports'));
   });
 });
 
-test('optimizer/es6-exports_2', t => {
-  const opts = getOptions('optimizer/es6-exports_2', {
+test('optimizer/es6-exports-imports_2', t => {
+  const opts = getOptions('optimizer/es6-exports-imports_2', {
     plugins: [
       ...basePlugins,
       es6ExportsOptimizerPlugin,
@@ -219,7 +219,7 @@ test('optimizer/es6-exports_2', t => {
   });
   return bandol(opts).then(b => {
     b.finalize();
-    t.is(b.code, expected('optimizer/es6-exports_2'));
+    t.is(b.code, expected('optimizer/es6-exports-imports_2'));
   });
 });
 
