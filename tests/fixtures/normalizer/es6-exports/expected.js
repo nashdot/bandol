@@ -12,4 +12,14 @@ function d() {
 
 export { d };
 
+class Test {
+  constructor() {
+    this.a = 0;
+  }
+}
+
+export { Test };
+var actual = 'TestDefault';
+export default actual;
+
 }());
