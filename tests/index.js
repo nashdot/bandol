@@ -19,7 +19,7 @@ import es6ExportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-es
 import renameInternalsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-rename-internals';
 import namedMembersOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-named-members';
 // import optimizerPlugin from '../app/plugins/bandol-plugin-optimizer';
-import removeImportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-remove-imports';
+import es6ImportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-es6-imports';
 import removeUseStrictOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-remove-use-strict';
 import iifeFinalizerPlugin from '../app/plugins/bandol-plugin-finalizer-iife';
 
@@ -50,7 +50,7 @@ const allPlugins = [
   renameInternalsOptimizerPlugin,
   namedMembersOptimizerPlugin,
   // optimizerPlugin,
-  removeImportsOptimizerPlugin,
+  es6ImportsOptimizerPlugin,
   removeUseStrictOptimizerPlugin
 ];
 
@@ -200,7 +200,7 @@ test('optimizer/es6-exports', t => {
     plugins: [
       ...basePlugins,
       es6ExportsOptimizerPlugin,
-      removeImportsOptimizerPlugin
+      es6ImportsOptimizerPlugin
     ]
   });
   return bandol(opts).then(b => {
@@ -214,7 +214,7 @@ test('optimizer/es6-exports_2', t => {
     plugins: [
       ...basePlugins,
       es6ExportsOptimizerPlugin,
-      removeImportsOptimizerPlugin
+      es6ImportsOptimizerPlugin
     ]
   });
   return bandol(opts).then(b => {
