@@ -18,7 +18,7 @@ export default class Bundle {
     this.srcBasePath = 'unknown';
 
     // Initialize logging
-    const logLevel = options.logLevel || log.levels.SILENT;
+    const logLevel = options.logLevel !== undefined ? options.logLevel : log.levels.SILENT;
     this.log = log;
     this.log.setLevel(logLevel);
 

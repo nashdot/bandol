@@ -2,6 +2,7 @@ import test from 'ava';
 import 'babel-register';
 import * as fs from 'fs';
 import { join } from 'path';
+import log from 'loglevel';
 import bandol from '..';
 
 import hashidsUidPlugin from '../app/plugins/bandol-plugin-uid-hashids';
@@ -77,7 +78,8 @@ function getOptions(testPath, opts) {
 
 test('core/not-supported-resource-type', t => {
   const opts = getOptions('core/not-supported-resource-type', {
-    plugins: allPlugins
+    plugins: allPlugins,
+    logLevel: log.levels.TRACE
   });
   return bandol(opts).then(b => {
     t.pass();
@@ -88,7 +90,7 @@ test('core/not-valid-option', t => {
   const opts = getOptions('core/not-valid-option', {
     notValid: 'test'
   });
-  t.throws(bandol(opts), "Unexpected key 'notValid' found, expected one of: entry, env, runningContext, plugins");
+  t.throws(bandol(opts), "Unexpected key 'notValid' found, expected one of: entry, env, runningContext, plugins, logLevel");
 });
 
 test('normalizer/cjs-to-es6', t => {
