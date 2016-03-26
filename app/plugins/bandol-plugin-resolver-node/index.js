@@ -22,6 +22,12 @@ export default class Plugin extends BasePlugin {
       baseDir = path.dirname(importer);
     }
 
-    return resolveModule.sync(importee, { basedir: baseDir });
+    let id;
+    try {
+      id = resolveModule.sync(importee, { basedir: baseDir });
+    } catch (e) {
+      // skip
+    }
+    return id;
   }
 }
