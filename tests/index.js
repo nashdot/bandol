@@ -84,6 +84,13 @@ test('core/not-supported-resource-type', t => {
   });
 });
 
+test('core/not-valid-option', t => {
+  const opts = getOptions('core/not-valid-option', {
+    notValid: 'test'
+  });
+  t.throws(bandol(opts), "Unexpected key 'notValid' found, expected one of: entry, env, runningContext, plugins");
+});
+
 test('normalizer/cjs-to-es6', t => {
   const opts = getOptions('normalizer/cjs-to-es6', {
     plugins: [
