@@ -7,7 +7,7 @@ export default class Plugin extends BasePlugin {
   constructor(bundle) {
     super(bundle);
 
-    this.name = 'optimizer-remove-imports';
+    this.name = 'optimizer-es6-imports';
     this.version = '0.1.0';
     this.resourceType = Types.JAVASCRIPT;
     this.supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
