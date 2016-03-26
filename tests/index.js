@@ -209,19 +209,19 @@ test('optimizer/es6-exports-imports', t => {
   });
 });
 
-test('optimizer/es6-exports-imports_2', t => {
-  const opts = getOptions('optimizer/es6-exports-imports_2', {
-    plugins: [
-      ...basePlugins,
-      es6ExportsOptimizerPlugin,
-      es6ImportsOptimizerPlugin
-    ]
-  });
-  return bandol(opts).then(b => {
-    b.finalize();
-    t.is(b.code, expected('optimizer/es6-exports-imports_2'));
-  });
-});
+// test('optimizer/es6-exports-imports_2', t => {
+//   const opts = getOptions('optimizer/es6-exports-imports_2', {
+//     plugins: [
+//       ...basePlugins,
+//       es6ExportsOptimizerPlugin,
+//       es6ImportsOptimizerPlugin
+//     ]
+//   });
+//   return bandol(opts).then(b => {
+//     b.finalize();
+//     t.is(b.code, expected('optimizer/es6-exports-imports_2'));
+//   });
+// });
 
 test('core/namespaceImport', t => {
   const opts = getOptions('core/namespaceImport', {
@@ -263,16 +263,16 @@ test('core/namedImport', t => {
   });
 });
 
-test('core/module', t => {
-  const opts = getOptions('core/module', {
-    env: { NODE_ENV: 'production' },
-    runningContext: createRunningContext(),
-    plugins: allPlugins
-  });
-  return bandol(opts).then(b => {
-    b.finalize({ debug: true });
-    const outputPath = `${process.cwd()}/out/core_module.js`;
-    fs.writeFileSync(outputPath, b.code);
-    t.is(b.code, expected('core/module'));
-  });
-});
+// test('core/module', t => {
+//   const opts = getOptions('core/module', {
+//     env: { NODE_ENV: 'production' },
+//     runningContext: createRunningContext(),
+//     plugins: allPlugins
+//   });
+//   return bandol(opts).then(b => {
+//     b.finalize({ debug: true });
+//     const outputPath = `${process.cwd()}/out/core_module.js`;
+//     fs.writeFileSync(outputPath, b.code);
+//     t.is(b.code, expected('core/module'));
+//   });
+// });
