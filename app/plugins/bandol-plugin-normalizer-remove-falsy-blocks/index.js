@@ -12,7 +12,6 @@ export default class Plugin extends BasePlugin {
     this.resourceType = Types.JAVASCRIPT;
     this.supportedExtensions = ['.js', '.jsx'];
 
-    this.bundle = bundle;
     this.init();
   }
 

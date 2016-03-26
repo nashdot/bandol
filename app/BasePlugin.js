@@ -2,7 +2,9 @@ import * as path from 'path';
 import stringify from 'json-stringify-safe';
 
 export default class BasePlugin {
-  constructor() {
+  constructor(bundle) {
+    this.bundle = bundle;
+
     this.name = 'base';
     this.version = '0.0.0';
     this.supportedExtensions = [];

@@ -37,7 +37,6 @@ export default class Plugin extends BasePlugin {
       plugins: this._babylonPlugins.slice(0)
     };
 
-    this.bundle = bundle;
     this.init();
   }
 

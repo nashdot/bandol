@@ -10,7 +10,6 @@ export default class Plugin extends BasePlugin {
     this.name = 'resolver-node';
     this.version = '0.1.0';
 
-    this.bundle = bundle;
     this.init();
   }
 

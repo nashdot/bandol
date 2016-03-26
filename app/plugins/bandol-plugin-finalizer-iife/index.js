@@ -11,7 +11,6 @@ export default class Plugin extends BasePlugin {
     this.version = '0.1.0';
     this.resourceType = Types.JAVASCRIPT;
 
-    this.bundle = bundle;
     this.init();
   }
 

@@ -3,8 +3,8 @@ import Hashids from 'hashids';
 import BasePlugin from '../../BasePlugin';
 
 export default class Plugin extends BasePlugin {
-  constructor() {
-    super();
+  constructor(bundle) {
+    super(bundle);
 
     this.name = 'uid-hashids';
     this.version = '0.1.0';
