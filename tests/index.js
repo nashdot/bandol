@@ -13,7 +13,7 @@ import es6ImportsNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-
 import processEnvNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-process-env';
 import runningContextNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-running-context';
 import removeFalsyBlocksNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-remove-falsy-blocks';
-import removeUnusedImportsNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-remove-unused-imports';
+import removeUnusedNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-remove-unused';
 import es6AnalyzerPlugin from '../app/plugins/bandol-plugin-analyzer-es6';
 import es6ExportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-es6-exports';
 import renameInternalsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-rename-internals';
@@ -44,7 +44,7 @@ const allPlugins = [
   removeFalsyBlocksNormalizerPlugin,
   es6ExportsNormalizerPlugin,
   es6ImportsNormalizerPlugin,
-  removeUnusedImportsNormalizerPlugin,
+  removeUnusedNormalizerPlugin,
   // Optimisation
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
@@ -128,16 +128,16 @@ test('normalizer/remove-falsy-blocks', t => {
   });
 });
 
-test('normalizer/remove-unused-imports', t => {
-  const opts = getOptions('normalizer/remove-unused-imports', {
+test('normalizer/remove-unused', t => {
+  const opts = getOptions('normalizer/remove-unused', {
     plugins: [
       ...basePlugins,
-      removeUnusedImportsNormalizerPlugin
+      removeUnusedNormalizerPlugin
     ]
   });
   return bandol(opts).then(b => {
     b.finalize();
-    t.is(b.code, expected('normalizer/remove-unused-imports'));
+    t.is(b.code, expected('normalizer/remove-unused'));
   });
 });
 
