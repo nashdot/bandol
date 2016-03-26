@@ -45,7 +45,7 @@ export default class Plugin extends BasePlugin {
   loadResource(resource) {
     return new Promise((resolve) => {
       if (!this.isSupportedExtension(resource.id)
-        && resource.type !== Types.UNKNOWN) {
+        || resource.type !== Types.UNKNOWN) {
         this.log(`Can't load ${resource.id}`);
         resolve(resource);
       } else {
