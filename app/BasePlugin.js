@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import * as path from 'path';
 import stringify from 'json-stringify-safe';
 
@@ -30,6 +29,12 @@ export default class BasePlugin {
    */
   isSupportedExtension(filename) {
     const ext = path.extname(filename);
-    return _.contains(this.supportedExtensions, ext);
+    let result = false;
+    this.supportedExtensions.forEach((item) => {
+      if (item === ext) {
+        result = true;
+      }
+    });
+    return result;
   }
 }
