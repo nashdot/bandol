@@ -195,6 +195,34 @@ test('optimizer/remove-use-strict', t => {
   });
 });
 
+test('optimizer/es6-exports', t => {
+  const opts = getOptions('optimizer/es6-exports', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      removeImportsOptimizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('optimizer/es6-exports'));
+  });
+});
+
+test('optimizer/es6-exports_2', t => {
+  const opts = getOptions('optimizer/es6-exports_2', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      removeImportsOptimizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('optimizer/es6-exports_2'));
+  });
+});
+
 test('core/namespaceImport', t => {
   const opts = getOptions('core/namespaceImport', {
     plugins: allPlugins
