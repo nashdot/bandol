@@ -204,6 +204,19 @@ test('optimizer/remove-use-strict', t => {
   });
 });
 
+test('optimizer/remove-use-strict_2', t => {
+  const opts = getOptions('optimizer/remove-use-strict_2', {
+    plugins: [
+      ...basePlugins,
+      removeUseStrictOptimizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('optimizer/remove-use-strict_2'));
+  });
+});
+
 test('optimizer/es6-exports-imports', t => {
   const opts = getOptions('optimizer/es6-exports-imports', {
     plugins: [
