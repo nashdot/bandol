@@ -232,6 +232,16 @@ test('optimizer/es6-exports-imports', t => {
 //   });
 // });
 
+test('finalizer/iife', t => {
+  const opts = getOptions('finalizer/iife', {
+    plugins: basePlugins
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('finalizer/iife'));
+  });
+});
+
 test('core/namespaceImport', t => {
   const opts = getOptions('core/namespaceImport', {
     plugins: allPlugins
