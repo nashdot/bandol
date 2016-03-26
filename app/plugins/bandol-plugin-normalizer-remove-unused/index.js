@@ -7,7 +7,7 @@ export default class Plugin extends BasePlugin {
   constructor(bundle) {
     super(bundle);
 
-    this.name = 'normalizer-remove-unused-blocks';
+    this.name = 'normalizer-remove-unused';
     this.version = '0.1.0';
     this.resourceType = Types.JAVASCRIPT;
     this.supportedExtensions = ['.js', '.jsx'];
