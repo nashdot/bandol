@@ -75,6 +75,15 @@ function getOptions(testPath, opts) {
   return Object.assign({}, { entry: join(fixturesDir, testPath, 'actual.js') }, opts);
 }
 
+test('core/not-supported-resource-type', t => {
+  const opts = getOptions('core/not-supported-resource-type', {
+    plugins: allPlugins
+  });
+  return bandol(opts).then(b => {
+    t.pass();
+  });
+});
+
 test('normalizer/cjs-to-es6', t => {
   const opts = getOptions('normalizer/cjs-to-es6', {
     plugins: [
