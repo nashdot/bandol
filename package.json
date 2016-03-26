@@ -63,5 +63,10 @@
     ],
     "failFast": true,
     "tap": true
+  },
+  "nyc": {
+    "exclude": [
+      "tests/**"
+    ]
   }
 }
