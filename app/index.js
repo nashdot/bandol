@@ -20,10 +20,14 @@ async function bandol(options) {
     return Promise.reject(error);
   }
 
-  const bundle = new Bundle(options);
-  await bundle.build();
+  try {
+    const bundle = new Bundle(options);
+    await bundle.build();
 
-  return bundle;
+    return bundle;
+  } catch (e) {
+    return Promise.reject(e);
+  }
 }
 
 export default bandol;

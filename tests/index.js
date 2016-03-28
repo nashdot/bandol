@@ -76,10 +76,15 @@ function getOptions(testPath, opts) {
   return Object.assign({}, { entry: join(fixturesDir, testPath, 'actual.js') }, opts);
 }
 
+test('core/no-entry-provided', t => {
+  const opts = {
+  };
+  t.throws(bandol(opts), "You must supply options.entry to bandol");
+});
+
 test('core/not-supported-resource-type', t => {
   const opts = getOptions('core/not-supported-resource-type', {
-    plugins: allPlugins,
-    logLevel: log.levels.TRACE
+    plugins: allPlugins
   });
   return bandol(opts).then(b => {
     t.pass();
@@ -91,6 +96,15 @@ test('core/not-valid-option', t => {
     notValid: 'test'
   });
   t.throws(bandol(opts), "Unexpected key 'notValid' found, expected one of: entry, env, runningContext, plugins, logLevel");
+});
+
+test('core/not-valid-entry', t => {
+  const opts = {
+    entry: 'not-valid-entry.js',
+    logLevel: log.levels.TRACE,
+    plugins: basePlugins
+  };
+  return t.throws(bandol(opts), /Bundle\.build: can\'t resolve entry.*/);
 });
 
 test('normalizer/cjs-to-es6', t => {

@@ -95,24 +95,20 @@ export default class Bundle {
   }
 
   async build() {
-    try {
-      this.entryId = this.resolveResource(this.entry, undefined);
-      if (this.entryId === undefined) {
-        throw new Error(`Bundle.build: can't resolve entry ${this.entry}`);
-      }
-
-      this.srcBasePath = path.dirname(this.entryId);
-
-      this.log.info('Processing...');
-      await this.processResource(this.entryId);
-
-      this.sortedResources = sortDependencies(this.resources);
-
-      this.log.info('Optimizing...');
-      this.optimizeBundle();
-    } catch (error) {
-      this.log.info(error.message);
+    this.entryId = this.resolveResource(this.entry, undefined);
+    if (this.entryId === undefined) {
+      throw new Error(`Bundle.build: can't resolve entry ${this.entry}`);
     }
+
+    this.srcBasePath = path.dirname(this.entryId);
+
+    this.log.info('Processing...');
+    await this.processResource(this.entryId);
+
+    this.sortedResources = sortDependencies(this.resources);
+
+    this.log.info('Optimizing...');
+    this.optimizeBundle();
   }
 
   async processResource(id) {
@@ -147,15 +143,16 @@ export default class Bundle {
   }
 
   resolveResource(importee, importerId) {
+    let id;
     for (const plugin of this.resolverPlugins) {
-      const id = plugin.resolveResource(importee, importerId);
+      id = plugin.resolveResource(importee, importerId);
 
-      if (id) {
+      if (id !== undefined) {
         return id;
       }
     }
 
-    throw new Error(`budle: Cannot resolve resource "${importee}" in "${importerId}`);
+    return id;
   }
 
   async loadResource(id) {
