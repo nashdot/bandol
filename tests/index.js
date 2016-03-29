@@ -1,4 +1,5 @@
 import test from 'ava';
+import sinon from 'sinon';
 import 'babel-register';
 import * as fs from 'fs';
 import { join } from 'path';
@@ -23,6 +24,8 @@ import namedMembersOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-
 import es6ImportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-es6-imports';
 import removeUseStrictOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-remove-use-strict';
 import iifeFinalizerPlugin from '../app/plugins/bandol-plugin-finalizer-iife';
+
+import testLogPlugin from './fixtures/core/logAst/bandol-plugin-normalizer-test-log'
 
 const basePlugins = [
   // Utils
@@ -104,7 +107,22 @@ test('core/not-valid-entry', t => {
     logLevel: log.levels.TRACE,
     plugins: basePlugins
   };
-  return t.throws(bandol(opts), /Bundle\.build: can\'t resolve entry.*/);
+  t.throws(bandol(opts), /Bundle\.build: can\'t resolve entry.*/);
+});
+
+test('core/logAst', t => {
+  const consoleLogSpy = sinon.spy(console, 'log');
+  const testAst = require(join(fixturesDir, 'core/logAst', 'ast.json'));
+  const opts = getOptions('core/logAst', {
+    plugins: [
+      ...basePlugins,
+      testLogPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    t.true(consoleLogSpy.calledWithExactly(JSON.stringify(testAst, null, 2)));
+    consoleLogSpy.restore();
+  });
 });
 
 test('normalizer/cjs-to-es6', t => {
