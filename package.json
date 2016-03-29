@@ -8,7 +8,7 @@
     "pretest": "rimraf ./tests/out && mkdirp ./tests/out && cd ./tests/fixtures/core/module && npm install",
     "test": "ava -s",
     "coverage": "nyc npm test",
-    "coveralls": "npm coverage && nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
     "coveragereport": "nyc report --reporter=lcov",
     "start": "babel-node index.js"
   },
