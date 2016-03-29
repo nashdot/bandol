@@ -24,24 +24,20 @@ export default class Plugin extends BasePlugin {
         this.log.info(`Can't optimize ${resource.id}`);
       } else {
         // Rename global but internally used variables
-        try {
-          traverse(resource.props.ast, {
-            Program: (nodePath) => {
-              Object.keys(nodePath.scope.bindings).forEach((bindingName) => {
-                const binding = nodePath.scope.bindings[bindingName];
-                if (binding.kind !== 'module'
-                    && !this.bundle.defaultExportsByName.has(bindingName)
-                    && !this.bundle.namedExportsByName.has(bindingName)) {
-                  const newName = this.bundle.generateUid();
-                  // this.log.info(`${this.bundle.getShortPath(resource.id)}: Renamed ${bindingName} to ${newName}`);
-                  nodePath.scope.rename(bindingName, newName);
-                }
-              });
-            }
-          });
-        } catch (err) {
-          this.log.info(err.stack);
-        }
+        traverse(resource.props.ast, {
+          Program: (nodePath) => {
+            Object.keys(nodePath.scope.bindings).forEach((bindingName) => {
+              const binding = nodePath.scope.bindings[bindingName];
+              if (binding.kind !== 'module'
+                  && !this.bundle.defaultExportsByName.has(bindingName)
+                  && !this.bundle.namedExportsByName.has(bindingName)) {
+                const newName = this.bundle.generateUid();
+                // this.log.info(`${this.bundle.getShortPath(resource.id)}: Renamed ${bindingName} to ${newName}`);
+                nodePath.scope.rename(bindingName, newName);
+              }
+            });
+          }
+        });
       }
     }
   }

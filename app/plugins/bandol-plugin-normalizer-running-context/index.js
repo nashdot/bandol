@@ -23,18 +23,15 @@ export default class Plugin extends BasePlugin {
         this.log.info(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {
-        try {
-          traverse(resource.props.ast, {
-            Identifier: (nodePath) => {
-              if (this.bundle.runningContext.has(nodePath.node.name)) {
-                const runningValue = this.bundle.runningContext.get(nodePath.node.name);
-                nodePath.replaceWith(t.identifier(runningValue));
-              }
+        traverse(resource.props.ast, {
+          Identifier: (nodePath) => {
+            if (this.bundle.runningContext.has(nodePath.node.name)) {
+              const runningValue = this.bundle.runningContext.get(nodePath.node.name);
+              nodePath.replaceWith(t.identifier(runningValue));
             }
-          });
-        } catch (err) {
-          this.log.info(err.stack);
-        }
+          }
+        });
+
         resolve(resource);
       }
     });

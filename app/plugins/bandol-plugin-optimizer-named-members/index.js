@@ -24,45 +24,41 @@ export default class Plugin extends BasePlugin {
         && resource.type !== this.resourceType) {
         this.log.info(`Can't optimize ${resource.id}`);
       } else {
-        try {
-          const transformNamespaceVariables = {
-            Identifier: (nodePath) => {
-              // Last condition: traverse going inside new added statement
-              if (nodePath.node.name === this.opts.identifier
-                  && !t.isImportSpecifier(nodePath.parentPath)
-                  && !t.isImportDefaultSpecifier(nodePath.parentPath)
-                  && !t.isObjectProperty(nodePath.parentPath)
-                  && !t.isMemberExpression(nodePath.parentPath)) {
-                nodePath.replaceWith(t.memberExpression(
-                  t.identifier(this.opts.namespace), t.identifier(this.opts.identifier)));
+        const transformNamespaceVariables = {
+          Identifier: (nodePath) => {
+            // Last condition: traverse going inside new added statement
+            if (nodePath.node.name === this.opts.identifier
+                && !t.isImportSpecifier(nodePath.parentPath)
+                && !t.isImportDefaultSpecifier(nodePath.parentPath)
+                && !t.isObjectProperty(nodePath.parentPath)
+                && !t.isMemberExpression(nodePath.parentPath)) {
+              nodePath.replaceWith(t.memberExpression(
+                t.identifier(this.opts.namespace), t.identifier(this.opts.identifier)));
+            }
+          }
+        };
+
+        traverse(resource.props.ast, {
+          ImportDeclaration: (nodePath) => {
+            const node = nodePath.node;
+
+            node.specifiers.forEach(specifier => {
+              const name = specifier.local.name;
+              const source = node.source.value;
+              const id = this.bundle.resolveResource(source, resource.id);
+
+              if (!this.bundle.namedExportsByName.has(name)
+                  && !this.bundle.defaultExportsByName.has(name)) {
+                this.opts = {
+                  identifier: name,
+                  namespace: this.bundle.defaultExportsById.get(id)
+                };
+                nodePath.parentPath.traverse(transformNamespaceVariables);
+                delete this.opts;
               }
-            }
-          };
-
-          traverse(resource.props.ast, {
-            ImportDeclaration: (nodePath) => {
-              const node = nodePath.node;
-
-              node.specifiers.forEach(specifier => {
-                const name = specifier.local.name;
-                const source = node.source.value;
-                const id = this.bundle.resolveResource(source, resource.id);
-
-                if (!this.bundle.namedExportsByName.has(name)
-                    && !this.bundle.defaultExportsByName.has(name)) {
-                  this.opts = {
-                    identifier: name,
-                    namespace: this.bundle.defaultExportsById.get(id)
-                  };
-                  nodePath.parentPath.traverse(transformNamespaceVariables);
-                  delete this.opts;
-                }
-              });
-            }
-          });
-        } catch (err) {
-          this.log.info(err.stack);
-        }
+            });
+          }
+        });
       }
     }
   }

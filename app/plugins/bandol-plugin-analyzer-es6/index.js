@@ -26,20 +26,16 @@ export default class Plugin extends BasePlugin {
         const dependencies = resource.dependencies;
 
         // Collect dependencies
-        try {
-          traverse(resource.props.ast, {
-            ImportDeclaration: (nodePath) => {
-              const source = nodePath.node.source.value;
-              const id = this.bundle.resolveResource(source, resource.id);
+        traverse(resource.props.ast, {
+          ImportDeclaration: (nodePath) => {
+            const source = nodePath.node.source.value;
+            const id = this.bundle.resolveResource(source, resource.id);
 
-              if (!~dependencies.indexOf(id)) {
-                dependencies.push(id);
-              }
+            if (!~dependencies.indexOf(id)) {
+              dependencies.push(id);
             }
-          });
-        } catch (err) {
-          this.log.info(err.stack);
-        }
+          }
+        });
 
         resource.dependencies = dependencies;
 

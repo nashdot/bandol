@@ -24,20 +24,17 @@ export default class Plugin extends BasePlugin {
         this.log.info(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {
-        try {
-          traverse(resource.props.ast, {
-            MemberExpression: (nodePath) => {
-              if (nodePath.get('object').matchesPattern('process.env')) {
-                const key = nodePath.toComputedKey();
-                if (t.isStringLiteral(key)) {
-                  nodePath.replaceWith(t.valueToNode(process.env[key.value]));
-                }
+        traverse(resource.props.ast, {
+          MemberExpression: (nodePath) => {
+            if (nodePath.get('object').matchesPattern('process.env')) {
+              const key = nodePath.toComputedKey();
+              if (t.isStringLiteral(key)) {
+                nodePath.replaceWith(t.valueToNode(process.env[key.value]));
               }
             }
-          });
-        } catch (err) {
-          this.log.info(err.stack);
-        }
+          }
+        });
+
         resolve(resource);
       }
     });
