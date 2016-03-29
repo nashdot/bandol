@@ -45,7 +45,8 @@
     "eslint-config-nashdot": "^1.1.1",
     "mkdirp": "^0.5.0",
     "nyc": "^6.1.1",
-    "rimraf": "^2.5.0"
+    "rimraf": "^2.5.0",
+    "sinon": "^1.17.3"
   },
   "dependencies": {
     "babel-generator": "^6.7.0",
