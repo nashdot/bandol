@@ -1,7 +1,9 @@
 language: node_js
 node_js:
-  - 5.9
-  - 4.4
-  - 0.12
+  - '5'
+  - '4'
+  - '0.12'
+before_install:
+  - 'npm install -g npm@latest'
 after_success:
-  - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
+  - 'npm run coveralls'
