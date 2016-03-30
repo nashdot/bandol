@@ -42,6 +42,8 @@ const basePlugins = [
 
 const allPlugins = [
   ...basePlugins,
+  // Additional loaders
+  jsonLoaderPlugin,
   // Normalisation
   cjsToEs6NormalizerPlugin,
   processEnvNormalizerPlugin,
