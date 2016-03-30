@@ -85,15 +85,6 @@ test('core/no-entry-provided', t => {
   return t.throws(bandol(opts), "You must supply options.entry to bandol");
 });
 
-test('core/not-supported-resource-type', t => {
-  const opts = getOptions('core/not-supported-resource-type', {
-    plugins: allPlugins
-  });
-  bandol(opts).then(b => {
-    t.pass();
-  });
-});
-
 test('core/not-valid-option', t => {
   const opts = getOptions('core/not-valid-option', {
     notValid: 'test'
@@ -123,6 +114,13 @@ test('core/logAst', t => {
     t.true(consoleLogSpy.calledWithExactly(JSON.stringify(testAst, null, 2)));
     consoleLogSpy.restore();
   });
+});
+
+test('loader/not-supported-resource-type', t => {
+  const opts = getOptions('loader/not-supported-resource-type', {
+    plugins: basePlugins
+  });
+  return t.throws(bandol(opts), 'No loader plugin found for resource "test.json"');
 });
 
 test('normalizer/cjs-to-es6', t => {
