@@ -1,9 +1,6 @@
 /* eslint no-param-reassign: 0 */
-import * as fs from 'fs';
 import * as path from 'path';
-import generate from 'babel-generator';
 import traverse from 'babel-traverse';
-import stringify from 'json-stringify-safe';
 import log from 'loglevel';
 
 import Resource from './Resource';
@@ -203,37 +200,6 @@ export default class Bundle {
 
   generateUid() {
     return this.uidPlugins[0].generateUid();
-  }
-
-  dumpCode(ast, id) {
-    const currentPath = process.cwd();
-    const outputPath = `${currentPath}/out/${id}.js`;
-    let output = 'IN ERROR';
-    try {
-      output = generate(
-        ast,
-        {
-          comments: false
-        },
-        '').code;
-    } catch (err) {
-      this.log.info(err.stack);
-    }
-
-    fs.writeFileSync(outputPath, `${output}`);
-  }
-
-  dumpAst(ast, id) {
-    const currentPath = process.cwd();
-    const outputPath = `${currentPath}/out/${id}.json`;
-    let output = 'IN ERROR';
-    try {
-      output = stringify(ast, null, 2);
-    } catch (err) {
-      this.log.info(err.stack);
-    }
-
-    fs.writeFileSync(outputPath, `${output}`);
   }
 
   getShortPath(id) {
