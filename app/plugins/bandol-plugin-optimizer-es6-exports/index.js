@@ -11,7 +11,6 @@ export default class Plugin extends BasePlugin {
     this.name = 'optimizer-es6-exports';
     this.version = '0.1.0';
     this.resourceType = Types.JAVASCRIPT;
-    this.supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
 
     this.init();
   }
@@ -32,8 +31,7 @@ export default class Plugin extends BasePlugin {
     for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
       const resource = this.bundle.sortedResources[i];
 
-      if (!this.isSupportedExtension(resource.id)
-        && resource.type !== this.resourceType) {
+      if (resource.type !== this.resourceType) {
         this.log.info(`Can't optimize ${resource.id}`);
       } else {
         const transformExportedDeclaration = {

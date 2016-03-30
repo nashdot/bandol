@@ -10,7 +10,6 @@ export default class Plugin extends BasePlugin {
     this.name = 'normalizer-remove-unused';
     this.version = '0.1.0';
     this.resourceType = Types.JAVASCRIPT;
-    this.supportedExtensions = ['.js', '.jsx'];
 
     this.init();
   }
@@ -18,8 +17,7 @@ export default class Plugin extends BasePlugin {
   /* eslint no-param-reassign: 0 */
   normalizeResource(resource) {
     return new Promise((resolve) => {
-      if (!this.isSupportedExtension(resource.id)
-        && resource.type !== this.resourceType) {
+      if (resource.type !== this.resourceType) {
         this.log.info(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {
