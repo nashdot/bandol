@@ -82,7 +82,7 @@ function getOptions(testPath, opts) {
 test('core/no-entry-provided', t => {
   const opts = {
   };
-  t.throws(bandol(opts), "You must supply options.entry to bandol");
+  return t.throws(bandol(opts), "You must supply options.entry to bandol");
 });
 
 test('core/not-supported-resource-type', t => {
@@ -98,7 +98,7 @@ test('core/not-valid-option', t => {
   const opts = getOptions('core/not-valid-option', {
     notValid: 'test'
   });
-  t.throws(bandol(opts), "Unexpected key 'notValid' found, expected one of: entry, env, runningContext, plugins, logLevel");
+  return t.throws(bandol(opts), "Unexpected key 'notValid' found, expected one of: entry, env, runningContext, plugins, logLevel");
 });
 
 test('core/not-valid-entry', t => {
@@ -107,7 +107,7 @@ test('core/not-valid-entry', t => {
     logLevel: log.levels.TRACE,
     plugins: basePlugins
   };
-  t.throws(bandol(opts), /Bundle\.build: can\'t resolve entry.*/);
+  return t.throws(bandol(opts), /Bundle\.build: can\'t resolve entry.*/);
 });
 
 test('core/logAst', t => {
@@ -119,7 +119,7 @@ test('core/logAst', t => {
       testLogPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     t.true(consoleLogSpy.calledWithExactly(JSON.stringify(testAst, null, 2)));
     consoleLogSpy.restore();
   });
@@ -132,7 +132,7 @@ test('normalizer/cjs-to-es6', t => {
       cjsToEs6NormalizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/cjs-to-es6'));
   });
@@ -145,7 +145,7 @@ test('normalizer/process-env', t => {
       processEnvNormalizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/process-env'));
   });
@@ -159,7 +159,7 @@ test('normalizer/process-env_2', t => {
       processEnvNormalizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/process-env_2'));
   });
@@ -172,7 +172,7 @@ test('normalizer/remove-falsy-blocks', t => {
       removeFalsyBlocksNormalizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/remove-falsy-blocks'));
   });
@@ -185,7 +185,7 @@ test('normalizer/remove-unused', t => {
       removeUnusedNormalizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/remove-unused'));
   });
@@ -199,7 +199,7 @@ test('normalizer/running-context', t => {
       runningContextNormalizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/running-context'));
   });
@@ -213,7 +213,7 @@ test('normalizer/es6-imports', t => {
       es6ImportsNormalizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/es6-imports'));
   });
@@ -226,7 +226,7 @@ test('normalizer/es6-exports', t => {
       es6ExportsNormalizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/es6-exports'));
   });
@@ -239,7 +239,7 @@ test('optimizer/remove-use-strict', t => {
       removeUseStrictOptimizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('optimizer/remove-use-strict'));
   });
@@ -252,7 +252,7 @@ test('optimizer/remove-use-strict_2', t => {
       removeUseStrictOptimizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('optimizer/remove-use-strict_2'));
   });
@@ -266,7 +266,7 @@ test('optimizer/es6-exports-imports', t => {
       es6ImportsOptimizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('optimizer/es6-exports-imports'));
   });
@@ -290,7 +290,7 @@ test('finalizer/iife', t => {
   const opts = getOptions('finalizer/iife', {
     plugins: basePlugins
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize({ debug: true });
     t.is(b.code, expected('finalizer/iife'));
   });
@@ -304,7 +304,7 @@ test('finalizer/iife_2', t => {
       es6ImportsOptimizerPlugin
     ]
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize({ debug: true });
     t.is(b.code, expected('finalizer/iife_2'));
   });
@@ -314,7 +314,7 @@ test('core/namespaceImport', t => {
   const opts = getOptions('core/namespaceImport', {
     plugins: allPlugins
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/namespaceImport'));
   });
@@ -324,7 +324,7 @@ test('core/namespaceImport-2', t => {
   const opts = getOptions('core/namespaceImport-2', {
     plugins: allPlugins
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/namespaceImport-2'));
   });
@@ -334,7 +334,7 @@ test('core/namespaceImport-3', t => {
   const opts = getOptions('core/namespaceImport-3', {
     plugins: allPlugins
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/namespaceImport-3'));
   });
@@ -344,7 +344,7 @@ test('core/namedImport', t => {
   const opts = getOptions('core/namedImport', {
     plugins: allPlugins
   });
-  bandol(opts).then(b => {
+  return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/namedImport'));
   });
