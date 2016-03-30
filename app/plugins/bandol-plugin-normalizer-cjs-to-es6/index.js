@@ -2,7 +2,6 @@ import traverse from 'babel-traverse';
 import * as t from 'babel-types';
 
 import BasePlugin from '../../BasePlugin';
-import Types from '../../Types';
 
 export default class Plugin extends BasePlugin {
   constructor(bundle) {
@@ -10,7 +9,6 @@ export default class Plugin extends BasePlugin {
 
     this.name = 'normalizer-cjs-to-es6';
     this.version = '0.1.0';
-    this.resourceType = Types.JAVASCRIPT;
 
     this.init();
   }
@@ -51,7 +49,7 @@ export default class Plugin extends BasePlugin {
 
   normalizeResource(resource) {
     return new Promise((resolve) => {
-      if (resource.type !== this.resourceType) {
+      if (resource.haveAst) {
         this.log.info(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {

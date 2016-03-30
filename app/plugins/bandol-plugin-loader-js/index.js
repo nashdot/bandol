@@ -10,7 +10,6 @@ export default class Plugin extends BasePlugin {
 
     this.name = 'loader-js';
     this.version = '0.1.0';
-    this.resourceType = Types.JAVASCRIPT;
     this.supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
 
     this._babylonPlugins = [

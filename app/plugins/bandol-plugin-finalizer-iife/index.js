@@ -1,7 +1,6 @@
 import generate from 'babel-generator';
 
 import BasePlugin from '../../BasePlugin';
-import Types from '../../Types';
 
 export default class Plugin extends BasePlugin {
   constructor(bundle) {
@@ -9,7 +8,6 @@ export default class Plugin extends BasePlugin {
 
     this.name = 'finalizer-iife';
     this.version = '0.1.0';
-    this.resourceType = Types.JAVASCRIPT;
 
     this.init();
   }
@@ -22,7 +20,7 @@ export default class Plugin extends BasePlugin {
 
     for (let i = 0; i < this.bundle.sortedResources.length; i++) {
       const resource = this.bundle.sortedResources[i];
-      if (resource.type === this.resourceType) {
+      if (resource.haveAst) {
         try {
           resource.props.code = generate(
             resource.props.ast,
