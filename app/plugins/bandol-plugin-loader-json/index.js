@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+
 import * as babylon from 'babylon';
 
 import BasePlugin from '../../BasePlugin';
@@ -8,34 +9,10 @@ export default class Plugin extends BasePlugin {
   constructor(bundle) {
     super(bundle);
 
-    this.name = 'loader-js';
+    this.name = 'loader-json';
     this.version = '0.1.0';
     this.resourceType = Types.JAVASCRIPT;
-    this.supportedExtensions = ['.js', '.jsx', '.es6', '.es'];
-
-    this._babylonPlugins = [
-      'asyncFunctions',
-      'asyncGenerators',
-      'classConstructorCall',
-      'classProperties',
-      'decorators',
-      'doExpressions',
-      'exponentiationOperator',
-      'exportExtensions',
-      'flow',
-      'functionSent',
-      'functionBind',
-      'jsx',
-      'objectRestSpread',
-      'trailingFunctionCommas'
-    ];
-
-    this._babylonOtions = {
-      sourceType: 'module',
-      allowImportExportEverywhere: false,
-      allowReturnOutsideFunction: false,
-      plugins: this._babylonPlugins.slice(0)
-    };
+    this.supportedExtensions = ['.json'];
 
     this.init();
   }
@@ -48,8 +25,15 @@ export default class Plugin extends BasePlugin {
         resolve(resource);
       } else {
         try {
-          const code = fs.readFileSync(resource.id, 'utf8');
-          const ast = babylon.parse(code, this._babylonOtions);
+          const jsonData = fs.readFileSync(resource.id, 'utf8');
+
+          const varName = this.bundle.getShortName(resource.id);
+          const code = `
+            var ${varName} = ${jsonData};
+            export default ${varName};
+          `;
+
+          const ast = babylon.parse(code, { sourceType: 'module' });
 
           resource.type = Types.JAVASCRIPT;
           resource.props = {

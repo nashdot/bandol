@@ -9,6 +9,7 @@ import bandol from '..';
 import hashidsUidPlugin from '../app/plugins/bandol-plugin-uid-hashids';
 import nodeResolverPlugin from '../app/plugins/bandol-plugin-resolver-node';
 import jsLoaderPlugin from '../app/plugins/bandol-plugin-loader-js';
+import jsonLoaderPlugin from '../app/plugins/bandol-plugin-loader-json';
 import cjsToEs6NormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-cjs-to-es6';
 import es6ExportsNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-es6-exports';
 import es6ImportsNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-es6-imports';
@@ -121,6 +122,27 @@ test('loader/not-supported-resource-type', t => {
     plugins: basePlugins
   });
   return t.throws(bandol(opts), 'No loader plugin found for resource "test.json"');
+});
+
+test('loader/js', t => {
+  const opts = getOptions('loader/js', {
+    plugins: basePlugins
+  });
+  return t.throws(bandol(opts), 'No loader plugin found for resource "actual.js"');
+});
+
+test('loader/json', t => {
+  const opts = getOptions('loader/json', {
+    plugins: [
+      ...basePlugins,
+      jsonLoaderPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('loader/json'));
+  });
 });
 
 test('normalizer/cjs-to-es6', t => {
