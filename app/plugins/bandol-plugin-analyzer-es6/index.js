@@ -15,28 +15,23 @@ export default class Plugin extends BasePlugin {
   /* eslint no-param-reassign: 0 */
   analyzeResource(resource) {
     return new Promise((resolve) => {
-      if (!resource.hasAst) {
-        this.log.info(`Can't analyze ${this.bundle.getShortPath(resource.id)}`);
-        resolve(resource);
-      } else {
-        const dependencies = resource.dependencies;
+      const dependencies = resource.dependencies;
 
-        // Collect dependencies
-        traverse(resource.props.ast, {
-          ImportDeclaration: (nodePath) => {
-            const source = nodePath.node.source.value;
-            const id = this.bundle.resolveResource(source, resource.id);
+      // Collect dependencies
+      traverse(resource.ast, {
+        ImportDeclaration: (nodePath) => {
+          const source = nodePath.node.source.value;
+          const id = this.bundle.resolveResource(source, resource.id);
 
-            if (!~dependencies.indexOf(id)) {
-              dependencies.push(id);
-            }
+          if (!~dependencies.indexOf(id)) {
+            dependencies.push(id);
           }
-        });
+        }
+      });
 
-        resource.dependencies = dependencies;
+      resource.dependencies = dependencies;
 
-        resolve(resource);
-      }
+      resolve(resource);
     });
   }
 }

@@ -20,36 +20,34 @@ export default class Plugin extends BasePlugin {
 
     for (let i = 0; i < this.bundle.sortedResources.length; i++) {
       const resource = this.bundle.sortedResources[i];
-      if (resource.hasAst) {
-        try {
-          resource.props.code = generate(
-            resource.props.ast,
-            {
-              comments: false
-            },
-            resource.props.originalCode).code;
-        } catch (err) {
-          this.log.info(err.stack);
-        }
-
-        if (opts.debug) {
-          this.bundle.code += `/**bandol> resource: ${this.bundle.getShortPath(resource.id)} */\n`;
-          if (resource.props.imports.length > 0) {
-            this.bundle.code += `/**bandol> imports:\n${JSON.stringify(resource.props.imports, null, ' ')}\n*/\n`;
-          } else {
-            this.bundle.code += `/**bandol> imports: - */\n`;
-          }
-          this.bundle.code += `/**bandol> default export: ${this.bundle.defaultExportsById.get(resource.id) || '-'} */\n`;
-          const exports = this.bundle.namedExportsById.get(resource.id) || '-';
-          if (exports === '-') {
-            this.bundle.code += `/**bandol> exports: ${exports} */\n`;
-          } else {
-            this.bundle.code += `/**bandol> exports:\n${JSON.stringify(exports, null, ' ')}\n*/\n`;
-          }
-        }
-
-        this.bundle.code += `${resource.props.code}\n`;
+      try {
+        resource.code = generate(
+          resource.ast,
+          {
+            comments: false
+          },
+          resource.originalCode).code;
+      } catch (err) {
+        this.log.info(err.stack);
       }
+
+      if (opts.debug) {
+        this.bundle.code += `/**bandol> resource: ${this.bundle.getShortPath(resource.id)} */\n`;
+        if (resource.imports.length > 0) {
+          this.bundle.code += `/**bandol> imports:\n${JSON.stringify(resource.imports, null, ' ')}\n*/\n`;
+        } else {
+          this.bundle.code += `/**bandol> imports: - */\n`;
+        }
+        this.bundle.code += `/**bandol> default export: ${this.bundle.defaultExportsById.get(resource.id) || '-'} */\n`;
+        const exports = this.bundle.namedExportsById.get(resource.id) || '-';
+        if (exports === '-') {
+          this.bundle.code += `/**bandol> exports: ${exports} */\n`;
+        } else {
+          this.bundle.code += `/**bandol> exports:\n${JSON.stringify(exports, null, ' ')}\n*/\n`;
+        }
+      }
+
+      this.bundle.code += `${resource.code}\n`;
     }
 
     this.bundle.code += outro;

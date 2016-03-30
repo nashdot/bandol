@@ -35,15 +35,11 @@ export default class Plugin extends BasePlugin {
           const ast = babylon.parse(code, { sourceType: 'module' });
 
           resource.type = Types.JAVASCRIPT;
-          resource.hasAst = true;
-
-          resource.props = {
-            originalCode: code,
-            originalAst: ast,
-            code: code,
-            ast: ast,
-            imports: new Map()
-          };
+          resource.originalCode = code;
+          resource.originalAst = ast;
+          resource.code = code;
+          resource.ast = ast;
+          resource.imports = new Map();
 
           resolve(resource);
         } catch (err) {

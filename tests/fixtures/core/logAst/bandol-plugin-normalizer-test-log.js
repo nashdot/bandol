@@ -17,7 +17,7 @@ export default class Plugin extends BasePlugin {
 
   normalizeResource(resource) {
     return new Promise((resolve) => {
-      this.logAst(resource.props.ast);
+      this.logAst(resource.ast);
 
       resolve(resource);
     });

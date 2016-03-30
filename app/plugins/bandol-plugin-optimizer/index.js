@@ -21,35 +21,31 @@ export default class Plugin extends BasePlugin {
     for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
       const resource = this.bundle.sortedResources[i];
 
-      if (!resource.hasAst) {
-        this.log.info(`Can't optimize ${resource.id}`);
-      } else {
-        try {
-          traverse(resource.props.ast, {
-            ImportDeclaration: (nodePath) => {
-              const node = nodePath.node;
-              const source = node.source.value;
-              const id = this.bundle.resolveResource(source, resource.id);
+      try {
+        traverse(resource.ast, {
+          ImportDeclaration: (nodePath) => {
+            const node = nodePath.node;
+            const source = node.source.value;
+            const id = this.bundle.resolveResource(source, resource.id);
 
-              node.specifiers.forEach(specifier => {
-                const localName = specifier.local.name;
+            node.specifiers.forEach(specifier => {
+              const localName = specifier.local.name;
 
-                if (imports.has(localName)) {
-                  if (imports.get(localName) === id) {
-                    return;
-                  }
-                  this.log.info(`BUG: Same import '${localName}' from different resource ('${id}' - '${imports.get(localName)}')`);
+              if (imports.has(localName)) {
+                if (imports.get(localName) === id) {
+                  return;
                 }
+                this.log.info(`BUG: Same import '${localName}' from different resource ('${id}' - '${imports.get(localName)}')`);
+              }
 
-                imports.set(localName, id);
-              });
-            }
-          });
-        } catch (err) {
-          this.log.info(err.stack);
-          const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
-          fs.writeFileSync(outputPath, resource.props.code);
-        }
+              imports.set(localName, id);
+            });
+          }
+        });
+      } catch (err) {
+        this.log.info(err.stack);
+        const outputPath = `${process.cwd()}/out/${path.basename(resource.id)}`;
+        fs.writeFileSync(outputPath, resource.code);
       }
     }
 

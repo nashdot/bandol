@@ -16,23 +16,18 @@ export default class Plugin extends BasePlugin {
 
   normalizeResource(resource) {
     return new Promise((resolve) => {
-      if (!resource.hasAst) {
-        this.log.info(`Can't normalize ${resource.id}`);
-        resolve(resource);
-      } else {
-        traverse(resource.props.ast, {
-          MemberExpression: (nodePath) => {
-            if (nodePath.get('object').matchesPattern('process.env')) {
-              const key = nodePath.toComputedKey();
-              if (t.isStringLiteral(key)) {
-                nodePath.replaceWith(t.valueToNode(process.env[key.value]));
-              }
+      traverse(resource.ast, {
+        MemberExpression: (nodePath) => {
+          if (nodePath.get('object').matchesPattern('process.env')) {
+            const key = nodePath.toComputedKey();
+            if (t.isStringLiteral(key)) {
+              nodePath.replaceWith(t.valueToNode(process.env[key.value]));
             }
           }
-        });
+        }
+      });
 
-        resolve(resource);
-      }
+      resolve(resource);
     });
   }
 }

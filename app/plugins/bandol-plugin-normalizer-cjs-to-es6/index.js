@@ -49,60 +49,55 @@ export default class Plugin extends BasePlugin {
 
   normalizeResource(resource) {
     return new Promise((resolve) => {
-      if (!resource.hasAst) {
-        this.log.info(`Can't normalize ${resource.id}`);
-        resolve(resource);
-      } else {
-        traverse(resource.props.ast, {
-          // Convert CommonJS to ES6 exports
-          AssignmentExpression: (nodePath) => {
-            const node = nodePath.node;
+      traverse(resource.ast, {
+        // Convert CommonJS to ES6 exports
+        AssignmentExpression: (nodePath) => {
+          const node = nodePath.node;
 
-            if (t.isExpressionStatement(nodePath.parentPath.node)
-                && t.isProgram(nodePath.parentPath.parentPath.node)) {
-              if (this._isModuleExports(node)) {
-                // module.exports = expression
-                nodePath.parentPath.replaceWith(t.exportDefaultDeclaration(node.right));
-              } else if (this._isNamedModuleExports(node)) {
-                // module.exports.<id> = expression
-                const id = node.left.property.name;
-                this.log.info(`TODO: module.exports.${id} = ...`);
-              }
+          if (t.isExpressionStatement(nodePath.parentPath.node)
+              && t.isProgram(nodePath.parentPath.parentPath.node)) {
+            if (this._isModuleExports(node)) {
+              // module.exports = expression
+              nodePath.parentPath.replaceWith(t.exportDefaultDeclaration(node.right));
+            } else if (this._isNamedModuleExports(node)) {
+              // module.exports.<id> = expression
+              const id = node.left.property.name;
+              this.log.info(`TODO: module.exports.${id} = ...`);
             }
-          },
-          // Convert CommonJS to ES6 imports
-          VariableDeclarator: (nodePath) => {
-            const node = nodePath.node;
+          }
+        },
+        // Convert CommonJS to ES6 imports
+        VariableDeclarator: (nodePath) => {
+          const node = nodePath.node;
 
-            if (t.isVariableDeclaration(nodePath.parentPath.node)) {
-              if (t.isCallExpression(node.init)
-                  && this._isRequireCall(node.init)) {
-                if (t.isIdentifier(node.id)) {
-                  // this.log.info(`Converting ${node.id.name}`);
-                  const programPath = this._getProgramParent(nodePath);
+          if (t.isVariableDeclaration(nodePath.parentPath.node)) {
+            if (t.isCallExpression(node.init)
+                && this._isRequireCall(node.init)) {
+              if (t.isIdentifier(node.id)) {
+                // this.log.info(`Converting ${node.id.name}`);
+                const programPath = this._getProgramParent(nodePath);
 
-                  // Add import statement
-                  programPath.unshiftContainer('body', t.importDeclaration(
-                      [t.importDefaultSpecifier(node.id)], t.stringLiteral(node.init.arguments[0].value)));
+                // Add import statement
+                programPath.unshiftContainer('body', t.importDeclaration(
+                    [t.importDefaultSpecifier(node.id)], t.stringLiteral(node.init.arguments[0].value)));
 
-                  // Remove original declarator
-                  nodePath.remove();
+                // Remove original declarator
+                nodePath.remove();
 
-                  // Change binding type if presents
-                  const binding = programPath.scope.bindings[node.id.name];
-                  if (binding) {
-                    binding.kind = 'module';
-                  }
-                } else {
-                  this.log.info('TODO: require() - other cases');
+                // Change binding type if presents
+                const binding = programPath.scope.bindings[node.id.name];
+                if (binding) {
+                  binding.kind = 'module';
                 }
+              } else {
+                this.log.info('TODO: require() - other cases');
               }
             }
           }
-        });
+        }
+      });
 
-        resolve(resource);
-      }
+      resolve(resource);
     });
   }
 }
