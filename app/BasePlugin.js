@@ -36,4 +36,8 @@ export default class BasePlugin {
     });
     return result;
   }
+
+  getProgramPath(nodePath) {
+    return nodePath.findParent((_path) => _path.isProgram());
+  }
 }

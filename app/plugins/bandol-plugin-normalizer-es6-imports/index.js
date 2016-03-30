@@ -14,10 +14,6 @@ export default class Plugin extends BasePlugin {
     this.init();
   }
 
-  _getProgramParent(nodePath) {
-    return nodePath.findParent((_path) => _path.isProgram());
-  }
-
   /* eslint no-param-reassign: 0 */
   normalizeResource(resource) {
     return new Promise((resolve) => {
@@ -27,7 +23,7 @@ export default class Plugin extends BasePlugin {
           // Found <namespace>.<varaible>
           if (t.isIdentifier(nodePath.node.object)
               && nodePath.node.object.name === this.opts.namespace) {
-            const programPath = this._getProgramParent(nodePath);
+            const programPath = this.getProgramPath(nodePath);
             const originalImportName = nodePath.node.property.name;
             let importName = originalImportName;
 

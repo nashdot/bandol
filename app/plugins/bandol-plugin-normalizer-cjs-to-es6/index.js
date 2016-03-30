@@ -39,14 +39,6 @@ export default class Plugin extends BasePlugin {
       && t.isStringLiteral(node.arguments[0]);
   }
 
-  _getProgramParent(nodePath) {
-    const programPath = nodePath.findParent((_path) => _path.isProgram());
-    if (!programPath) {
-      throw new Error('No Program node found');
-    }
-    return programPath;
-  }
-
   normalizeResource(resource) {
     return new Promise((resolve) => {
       traverse(resource.ast, {
@@ -75,7 +67,7 @@ export default class Plugin extends BasePlugin {
                 && this._isRequireCall(node.init)) {
               if (t.isIdentifier(node.id)) {
                 // this.log.info(`Converting ${node.id.name}`);
-                const programPath = this._getProgramParent(nodePath);
+                const programPath = this.getProgramPath(nodePath);
 
                 // Add import statement
                 programPath.unshiftContainer('body', t.importDeclaration(
