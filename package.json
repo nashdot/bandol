@@ -64,6 +64,9 @@
     "files": [
       "tests/*.js"
     ],
+    "match": [
+      "*"
+    ],
     "failFast": true,
     "tap": true
   },
