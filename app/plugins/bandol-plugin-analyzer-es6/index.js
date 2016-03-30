@@ -15,7 +15,7 @@ export default class Plugin extends BasePlugin {
   /* eslint no-param-reassign: 0 */
   analyzeResource(resource) {
     return new Promise((resolve) => {
-      if (resource.haveAst) {
+      if (!resource.hasAst) {
         this.log.info(`Can't analyze ${this.bundle.getShortPath(resource.id)}`);
         resolve(resource);
       } else {

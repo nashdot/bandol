@@ -4,7 +4,7 @@ export default class Resource {
   constructor(id) {
     this.id = id;
     this.type = Types.UNKNOWN;
-    this.haveAst = false;
+    this.hasAst = false;
     this.dependencies = [];
     this.props = [];
   }

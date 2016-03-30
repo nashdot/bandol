@@ -16,7 +16,7 @@ export default class Plugin extends BasePlugin {
   /* eslint no-param-reassign: 0 */
   normalizeResource(resource) {
     return new Promise((resolve) => {
-      if (resource.haveAst) {
+      if (!resource.hasAst) {
         this.log.info(`Can't normalize ${resource.id}`);
         resolve(resource);
       } else {

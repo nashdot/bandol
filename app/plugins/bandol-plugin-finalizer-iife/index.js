@@ -20,7 +20,7 @@ export default class Plugin extends BasePlugin {
 
     for (let i = 0; i < this.bundle.sortedResources.length; i++) {
       const resource = this.bundle.sortedResources[i];
-      if (resource.haveAst) {
+      if (!resource.hasAst) {
         try {
           resource.props.code = generate(
             resource.props.ast,
