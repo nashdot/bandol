@@ -112,28 +112,23 @@ export default class Bundle {
   }
 
   async processResource(id) {
-    try {
-      if (this.resources.has(id)) {
-        return;
-      }
-
-      const shortId = this.getShortPath(id);
-
-      this.log.info(`Loading "${shortId}"...`);
-      let resource = await this.loadResource(id);
-      this.log.info(`Normalizing "${shortId}"...`);
-      resource = await this.normalizeResource(resource);
-      this.log.info(`Analyzing "${shortId}"...`);
-      resource = await this.analyzeResource(resource);
-
-      // -- Register
-      this.resources.set(resource.id, resource);
-
-      // -- Fetch dependencies
-      await this.processDependencies(resource);
-    } catch (error) {
-      this.log.info(error.message);
+    if (this.resources.has(id)) {
+      return;
     }
+
+    const shortId = this.getShortPath(id);
+
+    let resource = await this.loadResource(id);
+    this.log.info(`Normalizing "${shortId}"...`);
+    resource = await this.normalizeResource(resource);
+    this.log.info(`Analyzing "${shortId}"...`);
+    resource = await this.analyzeResource(resource);
+
+    // -- Register
+    this.resources.set(resource.id, resource);
+
+    // -- Fetch dependencies
+    await this.processDependencies(resource);
   }
 
   async processDependencies(resource) {
@@ -158,16 +153,18 @@ export default class Bundle {
   async loadResource(id) {
     let resource = new Resource(id);
 
+    const shortId = this.getShortPath(id);
+
     for (const plugin of this.loaderPlugins) {
       resource = await plugin.loadResource(resource);
 
       if (resource.type !== Types.UNKNOWN) {
-        this.log.info(`Loaded by "${plugin.name}/${plugin.version}"`);
+        this.log.info(`Loaded "${shortId}" by "${plugin.name}/${plugin.version}"`);
         return resource;
       }
     }
 
-    return resource;
+    throw new Error(`No loader plugin found for resource "${shortId}"`);
   }
 
   async normalizeResource(resource) {
