@@ -119,6 +119,20 @@ test('core/logAst', t => {
   });
 });
 
+test('uid/hashids', t => {
+  const opts = getOptions('uid/hashids', {
+    plugins: [
+      nodeResolverPlugin,
+      jsLoaderPlugin,
+      es6AnalyzerPlugin,
+      renameInternalsOptimizerPlugin,
+      iifeFinalizerPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return t.throws(bandol(opts), 'No uid plugin found in this Bandol configuration.');
+});
+
 test('loader/not-supported-resource-type', t => {
   const opts = getOptions('loader/not-supported-resource-type', {
     plugins: basePlugins

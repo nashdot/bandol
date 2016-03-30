@@ -56,6 +56,10 @@ export default class Bundle {
 
     // Init plugins
     this.initPlugins();
+
+    if (this.uidPlugins.length === 0) {
+      throw new Error('No uid plugin found in this Bandol configuration.');
+    }
   }
 
   initPlugins() {
@@ -198,12 +202,7 @@ export default class Bundle {
   }
 
   generateUid() {
-    if (Array.isArray(this.uidPlugins)
-        && this.uidPlugins.length > 0) {
-      return this.uidPlugins[0].generateUid();
-    }
-
-    throw new Error("No 'uid plugin' found in this Bandol configuration.");
+    return this.uidPlugins[0].generateUid();
   }
 
   dumpCode(ast, id) {
