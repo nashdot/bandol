@@ -13,18 +13,6 @@ export default class Plugin extends BasePlugin {
     this.init();
   }
 
-  _getPreferedDefaultExportName(id) {
-    // Name of the resource himself
-    let name = this.bundle.getShortName(id);
-    if (this.bundle.defaultExportsByName.has(name)
-        || this.bundle.namedExportsByName.has(name)) {
-      // Already used by another module
-      name = this.bundle.generateUid();
-    }
-
-    return name;
-  }
-
   optimizeBundle() {
     for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
       const resource = this.bundle.sortedResources[i];
