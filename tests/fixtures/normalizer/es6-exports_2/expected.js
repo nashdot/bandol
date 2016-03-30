@@ -1,6 +1,7 @@
 (function () {
 
-const imported = 'test';
+const bQr = '?';
+const imported = 'test' + bQr;
 
 export default imported;
 import a from './imported';
