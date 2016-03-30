@@ -1,10 +1,10 @@
 import Types from './Types';
 
 export default class Resource {
-  constructor(id, type = Types.UNKNOWN, dependencies = [], props = {}) {
+  constructor(id) {
     this.id = id;
-    this.type = type;
-    this.dependencies = dependencies;
-    this.props = props;
+    this.type = Types.UNKNOWN;
+    this.dependencies = [];
+    this.props = [];
   }
 }
