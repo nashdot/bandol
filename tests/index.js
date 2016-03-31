@@ -328,6 +328,32 @@ test('normalizer/es6-exports_4', t => {
   });
 });
 
+test('normalizer/es6-exports_5', t => {
+  const opts = getOptions('normalizer/es6-exports_5', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/es6-exports_5'));
+  });
+});
+
+test('normalizer/es6-exports_6', t => {
+  const opts = getOptions('normalizer/es6-exports_6', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/es6-exports_6'));
+  });
+});
+
 test('optimizer/remove-use-strict', t => {
   const opts = getOptions('optimizer/remove-use-strict', {
     plugins: [
