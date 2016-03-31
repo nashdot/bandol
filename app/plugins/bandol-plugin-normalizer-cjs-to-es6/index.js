@@ -59,25 +59,27 @@ export default class Plugin extends BasePlugin {
           }
         },
         // Convert CommonJS to ES6 imports
-        VariableDeclarator: (nodePath) => {
+        VariableDeclaration: (nodePath) => {
           const node = nodePath.node;
 
-          if (t.isVariableDeclaration(nodePath.parentPath.node)) {
-            if (t.isCallExpression(node.init)
-                && this._isRequireCall(node.init)) {
-              if (t.isIdentifier(node.id)) {
+          let i = 0;
+          node.declarations.forEach(decl => {
+            if (t.isCallExpression(decl.init)
+                && this._isRequireCall(decl.init)) {
+              if (t.isIdentifier(decl.id)) {
                 // this.log.info(`Converting ${node.id.name}`);
                 const programPath = this.getProgramPath(nodePath);
 
                 // Add import statement
                 programPath.unshiftContainer('body', t.importDeclaration(
-                    [t.importDefaultSpecifier(node.id)], t.stringLiteral(node.init.arguments[0].value)));
+                    [t.importDefaultSpecifier(decl.id)], t.stringLiteral(decl.init.arguments[0].value)));
 
                 // Remove original declarator
-                nodePath.remove();
+                node.declarations.splice(i, 1);
+                // decl.remove();
 
                 // Change binding type if presents
-                const binding = programPath.scope.bindings[node.id.name];
+                const binding = programPath.scope.bindings[decl.id.name];
                 if (binding) {
                   binding.kind = 'module';
                 }
@@ -85,6 +87,12 @@ export default class Plugin extends BasePlugin {
                 this.log.info('TODO: require() - other cases');
               }
             }
+
+            i++;
+          });
+
+          if (node.declarations.length === 0) {
+            nodePath.remove();
           }
         }
       });
