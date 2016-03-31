@@ -68,10 +68,12 @@ export default class Plugin extends BasePlugin {
               nodePath.parentPath.scope.rename(name, this.bundle.generateUid());
             }
 
-            nodePath.insertBefore(t.variableDeclaration('var', [
-              t.variableDeclarator(t.identifier(name), node.declaration)
-            ]));
-            nodePath.replaceWith(t.exportDefaultDeclaration(t.identifier(name)));
+            nodePath.replaceWithMultiple([
+              t.variableDeclaration('var', [
+                t.variableDeclarator(t.identifier(name), node.declaration)
+              ]),
+              t.exportDefaultDeclaration(t.identifier(name))
+            ]);
           }
         },
         ExportNamedDeclaration: (nodePath) => {
@@ -80,21 +82,29 @@ export default class Plugin extends BasePlugin {
           if (node.declaration) {
             if (t.isFunctionDeclaration(node.declaration)) {
               const { id: id, params: params, body: body, generator: generator } = node.declaration;
-              nodePath.insertBefore(t.functionDeclaration(id, params, body, generator, node.declaration.async));
-              nodePath.replaceWith(t.exportNamedDeclaration(null, [t.exportSpecifier(id, id)], null));
+              nodePath.replaceWithMultiple([
+                t.functionDeclaration(id, params, body, generator, node.declaration.async),
+                t.exportNamedDeclaration(null, [t.exportSpecifier(id, id)], null)
+              ]);
             } else if (t.isClassDeclaration(node.declaration)) {
               const { id: id, superClass: superClass, body: body } = node.declaration;
-              nodePath.insertBefore(t.classDeclaration(id, superClass, body, []));
-              nodePath.replaceWith(t.exportNamedDeclaration(null, [t.exportSpecifier(id, id)], null));
+              nodePath.replaceWithMultiple([
+                t.classDeclaration(id, superClass, body, []),
+                t.exportNamedDeclaration(null, [t.exportSpecifier(id, id)], null)
+              ]);
             } else {
+              const varDeclarations = [];
               const specifiers = [];
               node.declaration.declarations.forEach(decl => {
-                nodePath.insertBefore(t.variableDeclaration('var', [
+                varDeclarations.push(t.variableDeclaration('var', [
                   t.variableDeclarator(decl.id, decl.init)
                 ]));
                 specifiers.push(t.exportSpecifier(decl.id, decl.id));
               });
-              nodePath.replaceWith(t.exportNamedDeclaration(null, specifiers, null));
+              nodePath.replaceWithMultiple([
+                ...varDeclarations,
+                t.exportNamedDeclaration(null, specifiers, null)
+              ]);
             }
           } else if (node.source) {
             node.specifiers.forEach(spec => {
