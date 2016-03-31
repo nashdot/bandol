@@ -58,13 +58,11 @@ export default class Plugin extends BasePlugin {
               }
             }
 
-            const { id: id, superClass: superClass, body: body, decorators: decorators } = node.declaration;
-            if (Array.isArray(decorators)) {
-              nodePath.insertBefore(t.classDeclaration(id, superClass, body, decorators));
-            } else {
-              nodePath.insertBefore(t.classDeclaration(id, superClass, body, []));
-            }
-            nodePath.replaceWith(t.exportDefaultDeclaration(t.identifier(name)));
+            const { id: id, superClass: superClass, body: body } = node.declaration;
+            nodePath.replaceWithMultiple([
+              t.classDeclaration(id, superClass, body, []),
+              t.exportDefaultDeclaration(t.identifier(name))
+            ]);
           } else {
             if (nodePath.parentPath.scope.hasBinding(name)) {
               nodePath.parentPath.scope.rename(name, this.bundle.generateUid());
@@ -85,12 +83,8 @@ export default class Plugin extends BasePlugin {
               nodePath.insertBefore(t.functionDeclaration(id, params, body, generator, node.declaration.async));
               nodePath.replaceWith(t.exportNamedDeclaration(null, [t.exportSpecifier(id, id)], null));
             } else if (t.isClassDeclaration(node.declaration)) {
-              const { id: id, superClass: superClass, body: body, decorators: decorators } = node.declaration;
-              if (Array.isArray(decorators)) {
-                nodePath.insertBefore(t.classDeclaration(id, superClass, body, decorators));
-              } else {
-                nodePath.insertBefore(t.classDeclaration(id, superClass, body, []));
-              }
+              const { id: id, superClass: superClass, body: body } = node.declaration;
+              nodePath.insertBefore(t.classDeclaration(id, superClass, body, []));
               nodePath.replaceWith(t.exportNamedDeclaration(null, [t.exportSpecifier(id, id)], null));
             } else {
               const specifiers = [];
