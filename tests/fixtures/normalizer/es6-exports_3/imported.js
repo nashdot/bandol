@@ -1,7 +1,6 @@
 
 const imported = '?';
-function a() {
+
+export default function a() {
   return imported;
 }
-
-export default a;

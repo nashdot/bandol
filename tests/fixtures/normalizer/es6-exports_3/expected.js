@@ -1,6 +1,7 @@
 (function () {
 
 const bQr = '?';
+
 function imported() {
   return bQr;
 }

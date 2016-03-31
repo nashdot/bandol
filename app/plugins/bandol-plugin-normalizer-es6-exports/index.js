@@ -37,13 +37,16 @@ export default class Plugin extends BasePlugin {
                 if (nodePath.parentPath.scope.hasBinding(name)) {
                   nodePath.parentPath.scope.rename(name, this.bundle.generateUid());
                 }
-                nodePath.parentPath.scope.rename(node.declaration.id.name, name);
+                // TODO: this rename add ExportNamedDeclaration...!!!
+                // nodePath.parentPath.scope.rename(node.declaration.id.name, name);
               }
             }
 
             const { params: params, body: body, generator: generator } = node.declaration;
-            nodePath.insertBefore(t.functionDeclaration(t.identifier(name), params, body, generator, node.declaration.async));
-            nodePath.replaceWith(t.exportDefaultDeclaration(t.identifier(name)));
+            nodePath.replaceWithMultiple([
+              t.functionDeclaration(t.identifier(name), params, body, generator, node.declaration.async),
+              t.exportDefaultDeclaration(t.identifier(name))
+            ]);
           } else if (t.isClassDeclaration(node.declaration)) {
             if (node.declaration.id) {
               if (name !== node.declaration.id.name) {
