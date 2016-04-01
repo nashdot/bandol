@@ -76,7 +76,6 @@ export default class Plugin extends BasePlugin {
 
                 // Remove original declarator
                 node.declarations.splice(i, 1);
-                // decl.remove();
 
                 // Change binding type if presents
                 const binding = programPath.scope.bindings[decl.id.name];
@@ -85,6 +84,27 @@ export default class Plugin extends BasePlugin {
                 }
               } else {
                 this.log.info('TODO: require() - other cases');
+              }
+            } else if (t.isMemberExpression(decl.init)
+                && t.isCallExpression(decl.init.object)
+                && this._isRequireCall(decl.init.object)
+                && t.isIdentifier(decl.init.property)) {
+              // this.log.info(`Converting ${node.id.name}`);
+              const programPath = this.getProgramPath(nodePath);
+
+              // Add import statement
+              programPath.unshiftContainer('body',
+                t.importDeclaration(
+                  [t.importSpecifier(t.identifier(decl.id.name), t.identifier(decl.init.property.name))],
+                  t.stringLiteral(decl.init.object.arguments[0].value)));
+
+              // Remove original declarator
+              node.declarations.splice(i, 1);
+
+              // Change binding type if presents
+              const binding = programPath.scope.bindings[decl.id.name];
+              if (binding) {
+                binding.kind = 'module';
               }
             }
 
