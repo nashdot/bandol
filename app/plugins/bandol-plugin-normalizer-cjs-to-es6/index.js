@@ -110,6 +110,20 @@ export default class Plugin extends BasePlugin {
           if (node.declarations.length === 0) {
             nodePath.remove();
           }
+        },
+        CallExpression: (nodePath) => {
+          const node = nodePath.node;
+
+          if (this._isRequireCall(node)) {
+            const programPath = this.getProgramPath(nodePath);
+
+            programPath.unshiftContainer('body',
+              t.importDeclaration(
+                [],
+                t.stringLiteral(node.arguments[0].value)));
+
+            nodePath.remove();
+          }
         }
       });
 

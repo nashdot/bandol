@@ -221,6 +221,19 @@ test('normalizer/cjs-to-es6_3', t => {
   });
 });
 
+test('normalizer/cjs-to-es6_4', t => {
+  const opts = getOptions('normalizer/cjs-to-es6_4', {
+    plugins: [
+      ...basePlugins,
+      cjsToEs6NormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/cjs-to-es6_4'));
+  });
+});
+
 test('normalizer/process-env', t => {
   const opts = getOptions('normalizer/process-env', {
     plugins: [
