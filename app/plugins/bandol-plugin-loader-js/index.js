@@ -55,7 +55,6 @@ export default class Plugin extends BasePlugin {
           resource.originalAst = ast;
           resource.code = code;
           resource.ast = ast;
-          resource.imports = new Map();
 
           resolve(resource);
         } catch (err) {
