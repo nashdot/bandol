@@ -66,24 +66,20 @@ export default class Plugin extends BasePlugin {
           node.declarations.forEach(decl => {
             if (t.isCallExpression(decl.init)
                 && this._isRequireCall(decl.init)) {
-              if (t.isIdentifier(decl.id)) {
-                // this.log.info(`Converting ${node.id.name}`);
-                const programPath = this.getProgramPath(nodePath);
+              // this.log.info(`Converting ${node.id.name}`);
+              const programPath = this.getProgramPath(nodePath);
 
-                // Add import statement
-                programPath.unshiftContainer('body', t.importDeclaration(
-                    [t.importDefaultSpecifier(decl.id)], t.stringLiteral(decl.init.arguments[0].value)));
+              // Add import statement
+              programPath.unshiftContainer('body', t.importDeclaration(
+                  [t.importDefaultSpecifier(decl.id)], t.stringLiteral(decl.init.arguments[0].value)));
 
-                // Remove original declarator
-                node.declarations.splice(i, 1);
+              // Remove original declarator
+              node.declarations.splice(i, 1);
 
-                // Change binding type if presents
-                const binding = programPath.scope.bindings[decl.id.name];
-                if (binding) {
-                  binding.kind = 'module';
-                }
-              } else {
-                this.log.info('TODO: require() - other cases');
+              // Change binding type if presents
+              const binding = programPath.scope.bindings[decl.id.name];
+              if (binding) {
+                binding.kind = 'module';
               }
             } else if (t.isMemberExpression(decl.init)
                 && t.isCallExpression(decl.init.object)
