@@ -128,17 +128,17 @@ export default class Plugin extends BasePlugin {
                 ...exportDeclarations
               ]);
             }
-          } else if (node.source) {
-          // -- Re-export
-            // -- Re-export everything
-            node.specifiers.forEach(spec => {
-              this.log.info(`TODO: export { ${spec.exported.name} as ${spec.local.name} } from ${node.source.value}`);
-              // Convert to import + assign + export
-            });
-
+          } else {
             // -- Re-export via a clause
+            throw new Error(`TODO: export { ... } from ${node.source.value}`);
           }
           // -- Export via a clause (normalized)
+        },
+        // -- Re-export everything
+        ExportAllDeclaration: (nodePath) => {
+          const node = nodePath.node;
+
+          throw new Error(`TODO: export * from ${node.source.value}`);
         }
       });
 
