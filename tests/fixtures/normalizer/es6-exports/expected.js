@@ -1,9 +1,9 @@
 (function () {
 var a = 'Test';
 export { a };
-var b = 1;
+let b = 1;
 export { b };
-var c = Math.PI * 6;
+const c = Math.PI * 6;
 export { c };
 
 function d() {
@@ -12,6 +12,12 @@ function d() {
 
 export { d };
 
+function* e() {
+  return 0;
+}
+
+export { e };
+
 class Test {
   constructor() {
     this.a = 0;
@@ -19,7 +25,11 @@ class Test {
 }
 
 export { Test };
-var actual = 'TestDefault';
-export default actual;
+var f = 'f';
+var g = 1;
+var h = 0.1;
+export { f };
+export { g };
+export { h };
 
 }());

@@ -13,7 +13,10 @@ export default class Plugin extends BasePlugin {
     this.init();
   }
 
-  /* eslint no-param-reassign: 0 */
+  //
+  // see: http://exploringjs.com/es6/ch_modules.html
+  // § 16.4.4 All exporting styles
+  //
   normalizeResource(resource) {
     return new Promise((resolve) => {
       const name = this.bundle.getShortName(resource.id);
@@ -22,6 +25,7 @@ export default class Plugin extends BasePlugin {
           const node = nodePath.node;
 
           if (t.isIdentifier(node.declaration)) {
+          // -- Variable
             if (name !== node.declaration.name) {
               if (nodePath.parentPath.scope.hasBinding(name)) {
                 nodePath.parentPath.scope.rename(name, this.bundle.generateUid());
@@ -32,6 +36,7 @@ export default class Plugin extends BasePlugin {
             }
             // else: already normalized
           } else if (t.isFunctionDeclaration(node.declaration)) {
+          // -- Function declaration
             if (node.declaration.id) {
               if (name !== node.declaration.id.name) {
                 if (nodePath.parentPath.scope.hasBinding(name)) {
@@ -48,6 +53,7 @@ export default class Plugin extends BasePlugin {
               t.exportDefaultDeclaration(t.identifier(name))
             ]);
           } else if (t.isClassDeclaration(node.declaration)) {
+          // Class declaration
             if (node.declaration.id) {
               if (name !== node.declaration.id.name) {
                 if (nodePath.parentPath.scope.hasBinding(name)) {
@@ -87,43 +93,52 @@ export default class Plugin extends BasePlugin {
             ]);
           }
         },
+        // Normalize all named exports to exports via a clause
         ExportNamedDeclaration: (nodePath) => {
           const node = nodePath.node;
 
           if (node.declaration) {
+          // -- Inline exports
             if (t.isFunctionDeclaration(node.declaration)) {
+            // -- Function declaration
               const { id: id, params: params, body: body, generator: generator } = node.declaration;
               nodePath.replaceWithMultiple([
                 t.functionDeclaration(id, params, body, generator, node.declaration.async),
                 t.exportNamedDeclaration(null, [t.exportSpecifier(id, id)], null)
               ]);
             } else if (t.isClassDeclaration(node.declaration)) {
+            // -- Class declaration
               const { id: id, superClass: superClass, body: body } = node.declaration;
               nodePath.replaceWithMultiple([
                 t.classDeclaration(id, superClass, body, []),
                 t.exportNamedDeclaration(null, [t.exportSpecifier(id, id)], null)
               ]);
             } else {
+            // -- Variable declarations
               const varDeclarations = [];
-              const specifiers = [];
+              const exportDeclarations = [];
               node.declaration.declarations.forEach(decl => {
-                varDeclarations.push(t.variableDeclaration('var', [
+                varDeclarations.push(t.variableDeclaration(node.declaration.kind, [
                   t.variableDeclarator(decl.id, decl.init)
                 ]));
-                specifiers.push(t.exportSpecifier(decl.id, decl.id));
+                exportDeclarations.push(t.exportNamedDeclaration(null, [t.exportSpecifier(decl.id, decl.id)], null));
               });
               nodePath.replaceWithMultiple([
                 ...varDeclarations,
-                t.exportNamedDeclaration(null, specifiers, null)
+                ...exportDeclarations
               ]);
             }
           } else if (node.source) {
+          // -- Re-export
+            // -- Re-export everything
             node.specifiers.forEach(spec => {
               this.log.info(`TODO: export { ${spec.exported.name} as ${spec.local.name} } from ${node.source.value}`);
               // Convert to import + assign + export
             });
+
+            // -- Re-export via a clause
           }
-          // else: already normalized
+          // -- Export via a clause (normalized)
         }
       });
 
