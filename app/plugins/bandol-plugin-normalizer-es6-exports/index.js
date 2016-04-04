@@ -128,18 +128,10 @@ export default class Plugin extends BasePlugin {
                 ...exportDeclarations
               ]);
             }
-          } else {
-            // -- Re-export via a clause
-            throw new Error(`TODO: export { ... } from ${node.source.value}`);
-          }
+          } // else: -- Re-export via a clause (can't normalize)
           // -- Export via a clause (normalized)
-        },
-        // -- Re-export everything
-        ExportAllDeclaration: (nodePath) => {
-          const node = nodePath.node;
-
-          throw new Error(`TODO: export * from ${node.source.value}`);
         }
+        // -- Re-export everything (can't normalize)
       });
 
       resolve(resource);
