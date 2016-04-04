@@ -16,6 +16,11 @@ export default class Plugin extends BasePlugin {
   //
   // see: http://exploringjs.com/es6/ch_modules.html
   // § 16.4.4 All exporting styles
+  // Afeter normalisation we obtain 4 styles:
+  // export default ModuleName;
+  // export { foo };
+  // export * from 'other_module'; // as-is
+  // export { foo as myFoo, bar } from 'other_module'; // as-is
   //
   normalizeResource(resource) {
     return new Promise((resolve) => {
