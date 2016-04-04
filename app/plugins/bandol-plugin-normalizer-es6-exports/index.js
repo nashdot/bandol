@@ -19,10 +19,10 @@ export default class Plugin extends BasePlugin {
   //
   normalizeResource(resource) {
     return new Promise((resolve) => {
-      const name = this.bundle.getShortName(resource.id);
       traverse(resource.ast, {
         ExportDefaultDeclaration: (nodePath) => {
           const node = nodePath.node;
+          const name = this.bundle.getShortName(resource.id);
 
           if (t.isIdentifier(node.declaration)) {
           // -- Variable
