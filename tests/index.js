@@ -288,6 +288,19 @@ test('normalizer/remove-falsy-blocks', t => {
   });
 });
 
+test('normalizer/remove-falsy-blocks_2', t => {
+  const opts = getOptions('normalizer/remove-falsy-blocks_2', {
+    plugins: [
+      ...basePlugins,
+      removeFalsyBlocksNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/remove-falsy-blocks_2'));
+  });
+});
+
 test('normalizer/remove-unused', t => {
   const opts = getOptions('normalizer/remove-unused', {
     plugins: [

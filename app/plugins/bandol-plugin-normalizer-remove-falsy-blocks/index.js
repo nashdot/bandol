@@ -22,7 +22,7 @@ export default class Plugin extends BasePlugin {
           if (evaluated.confident) {
             if (evaluated.value === true) {
               nodePath.replaceWithMultiple(nodePath.node.consequent.body);
-            } else if (evaluated.value === false) {
+            } else {
               if (nodePath.node.alternate) {
                 nodePath.replaceWithMultiple(nodePath.node.alternate.body);
               } else {
