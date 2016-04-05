@@ -54,9 +54,9 @@ export default class Plugin extends BasePlugin {
           const node = nodePath.node;
 
           node.specifiers.forEach(specifier => {
-            // ImportDefaultSpecifier don't have aliases
             if (t.isImportSpecifier(specifier)
                 && specifier.imported.name !== specifier.local.name) {
+            // -- Named import with alias
               if (nodePath.parentPath.scope.bindings[specifier.imported.name]) {
                 // Imported name is already in use, rename it
                 // TODO: Verify if this name is not used by module exports
@@ -69,6 +69,7 @@ export default class Plugin extends BasePlugin {
               // Make alias identical to imported
               specifier.local = _.clone(specifier.imported);
             } else if (t.isImportNamespaceSpecifier(specifier)) {
+            // -- Namespace import
               // Temporary options object for worker visitor
               this.opts = {
                 importedModule: nodePath.node.source.value,
@@ -78,7 +79,9 @@ export default class Plugin extends BasePlugin {
               delete this.opts;
               nodePath.remove();
             }
+            // else: ImportDefaultSpecifier don't have aliases
           });
+          // If no specifiers provieded: Empty import
         }
       });
 
