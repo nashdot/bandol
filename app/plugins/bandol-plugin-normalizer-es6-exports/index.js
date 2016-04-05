@@ -41,9 +41,9 @@ export default class Plugin extends BasePlugin {
           // Class declaration
             const name = node.declaration.id ? node.declaration.id.name : this.bundle.generateUid();
 
-            const { id: id, superClass: superClass, body: body } = node.declaration;
+            const { superClass: superClass, body: body } = node.declaration;
             nodePath.replaceWithMultiple([
-              t.classDeclaration(id, superClass, body, []),
+              t.classDeclaration(t.identifier(name), superClass, body, []),
               t.exportDefaultDeclaration(t.identifier(name))
             ]);
           } else if (t.isAssignmentExpression(node.declaration)) {

@@ -393,6 +393,32 @@ test('normalizer/es6-exports_6', t => {
   });
 });
 
+test('normalizer/es6-exports_7', t => {
+  const opts = getOptions('normalizer/es6-exports_7', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/es6-exports_7'));
+  });
+});
+
+test('normalizer/es6-exports_8', t => {
+  const opts = getOptions('normalizer/es6-exports_8', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/es6-exports_8'));
+  });
+});
+
 test('optimizer/remove-use-strict', t => {
   const opts = getOptions('optimizer/remove-use-strict', {
     plugins: [
