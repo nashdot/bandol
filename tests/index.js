@@ -261,6 +261,20 @@ test('normalizer/process-env_2', t => {
   });
 });
 
+test('normalizer/process-env_3', t => {
+  const opts = getOptions('normalizer/process-env_3', {
+    env: { NODE_ENV: 'production' },
+    plugins: [
+      ...basePlugins,
+      processEnvNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/process-env_3'));
+  });
+});
+
 test('normalizer/remove-falsy-blocks', t => {
   const opts = getOptions('normalizer/remove-falsy-blocks', {
     plugins: [
@@ -312,6 +326,20 @@ test('normalizer/es6-imports', t => {
   return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/es6-imports'));
+  });
+});
+
+test('normalizer/es6-imports_2', t => {
+  const opts = getOptions('normalizer/es6-imports_2', {
+    runningContext: createRunningContext2(),
+    plugins: [
+      ...basePlugins,
+      es6ImportsNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/es6-imports_2'));
   });
 });
 

@@ -18,11 +18,15 @@ export default class Plugin extends BasePlugin {
     return new Promise((resolve) => {
       traverse(resource.ast, {
         MemberExpression: (nodePath) => {
-          if (nodePath.get('object').matchesPattern('process.env')) {
-            const key = nodePath.toComputedKey();
-            if (t.isStringLiteral(key)) {
-              nodePath.replaceWith(t.valueToNode(process.env[key.value]));
-            }
+          const node = nodePath.node;
+          if (nodePath.parentPath.type !== 'MemberExpression'
+              && node.object.type === 'MemberExpression'
+              && node.object.object.type === 'Identifier'
+              && node.object.object.name === 'process'
+              && node.object.property.type === 'Identifier'
+              && node.object.property.name === 'env') {
+            this.logAst(node);
+            nodePath.replaceWith(t.valueToNode(process.env[node.property.name]));
           }
         }
       });
