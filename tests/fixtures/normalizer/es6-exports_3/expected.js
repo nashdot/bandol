@@ -1,12 +1,12 @@
 (function () {
 
-const bQr = '?';
+const imported = '?';
 
-function imported() {
-  return bQr;
+function a() {
+  return imported;
 }
 
-export default imported;
+export default a;
 import a from './imported';
 
 console.log(a());

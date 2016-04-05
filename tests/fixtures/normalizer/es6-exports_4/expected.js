@@ -1,14 +1,14 @@
 (function () {
 
-const bQr = '?';
+const imported = '?';
 
 class a {
   test() {
-    return bQr;
+    return imported;
   }
 }
 
-export default imported;
+export default a;
 import a from './imported';
 
 const b = new a();

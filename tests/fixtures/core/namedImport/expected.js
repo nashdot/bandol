@@ -1,5 +1,5 @@
 (function () {
-var tests = {
+var bQr = {
   square: function (n) {
     return n * n;
   },
@@ -10,8 +10,8 @@ var tests = {
 };
 
 
-const bQr = tests.square(4);
+const bPq = bQr.square(4);
 
-console.log(`${ bQr }`);
+console.log(`${ bPq }`);
 
 }());

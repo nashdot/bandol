@@ -1,9 +1,9 @@
 (function () {
 
-const bQr = '?';
-const imported = 'test' + bQr;
+const imported = '?';
+const a = 'test' + imported;
 
-export default imported;
+export default a;
 import a from './imported';
 
 console.log(a);

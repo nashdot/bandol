@@ -17,7 +17,7 @@ export default class Plugin extends BasePlugin {
   // see: http://exploringjs.com/es6/ch_modules.html
   // § 16.4.4 All exporting styles
   // Afeter normalisation we obtain 4 styles:
-  // export default ModuleName;
+  // export default foo;
   // export { foo };
   // export * from 'other_module'; // as-is
   // export { foo as myFoo, bar } from 'other_module'; // as-is
@@ -27,30 +27,10 @@ export default class Plugin extends BasePlugin {
       traverse(resource.ast, {
         ExportDefaultDeclaration: (nodePath) => {
           const node = nodePath.node;
-          const name = this.bundle.getShortName(resource.id);
 
-          if (t.isIdentifier(node.declaration)) {
-          // -- Variable
-            if (name !== node.declaration.name) {
-              if (nodePath.parentPath.scope.hasBinding(name)) {
-                nodePath.parentPath.scope.rename(name, this.bundle.generateUid());
-              }
-              // Replace with new name export
-              nodePath.parentPath.scope.rename(node.declaration.name, name);
-              nodePath.replaceWith(t.exportDefaultDeclaration(t.identifier(name)));
-            }
-            // else: already normalized
-          } else if (t.isFunctionDeclaration(node.declaration)) {
+          if (t.isFunctionDeclaration(node.declaration)) {
           // -- Function declaration
-            if (node.declaration.id) {
-              if (name !== node.declaration.id.name) {
-                if (nodePath.parentPath.scope.hasBinding(name)) {
-                  nodePath.parentPath.scope.rename(name, this.bundle.generateUid());
-                }
-                // TODO: this rename add ExportNamedDeclaration...!!!
-                // nodePath.parentPath.scope.rename(node.declaration.id.name, name);
-              }
-            }
+            const name = node.declaration.id ? node.declaration.id.name : this.bundle.generateUid();
 
             const { params: params, body: body, generator: generator } = node.declaration;
             nodePath.replaceWithMultiple([
@@ -59,15 +39,7 @@ export default class Plugin extends BasePlugin {
             ]);
           } else if (t.isClassDeclaration(node.declaration)) {
           // Class declaration
-            if (node.declaration.id) {
-              if (name !== node.declaration.id.name) {
-                if (nodePath.parentPath.scope.hasBinding(name)) {
-                  nodePath.parentPath.scope.rename(name, this.bundle.generateUid());
-                }
-                // TODO: this rename add ExportNamedDeclaration...!!!
-                // nodePath.parentPath.scope.rename(node.declaration.id.name, name);
-              }
-            }
+            const name = node.declaration.id ? node.declaration.id.name : this.bundle.generateUid();
 
             const { id: id, superClass: superClass, body: body } = node.declaration;
             nodePath.replaceWithMultiple([
@@ -75,21 +47,15 @@ export default class Plugin extends BasePlugin {
               t.exportDefaultDeclaration(t.identifier(name))
             ]);
           } else if (t.isAssignmentExpression(node.declaration)) {
-            if (nodePath.parentPath.scope.hasBinding(name)) {
-              nodePath.parentPath.scope.rename(name, this.bundle.generateUid());
-            }
-
+            const name = this.bundle.generateUid();
             nodePath.replaceWithMultiple([
               t.variableDeclaration('var', [
                 t.variableDeclarator(t.identifier(name), node.declaration.right)
               ]),
               t.exportDefaultDeclaration(t.identifier(name))
             ]);
-          } else {
-            if (nodePath.parentPath.scope.hasBinding(name)) {
-              nodePath.parentPath.scope.rename(name, this.bundle.generateUid());
-            }
-
+          } else if (!t.isIdentifier(node.declaration)) {
+            const name = this.bundle.generateUid();
             nodePath.replaceWithMultiple([
               t.variableDeclaration('var', [
                 t.variableDeclarator(t.identifier(name), node.declaration)
@@ -97,6 +63,7 @@ export default class Plugin extends BasePlugin {
               t.exportDefaultDeclaration(t.identifier(name))
             ]);
           }
+          // else: Identifier - already normalized
         },
         // Normalize all named exports to exports via a clause
         ExportNamedDeclaration: (nodePath) => {
