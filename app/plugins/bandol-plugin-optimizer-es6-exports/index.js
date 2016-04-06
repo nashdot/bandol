@@ -47,7 +47,9 @@ export default class Plugin extends BasePlugin {
             if (this.bundle.defaultExportsByName.has(name)
                 || this.bundle.namedExportsByName.has(name)) {
               // Already used by another module
+              this.log.info(`Already used: '${name}'`);
               name = this.bundle.generateUid();
+              this.log.info(`New name: '${name}'`);
               nodePath.parentPath.scope.rename(node.declaration.name, name);
             }
 
@@ -63,6 +65,7 @@ export default class Plugin extends BasePlugin {
             this.log.info(`Declaration type for ${name}: '${this.opts.type}'`);
             delete this.opts;
 
+            this.log.info(`Module: ${resource.id}`);
             this.bundle.defaultExportsByName.set(name, resource.id);
             this.bundle.defaultExportsById.set(resource.id, name);
             nodePath.remove();

@@ -514,19 +514,20 @@ test('optimizer/es6-exports-imports', t => {
   });
 });
 
-// test('optimizer/es6-exports-imports_2', t => {
-//   const opts = getOptions('optimizer/es6-exports-imports_2', {
-//     plugins: [
-//       ...basePlugins,
-//       es6ExportsOptimizerPlugin,
-//       es6ImportsOptimizerPlugin
-//     ]
-//   });
-//   return bandol(opts).then(b => {
-//     b.finalize();
-//     t.is(b.code, expected('optimizer/es6-exports-imports_2'));
-//   });
-// });
+test('optimizer/es6-exports-imports_2', t => {
+  const opts = getOptions('optimizer/es6-exports-imports_2', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('optimizer/es6-exports-imports_2'));
+  });
+});
 
 test('finalizer/iife', t => {
   const opts = getOptions('finalizer/iife', {
