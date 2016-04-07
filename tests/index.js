@@ -550,6 +550,17 @@ test('optimizer/es6-exports-imports_4', t => {
   });
 });
 
+test('optimizer/es6-exports-imports_5', t => {
+  const opts = getOptions('optimizer/es6-exports-imports_5', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin
+    ]
+  });
+  return t.throws(bandol(opts), 'tests.js should be normalised.');
+});
+
 test('finalizer/iife', t => {
   const opts = getOptions('finalizer/iife', {
     plugins: basePlugins
