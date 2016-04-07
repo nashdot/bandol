@@ -540,6 +540,16 @@ test('optimizer/es6-exports-imports_3', t => {
   return t.throws(bandol(opts), 'imported2.js should be normalised.');
 });
 
+test('optimizer/es6-exports-imports_4', t => {
+  const opts = getOptions('optimizer/es6-exports-imports_4', {
+    plugins: allPlugins
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('optimizer/es6-exports-imports_4'));
+  });
+});
+
 test('finalizer/iife', t => {
   const opts = getOptions('finalizer/iife', {
     plugins: basePlugins
@@ -591,16 +601,6 @@ test('core/namespaceImport-3', t => {
   return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('core/namespaceImport-3'));
-  });
-});
-
-test('core/namedImport', t => {
-  const opts = getOptions('core/namedImport', {
-    plugins: allPlugins
-  });
-  return bandol(opts).then(b => {
-    b.finalize();
-    t.is(b.code, expected('core/namedImport'));
   });
 });
 
