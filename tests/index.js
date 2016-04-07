@@ -604,6 +604,28 @@ test('core/namespaceImport-3', t => {
   });
 });
 
+test('todo/es6-exports-imports', t => {
+  const opts = getOptions('todo/es6-exports-imports', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin
+    ]
+  });
+  return t.throws(bandol(opts), 'TODO: ExportNamedDeclaration from ./imported.js');
+});
+
+test('todo/es6-exports-imports_2', t => {
+  const opts = getOptions('todo/es6-exports-imports_2', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin
+    ]
+  });
+  return t.throws(bandol(opts), 'TODO: ExportAllDeclaration from ./imported.js');
+});
+
 // test('core/module', t => {
 //   const opts = getOptions('core/module', {
 //     env: { NODE_ENV: 'production' },

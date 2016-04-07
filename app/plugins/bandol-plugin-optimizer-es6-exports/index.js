@@ -75,34 +75,37 @@ export default class Plugin extends BasePlugin {
         ExportNamedDeclaration: (nodePath) => {
           const node = nodePath.node;
 
-          if (!node.declaration) {
-            node.specifiers.forEach(spec => {
-              let name = spec.exported.name;
-              if (this.bundle.defaultExportsByName.has(name)
-                  || this.bundle.namedExportsByName.has(name)) {
-                // Already used by another module
-                name = this.bundle.generateUid();
-                nodePath.parentPath.scope.rename(spec.exported.name, name);
-                // Register transformation
-                this.bundle.renamedExports.set({ id: resource.id, name: spec.exported.name }, name);
-              }
+          if (node.source === null) {
+            if (!node.declaration) {
+              node.specifiers.forEach(spec => {
+                let name = spec.exported.name;
+                if (this.bundle.defaultExportsByName.has(name)
+                    || this.bundle.namedExportsByName.has(name)) {
+                  // Already used by another module
+                  name = this.bundle.generateUid();
+                  nodePath.parentPath.scope.rename(spec.exported.name, name);
+                  // Register transformation
+                  this.bundle.renamedExports.set({ id: resource.id, name: spec.exported.name }, name);
+                }
 
-              this.bundle.namedExportsByName.set(name, resource.id);
-              if (this.bundle.namedExportsById.has(resource.id)) {
-                const names = this.bundle.namedExportsById.get(resource.id);
-                this.bundle.namedExportsById.set(resource.id, [...names, name]);
-              } else {
-                this.bundle.namedExportsById.set(resource.id, [name]);
-              }
-              nodePath.remove();
-            });
+                this.bundle.namedExportsByName.set(name, resource.id);
+                if (this.bundle.namedExportsById.has(resource.id)) {
+                  const names = this.bundle.namedExportsById.get(resource.id);
+                  this.bundle.namedExportsById.set(resource.id, [...names, name]);
+                } else {
+                  this.bundle.namedExportsById.set(resource.id, [name]);
+                }
+                nodePath.remove();
+              });
+            } else {
+              throw new Error(`${this.bundle.getShortPath(resource.id)} should be normalised.`);
+            }
           } else {
-            throw new Error(`${this.bundle.getShortPath(resource.id)} should be normalised.`);
+            throw new Error(`TODO: ExportNamedDeclaration from ${nodePath.node.source.value}`);
           }
         },
         ExportAllDeclaration: (nodePath) => {
-          // TODO
-          this.log.info(`TODO: ExportAllDeclaration from ${nodePath.node.source.value}`);
+          throw new Error(`TODO: ExportAllDeclaration from ${nodePath.node.source.value}`);
         }
       });
     }
