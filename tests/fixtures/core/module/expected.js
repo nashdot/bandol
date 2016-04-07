@@ -1,7 +1,5 @@
 (function () {
 /**bandol> resource: node_modules/react/lib/deprecated.js */
-/**bandol> default export: deprecated */
-/**bandol> exports: - */
 
 function deprecated(fnName, newModule, newPackage, ctx, fn) {
   var warned = false;
@@ -10,8 +8,6 @@ function deprecated(fnName, newModule, newPackage, ctx, fn) {
   return fn;
 }
 /**bandol> resource: node_modules/react/lib/Object.assign.js */
-/**bandol> default export: assign */
-/**bandol> exports: - */
 
 
 function assign(target, sources) {
@@ -40,8 +36,6 @@ function assign(target, sources) {
   return to;
 }
 /**bandol> resource: node_modules/fbjs/lib/invariant.js */
-/**bandol> default export: invariant */
-/**bandol> exports: - */
 
 
 function invariant(condition, format, a, b, c, d, e, f) {
@@ -64,20 +58,16 @@ function invariant(condition, format, a, b, c, d, e, f) {
   }
 }
 /**bandol> resource: node_modules/react/lib/ReactCurrentOwner.js */
-/**bandol> default export: ReactCurrentOwner */
-/**bandol> exports: - */
 
 var ReactCurrentOwner = {
   current: null
 
 };
 /**bandol> resource: node_modules/react/lib/ReactElement.js */
-/**bandol> default export: ReactElement */
-/**bandol> exports: - */
 
-var bQ6L = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
+var b4PK = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
 
-var bPAZ = {
+var bGN3 = {
   key: true,
   ref: true,
   __self: true,
@@ -86,7 +76,7 @@ var bPAZ = {
 
 var ReactElement = function (type, key, ref, self, source, owner, props) {
   var element = {
-    $$typeof: bQ6L,
+    $$typeof: b4PK,
 
     type: type,
     key: key,
@@ -116,7 +106,7 @@ ReactElement.createElement = function (type, config, children) {
     source = config.__source === undefined ? null : config.__source;
 
     for (propName in config) {
-      if (config.hasOwnProperty(propName) && !bPAZ.hasOwnProperty(propName)) {
+      if (config.hasOwnProperty(propName) && !bGN3.hasOwnProperty(propName)) {
         props[propName] = config[propName];
       }
     }
@@ -188,7 +178,7 @@ ReactElement.cloneElement = function (element, config, children) {
     }
 
     for (propName in config) {
-      if (config.hasOwnProperty(propName) && !bPAZ.hasOwnProperty(propName)) {
+      if (config.hasOwnProperty(propName) && !bGN3.hasOwnProperty(propName)) {
         props[propName] = config[propName];
       }
     }
@@ -209,38 +199,30 @@ ReactElement.cloneElement = function (element, config, children) {
 };
 
 ReactElement.isValidElement = function (object) {
-  return typeof object === 'object' && object !== null && object.$$typeof === bQ6L;
+  return typeof object === 'object' && object !== null && object.$$typeof === b4PK;
 };
 /**bandol> resource: node_modules/react/lib/onlyChild.js */
-/**bandol> default export: onlyChild */
-/**bandol> exports: - */
 
 function onlyChild(children) {
   !ReactElement.isValidElement(children) ? 'production' !== 'production' ? invariant(false, 'onlyChild must be passed a children with exactly one child.') : invariant(false) : undefined;
   return children;
 }
 /**bandol> resource: node_modules/react/lib/ReactVersion.js */
-/**bandol> default export: ReactVersion */
-/**bandol> exports: - */
-var ReactVersion = '0.14.7';
+var bQr = '0.14.7';
 /**bandol> resource: node_modules/react/lib/getIteratorFn.js */
-/**bandol> default export: getIteratorFn */
-/**bandol> exports: - */
 
-var byaM = typeof Symbol === 'function' && Symbol.iterator;
-var brEK = '@@iterator';
+var bRBY = typeof Symbol === 'function' && Symbol.iterator;
+var bKBB = '@@iterator';
 function getIteratorFn(maybeIterable) {
-  var iteratorFn = maybeIterable && (byaM && maybeIterable[byaM] || maybeIterable[brEK]);
+  var iteratorFn = maybeIterable && (bRBY && maybeIterable[bRBY] || maybeIterable[bKBB]);
   if (typeof iteratorFn === 'function') {
     return iteratorFn;
   }
 }
 /**bandol> resource: node_modules/fbjs/lib/emptyFunction.js */
-/**bandol> default export: emptyFunction */
-/**bandol> exports: - */
 
 
-function bqJy(arg) {
+function bXg7(arg) {
   return function () {
     return arg;
   };
@@ -248,10 +230,10 @@ function bqJy(arg) {
 
 function emptyFunction() {}
 
-emptyFunction.thatReturns = bqJy;
-emptyFunction.thatReturnsFalse = bqJy(false);
-emptyFunction.thatReturnsTrue = bqJy(true);
-emptyFunction.thatReturnsNull = bqJy(null);
+emptyFunction.thatReturns = bXg7;
+emptyFunction.thatReturnsFalse = bXg7(false);
+emptyFunction.thatReturnsTrue = bXg7(true);
+emptyFunction.thatReturnsNull = bXg7(null);
 emptyFunction.thatReturnsThis = function () {
   return this;
 };
@@ -259,40 +241,36 @@ emptyFunction.thatReturnsArgument = function (arg) {
   return arg;
 };
 /**bandol> resource: node_modules/react/lib/ReactPropTypeLocationNames.js */
-/**bandol> default export: ReactPropTypeLocationNames */
-/**bandol> exports: - */
 
 
 var ReactPropTypeLocationNames = {};
 /**bandol> resource: node_modules/react/lib/ReactPropTypes.js */
-/**bandol> default export: ReactPropTypes */
-/**bandol> exports: - */
 
 
-var bY7a = '<<anonymous>>';
+var bER4 = '<<anonymous>>';
 
 var ReactPropTypes = {
-  array: b86g('array'),
-  bool: b86g('boolean'),
-  func: b86g('function'),
-  number: b86g('number'),
-  object: b86g('object'),
-  string: b86g('string'),
+  array: bLvJ('array'),
+  bool: bLvJ('boolean'),
+  func: bLvJ('function'),
+  number: bLvJ('number'),
+  object: bLvJ('object'),
+  string: bLvJ('string'),
 
-  any: bNL1(),
-  arrayOf: bd3G,
-  element: b971(),
-  instanceOf: bER4,
-  node: b13l(),
-  objectOf: bLvJ,
-  oneOf: b7Zx,
-  oneOfType: b0Vp,
-  shape: bwqB
+  any: b0Vp(),
+  arrayOf: b13l,
+  element: bwqB(),
+  instanceOf: bkpq,
+  node: byaM(),
+  objectOf: bJB2,
+  oneOf: b5x5,
+  oneOfType: bqJy,
+  shape: brEK
 };
 
-function bOyz(validate) {
+function b7Zx(validate) {
   function checkType(isRequired, props, propName, componentName, location, propFullName) {
-    componentName = componentName || bY7a;
+    componentName = componentName || bER4;
     propFullName = propFullName || propName;
     if (props[propName] == null) {
       var locationName = ReactPropTypeLocationNames[location];
@@ -311,32 +289,32 @@ function bOyz(validate) {
   return chainedCheckType;
 }
 
-function b86g(expectedType) {
+function bLvJ(expectedType) {
   function validate(props, propName, componentName, location, propFullName) {
     var propValue = props[propName];
-    var propType = bkpq(propValue);
+    var propType = bQ6L(propValue);
     if (propType !== expectedType) {
       var locationName = ReactPropTypeLocationNames[location];
 
-      var preciseType = b5x5(propValue);
+      var preciseType = bPAZ(propValue);
 
       return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
     }
     return null;
   }
-  return bOyz(validate);
+  return b7Zx(validate);
 }
 
-function bNL1() {
-  return bOyz(emptyFunction.thatReturns(null));
+function b0Vp() {
+  return b7Zx(emptyFunction.thatReturns(null));
 }
 
-function bd3G(typeChecker) {
+function b13l(typeChecker) {
   function validate(props, propName, componentName, location, propFullName) {
     var propValue = props[propName];
     if (!Array.isArray(propValue)) {
       var locationName = ReactPropTypeLocationNames[location];
-      var propType = bkpq(propValue);
+      var propType = bQ6L(propValue);
       return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
     }
     for (var i = 0; i < propValue.length; i++) {
@@ -347,10 +325,10 @@ function bd3G(typeChecker) {
     }
     return null;
   }
-  return bOyz(validate);
+  return b7Zx(validate);
 }
 
-function b971() {
+function bwqB() {
   function validate(props, propName, componentName, location, propFullName) {
     if (!ReactElement.isValidElement(props[propName])) {
       var locationName = ReactPropTypeLocationNames[location];
@@ -358,25 +336,25 @@ function b971() {
     }
     return null;
   }
-  return bOyz(validate);
+  return b7Zx(validate);
 }
 
-function bER4(expectedClass) {
+function bkpq(expectedClass) {
   function validate(props, propName, componentName, location, propFullName) {
     if (!(props[propName] instanceof expectedClass)) {
       var locationName = ReactPropTypeLocationNames[location];
-      var expectedClassName = expectedClass.name || bY7a;
-      var actualClassName = bJB2(props[propName]);
+      var expectedClassName = expectedClass.name || bER4;
+      var actualClassName = bxdE(props[propName]);
       return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
     }
     return null;
   }
-  return bOyz(validate);
+  return b7Zx(validate);
 }
 
-function b7Zx(expectedValues) {
+function b5x5(expectedValues) {
   if (!Array.isArray(expectedValues)) {
-    return bOyz(function () {
+    return b7Zx(function () {
       return new Error('Invalid argument supplied to oneOf, expected an instance of array.');
     });
   }
@@ -393,13 +371,13 @@ function b7Zx(expectedValues) {
     var valuesString = JSON.stringify(expectedValues);
     return new Error('Invalid ' + locationName + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
   }
-  return bOyz(validate);
+  return b7Zx(validate);
 }
 
-function bLvJ(typeChecker) {
+function bJB2(typeChecker) {
   function validate(props, propName, componentName, location, propFullName) {
     var propValue = props[propName];
-    var propType = bkpq(propValue);
+    var propType = bQ6L(propValue);
     if (propType !== 'object') {
       var locationName = ReactPropTypeLocationNames[location];
       return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
@@ -414,12 +392,12 @@ function bLvJ(typeChecker) {
     }
     return null;
   }
-  return bOyz(validate);
+  return b7Zx(validate);
 }
 
-function b0Vp(arrayOfTypeCheckers) {
+function bqJy(arrayOfTypeCheckers) {
   if (!Array.isArray(arrayOfTypeCheckers)) {
-    return bOyz(function () {
+    return b7Zx(function () {
       return new Error('Invalid argument supplied to oneOfType, expected an instance of array.');
     });
   }
@@ -435,10 +413,10 @@ function b0Vp(arrayOfTypeCheckers) {
     var locationName = ReactPropTypeLocationNames[location];
     return new Error('Invalid ' + locationName + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
   }
-  return bOyz(validate);
+  return b7Zx(validate);
 }
 
-function b13l() {
+function byaM() {
   function validate(props, propName, componentName, location, propFullName) {
     if (!isNode(props[propName])) {
       var locationName = ReactPropTypeLocationNames[location];
@@ -446,13 +424,13 @@ function b13l() {
     }
     return null;
   }
-  return bOyz(validate);
+  return b7Zx(validate);
 }
 
-function bwqB(shapeTypes) {
+function brEK(shapeTypes) {
   function validate(props, propName, componentName, location, propFullName) {
     var propValue = props[propName];
-    var propType = bkpq(propValue);
+    var propType = bQ6L(propValue);
     if (propType !== 'object') {
       var locationName = ReactPropTypeLocationNames[location];
       return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
@@ -469,7 +447,7 @@ function bwqB(shapeTypes) {
     }
     return null;
   }
-  return bOyz(validate);
+  return b7Zx(validate);
 }
 
 function isNode(propValue) {
@@ -518,7 +496,7 @@ function isNode(propValue) {
   }
 }
 
-function bkpq(propValue) {
+function bQ6L(propValue) {
   var propType = typeof propValue;
   if (Array.isArray(propValue)) {
     return 'array';
@@ -529,8 +507,8 @@ function bkpq(propValue) {
   return propType;
 }
 
-function b5x5(propValue) {
-  var propType = bkpq(propValue);
+function bPAZ(propValue) {
+  var propType = bQ6L(propValue);
   if (propType === 'object') {
     if (propValue instanceof Date) {
       return 'date';
@@ -541,18 +519,16 @@ function b5x5(propValue) {
   return propType;
 }
 
-function bJB2(propValue) {
+function bxdE(propValue) {
   if (!propValue.constructor || !propValue.constructor.name) {
     return '<<anonymous>>';
   }
   return propValue.constructor.name;
 }
 /**bandol> resource: node_modules/fbjs/lib/mapObject.js */
-/**bandol> default export: mapObject */
-/**bandol> exports: - */
 
 
-var bBPz = Object.prototype.hasOwnProperty;
+var b971 = Object.prototype.hasOwnProperty;
 
 function mapObject(object, callback, context) {
   if (!object) {
@@ -560,17 +536,15 @@ function mapObject(object, callback, context) {
   }
   var result = {};
   for (var name in object) {
-    if (bBPz.call(object, name)) {
+    if (b971.call(object, name)) {
       result[name] = callback.call(context, object[name], name, object);
     }
   }
   return result;
 }
 /**bandol> resource: node_modules/react/lib/ReactDOMFactories.js */
-/**bandol> default export: ReactDOMFactories */
-/**bandol> exports: - */
 
-function bee6(tag) {
+function bd3G(tag) {
   return ReactElement.createFactory(tag);
 }
 
@@ -709,16 +683,12 @@ var ReactDOMFactories = mapObject({
   text: 'text',
   tspan: 'tspan'
 
-}, bee6);
+}, bd3G);
 /**bandol> resource: node_modules/fbjs/lib/warning.js */
-/**bandol> default export: warning */
-/**bandol> exports: - */
 
 
 var warning = emptyFunction;
 /**bandol> resource: node_modules/fbjs/lib/keyOf.js */
-/**bandol> default export: keyOf */
-/**bandol> exports: - */
 
 
 var keyOf = function (oneKeyObj) {
@@ -732,8 +702,6 @@ var keyOf = function (oneKeyObj) {
   return null;
 };
 /**bandol> resource: node_modules/fbjs/lib/keyMirror.js */
-/**bandol> default export: keyMirror */
-/**bandol> exports: - */
 
 var keyMirror = function (obj) {
   var ret = {};
@@ -748,17 +716,13 @@ var keyMirror = function (obj) {
   return ret;
 };
 /**bandol> resource: node_modules/fbjs/lib/emptyObject.js */
-/**bandol> default export: emptyObject */
-/**bandol> exports: - */
 
 
 var emptyObject = {};
 /**bandol> resource: node_modules/react/lib/ReactNoopUpdateQueue.js */
-/**bandol> default export: ReactNoopUpdateQueue */
-/**bandol> exports: - */
 
 
-function b2p4(publicInstance, callerName) {}
+function bNL1(publicInstance, callerName) {}
 
 var ReactNoopUpdateQueue = {
   isMounted: function (publicInstance) {
@@ -768,29 +732,27 @@ var ReactNoopUpdateQueue = {
   enqueueCallback: function (publicInstance, callback) {},
 
   enqueueForceUpdate: function (publicInstance) {
-    b2p4(publicInstance, 'forceUpdate');
+    bNL1(publicInstance, 'forceUpdate');
   },
 
   enqueueReplaceState: function (publicInstance, completeState) {
-    b2p4(publicInstance, 'replaceState');
+    bNL1(publicInstance, 'replaceState');
   },
 
   enqueueSetState: function (publicInstance, partialState) {
-    b2p4(publicInstance, 'setState');
+    bNL1(publicInstance, 'setState');
   },
 
   enqueueSetProps: function (publicInstance, partialProps) {
-    b2p4(publicInstance, 'setProps');
+    bNL1(publicInstance, 'setProps');
   },
 
   enqueueReplaceProps: function (publicInstance, props) {
-    b2p4(publicInstance, 'replaceProps');
+    bNL1(publicInstance, 'replaceProps');
   }
 
 };
 /**bandol> resource: node_modules/react/lib/ReactComponent.js */
-/**bandol> default export: ReactComponent */
-/**bandol> exports: - */
 
 function ReactComponent(props, context, updater) {
   this.props = props;
@@ -818,13 +780,11 @@ ReactComponent.prototype.forceUpdate = function (callback) {
   }
 };
 /**bandol> resource: node_modules/react/lib/ReactClass.js */
-/**bandol> default export: ReactClass */
-/**bandol> exports: - */
 
 
-var bG43 = keyOf({ mixins: null });
+var b6L5 = keyOf({ mixins: null });
 
-var bbem = keyMirror({
+var bZYe = keyMirror({
   DEFINE_ONCE: null,
 
   DEFINE_MANY: null,
@@ -834,55 +794,55 @@ var bbem = keyMirror({
   DEFINE_MANY_MERGED: null
 });
 
-var blna = [];
+var bAy8 = [];
 
-var bVYy = false;
+var b3Vn = false;
 
-var bgpx = {
-  mixins: bbem.DEFINE_MANY,
+var bpYO = {
+  mixins: bZYe.DEFINE_MANY,
 
-  statics: bbem.DEFINE_MANY,
+  statics: bZYe.DEFINE_MANY,
 
-  propTypes: bbem.DEFINE_MANY,
+  propTypes: bZYe.DEFINE_MANY,
 
-  contextTypes: bbem.DEFINE_MANY,
+  contextTypes: bZYe.DEFINE_MANY,
 
-  childContextTypes: bbem.DEFINE_MANY,
+  childContextTypes: bZYe.DEFINE_MANY,
 
-  getDefaultProps: bbem.DEFINE_MANY_MERGED,
+  getDefaultProps: bZYe.DEFINE_MANY_MERGED,
 
-  getInitialState: bbem.DEFINE_MANY_MERGED,
+  getInitialState: bZYe.DEFINE_MANY_MERGED,
 
-  getChildContext: bbem.DEFINE_MANY_MERGED,
+  getChildContext: bZYe.DEFINE_MANY_MERGED,
 
-  render: bbem.DEFINE_ONCE,
+  render: bZYe.DEFINE_ONCE,
 
-  componentWillMount: bbem.DEFINE_MANY,
+  componentWillMount: bZYe.DEFINE_MANY,
 
-  componentDidMount: bbem.DEFINE_MANY,
+  componentDidMount: bZYe.DEFINE_MANY,
 
-  componentWillReceiveProps: bbem.DEFINE_MANY,
+  componentWillReceiveProps: bZYe.DEFINE_MANY,
 
-  shouldComponentUpdate: bbem.DEFINE_ONCE,
+  shouldComponentUpdate: bZYe.DEFINE_ONCE,
 
-  componentWillUpdate: bbem.DEFINE_MANY,
+  componentWillUpdate: bZYe.DEFINE_MANY,
 
-  componentDidUpdate: bbem.DEFINE_MANY,
+  componentDidUpdate: bZYe.DEFINE_MANY,
 
-  componentWillUnmount: bbem.DEFINE_MANY,
+  componentWillUnmount: bZYe.DEFINE_MANY,
 
-  updateComponent: bbem.OVERRIDE_BASE
+  updateComponent: bZYe.OVERRIDE_BASE
 
 };
 
-var bMzR = {
+var bmY5 = {
   displayName: function (Constructor, displayName) {
     Constructor.displayName = displayName;
   },
   mixins: function (Constructor, mixins) {
     if (mixins) {
       for (var i = 0; i < mixins.length; i++) {
-        bZYe(Constructor, mixins[i]);
+        bznq(Constructor, mixins[i]);
       }
     }
   },
@@ -895,7 +855,7 @@ var bMzR = {
 
   getDefaultProps: function (Constructor, getDefaultProps) {
     if (Constructor.getDefaultProps) {
-      Constructor.getDefaultProps = bpYO(Constructor.getDefaultProps, getDefaultProps);
+      Constructor.getDefaultProps = b2p4(Constructor.getDefaultProps, getDefaultProps);
     } else {
       Constructor.getDefaultProps = getDefaultProps;
     }
@@ -904,23 +864,23 @@ var bMzR = {
     Constructor.propTypes = assign({}, Constructor.propTypes, propTypes);
   },
   statics: function (Constructor, statics) {
-    bAy8(Constructor, statics);
+    bvn7(Constructor, statics);
   },
   autobind: function () {} };
 
-function b6L5(proto, name) {
-  var specPolicy = bgpx.hasOwnProperty(name) ? bgpx[name] : null;
+function bnY8(proto, name) {
+  var specPolicy = bpYO.hasOwnProperty(name) ? bpYO[name] : null;
 
-  if (bvn7.hasOwnProperty(name)) {
-    !(specPolicy === bbem.OVERRIDE_BASE) ? 'production' !== 'production' ? invariant(false, 'ReactClassInterface: You are attempting to override ' + '`%s` from your class specification. Ensure that your method names ' + 'do not overlap with React methods.', name) : invariant(false) : undefined;
+  if (bOyz.hasOwnProperty(name)) {
+    !(specPolicy === bZYe.OVERRIDE_BASE) ? 'production' !== 'production' ? invariant(false, 'ReactClassInterface: You are attempting to override ' + '`%s` from your class specification. Ensure that your method names ' + 'do not overlap with React methods.', name) : invariant(false) : undefined;
   }
 
   if (proto.hasOwnProperty(name)) {
-    !(specPolicy === bbem.DEFINE_MANY || specPolicy === bbem.DEFINE_MANY_MERGED) ? 'production' !== 'production' ? invariant(false, 'ReactClassInterface: You are attempting to define ' + '`%s` on your component more than once. This conflict may be due ' + 'to a mixin.', name) : invariant(false) : undefined;
+    !(specPolicy === bZYe.DEFINE_MANY || specPolicy === bZYe.DEFINE_MANY_MERGED) ? 'production' !== 'production' ? invariant(false, 'ReactClassInterface: You are attempting to define ' + '`%s` on your component more than once. This conflict may be due ' + 'to a mixin.', name) : invariant(false) : undefined;
   }
 }
 
-function bZYe(Constructor, spec) {
+function bznq(Constructor, spec) {
   if (!spec) {
     return;
   }
@@ -930,8 +890,8 @@ function bZYe(Constructor, spec) {
 
   var proto = Constructor.prototype;
 
-  if (spec.hasOwnProperty(bG43)) {
-    bMzR.mixins(Constructor, spec.mixins);
+  if (spec.hasOwnProperty(b6L5)) {
+    bmY5.mixins(Constructor, spec.mixins);
   }
 
   for (var name in spec) {
@@ -939,17 +899,17 @@ function bZYe(Constructor, spec) {
       continue;
     }
 
-    if (name === bG43) {
+    if (name === b6L5) {
       continue;
     }
 
     var property = spec[name];
-    b6L5(proto, name);
+    bnY8(proto, name);
 
-    if (bMzR.hasOwnProperty(name)) {
-      bMzR[name](Constructor, property);
+    if (bmY5.hasOwnProperty(name)) {
+      bmY5[name](Constructor, property);
     } else {
-      var isReactClassMethod = bgpx.hasOwnProperty(name);
+      var isReactClassMethod = bpYO.hasOwnProperty(name);
       var isAlreadyDefined = proto.hasOwnProperty(name);
       var isFunction = typeof property === 'function';
       var shouldAutoBind = isFunction && !isReactClassMethod && !isAlreadyDefined && spec.autobind !== false;
@@ -962,14 +922,14 @@ function bZYe(Constructor, spec) {
         proto[name] = property;
       } else {
         if (isAlreadyDefined) {
-          var specPolicy = bgpx[name];
+          var specPolicy = bpYO[name];
 
-          !(isReactClassMethod && (specPolicy === bbem.DEFINE_MANY_MERGED || specPolicy === bbem.DEFINE_MANY)) ? 'production' !== 'production' ? invariant(false, 'ReactClass: Unexpected spec policy %s for key %s ' + 'when mixing in component specs.', specPolicy, name) : invariant(false) : undefined;
+          !(isReactClassMethod && (specPolicy === bZYe.DEFINE_MANY_MERGED || specPolicy === bZYe.DEFINE_MANY)) ? 'production' !== 'production' ? invariant(false, 'ReactClass: Unexpected spec policy %s for key %s ' + 'when mixing in component specs.', specPolicy, name) : invariant(false) : undefined;
 
-          if (specPolicy === bbem.DEFINE_MANY_MERGED) {
-            proto[name] = bpYO(proto[name], property);
-          } else if (specPolicy === bbem.DEFINE_MANY) {
-            proto[name] = bmY5(proto[name], property);
+          if (specPolicy === bZYe.DEFINE_MANY_MERGED) {
+            proto[name] = b2p4(proto[name], property);
+          } else if (specPolicy === bZYe.DEFINE_MANY) {
+            proto[name] = bee6(proto[name], property);
           }
         } else {
           proto[name] = property;
@@ -979,7 +939,7 @@ function bZYe(Constructor, spec) {
   }
 }
 
-function bAy8(Constructor, statics) {
+function bvn7(Constructor, statics) {
   if (!statics) {
     return;
   }
@@ -989,7 +949,7 @@ function bAy8(Constructor, statics) {
       continue;
     }
 
-    var isReserved = name in bMzR;
+    var isReserved = name in bmY5;
     !!isReserved ? 'production' !== 'production' ? invariant(false, 'ReactClass: You are attempting to define a reserved ' + 'property, `%s`, that shouldn\'t be on the "statics" key. Define it ' + 'as an instance property instead; it will still be accessible on the ' + 'constructor.', name) : invariant(false) : undefined;
 
     var isInherited = name in Constructor;
@@ -998,7 +958,7 @@ function bAy8(Constructor, statics) {
   }
 }
 
-function b3Vn(one, two) {
+function baeZ(one, two) {
   !(one && two && typeof one === 'object' && typeof two === 'object') ? 'production' !== 'production' ? invariant(false, 'mergeIntoWithNoDuplicateKeys(): Cannot merge non-objects.') : invariant(false) : undefined;
 
   for (var key in two) {
@@ -1010,7 +970,7 @@ function b3Vn(one, two) {
   return one;
 }
 
-function bpYO(one, two) {
+function b2p4(one, two) {
   return function mergedResult() {
     var a = one.apply(this, arguments);
     var b = two.apply(this, arguments);
@@ -1020,35 +980,35 @@ function bpYO(one, two) {
       return a;
     }
     var c = {};
-    b3Vn(c, a);
-    b3Vn(c, b);
+    baeZ(c, a);
+    baeZ(c, b);
     return c;
   };
 }
 
-function bmY5(one, two) {
+function bee6(one, two) {
   return function chainedFunction() {
     one.apply(this, arguments);
     two.apply(this, arguments);
   };
 }
 
-function bnY8(component, method) {
+function bBPz(component, method) {
   var boundMethod = method.bind(component);
 
   return boundMethod;
 }
 
-function bznq(component) {
+function bY7a(component) {
   for (var autoBindKey in component.__reactAutoBindMap) {
     if (component.__reactAutoBindMap.hasOwnProperty(autoBindKey)) {
       var method = component.__reactAutoBindMap[autoBindKey];
-      component[autoBindKey] = bnY8(component, method);
+      component[autoBindKey] = bBPz(component, method);
     }
   }
 }
 
-var bvn7 = {
+var bOyz = {
   replaceState: function (newState, callback) {
     this.updater.enqueueReplaceState(this, newState);
     if (callback) {
@@ -1075,14 +1035,14 @@ var bvn7 = {
   }
 };
 
-var baeZ = function () {};
-assign(baeZ.prototype, ReactComponent.prototype, bvn7);
+var b86g = function () {};
+assign(b86g.prototype, ReactComponent.prototype, bOyz);
 
 var ReactClass = {
   createClass: function (spec) {
     var Constructor = function (props, context, updater) {
       if (this.__reactAutoBindMap) {
-        bznq(this);
+        bY7a(this);
       }
 
       this.props = props;
@@ -1098,12 +1058,12 @@ var ReactClass = {
 
       this.state = initialState;
     };
-    Constructor.prototype = new baeZ();
+    Constructor.prototype = new b86g();
     Constructor.prototype.constructor = Constructor;
 
-    blna.forEach(bZYe.bind(null, Constructor));
+    bAy8.forEach(bznq.bind(null, Constructor));
 
-    bZYe(Constructor, spec);
+    bznq(Constructor, spec);
 
     if (Constructor.getDefaultProps) {
       Constructor.defaultProps = Constructor.getDefaultProps();
@@ -1111,7 +1071,7 @@ var ReactClass = {
 
     !Constructor.prototype.render ? 'production' !== 'production' ? invariant(false, 'createClass(...): Class specification must implement a `render` method.') : invariant(false) : undefined;
 
-    for (var methodName in bgpx) {
+    for (var methodName in bpYO) {
       if (!Constructor.prototype[methodName]) {
         Constructor.prototype[methodName] = null;
       }
@@ -1122,17 +1082,15 @@ var ReactClass = {
 
   injection: {
     injectMixin: function (mixin) {
-      blna.push(mixin);
+      bAy8.push(mixin);
     }
   }
 
 };
 /**bandol> resource: node_modules/react/lib/ReactRootIndex.js */
-/**bandol> default export: ReactRootIndex */
-/**bandol> exports: - */
 
 
-var b4dK = {
+var bMzR = {
   injectCreateReactRootIndex: function (_createReactRootIndex) {
     ReactRootIndex.createReactRootIndex = _createReactRootIndex;
   }
@@ -1140,56 +1098,54 @@ var b4dK = {
 
 var ReactRootIndex = {
   createReactRootIndex: null,
-  injection: b4dK
+  injection: bMzR
 };
 /**bandol> resource: node_modules/react/lib/ReactInstanceHandles.js */
-/**bandol> default export: ReactInstanceHandles */
-/**bandol> exports: - */
 
 
-var bG4p = '.';
-var bbe3 = bG4p.length;
+var bPzZ = '.';
+var bxnE = bPzZ.length;
 
-var blnv = 10000;
+var bXw7 = 10000;
 
-function bVYv(index) {
-  return bG4p + index.toString(36);
+function bRYY(index) {
+  return bPzZ + index.toString(36);
 }
 
-function br8K(id, index) {
-  return id.charAt(index) === bG4p || index === id.length;
+function bKyB(id, index) {
+  return id.charAt(index) === bPzZ || index === id.length;
 }
 
-function bQzL(id) {
-  return id === '' || id.charAt(0) === bG4p && id.charAt(id.length - 1) !== bG4p;
+function b4dK(id) {
+  return id === '' || id.charAt(0) === bPzZ && id.charAt(id.length - 1) !== bPzZ;
 }
 
-function bPzZ(ancestorID, descendantID) {
-  return descendantID.indexOf(ancestorID) === 0 && br8K(descendantID, ancestorID.length);
+function bG43(ancestorID, descendantID) {
+  return descendantID.indexOf(ancestorID) === 0 && bKyB(descendantID, ancestorID.length);
 }
 
-function bxnE(id) {
-  return id ? id.substr(0, id.lastIndexOf(bG4p)) : '';
+function bbem(id) {
+  return id ? id.substr(0, id.lastIndexOf(bPzZ)) : '';
 }
 
-function bXw7(ancestorID, destinationID) {
-  !(bQzL(ancestorID) && bQzL(destinationID)) ? 'production' !== 'production' ? invariant(false, 'getNextDescendantID(%s, %s): Received an invalid React DOM ID.', ancestorID, destinationID) : invariant(false) : undefined;
-  !bPzZ(ancestorID, destinationID) ? 'production' !== 'production' ? invariant(false, 'getNextDescendantID(...): React has made an invalid assumption about ' + 'the DOM hierarchy. Expected `%s` to be an ancestor of `%s`.', ancestorID, destinationID) : invariant(false) : undefined;
+function blna(ancestorID, destinationID) {
+  !(b4dK(ancestorID) && b4dK(destinationID)) ? 'production' !== 'production' ? invariant(false, 'getNextDescendantID(%s, %s): Received an invalid React DOM ID.', ancestorID, destinationID) : invariant(false) : undefined;
+  !bG43(ancestorID, destinationID) ? 'production' !== 'production' ? invariant(false, 'getNextDescendantID(...): React has made an invalid assumption about ' + 'the DOM hierarchy. Expected `%s` to be an ancestor of `%s`.', ancestorID, destinationID) : invariant(false) : undefined;
   if (ancestorID === destinationID) {
     return ancestorID;
   }
 
-  var start = ancestorID.length + bbe3;
+  var start = ancestorID.length + bxnE;
   var i;
   for (i = start; i < destinationID.length; i++) {
-    if (br8K(destinationID, i)) {
+    if (bKyB(destinationID, i)) {
       break;
     }
   }
   return destinationID.substr(0, i);
 }
 
-function bRYY(oneID, twoID) {
+function bVYy(oneID, twoID) {
   var minLength = Math.min(oneID.length, twoID.length);
   if (minLength === 0) {
     return '';
@@ -1197,26 +1153,26 @@ function bRYY(oneID, twoID) {
   var lastCommonMarkerIndex = 0;
 
   for (var i = 0; i <= minLength; i++) {
-    if (br8K(oneID, i) && br8K(twoID, i)) {
+    if (bKyB(oneID, i) && bKyB(twoID, i)) {
       lastCommonMarkerIndex = i;
     } else if (oneID.charAt(i) !== twoID.charAt(i)) {
       break;
     }
   }
   var longestCommonID = oneID.substr(0, lastCommonMarkerIndex);
-  !bQzL(longestCommonID) ? 'production' !== 'production' ? invariant(false, 'getFirstCommonAncestorID(%s, %s): Expected a valid React DOM ID: %s', oneID, twoID, longestCommonID) : invariant(false) : undefined;
+  !b4dK(longestCommonID) ? 'production' !== 'production' ? invariant(false, 'getFirstCommonAncestorID(%s, %s): Expected a valid React DOM ID: %s', oneID, twoID, longestCommonID) : invariant(false) : undefined;
   return longestCommonID;
 }
 
-function bKyB(start, stop, cb, arg, skipFirst, skipLast) {
+function bgpx(start, stop, cb, arg, skipFirst, skipLast) {
   start = start || '';
   stop = stop || '';
   !(start !== stop) ? 'production' !== 'production' ? invariant(false, 'traverseParentPath(...): Cannot traverse from and to the same ID, `%s`.', start) : invariant(false) : undefined;
-  var traverseUp = bPzZ(stop, start);
-  !(traverseUp || bPzZ(start, stop)) ? 'production' !== 'production' ? invariant(false, 'traverseParentPath(%s, %s, ...): Cannot traverse from two IDs that do ' + 'not have a parent path.', start, stop) : invariant(false) : undefined;
+  var traverseUp = bG43(stop, start);
+  !(traverseUp || bG43(start, stop)) ? 'production' !== 'production' ? invariant(false, 'traverseParentPath(%s, %s, ...): Cannot traverse from two IDs that do ' + 'not have a parent path.', start, stop) : invariant(false) : undefined;
 
   var depth = 0;
-  var traverse = traverseUp ? bxnE : bXw7;
+  var traverse = traverseUp ? bbem : blna;
   for (var id = start;; id = traverse(id, stop)) {
     var ret;
     if ((!skipFirst || id !== start) && (!skipLast || id !== stop)) {
@@ -1225,13 +1181,13 @@ function bKyB(start, stop, cb, arg, skipFirst, skipLast) {
     if (ret === false || id === stop) {
       break;
     }
-    !(depth++ < blnv) ? 'production' !== 'production' ? invariant(false, 'traverseParentPath(%s, %s, ...): Detected an infinite loop while ' + 'traversing the React DOM ID tree. This may be due to malformed IDs: %s', start, stop, id) : invariant(false) : undefined;
+    !(depth++ < bXw7) ? 'production' !== 'production' ? invariant(false, 'traverseParentPath(%s, %s, ...): Detected an infinite loop while ' + 'traversing the React DOM ID tree. This may be due to malformed IDs: %s', start, stop, id) : invariant(false) : undefined;
   }
 }
 
 var ReactInstanceHandles = {
   createReactRootID: function () {
-    return bVYv(ReactRootIndex.createReactRootIndex());
+    return bRYY(ReactRootIndex.createReactRootIndex());
   },
 
   createReactID: function (rootID, name) {
@@ -1239,87 +1195,85 @@ var ReactInstanceHandles = {
   },
 
   getReactRootIDFromNodeID: function (id) {
-    if (id && id.charAt(0) === bG4p && id.length > 1) {
-      var index = id.indexOf(bG4p, 1);
+    if (id && id.charAt(0) === bPzZ && id.length > 1) {
+      var index = id.indexOf(bPzZ, 1);
       return index > -1 ? id.substr(0, index) : id;
     }
     return null;
   },
 
   traverseEnterLeave: function (leaveID, enterID, cb, upArg, downArg) {
-    var ancestorID = bRYY(leaveID, enterID);
+    var ancestorID = bVYy(leaveID, enterID);
     if (ancestorID !== leaveID) {
-      bKyB(leaveID, ancestorID, cb, upArg, false, true);
+      bgpx(leaveID, ancestorID, cb, upArg, false, true);
     }
     if (ancestorID !== enterID) {
-      bKyB(ancestorID, enterID, cb, downArg, true, false);
+      bgpx(ancestorID, enterID, cb, downArg, true, false);
     }
   },
 
   traverseTwoPhase: function (targetID, cb, arg) {
     if (targetID) {
-      bKyB('', targetID, cb, arg, true, false);
-      bKyB(targetID, '', cb, arg, false, true);
+      bgpx('', targetID, cb, arg, true, false);
+      bgpx(targetID, '', cb, arg, false, true);
     }
   },
 
   traverseTwoPhaseSkipTarget: function (targetID, cb, arg) {
     if (targetID) {
-      bKyB('', targetID, cb, arg, true, true);
-      bKyB(targetID, '', cb, arg, true, true);
+      bgpx('', targetID, cb, arg, true, true);
+      bgpx(targetID, '', cb, arg, true, true);
     }
   },
 
   traverseAncestors: function (targetID, cb, arg) {
-    bKyB('', targetID, cb, arg, true, false);
+    bgpx('', targetID, cb, arg, true, false);
   },
 
-  getFirstCommonAncestorID: bRYY,
+  getFirstCommonAncestorID: bVYy,
 
-  _getNextDescendantID: bXw7,
+  _getNextDescendantID: blna,
 
-  isAncestorIDOf: bPzZ,
+  isAncestorIDOf: bG43,
 
-  SEPARATOR: bG4p
+  SEPARATOR: bPzZ
 
 };
 /**bandol> resource: node_modules/react/lib/traverseAllChildren.js */
-/**bandol> default export: traverseAllChildren */
-/**bandol> exports: - */
 
 
-var byP8 = ReactInstanceHandles.SEPARATOR;
-var brq3 = ':';
+var bRZP = ReactInstanceHandles.SEPARATOR;
+var bKZ2 = ':';
 
-var bQYm = {
+var b4Rp = {
   '=': '=0',
   '.': '=1',
   ':': '=2'
 };
 
-var bPYO = /[=.:]/g;
+var bG4p = /[=.:]/g;
 
-function bxQx(match) {
-  return bQYm[match];
+function bbe3(match) {
+  return b4Rp[match];
 }
 
-function bX7p(component, index) {
+function blnv(component, index) {
   if (component && component.key != null) {
-    return bKZ2(component.key);
+    return br8K(component.key);
   }
 
   return index.toString(36);
 }
 
-function bRZP(text) {
-  return ('' + text).replace(bPYO, bxQx);
+function bVYv(text) {
+  return ('' + text).replace(bG4p, bbe3);
 }
 
-function bKZ2(key) {
-  return '$' + bRZP(key);
+function br8K(key) {
+  return '$' + bVYv(key);
 }
 
-function b4Rp(children, nameSoFar, callback, traverseContext) {
+function bQzL(children, nameSoFar, callback, traverseContext) {
   var type = typeof children;
 
   if (type === 'undefined' || type === 'boolean') {
@@ -1327,20 +1281,20 @@ function b4Rp(children, nameSoFar, callback, traverseContext) {
   }
 
   if (children === null || type === 'string' || type === 'number' || ReactElement.isValidElement(children)) {
-    callback(traverseContext, children, nameSoFar === '' ? byP8 + bX7p(children, 0) : nameSoFar);
+    callback(traverseContext, children, nameSoFar === '' ? bRZP + blnv(children, 0) : nameSoFar);
     return 1;
   }
 
   var child;
   var nextName;
   var subtreeCount = 0;
-  var nextNamePrefix = nameSoFar === '' ? byP8 : nameSoFar + brq3;
+  var nextNamePrefix = nameSoFar === '' ? bRZP : nameSoFar + bKZ2;
 
   if (Array.isArray(children)) {
     for (var i = 0; i < children.length; i++) {
       child = children[i];
-      nextName = nextNamePrefix + bX7p(child, i);
-      subtreeCount += b4Rp(child, nextName, callback, traverseContext);
+      nextName = nextNamePrefix + blnv(child, i);
+      subtreeCount += bQzL(child, nextName, callback, traverseContext);
     }
   } else {
     var iteratorFn = getIteratorFn(children);
@@ -1351,16 +1305,16 @@ function b4Rp(children, nameSoFar, callback, traverseContext) {
         var ii = 0;
         while (!(step = iterator.next()).done) {
           child = step.value;
-          nextName = nextNamePrefix + bX7p(child, ii++);
-          subtreeCount += b4Rp(child, nextName, callback, traverseContext);
+          nextName = nextNamePrefix + blnv(child, ii++);
+          subtreeCount += bQzL(child, nextName, callback, traverseContext);
         }
       } else {
         while (!(step = iterator.next()).done) {
           var entry = step.value;
           if (entry) {
             child = entry[1];
-            nextName = nextNamePrefix + bKZ2(entry[0]) + brq3 + bX7p(child, 0);
-            subtreeCount += b4Rp(child, nextName, callback, traverseContext);
+            nextName = nextNamePrefix + br8K(entry[0]) + bKZ2 + blnv(child, 0);
+            subtreeCount += bQzL(child, nextName, callback, traverseContext);
           }
         }
       }
@@ -1380,13 +1334,11 @@ function traverseAllChildren(children, callback, traverseContext) {
     return 0;
   }
 
-  return b4Rp(children, '', callback, traverseContext);
+  return bQzL(children, '', callback, traverseContext);
 }
 /**bandol> resource: node_modules/react/lib/PooledClass.js */
-/**bandol> default export: PooledClass */
-/**bandol> exports: - */
 
-var b7OL = function (copyFieldsFrom) {
+var b5KY = function (copyFieldsFrom) {
   var Klass = this;
   if (Klass.instancePool.length) {
     var instance = Klass.instancePool.pop();
@@ -1397,7 +1349,7 @@ var b7OL = function (copyFieldsFrom) {
   }
 };
 
-var bL0z = function (a1, a2) {
+var bJZN = function (a1, a2) {
   var Klass = this;
   if (Klass.instancePool.length) {
     var instance = Klass.instancePool.pop();
@@ -1408,7 +1360,7 @@ var bL0z = function (a1, a2) {
   }
 };
 
-var b0QR = function (a1, a2, a3) {
+var bqe3 = function (a1, a2, a3) {
   var Klass = this;
   if (Klass.instancePool.length) {
     var instance = Klass.instancePool.pop();
@@ -1419,7 +1371,7 @@ var b0QR = function (a1, a2, a3) {
   }
 };
 
-var b1Pn = function (a1, a2, a3, a4) {
+var byP8 = function (a1, a2, a3, a4) {
   var Klass = this;
   if (Klass.instancePool.length) {
     var instance = Klass.instancePool.pop();
@@ -1430,7 +1382,7 @@ var b1Pn = function (a1, a2, a3, a4) {
   }
 };
 
-var bwr6 = function (a1, a2, a3, a4, a5) {
+var brq3 = function (a1, a2, a3, a4, a5) {
   var Klass = this;
   if (Klass.instancePool.length) {
     var instance = Klass.instancePool.pop();
@@ -1441,7 +1393,7 @@ var bwr6 = function (a1, a2, a3, a4, a5) {
   }
 };
 
-var bkX0 = function (instance) {
+var bQYm = function (instance) {
   var Klass = this;
   !(instance instanceof Klass) ? 'production' !== 'production' ? invariant(false, 'Trying to release an instance into a pool of a different type.') : invariant(false) : undefined;
   instance.destructor();
@@ -1450,86 +1402,84 @@ var bkX0 = function (instance) {
   }
 };
 
-var b5KY = 10;
-var bJZN = b7OL;
+var bPYO = 10;
+var bxQx = b5KY;
 
-var bqe3 = function (CopyConstructor, pooler) {
+var bX7p = function (CopyConstructor, pooler) {
   var NewKlass = CopyConstructor;
   NewKlass.instancePool = [];
-  NewKlass.getPooled = pooler || bJZN;
+  NewKlass.getPooled = pooler || bxQx;
   if (!NewKlass.poolSize) {
-    NewKlass.poolSize = b5KY;
+    NewKlass.poolSize = bPYO;
   }
-  NewKlass.release = bkX0;
+  NewKlass.release = bQYm;
   return NewKlass;
 };
 
 var PooledClass = {
-  addPoolingTo: bqe3,
-  oneArgumentPooler: b7OL,
-  twoArgumentPooler: bL0z,
-  threeArgumentPooler: b0QR,
-  fourArgumentPooler: b1Pn,
-  fiveArgumentPooler: bwr6
+  addPoolingTo: bX7p,
+  oneArgumentPooler: b5KY,
+  twoArgumentPooler: bJZN,
+  threeArgumentPooler: bqe3,
+  fourArgumentPooler: byP8,
+  fiveArgumentPooler: brq3
 };
 /**bandol> resource: node_modules/react/lib/ReactChildren.js */
-/**bandol> default export: ReactChildren */
-/**bandol> exports: - */
 
 
-var bzxb = PooledClass.twoArgumentPooler;
-var bv6p = PooledClass.fourArgumentPooler;
+var bYM2 = PooledClass.twoArgumentPooler;
+var bOgk = PooledClass.fourArgumentPooler;
 
-var baPV = /\/(?!\/)/g;
-function b2xy(text) {
-  return ('' + text).replace(baPV, '//');
+var b8bw = /\/(?!\/)/g;
+function bN2E(text) {
+  return ('' + text).replace(b8bw, '//');
 }
 
-function beKg(forEachFunction, forEachContext) {
+function bdRd(forEachFunction, forEachContext) {
   this.func = forEachFunction;
   this.context = forEachContext;
   this.count = 0;
 }
-beKg.prototype.destructor = function () {
+bdRd.prototype.destructor = function () {
   this.func = null;
   this.context = null;
   this.count = 0;
 };
-PooledClass.addPoolingTo(beKg, bzxb);
+PooledClass.addPoolingTo(bdRd, bYM2);
 
-function bB2L(bookKeeping, child, name) {
+function b9Bk(bookKeeping, child, name) {
   var func = bookKeeping.func;
   var context = bookKeeping.context;
 
   func.call(context, child, bookKeeping.count++);
 }
 
-function bYM2(children, forEachFunc, forEachContext) {
+function bE5d(children, forEachFunc, forEachContext) {
   if (children == null) {
     return children;
   }
-  var traverseContext = beKg.getPooled(forEachFunc, forEachContext);
-  traverseAllChildren(children, bB2L, traverseContext);
-  beKg.release(traverseContext);
+  var traverseContext = bdRd.getPooled(forEachFunc, forEachContext);
+  traverseAllChildren(children, b9Bk, traverseContext);
+  bdRd.release(traverseContext);
 }
 
-function bOgk(mapResult, keyPrefix, mapFunction, mapContext) {
+function b7OL(mapResult, keyPrefix, mapFunction, mapContext) {
   this.result = mapResult;
   this.keyPrefix = keyPrefix;
   this.func = mapFunction;
   this.context = mapContext;
   this.count = 0;
 }
-bOgk.prototype.destructor = function () {
+b7OL.prototype.destructor = function () {
   this.result = null;
   this.keyPrefix = null;
   this.func = null;
   this.context = null;
   this.count = 0;
 };
-PooledClass.addPoolingTo(bOgk, bv6p);
+PooledClass.addPoolingTo(b7OL, bOgk);
 
-function b8bw(bookKeeping, child, childKey) {
+function bL0z(bookKeeping, child, childKey) {
   var result = bookKeeping.result;
   var keyPrefix = bookKeeping.keyPrefix;
   var func = bookKeeping.func;
@@ -1537,65 +1487,63 @@ function b8bw(bookKeeping, child, childKey) {
 
   var mappedChild = func.call(context, child, bookKeeping.count++);
   if (Array.isArray(mappedChild)) {
-    bN2E(mappedChild, result, childKey, emptyFunction.thatReturnsArgument);
+    b0QR(mappedChild, result, childKey, emptyFunction.thatReturnsArgument);
   } else if (mappedChild != null) {
     if (ReactElement.isValidElement(mappedChild)) {
-      mappedChild = ReactElement.cloneAndReplaceKey(mappedChild, keyPrefix + (mappedChild !== child ? b2xy(mappedChild.key || '') + '/' : '') + childKey);
+      mappedChild = ReactElement.cloneAndReplaceKey(mappedChild, keyPrefix + (mappedChild !== child ? bN2E(mappedChild.key || '') + '/' : '') + childKey);
     }
     result.push(mappedChild);
   }
 }
 
-function bN2E(children, array, prefix, func, context) {
+function b0QR(children, array, prefix, func, context) {
   var escapedPrefix = '';
   if (prefix != null) {
-    escapedPrefix = b2xy(prefix) + '/';
+    escapedPrefix = bN2E(prefix) + '/';
   }
-  var traverseContext = bOgk.getPooled(array, escapedPrefix, func, context);
-  traverseAllChildren(children, b8bw, traverseContext);
-  bOgk.release(traverseContext);
+  var traverseContext = b7OL.getPooled(array, escapedPrefix, func, context);
+  traverseAllChildren(children, bL0z, traverseContext);
+  b7OL.release(traverseContext);
 }
 
-function bdRd(children, func, context) {
+function b1Pn(children, func, context) {
   if (children == null) {
     return children;
   }
   var result = [];
-  bN2E(children, result, null, func, context);
+  b0QR(children, result, null, func, context);
   return result;
 }
 
-function b9Bk(traverseContext, child, name) {
+function bwr6(traverseContext, child, name) {
   return null;
 }
 
-function bE5d(children, context) {
-  return traverseAllChildren(children, b9Bk, null);
+function bkX0(children, context) {
+  return traverseAllChildren(children, bwr6, null);
 }
 
 function toArray(children) {
   var result = [];
-  bN2E(children, result, null, emptyFunction.thatReturnsArgument);
+  b0QR(children, result, null, emptyFunction.thatReturnsArgument);
   return result;
 }
 
 var ReactChildren = {
-  forEach: bYM2,
-  map: bdRd,
-  mapIntoWithKeyPrefixInternal: bN2E,
-  count: bE5d,
+  forEach: bE5d,
+  map: b1Pn,
+  mapIntoWithKeyPrefixInternal: b0QR,
+  count: bkX0,
   toArray: toArray
 };
 /**bandol> resource: node_modules/react/lib/ReactIsomorphic.js */
-/**bandol> default export: ReactIsomorphic */
-/**bandol> exports: - */
 
 
-var bpLE = ReactElement.createElement;
-var bmKz = ReactElement.createFactory;
-var bn4K = ReactElement.cloneElement;
+var b2xy = ReactElement.createElement;
+var beKg = ReactElement.createFactory;
+var bB2L = ReactElement.cloneElement;
 
-var ReactIsomorphic = {
+var bKv = {
 
   Children: {
     map: ReactChildren.map,
@@ -1607,83 +1555,79 @@ var ReactIsomorphic = {
 
   Component: ReactComponent,
 
-  createElement: bpLE,
-  cloneElement: bn4K,
+  createElement: b2xy,
+  cloneElement: bB2L,
   isValidElement: ReactElement.isValidElement,
 
   PropTypes: ReactPropTypes,
   createClass: ReactClass.createClass,
-  createFactory: bmKz,
+  createFactory: beKg,
   createMixin: function (mixin) {
     return mixin;
   },
 
   DOM: ReactDOMFactories,
 
-  version: ReactVersion,
+  version: bQr,
 
   __spread: assign
 };
 /**bandol> resource: node_modules/react/lib/ReactNativeComponent.js */
-/**bandol> default export: ReactNativeComponent */
-/**bandol> exports: - */
 
 
-var bbx3 = null;
-var blRv = null;
+var bZvR = null;
+var bAee = null;
 
-var bVmv = {};
-var bgr3 = null;
+var b3XV = {};
+var bpLE = null;
 
-var bM7k = {
+var bmKz = {
   injectGenericComponentClass: function (componentClass) {
-    blRv = componentClass;
+    bAee = componentClass;
   },
 
   injectTextComponentClass: function (componentClass) {
-    bgr3 = componentClass;
+    bpLE = componentClass;
   },
 
   injectComponentClasses: function (componentClasses) {
-    assign(bVmv, componentClasses);
+    assign(b3XV, componentClasses);
   }
 };
 
-function b64r(element) {
+function bn4K(element) {
   if (typeof element.type === 'function') {
     return element.type;
   }
   var tag = element.type;
-  var componentClass = bVmv[tag];
+  var componentClass = b3XV[tag];
   if (componentClass == null) {
-    bVmv[tag] = componentClass = bbx3(tag);
+    b3XV[tag] = componentClass = bZvR(tag);
   }
   return componentClass;
 }
 
-function bZvR(element) {
-  !blRv ? 'production' !== 'production' ? invariant(false, 'There is no registered component for the tag %s', element.type) : invariant(false) : undefined;
-  return new blRv(element.type, element.props);
+function bzxb(element) {
+  !bAee ? 'production' !== 'production' ? invariant(false, 'There is no registered component for the tag %s', element.type) : invariant(false) : undefined;
+  return new bAee(element.type, element.props);
 }
 
-function bAee(text) {
-  return new bgr3(text);
+function bv6p(text) {
+  return new bpLE(text);
 }
 
-function b3XV(component) {
-  return component instanceof bgr3;
+function baPV(component) {
+  return component instanceof bpLE;
 }
 
 var ReactNativeComponent = {
-  getComponentClassForElement: b64r,
-  createInternalComponent: bZvR,
-  createInstanceForText: bAee,
-  isTextComponent: b3XV,
-  injection: bM7k
+  getComponentClassForElement: bn4K,
+  createInternalComponent: bzxb,
+  createInstanceForText: bv6p,
+  isTextComponent: baPV,
+  injection: bmKz
 };
 /**bandol> resource: node_modules/react/lib/ReactOwner.js */
-/**bandol> default export: ReactOwner */
-/**bandol> exports: - */
 
 var ReactOwner = {
   isValidOwner: function (object) {
@@ -1705,13 +1649,11 @@ var ReactOwner = {
 
 };
 /**bandol> resource: node_modules/react/lib/ReactRef.js */
-/**bandol> default export: ReactRef */
-/**bandol> exports: - */
 
 
 var ReactRef = {};
 
-function b4lp(ref, component, owner) {
+function bM7k(ref, component, owner) {
   if (typeof ref === 'function') {
     ref(component.getPublicInstance());
   } else {
@@ -1719,7 +1661,7 @@ function b4lp(ref, component, owner) {
   }
 }
 
-function bGZp(ref, component, owner) {
+function b64r(ref, component, owner) {
   if (typeof ref === 'function') {
     ref(null);
   } else {
@@ -1733,7 +1675,7 @@ ReactRef.attachRefs = function (instance, element) {
   }
   var ref = element.ref;
   if (ref != null) {
-    b4lp(ref, instance, element._owner);
+    bM7k(ref, instance, element._owner);
   }
 };
 
@@ -1751,14 +1693,12 @@ ReactRef.detachRefs = function (instance, element) {
   }
   var ref = element.ref;
   if (ref != null) {
-    bGZp(ref, instance, element._owner);
+    b64r(ref, instance, element._owner);
   }
 };
 /**bandol> resource: node_modules/react/lib/ReactReconciler.js */
-/**bandol> default export: ReactReconciler */
-/**bandol> exports: - */
 
-function bKG2() {
+function bgr3() {
   ReactRef.attachRefs(this, this._currentElement);
 }
 
@@ -1766,7 +1706,7 @@ var ReactReconciler = {
   mountComponent: function (internalInstance, rootID, transaction, context) {
     var markup = internalInstance.mountComponent(rootID, transaction, context);
     if (internalInstance._currentElement && internalInstance._currentElement.ref != null) {
-      transaction.getReactMountReady().enqueue(bKG2, internalInstance);
+      transaction.getReactMountReady().enqueue(bgr3, internalInstance);
     }
     return markup;
   },
@@ -1792,7 +1732,7 @@ var ReactReconciler = {
     internalInstance.receiveComponent(nextElement, transaction, context);
 
     if (refsChanged && internalInstance._currentElement && internalInstance._currentElement.ref != null) {
-      transaction.getReactMountReady().enqueue(bKG2, internalInstance);
+      transaction.getReactMountReady().enqueue(bgr3, internalInstance);
     }
   },
 
@@ -1802,45 +1742,41 @@ var ReactReconciler = {
 
 };
 /**bandol> resource: node_modules/react/lib/ReactEmptyComponentRegistry.js */
-/**bandol> default export: ReactEmptyComponentRegistry */
-/**bandol> exports: - */
 
-var bPnO = {};
+var bGZp = {};
 
-function bxEx(id) {
-  return !!bPnO[id];
+function bbx3(id) {
+  return !!bGZp[id];
 }
 
-function bXxp(id) {
-  bPnO[id] = true;
+function blRv(id) {
+  bGZp[id] = true;
 }
 
-function bR7P(id) {
-  delete bPnO[id];
+function bVmv(id) {
+  delete bGZp[id];
 }
 
 var ReactEmptyComponentRegistry = {
-  isNullComponentID: bxEx,
-  registerNullComponentID: bXxp,
-  deregisterNullComponentID: bR7P
+  isNullComponentID: bbx3,
+  registerNullComponentID: blRv,
+  deregisterNullComponentID: bVmv
 };
 /**bandol> resource: node_modules/react/lib/ReactEmptyComponent.js */
-/**bandol> default export: ReactEmptyComponent */
-/**bandol> exports: - */
 
 
-var brL3;
+var bKG2;
 
-var bQ0m = {
+var b4lp = {
   injectEmptyComponent: function (component) {
-    brL3 = ReactElement.createElement(component);
+    bKG2 = ReactElement.createElement(component);
   }
 };
 
 var ReactEmptyComponent = function (instantiate) {
   this._currentElement = null;
   this._rootNodeID = null;
-  this._renderedComponent = instantiate(brL3);
+  this._renderedComponent = instantiate(bKG2);
 };
 assign(ReactEmptyComponent.prototype, {
   construct: function (element) {},
@@ -1858,10 +1794,8 @@ assign(ReactEmptyComponent.prototype, {
   }
 });
 
-ReactEmptyComponent.injection = bQ0m;
+ReactEmptyComponent.injection = b4lp;
 /**bandol> resource: node_modules/react/lib/shouldUpdateReactComponent.js */
-/**bandol> default export: shouldUpdateReactComponent */
-/**bandol> exports: - */
 
 function shouldUpdateReactComponent(prevElement, nextElement) {
   var prevEmpty = prevElement === null || prevElement === false;
@@ -1880,10 +1814,8 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
   return false;
 }
 /**bandol> resource: node_modules/react/lib/Transaction.js */
-/**bandol> default export: Transaction */
-/**bandol> exports: - */
 
-var by68 = {
+var bR7P = {
   reinitializeTransaction: function () {
     this.transactionWrappers = this.getTransactionWrappers();
     if (this.wrapperInitData) {
@@ -1973,19 +1905,17 @@ var by68 = {
 
 var Transaction = {
 
-  Mixin: by68,
+  Mixin: bR7P,
 
   OBSERVED_ERROR: {}
 
 };
 /**bandol> resource: node_modules/react/lib/ReactPerf.js */
-/**bandol> default export: ReactPerf */
-/**bandol> exports: - */
 
 var ReactPerf = {
   enableMeasure: false,
 
-  storedMeasure: bq93,
+  storedMeasure: bXxp,
 
   measureMethods: function (object, objectName, methodNames) {},
 
@@ -2000,12 +1930,10 @@ var ReactPerf = {
   }
 };
 
-function bq93(objName, fnName, func) {
+function bXxp(objName, fnName, func) {
   return func;
 }
 /**bandol> resource: node_modules/react/lib/CallbackQueue.js */
-/**bandol> default export: CallbackQueue */
-/**bandol> exports: - */
 
 function CallbackQueue() {
   this._callbacks = null;
@@ -2048,35 +1976,33 @@ assign(CallbackQueue.prototype, {
 
 PooledClass.addPoolingTo(CallbackQueue);
 /**bandol> resource: node_modules/react/lib/ReactUpdates.js */
-/**bandol> default export: ReactUpdates */
-/**bandol> exports: - */
 
 
-var bBAL = [];
-var bYX2 = CallbackQueue.getPooled();
-var bOnk = false;
+var b9Vk = [];
+var bEld = CallbackQueue.getPooled();
+var b70L = false;
 
-var b89w = null;
+var bLVz = null;
 
-function bN8E() {
-  !(ReactUpdates.ReactReconcileTransaction && b89w) ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must inject a reconcile transaction class and batching ' + 'strategy') : invariant(false) : undefined;
+function b0OR() {
+  !(ReactUpdates.ReactReconcileTransaction && bLVz) ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must inject a reconcile transaction class and batching ' + 'strategy') : invariant(false) : undefined;
 }
 
-var bdkd = {
+var b1On = {
   initialize: function () {
-    this.dirtyComponentsLength = bBAL.length;
+    this.dirtyComponentsLength = b9Vk.length;
   },
   close: function () {
-    if (this.dirtyComponentsLength !== bBAL.length) {
-      bBAL.splice(0, this.dirtyComponentsLength);
-      bw36();
+    if (this.dirtyComponentsLength !== b9Vk.length) {
+      b9Vk.splice(0, this.dirtyComponentsLength);
+      brL3();
     } else {
-      bBAL.length = 0;
+      b9Vk.length = 0;
     }
   }
 };
 
-var b9Vk = {
+var bw36 = {
   initialize: function () {
     this.callbackQueue.reset();
   },
@@ -2085,18 +2011,18 @@ var b9Vk = {
   }
 };
 
-var bEld = [bdkd, b9Vk];
+var bk90 = [b1On, bw36];
 
-function b70L() {
+function b50Y() {
   this.reinitializeTransaction();
   this.dirtyComponentsLength = null;
   this.callbackQueue = CallbackQueue.getPooled();
   this.reconcileTransaction = ReactUpdates.ReactReconcileTransaction.getPooled(false);
 }
 
-assign(b70L.prototype, Transaction.Mixin, {
+assign(b50Y.prototype, Transaction.Mixin, {
   getTransactionWrappers: function () {
-    return bEld;
+    return bk90;
   },
 
   destructor: function () {
@@ -2112,25 +2038,25 @@ assign(b70L.prototype, Transaction.Mixin, {
   }
 });
 
-PooledClass.addPoolingTo(b70L);
+PooledClass.addPoolingTo(b50Y);
 
-function bLVz(callback, a, b, c, d, e) {
-  bN8E();
-  b89w.batchedUpdates(callback, a, b, c, d, e);
+function bJeN(callback, a, b, c, d, e) {
+  b0OR();
+  bLVz.batchedUpdates(callback, a, b, c, d, e);
 }
 
-function b0OR(c1, c2) {
+function bq93(c1, c2) {
   return c1._mountOrder - c2._mountOrder;
 }
 
-function b1On(transaction) {
+function by68(transaction) {
   var len = transaction.dirtyComponentsLength;
-  !(len === bBAL.length) ? 'production' !== 'production' ? invariant(false, 'Expected flush transaction\'s stored dirty-components length (%s) to ' + 'match dirty-components array length (%s).', len, bBAL.length) : invariant(false) : undefined;
+  !(len === b9Vk.length) ? 'production' !== 'production' ? invariant(false, 'Expected flush transaction\'s stored dirty-components length (%s) to ' + 'match dirty-components array length (%s).', len, b9Vk.length) : invariant(false) : undefined;
 
-  bBAL.sort(b0OR);
+  b9Vk.sort(bq93);
 
   for (var i = 0; i < len; i++) {
-    var component = bBAL[i];
+    var component = b9Vk[i];
 
     var callbacks = component._pendingCallbacks;
     component._pendingCallbacks = null;
@@ -2145,43 +2071,43 @@ function b1On(transaction) {
   }
 }
 
-var bw36 = function () {
-  while (bBAL.length || bOnk) {
-    if (bBAL.length) {
-      var transaction = b70L.getPooled();
-      transaction.perform(b1On, null, transaction);
-      b70L.release(transaction);
+var brL3 = function () {
+  while (b9Vk.length || b70L) {
+    if (b9Vk.length) {
+      var transaction = b50Y.getPooled();
+      transaction.perform(by68, null, transaction);
+      b50Y.release(transaction);
     }
 
-    if (bOnk) {
-      bOnk = false;
-      var queue = bYX2;
-      bYX2 = CallbackQueue.getPooled();
+    if (b70L) {
+      b70L = false;
+      var queue = bEld;
+      bEld = CallbackQueue.getPooled();
       queue.notifyAll();
       CallbackQueue.release(queue);
     }
   }
 };
-bw36 = ReactPerf.measure('ReactUpdates', 'flushBatchedUpdates', bw36);
+brL3 = ReactPerf.measure('ReactUpdates', 'flushBatchedUpdates', brL3);
 
-function bk90(component) {
-  bN8E();
+function bQ0m(component) {
+  b0OR();
 
-  if (!b89w.isBatchingUpdates) {
-    b89w.batchedUpdates(bk90, component);
+  if (!bLVz.isBatchingUpdates) {
+    bLVz.batchedUpdates(bQ0m, component);
     return;
   }
 
-  bBAL.push(component);
+  b9Vk.push(component);
 }
 
-function b50Y(callback, context) {
-  !b89w.isBatchingUpdates ? 'production' !== 'production' ? invariant(false, 'ReactUpdates.asap: Can\'t enqueue an asap callback in a context where' + 'updates are not being batched.') : invariant(false) : undefined;
-  bYX2.enqueue(callback, context);
-  bOnk = true;
+function bPnO(callback, context) {
+  !bLVz.isBatchingUpdates ? 'production' !== 'production' ? invariant(false, 'ReactUpdates.asap: Can\'t enqueue an asap callback in a context where' + 'updates are not being batched.') : invariant(false) : undefined;
+  bEld.enqueue(callback, context);
+  b70L = true;
 }
 
-var bJeN = {
+var bxEx = {
   injectReconcileTransaction: function (ReconcileTransaction) {
     !ReconcileTransaction ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide a reconcile transaction class') : invariant(false) : undefined;
     ReactUpdates.ReactReconcileTransaction = ReconcileTransaction;
@@ -2191,22 +2117,20 @@ var bJeN = {
     !_batchingStrategy ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide a batching strategy') : invariant(false) : undefined;
     !(typeof _batchingStrategy.batchedUpdates === 'function') ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide a batchedUpdates() function') : invariant(false) : undefined;
     !(typeof _batchingStrategy.isBatchingUpdates === 'boolean') ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide an isBatchingUpdates boolean attribute') : invariant(false) : undefined;
-    b89w = _batchingStrategy;
+    bLVz = _batchingStrategy;
   }
 };
 
 var ReactUpdates = {
   ReactReconcileTransaction: null,
 
-  batchedUpdates: bLVz,
-  enqueueUpdate: bk90,
-  flushBatchedUpdates: bw36,
-  injection: bJeN,
-  asap: b50Y
+  batchedUpdates: bJeN,
+  enqueueUpdate: bQ0m,
+  flushBatchedUpdates: brL3,
+  injection: bxEx,
+  asap: bPnO
 };
 /**bandol> resource: node_modules/react/lib/ReactInstanceMap.js */
-/**bandol> default export: ReactInstanceMap */
-/**bandol> exports: - */
 
 var ReactInstanceMap = {
   remove: function (key) {
@@ -2227,15 +2151,13 @@ var ReactInstanceMap = {
 
 };
 /**bandol> resource: node_modules/react/lib/ReactUpdateQueue.js */
-/**bandol> default export: ReactUpdateQueue */
-/**bandol> exports: - */
 
 
-function b2ly(internalInstance) {
+function bN8E(internalInstance) {
   ReactUpdates.enqueueUpdate(internalInstance);
 }
 
-function bevg(publicInstance, callerName) {
+function bdkd(publicInstance, callerName) {
   var internalInstance = ReactInstanceMap.get(publicInstance);
   if (!internalInstance) {
     return null;
@@ -2256,7 +2178,7 @@ var ReactUpdateQueue = {
 
   enqueueCallback: function (publicInstance, callback) {
     !(typeof callback === 'function') ? 'production' !== 'production' ? invariant(false, 'enqueueCallback(...): You called `setProps`, `replaceProps`, ' + '`setState`, `replaceState`, or `forceUpdate` with a callback that ' + 'isn\'t callable.') : invariant(false) : undefined;
-    var internalInstance = bevg(publicInstance);
+    var internalInstance = bdkd(publicInstance);
 
     if (!internalInstance) {
       return null;
@@ -2268,7 +2190,7 @@ var ReactUpdateQueue = {
       internalInstance._pendingCallbacks = [callback];
     }
 
-    b2ly(internalInstance);
+    bN8E(internalInstance);
   },
 
   enqueueCallbackInternal: function (internalInstance, callback) {
@@ -2278,11 +2200,11 @@ var ReactUpdateQueue = {
     } else {
       internalInstance._pendingCallbacks = [callback];
     }
-    b2ly(internalInstance);
+    bN8E(internalInstance);
   },
 
   enqueueForceUpdate: function (publicInstance) {
-    var internalInstance = bevg(publicInstance, 'forceUpdate');
+    var internalInstance = bdkd(publicInstance, 'forceUpdate');
 
     if (!internalInstance) {
       return;
@@ -2290,11 +2212,11 @@ var ReactUpdateQueue = {
 
     internalInstance._pendingForceUpdate = true;
 
-    b2ly(internalInstance);
+    bN8E(internalInstance);
   },
 
   enqueueReplaceState: function (publicInstance, completeState) {
-    var internalInstance = bevg(publicInstance, 'replaceState');
+    var internalInstance = bdkd(publicInstance, 'replaceState');
 
     if (!internalInstance) {
       return;
@@ -2303,11 +2225,11 @@ var ReactUpdateQueue = {
     internalInstance._pendingStateQueue = [completeState];
     internalInstance._pendingReplaceState = true;
 
-    b2ly(internalInstance);
+    bN8E(internalInstance);
   },
 
   enqueueSetState: function (publicInstance, partialState) {
-    var internalInstance = bevg(publicInstance, 'setState');
+    var internalInstance = bdkd(publicInstance, 'setState');
 
     if (!internalInstance) {
       return;
@@ -2316,11 +2238,11 @@ var ReactUpdateQueue = {
     var queue = internalInstance._pendingStateQueue || (internalInstance._pendingStateQueue = []);
     queue.push(partialState);
 
-    b2ly(internalInstance);
+    bN8E(internalInstance);
   },
 
   enqueueSetProps: function (publicInstance, partialProps) {
-    var internalInstance = bevg(publicInstance, 'setProps');
+    var internalInstance = bdkd(publicInstance, 'setProps');
     if (!internalInstance) {
       return;
     }
@@ -2336,11 +2258,11 @@ var ReactUpdateQueue = {
     var props = assign({}, element.props, partialProps);
     topLevelWrapper._pendingElement = ReactElement.cloneAndReplaceProps(wrapElement, ReactElement.cloneAndReplaceProps(element, props));
 
-    b2ly(topLevelWrapper);
+    bN8E(topLevelWrapper);
   },
 
   enqueueReplaceProps: function (publicInstance, props) {
-    var internalInstance = bevg(publicInstance, 'replaceProps');
+    var internalInstance = bdkd(publicInstance, 'replaceProps');
     if (!internalInstance) {
       return;
     }
@@ -2355,18 +2277,16 @@ var ReactUpdateQueue = {
     var element = wrapElement.props;
     topLevelWrapper._pendingElement = ReactElement.cloneAndReplaceProps(wrapElement, ReactElement.cloneAndReplaceProps(element, props));
 
-    b2ly(topLevelWrapper);
+    bN8E(topLevelWrapper);
   },
 
   enqueueElementInternal: function (internalInstance, newElement) {
     internalInstance._pendingElement = newElement;
-    b2ly(internalInstance);
+    bN8E(internalInstance);
   }
 
 };
 /**bandol> resource: node_modules/react/lib/ReactPropTypeLocations.js */
-/**bandol> default export: ReactPropTypeLocations */
-/**bandol> exports: - */
 
 
 var ReactPropTypeLocations = keyMirror({
@@ -2375,11 +2295,9 @@ var ReactPropTypeLocations = keyMirror({
   childContext: null
 });
 /**bandol> resource: node_modules/react/lib/ReactComponentEnvironment.js */
-/**bandol> default export: ReactComponentEnvironment */
-/**bandol> exports: - */
 
 
-var bagV = false;
+var b89w = false;
 
 var ReactComponentEnvironment = {
   unmountIDFromEnvironment: null,
@@ -2390,21 +2308,19 @@ var ReactComponentEnvironment = {
 
   injection: {
     injectEnvironment: function (environment) {
-      !!bagV ? 'production' !== 'production' ? invariant(false, 'ReactCompositeComponent: injectEnvironment() can only be called once.') : invariant(false) : undefined;
+      !!b89w ? 'production' !== 'production' ? invariant(false, 'ReactCompositeComponent: injectEnvironment() can only be called once.') : invariant(false) : undefined;
       ReactComponentEnvironment.unmountIDFromEnvironment = environment.unmountIDFromEnvironment;
       ReactComponentEnvironment.replaceNodeWithMarkupByID = environment.replaceNodeWithMarkupByID;
       ReactComponentEnvironment.processChildrenUpdates = environment.processChildrenUpdates;
-      bagV = true;
+      b89w = true;
     }
   }
 
 };
 /**bandol> resource: node_modules/react/lib/ReactCompositeComponent.js */
-/**bandol> default export: ReactCompositeComponent */
-/**bandol> exports: - */
 
 
-function bmLz(component) {
+function bevg(component) {
   var owner = component._currentElement._owner || null;
   if (owner) {
     var name = owner.getName();
@@ -2415,15 +2331,15 @@ function bmLz(component) {
   return '';
 }
 
-function bnLK(Component) {}
-bnLK.prototype.render = function () {
+function bBAL(Component) {}
+bBAL.prototype.render = function () {
   var Component = ReactInstanceMap.get(this)._currentElement.type;
   return Component(this.props, this.context, this.updater);
 };
 
-var bz6b = 1;
+var bYX2 = 1;
 
-var bvNp = {
+var bOnk = {
   construct: function (element) {
     this._currentElement = element;
     this._rootNodeID = null;
@@ -2445,7 +2361,7 @@ var bvNp = {
 
   mountComponent: function (rootID, transaction, context) {
     this._context = context;
-    this._mountOrder = bz6b++;
+    this._mountOrder = bYX2++;
     this._rootNodeID = rootID;
 
     var publicProps = this._processProps(this._currentElement.props);
@@ -2464,7 +2380,7 @@ var bvNp = {
 
     if (!canInstantiate || inst === null || inst === false || ReactElement.isValidElement(inst)) {
       renderedElement = inst;
-      inst = new bnLK(Component);
+      inst = new bBAL(Component);
     }
 
     inst.props = publicProps;
@@ -2583,7 +2499,7 @@ var bvNp = {
           error = ex;
         }
         if (error instanceof Error) {
-          var addendum = bmLz(this);
+          var addendum = bevg(this);
 
           if (location === ReactPropTypeLocations.prop) {
             'production' !== 'production' ? warning(false, 'Failed Composite propType: %s%s', error.message, addendum) : undefined;
@@ -2765,7 +2681,7 @@ var bvNp = {
 
   getPublicInstance: function () {
     var inst = this._instance;
-    if (inst instanceof bnLK) {
+    if (inst instanceof bBAL) {
       return null;
     }
     return inst;
@@ -2775,7 +2691,7 @@ var bvNp = {
 
 };
 
-ReactPerf.measureMethods(bvNp, 'ReactCompositeComponent', {
+ReactPerf.measureMethods(bOnk, 'ReactCompositeComponent', {
   mountComponent: 'mountComponent',
   updateComponent: 'updateComponent',
   _renderValidatedComponent: '_renderValidatedComponent'
@@ -2783,19 +2699,17 @@ ReactPerf.measureMethods(bvNp, 'ReactCompositeComponent', {
 
 var ReactCompositeComponent = {
 
-  Mixin: bvNp
+  Mixin: bOnk
 
 };
 /**bandol> resource: node_modules/react/lib/instantiateReactComponent.js */
-/**bandol> default export: instantiateReactComponent */
-/**bandol> exports: - */
 
-var bAge = function () {};
-assign(bAge.prototype, ReactCompositeComponent.Mixin, {
+var bvNp = function () {};
+assign(bvNp.prototype, ReactCompositeComponent.Mixin, {
   _instantiateReactComponent: instantiateReactComponent
 });
 
-function b36V(owner) {
+function bagV(owner) {
   if (owner) {
     var name = owner.getName();
     if (name) {
@@ -2805,7 +2719,7 @@ function b36V(owner) {
   return '';
 }
 
-function bp3E(type) {
+function b2ly(type) {
   return typeof type === 'function' && typeof type.prototype !== 'undefined' && typeof type.prototype.mountComponent === 'function' && typeof type.prototype.receiveComponent === 'function';
 }
 
@@ -2816,14 +2730,14 @@ function instantiateReactComponent(node) {
     instance = new ReactEmptyComponent(instantiateReactComponent);
   } else if (typeof node === 'object') {
     var element = node;
-    !(element && (typeof element.type === 'function' || typeof element.type === 'string')) ? 'production' !== 'production' ? invariant(false, 'Element type is invalid: expected a string (for built-in components) ' + 'or a class/function (for composite components) but got: %s.%s', element.type == null ? element.type : typeof element.type, b36V(element._owner)) : invariant(false) : undefined;
+    !(element && (typeof element.type === 'function' || typeof element.type === 'string')) ? 'production' !== 'production' ? invariant(false, 'Element type is invalid: expected a string (for built-in components) ' + 'or a class/function (for composite components) but got: %s.%s', element.type == null ? element.type : typeof element.type, bagV(element._owner)) : invariant(false) : undefined;
 
     if (typeof element.type === 'string') {
       instance = ReactNativeComponent.createInternalComponent(element);
-    } else if (bp3E(element.type)) {
+    } else if (b2ly(element.type)) {
       instance = new element.type(element);
     } else {
-      instance = new bAge();
+      instance = new bvNp();
     }
   } else if (typeof node === 'string' || typeof node === 'number') {
     instance = ReactNativeComponent.createInstanceForText(node);
@@ -2839,10 +2753,8 @@ function instantiateReactComponent(node) {
   return instance;
 }
 /**bandol> resource: node_modules/react/lib/ReactServerRenderingTransaction.js */
-/**bandol> default export: ReactServerRenderingTransaction */
-/**bandol> exports: - */
 
-var bM2k = {
+var bmLz = {
   initialize: function () {
     this.reactMountReady.reset();
   },
@@ -2850,7 +2762,7 @@ var bM2k = {
   close: emptyFunction
 };
 
-var b6gr = [bM2k];
+var bnLK = [bmLz];
 
 function ReactServerRenderingTransaction(renderToStaticMarkup) {
   this.reinitializeTransaction();
@@ -2859,9 +2771,9 @@ function ReactServerRenderingTransaction(renderToStaticMarkup) {
   this.useCreateElement = false;
 }
 
-var bZRR = {
+var bz6b = {
   getTransactionWrappers: function () {
-    return b6gr;
+    return bnLK;
   },
 
   getReactMountReady: function () {
@@ -2874,12 +2786,10 @@ var bZRR = {
   }
 };
 
-assign(ReactServerRenderingTransaction.prototype, Transaction.Mixin, bZRR);
+assign(ReactServerRenderingTransaction.prototype, Transaction.Mixin, bz6b);
 
 PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 /**bandol> resource: node_modules/react/lib/ReactServerBatchingStrategy.js */
-/**bandol> default export: ReactServerBatchingStrategy */
-/**bandol> exports: - */
 
 
 var ReactServerBatchingStrategy = {
@@ -2887,11 +2797,9 @@ var ReactServerBatchingStrategy = {
   batchedUpdates: function (callback) {}
 };
 /**bandol> resource: node_modules/react/lib/adler32.js */
-/**bandol> default export: adler32 */
-/**bandol> exports: - */
 
 
-var bgv3 = 65521;
+var bp3E = 65521;
 
 function adler32(data) {
   var a = 1;
@@ -2903,22 +2811,20 @@ function adler32(data) {
     for (; i < Math.min(i + 4096, m); i += 4) {
       b += (a += data.charCodeAt(i)) + (a += data.charCodeAt(i + 1)) + (a += data.charCodeAt(i + 2)) + (a += data.charCodeAt(i + 3));
     }
-    a %= bgv3;
-    b %= bgv3;
+    a %= bp3E;
+    b %= bp3E;
   }
   for (; i < l; i++) {
     b += a += data.charCodeAt(i);
   }
-  a %= bgv3;
-  b %= bgv3;
+  a %= bp3E;
+  b %= bp3E;
   return a | b << 16;
 }
 /**bandol> resource: node_modules/react/lib/ReactMarkupChecksum.js */
-/**bandol> default export: ReactMarkupChecksum */
-/**bandol> exports: - */
 
 
-var bVQv = /\/?>/;
+var b36V = /\/?>/;
 
 var ReactMarkupChecksum = {
   CHECKSUM_ATTR_NAME: 'data-react-checksum',
@@ -2926,7 +2832,7 @@ var ReactMarkupChecksum = {
   addChecksumToMarkup: function (markup) {
     var checksum = adler32(markup);
 
-    return markup.replace(bVQv, ' ' + ReactMarkupChecksum.CHECKSUM_ATTR_NAME + '="' + checksum + '"$&');
+    return markup.replace(b36V, ' ' + ReactMarkupChecksum.CHECKSUM_ATTR_NAME + '="' + checksum + '"$&');
   },
 
   canReuseMarkup: function (markup, element) {
@@ -2937,35 +2843,33 @@ var ReactMarkupChecksum = {
   }
 };
 /**bandol> resource: node_modules/react/lib/ReactDefaultBatchingStrategy.js */
-/**bandol> default export: ReactDefaultBatchingStrategy */
-/**bandol> exports: - */
 
 
-var bKv2 = {
+var bgv3 = {
   initialize: emptyFunction,
   close: function () {
     ReactDefaultBatchingStrategy.isBatchingUpdates = false;
   }
 };
 
-var b4yp = {
+var bM2k = {
   initialize: emptyFunction,
   close: ReactUpdates.flushBatchedUpdates.bind(ReactUpdates)
 };
 
-var bG2p = [b4yp, bKv2];
+var b6gr = [bM2k, bgv3];
 
-function bbZ3() {
+function bZRR() {
   this.reinitializeTransaction();
 }
 
-assign(bbZ3.prototype, Transaction.Mixin, {
+assign(bZRR.prototype, Transaction.Mixin, {
   getTransactionWrappers: function () {
-    return bG2p;
+    return b6gr;
   }
 });
 
-var blev = new bbZ3();
+var bAge = new bZRR();
 
 var ReactDefaultBatchingStrategy = {
   isBatchingUpdates: false,
@@ -2978,15 +2882,13 @@ var ReactDefaultBatchingStrategy = {
     if (alreadyBatchingUpdates) {
       callback(a, b, c, d, e);
     } else {
-      blev.perform(callback, null, a, b, c, d, e);
+      bAge.perform(callback, null, a, b, c, d, e);
     }
   }
 };
 /**bandol> resource: node_modules/react/lib/ReactServerRendering.js */
-/**bandol> default export: ReactServerRendering */
-/**bandol> exports: - */
 
-function bXOp(element) {
+function blev(element) {
   !ReactElement.isValidElement(element) ? 'production' !== 'production' ? invariant(false, 'renderToString(): You must pass a valid ReactElement.') : invariant(false) : undefined;
 
   var transaction;
@@ -3008,7 +2910,7 @@ function bXOp(element) {
   }
 }
 
-function bRpP(element) {
+function bVQv(element) {
   !ReactElement.isValidElement(element) ? 'production' !== 'production' ? invariant(false, 'renderToStaticMarkup(): You must pass a valid ReactElement.') : invariant(false) : undefined;
 
   var transaction;
@@ -3029,20 +2931,18 @@ function bRpP(element) {
   }
 }
 
-var ReactServerRendering = {
-  renderToString: bXOp,
-  renderToStaticMarkup: bRpP
+var bPq = {
+  renderToString: blev,
+  renderToStaticMarkup: bVQv
 };
 /**bandol> resource: node_modules/react/lib/DOMProperty.js */
-/**bandol> default export: DOMProperty */
-/**bandol> exports: - */
 
 
-function bQAm(value, bitmask) {
+function b4yp(value, bitmask) {
   return (value & bitmask) === bitmask;
 }
 
-var bPZO = {
+var bG2p = {
   MUST_USE_ATTRIBUTE: 0x1,
   MUST_USE_PROPERTY: 0x2,
   HAS_SIDE_EFFECTS: 0x4,
@@ -3052,7 +2952,7 @@ var bPZO = {
   HAS_OVERLOADED_BOOLEAN_VALUE: 0x40,
 
   injectDOMPropertyConfig: function (domPropertyConfig) {
-    var Injection = bPZO;
+    var Injection = bG2p;
     var Properties = domPropertyConfig.Properties || {};
     var DOMAttributeNamespaces = domPropertyConfig.DOMAttributeNamespaces || {};
     var DOMAttributeNames = domPropertyConfig.DOMAttributeNames || {};
@@ -3075,13 +2975,13 @@ var bPZO = {
         propertyName: propName,
         mutationMethod: null,
 
-        mustUseAttribute: bQAm(propConfig, Injection.MUST_USE_ATTRIBUTE),
-        mustUseProperty: bQAm(propConfig, Injection.MUST_USE_PROPERTY),
-        hasSideEffects: bQAm(propConfig, Injection.HAS_SIDE_EFFECTS),
-        hasBooleanValue: bQAm(propConfig, Injection.HAS_BOOLEAN_VALUE),
-        hasNumericValue: bQAm(propConfig, Injection.HAS_NUMERIC_VALUE),
-        hasPositiveNumericValue: bQAm(propConfig, Injection.HAS_POSITIVE_NUMERIC_VALUE),
-        hasOverloadedBooleanValue: bQAm(propConfig, Injection.HAS_OVERLOADED_BOOLEAN_VALUE)
+        mustUseAttribute: b4yp(propConfig, Injection.MUST_USE_ATTRIBUTE),
+        mustUseProperty: b4yp(propConfig, Injection.MUST_USE_PROPERTY),
+        hasSideEffects: b4yp(propConfig, Injection.HAS_SIDE_EFFECTS),
+        hasBooleanValue: b4yp(propConfig, Injection.HAS_BOOLEAN_VALUE),
+        hasNumericValue: b4yp(propConfig, Injection.HAS_NUMERIC_VALUE),
+        hasPositiveNumericValue: b4yp(propConfig, Injection.HAS_POSITIVE_NUMERIC_VALUE),
+        hasOverloadedBooleanValue: b4yp(propConfig, Injection.HAS_OVERLOADED_BOOLEAN_VALUE)
       };
 
       !(!propertyInfo.mustUseAttribute || !propertyInfo.mustUseProperty) ? 'production' !== 'production' ? invariant(false, 'DOMProperty: Cannot require using both attribute and property: %s', propName) : invariant(false) : undefined;
@@ -3109,7 +3009,7 @@ var bPZO = {
     }
   }
 };
-var bxMx = {};
+var bbZ3 = {};
 
 var DOMProperty = {
 
@@ -3132,10 +3032,10 @@ var DOMProperty = {
   },
 
   getDefaultValueForProperty: function (nodeName, prop) {
-    var nodeDefaults = bxMx[nodeName];
+    var nodeDefaults = bbZ3[nodeName];
     var testElement;
     if (!nodeDefaults) {
-      bxMx[nodeName] = nodeDefaults = {};
+      bbZ3[nodeName] = nodeDefaults = {};
     }
     if (!(prop in nodeDefaults)) {
       testElement = document.createElement(nodeName);
@@ -3144,88 +3044,86 @@ var DOMProperty = {
     return nodeDefaults[prop];
   },
 
-  injection: bPZO
+  injection: bG2p
 };
 /**bandol> resource: node_modules/react/lib/SVGDOMPropertyConfig.js */
-/**bandol> default export: SVGDOMPropertyConfig */
-/**bandol> exports: - */
 
 
-var bVB8 = DOMProperty.injection.MUST_USE_ATTRIBUTE;
+var bRpP = DOMProperty.injection.MUST_USE_ATTRIBUTE;
 
-var brr3 = {
+var bKv2 = {
   xlink: 'http://www.w3.org/1999/xlink',
   xml: 'http://www.w3.org/XML/1998/namespace'
 };
 
 var SVGDOMPropertyConfig = {
   Properties: {
-    clipPath: bVB8,
-    cx: bVB8,
-    cy: bVB8,
-    d: bVB8,
-    dx: bVB8,
-    dy: bVB8,
-    fill: bVB8,
-    fillOpacity: bVB8,
-    fontFamily: bVB8,
-    fontSize: bVB8,
-    fx: bVB8,
-    fy: bVB8,
-    gradientTransform: bVB8,
-    gradientUnits: bVB8,
-    markerEnd: bVB8,
-    markerMid: bVB8,
-    markerStart: bVB8,
-    offset: bVB8,
-    opacity: bVB8,
-    patternContentUnits: bVB8,
-    patternUnits: bVB8,
-    points: bVB8,
-    preserveAspectRatio: bVB8,
-    r: bVB8,
-    rx: bVB8,
-    ry: bVB8,
-    spreadMethod: bVB8,
-    stopColor: bVB8,
-    stopOpacity: bVB8,
-    stroke: bVB8,
-    strokeDasharray: bVB8,
-    strokeLinecap: bVB8,
-    strokeOpacity: bVB8,
-    strokeWidth: bVB8,
-    textAnchor: bVB8,
-    transform: bVB8,
-    version: bVB8,
-    viewBox: bVB8,
-    x1: bVB8,
-    x2: bVB8,
-    x: bVB8,
-    xlinkActuate: bVB8,
-    xlinkArcrole: bVB8,
-    xlinkHref: bVB8,
-    xlinkRole: bVB8,
-    xlinkShow: bVB8,
-    xlinkTitle: bVB8,
-    xlinkType: bVB8,
-    xmlBase: bVB8,
-    xmlLang: bVB8,
-    xmlSpace: bVB8,
-    y1: bVB8,
-    y2: bVB8,
-    y: bVB8
+    clipPath: bRpP,
+    cx: bRpP,
+    cy: bRpP,
+    d: bRpP,
+    dx: bRpP,
+    dy: bRpP,
+    fill: bRpP,
+    fillOpacity: bRpP,
+    fontFamily: bRpP,
+    fontSize: bRpP,
+    fx: bRpP,
+    fy: bRpP,
+    gradientTransform: bRpP,
+    gradientUnits: bRpP,
+    markerEnd: bRpP,
+    markerMid: bRpP,
+    markerStart: bRpP,
+    offset: bRpP,
+    opacity: bRpP,
+    patternContentUnits: bRpP,
+    patternUnits: bRpP,
+    points: bRpP,
+    preserveAspectRatio: bRpP,
+    r: bRpP,
+    rx: bRpP,
+    ry: bRpP,
+    spreadMethod: bRpP,
+    stopColor: bRpP,
+    stopOpacity: bRpP,
+    stroke: bRpP,
+    strokeDasharray: bRpP,
+    strokeLinecap: bRpP,
+    strokeOpacity: bRpP,
+    strokeWidth: bRpP,
+    textAnchor: bRpP,
+    transform: bRpP,
+    version: bRpP,
+    viewBox: bRpP,
+    x1: bRpP,
+    x2: bRpP,
+    x: bRpP,
+    xlinkActuate: bRpP,
+    xlinkArcrole: bRpP,
+    xlinkHref: bRpP,
+    xlinkRole: bRpP,
+    xlinkShow: bRpP,
+    xlinkTitle: bRpP,
+    xlinkType: bRpP,
+    xmlBase: bRpP,
+    xmlLang: bRpP,
+    xmlSpace: bRpP,
+    y1: bRpP,
+    y2: bRpP,
+    y: bRpP
   },
   DOMAttributeNamespaces: {
-    xlinkActuate: brr3.xlink,
-    xlinkArcrole: brr3.xlink,
-    xlinkHref: brr3.xlink,
-    xlinkRole: brr3.xlink,
-    xlinkShow: brr3.xlink,
-    xlinkTitle: brr3.xlink,
-    xlinkType: brr3.xlink,
-    xmlBase: brr3.xml,
-    xmlLang: brr3.xml,
-    xmlSpace: brr3.xml
+    xlinkActuate: bKv2.xlink,
+    xlinkArcrole: bKv2.xlink,
+    xlinkHref: bKv2.xlink,
+    xlinkRole: bKv2.xlink,
+    xlinkShow: bKv2.xlink,
+    xlinkTitle: bKv2.xlink,
+    xlinkType: bKv2.xlink,
+    xmlBase: bKv2.xml,
+    xmlLang: bKv2.xml,
+    xmlSpace: bKv2.xml
   },
   DOMAttributeNames: {
     clipPath: 'clip-path',
@@ -3262,8 +3160,6 @@ var SVGDOMPropertyConfig = {
   }
 };
 /**bandol> resource: node_modules/react/lib/getEventCharCode.js */
-/**bandol> default export: getEventCharCode */
-/**bandol> exports: - */
 
 function getEventCharCode(nativeEvent) {
   var charCode;
@@ -3286,33 +3182,29 @@ function getEventCharCode(nativeEvent) {
   return 0;
 }
 /**bandol> resource: node_modules/react/lib/getEventModifierState.js */
-/**bandol> default export: getEventModifierState */
-/**bandol> exports: - */
 
 
-var bbBz = {
+var bxMx = {
   'Alt': 'altKey',
   'Control': 'ctrlKey',
   'Meta': 'metaKey',
   'Shift': 'shiftKey'
 };
 
-function blrg(keyArg) {
+function bXOp(keyArg) {
   var syntheticEvent = this;
   var nativeEvent = syntheticEvent.nativeEvent;
   if (nativeEvent.getModifierState) {
     return nativeEvent.getModifierState(keyArg);
   }
-  var keyProp = bbBz[keyArg];
+  var keyProp = bxMx[keyArg];
   return keyProp ? !!nativeEvent[keyProp] : false;
 }
 
 function getEventModifierState(nativeEvent) {
-  return blrg;
+  return bXOp;
 }
 /**bandol> resource: node_modules/react/lib/ViewportMetrics.js */
-/**bandol> default export: ViewportMetrics */
-/**bandol> exports: - */
 
 
 var ViewportMetrics = {
@@ -3328,8 +3220,6 @@ var ViewportMetrics = {
 
 };
 /**bandol> resource: node_modules/react/lib/getEventTarget.js */
-/**bandol> default export: getEventTarget */
-/**bandol> exports: - */
 
 function getEventTarget(nativeEvent) {
   var target = nativeEvent.target || nativeEvent.srcElement || window;
@@ -3337,10 +3227,8 @@ function getEventTarget(nativeEvent) {
   return target.nodeType === 3 ? target.parentNode : target;
 }
 /**bandol> resource: node_modules/react/lib/SyntheticEvent.js */
-/**bandol> default export: SyntheticEvent */
-/**bandol> exports: - */
 
-var bGey = {
+var bPZO = {
   type: null,
   target: null,
 
@@ -3437,7 +3325,7 @@ assign(SyntheticEvent.prototype, {
 
 });
 
-SyntheticEvent.Interface = bGey;
+SyntheticEvent.Interface = bPZO;
 
 SyntheticEvent.augmentClass = function (Class, Interface) {
   var Super = this;
@@ -3455,10 +3343,8 @@ SyntheticEvent.augmentClass = function (Class, Interface) {
 
 PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
 /**bandol> resource: node_modules/react/lib/SyntheticUIEvent.js */
-/**bandol> default export: SyntheticUIEvent */
-/**bandol> exports: - */
 
-var b4y3 = {
+var bQAm = {
   view: function (event) {
     if (event.view) {
       return event.view;
@@ -3486,12 +3372,10 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticUIEvent, b4y3);
+SyntheticEvent.augmentClass(SyntheticUIEvent, bQAm);
 /**bandol> resource: node_modules/react/lib/SyntheticMouseEvent.js */
-/**bandol> default export: SyntheticMouseEvent */
-/**bandol> exports: - */
 
-var bKvr = {
+var brr3 = {
   screenX: null,
   screenY: null,
   clientX: null,
@@ -3526,12 +3410,10 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticMouseEvent, bKvr);
+SyntheticUIEvent.augmentClass(SyntheticMouseEvent, brr3);
 /**bandol> resource: node_modules/react/lib/SyntheticWheelEvent.js */
-/**bandol> default export: SyntheticWheelEvent */
-/**bandol> exports: - */
 
-var bRp9 = {
+var bVB8 = {
   deltaX: function (event) {
     return 'deltaX' in event ? event.deltaX : 'wheelDeltaX' in event ? -event.wheelDeltaX : 0;
   },
@@ -3547,12 +3429,10 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, bRp9);
+SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, bVB8);
 /**bandol> resource: node_modules/react/lib/SyntheticTouchEvent.js */
-/**bandol> default export: SyntheticTouchEvent */
-/**bandol> exports: - */
 
-var bXO3 = {
+var blrg = {
   touches: null,
   targetTouches: null,
   changedTouches: null,
@@ -3567,12 +3447,10 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticTouchEvent, bXO3);
+SyntheticUIEvent.augmentClass(SyntheticTouchEvent, blrg);
 /**bandol> resource: node_modules/react/lib/SyntheticDragEvent.js */
-/**bandol> default export: SyntheticDragEvent */
-/**bandol> exports: - */
 
-var bxMV = {
+var bbBz = {
   dataTransfer: null
 };
 
@@ -3580,12 +3458,10 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
   SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticMouseEvent.augmentClass(SyntheticDragEvent, bxMV);
+SyntheticMouseEvent.augmentClass(SyntheticDragEvent, bbBz);
 /**bandol> resource: node_modules/react/lib/getEventKey.js */
-/**bandol> default export: getEventKey */
-/**bandol> exports: - */
 
-var bQAd = {
+var b4y3 = {
   'Esc': 'Escape',
   'Spacebar': ' ',
   'Left': 'ArrowLeft',
@@ -3600,7 +3476,7 @@ var bQAd = {
   'MozPrintableKey': 'Unidentified'
 };
 
-var bPZ5 = {
+var bGey = {
   8: 'Backspace',
   9: 'Tab',
   12: 'Clear',
@@ -3631,7 +3507,7 @@ var bPZ5 = {
 
 function getEventKey(nativeEvent) {
   if (nativeEvent.key) {
-    var key = bQAd[nativeEvent.key] || nativeEvent.key;
+    var key = b4y3[nativeEvent.key] || nativeEvent.key;
     if (key !== 'Unidentified') {
       return key;
     }
@@ -3643,15 +3519,13 @@ function getEventKey(nativeEvent) {
     return charCode === 13 ? 'Enter' : String.fromCharCode(charCode);
   }
   if (nativeEvent.type === 'keydown' || nativeEvent.type === 'keyup') {
-    return bPZ5[nativeEvent.keyCode] || 'Unidentified';
+    return bGey[nativeEvent.keyCode] || 'Unidentified';
   }
   return '';
 }
 /**bandol> resource: node_modules/react/lib/SyntheticKeyboardEvent.js */
-/**bandol> default export: SyntheticKeyboardEvent */
-/**bandol> exports: - */
 
-var brrx = {
+var bKvr = {
   key: getEventKey,
   location: null,
   ctrlKey: null,
@@ -3689,12 +3563,10 @@ function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nat
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, brrx);
+SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, bKvr);
 /**bandol> resource: node_modules/react/lib/SyntheticFocusEvent.js */
-/**bandol> default export: SyntheticFocusEvent */
-/**bandol> exports: - */
 
-var by4Q = {
+var bRp9 = {
   relatedTarget: null
 };
 
@@ -3702,12 +3574,10 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticFocusEvent, by4Q);
+SyntheticUIEvent.augmentClass(SyntheticFocusEvent, bRp9);
 /**bandol> resource: node_modules/react/lib/SyntheticClipboardEvent.js */
-/**bandol> default export: SyntheticClipboardEvent */
-/**bandol> exports: - */
 
-var bqRO = {
+var bXO3 = {
   clipboardData: function (event) {
     return 'clipboardData' in event ? event.clipboardData : window.clipboardData;
   }
@@ -3717,32 +3587,28 @@ function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, na
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticClipboardEvent, bqRO);
+SyntheticEvent.augmentClass(SyntheticClipboardEvent, bXO3);
 /**bandol> resource: node_modules/fbjs/lib/ExecutionEnvironment.js */
-/**bandol> default export: ExecutionEnvironment */
-/**bandol> exports: - */
 
 
-var bJpQ = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+var bxMV = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 var ExecutionEnvironment = {
 
-  canUseDOM: bJpQ,
+  canUseDOM: bxMV,
 
   canUseWorkers: typeof Worker !== 'undefined',
 
-  canUseEventListeners: bJpQ && !!(window.addEventListener || window.attachEvent),
+  canUseEventListeners: bxMV && !!(window.addEventListener || window.attachEvent),
 
-  canUseViewport: bJpQ && !!window.screen,
+  canUseViewport: bxMV && !!window.screen,
 
-  isInWorker: !bJpQ };
+  isInWorker: !bxMV };
 /**bandol> resource: node_modules/react/lib/setInnerHTML.js */
-/**bandol> default export: setInnerHTML */
-/**bandol> exports: - */
 
 
-var bwR2 = /^[ \r\n\t\f]/;
-var bkRQ = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
+var brrx = /^[ \r\n\t\f]/;
+var bQAd = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
 var setInnerHTML = function (node, html) {
   node.innerHTML = html;
@@ -3757,15 +3623,15 @@ if (typeof MSApp !== 'undefined' && MSApp.execUnsafeLocalFunction) {
 }
 
 if (ExecutionEnvironment.canUseDOM) {
-  var b5MZ = document.createElement('div');
-  b5MZ.innerHTML = ' ';
-  if (b5MZ.innerHTML === '') {
+  var bPZ5 = document.createElement('div');
+  bPZ5.innerHTML = ' ';
+  if (bPZ5.innerHTML === '') {
     setInnerHTML = function (node, html) {
       if (node.parentNode) {
         node.parentNode.replaceChild(node, node);
       }
 
-      if (bwR2.test(html) || html[0] === '<' && bkRQ.test(html)) {
+      if (brrx.test(html) || html[0] === '<' && bQAd.test(html)) {
         node.innerHTML = String.fromCharCode(0xFEFF) + html;
 
         var textNode = node.firstChild;
@@ -3781,23 +3647,17 @@ if (ExecutionEnvironment.canUseDOM) {
   }
 }
 /**bandol> resource: node_modules/fbjs/lib/isNode.js */
-/**bandol> default export: isNode */
-/**bandol> exports: - */
 
 
 function isNode(object) {
   return !!(object && (typeof Node === 'function' ? object instanceof Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
 }
 /**bandol> resource: node_modules/fbjs/lib/isTextNode.js */
-/**bandol> default export: isTextNode */
-/**bandol> exports: - */
 
 function isTextNode(object) {
   return isNode(object) && object.nodeType == 3;
 }
 /**bandol> resource: node_modules/fbjs/lib/containsNode.js */
-/**bandol> default export: containsNode */
-/**bandol> exports: - */
 
 function containsNode(_x, _x2) {
   var _again = true;
@@ -3828,21 +3688,17 @@ function containsNode(_x, _x2) {
   }
 }
 /**bandol> resource: node_modules/react/lib/ReactDOMFeatureFlags.js */
-/**bandol> default export: ReactDOMFeatureFlags */
-/**bandol> exports: - */
 
 
 var ReactDOMFeatureFlags = {
   useCreateElement: false
 };
 /**bandol> resource: node_modules/react/lib/isEventSupported.js */
-/**bandol> default export: isEventSupported */
-/**bandol> exports: - */
 
 
-var b1v8;
+var by4Q;
 if (ExecutionEnvironment.canUseDOM) {
-  b1v8 = document.implementation && document.implementation.hasFeature && document.implementation.hasFeature('', '') !== true;
+  by4Q = document.implementation && document.implementation.hasFeature && document.implementation.hasFeature('', '') !== true;
 }
 
 /**
@@ -3873,15 +3729,13 @@ function isEventSupported(eventNameSuffix, capture) {
     isSupported = typeof element[eventName] === 'function';
   }
 
-  if (!isSupported && b1v8 && eventNameSuffix === 'wheel') {
+  if (!isSupported && by4Q && eventNameSuffix === 'wheel') {
     isSupported = document.implementation.hasFeature('Events.wheel', '3.0');
   }
 
   return isSupported;
 }
 /**bandol> resource: node_modules/react/lib/forEachAccumulated.js */
-/**bandol> default export: forEachAccumulated */
-/**bandol> exports: - */
 
 var forEachAccumulated = function (arr, cb, scope) {
   if (Array.isArray(arr)) {
@@ -3891,8 +3745,6 @@ var forEachAccumulated = function (arr, cb, scope) {
   }
 };
 /**bandol> resource: node_modules/react/lib/accumulateInto.js */
-/**bandol> default export: accumulateInto */
-/**bandol> exports: - */
 
 
 function accumulateInto(current, next) {
@@ -3921,44 +3773,40 @@ function accumulateInto(current, next) {
   return [current, next];
 }
 /**bandol> resource: node_modules/react/lib/ReactErrorUtils.js */
-/**bandol> default export: ReactErrorUtils */
-/**bandol> exports: - */
 
 
-var bL3O = null;
+var bJpQ = null;
 
-function b0dg(name, func, a, b) {
+function bqRO(name, func, a, b) {
   try {
     return func(a, b);
   } catch (x) {
-    if (bL3O === null) {
-      bL3O = x;
+    if (bJpQ === null) {
+      bJpQ = x;
     }
     return undefined;
   }
 }
 
 var ReactErrorUtils = {
-  invokeGuardedCallback: b0dg,
+  invokeGuardedCallback: bqRO,
 
-  invokeGuardedCallbackWithCatch: b0dg,
+  invokeGuardedCallbackWithCatch: bqRO,
 
   rethrowCaughtError: function () {
-    if (bL3O) {
-      var error = bL3O;
-      bL3O = null;
+    if (bJpQ) {
+      var error = bJpQ;
+      bJpQ = null;
       throw error;
     }
   }
 };
 /**bandol> resource: node_modules/react/lib/EventConstants.js */
-/**bandol> default export: EventConstants */
-/**bandol> exports: - */
 
 
-var bEO0 = keyMirror({ bubbled: null, captured: null });
+var bkRQ = keyMirror({ bubbled: null, captured: null });
 
-var b7Qd = keyMirror({
+var b5MZ = keyMirror({
   topAbort: null,
   topBlur: null,
   topCanPlay: null,
@@ -4025,36 +3873,34 @@ var b7Qd = keyMirror({
 });
 
 var EventConstants = {
-  topLevelTypes: b7Qd,
-  PropagationPhases: bEO0
+  topLevelTypes: b5MZ,
+  PropagationPhases: bkRQ
 };
 /**bandol> resource: node_modules/react/lib/EventPluginUtils.js */
-/**bandol> default export: EventPluginUtils */
-/**bandol> exports: - */
 
-var bvXV = {
+var bO7g = {
   Mount: null,
   injectMount: function (InjectedMount) {
-    bvXV.Mount = InjectedMount;
+    bO7g.Mount = InjectedMount;
   }
 };
 
-var baOJ = EventConstants.topLevelTypes;
+var b8P6 = EventConstants.topLevelTypes;
 
-function b2ML(topLevelType) {
-  return topLevelType === baOJ.topMouseUp || topLevelType === baOJ.topTouchEnd || topLevelType === baOJ.topTouchCancel;
+function bNVw(topLevelType) {
+  return topLevelType === b8P6.topMouseUp || topLevelType === b8P6.topTouchEnd || topLevelType === b8P6.topTouchCancel;
 }
 
-function beyn(topLevelType) {
-  return topLevelType === baOJ.topMouseMove || topLevelType === baOJ.topTouchMove;
+function bdB9(topLevelType) {
+  return topLevelType === b8P6.topMouseMove || topLevelType === b8P6.topTouchMove;
 }
-function bBee(topLevelType) {
-  return topLevelType === baOJ.topMouseDown || topLevelType === baOJ.topTouchStart;
+function b9xZ(topLevelType) {
+  return topLevelType === b8P6.topMouseDown || topLevelType === b8P6.topTouchStart;
 }
 
-function bYzX(event, simulated, listener, domID) {
+function bEO0(event, simulated, listener, domID) {
   var type = event.type || 'unknown-event';
-  event.currentTarget = bvXV.Mount.getNode(domID);
+  event.currentTarget = bO7g.Mount.getNode(domID);
   if (simulated) {
     ReactErrorUtils.invokeGuardedCallbackWithCatch(type, listener, event, domID);
   } else {
@@ -4063,7 +3909,7 @@ function bYzX(event, simulated, listener, domID) {
   event.currentTarget = null;
 }
 
-function bO7g(event, simulated) {
+function b7Qd(event, simulated) {
   var dispatchListeners = event._dispatchListeners;
   var dispatchIDs = event._dispatchIDs;
 
@@ -4073,16 +3919,16 @@ function bO7g(event, simulated) {
         break;
       }
 
-      bYzX(event, simulated, dispatchListeners[i], dispatchIDs[i]);
+      bEO0(event, simulated, dispatchListeners[i], dispatchIDs[i]);
     }
   } else if (dispatchListeners) {
-    bYzX(event, simulated, dispatchListeners, dispatchIDs);
+    bEO0(event, simulated, dispatchListeners, dispatchIDs);
   }
   event._dispatchListeners = null;
   event._dispatchIDs = null;
 }
 
-function b8P6(event) {
+function bL3O(event) {
   var dispatchListeners = event._dispatchListeners;
   var dispatchIDs = event._dispatchIDs;
 
@@ -4104,14 +3950,14 @@ function b8P6(event) {
   return null;
 }
 
-function bNVw(event) {
-  var ret = b8P6(event);
+function b0dg(event) {
+  var ret = bL3O(event);
   event._dispatchIDs = null;
   event._dispatchListeners = null;
   return ret;
 }
 
-function bdB9(event) {
+function b1v8(event) {
   var dispatchListener = event._dispatchListeners;
   var dispatchID = event._dispatchIDs;
   !!Array.isArray(dispatchListener) ? 'production' !== 'production' ? invariant(false, 'executeDirectDispatch(...): Invalid `event`.') : invariant(false) : undefined;
@@ -4121,44 +3967,42 @@ function bdB9(event) {
   return res;
 }
 
-function b9xZ(event) {
+function bwR2(event) {
   return !!event._dispatchListeners;
 }
 
 var EventPluginUtils = {
-  isEndish: b2ML,
-  isMoveish: beyn,
-  isStartish: bBee,
+  isEndish: bNVw,
+  isMoveish: bdB9,
+  isStartish: b9xZ,
 
-  executeDirectDispatch: bdB9,
-  executeDispatchesInOrder: bO7g,
-  executeDispatchesInOrderStopAtTrue: bNVw,
-  hasDispatches: b9xZ,
+  executeDirectDispatch: b1v8,
+  executeDispatchesInOrder: b7Qd,
+  executeDispatchesInOrderStopAtTrue: b0dg,
+  hasDispatches: bwR2,
 
   getNode: function (id) {
-    return bvXV.Mount.getNode(id);
+    return bO7g.Mount.getNode(id);
   },
   getID: function (node) {
-    return bvXV.Mount.getID(node);
+    return bO7g.Mount.getID(node);
   },
 
-  injection: bvXV
+  injection: bO7g
 };
 /**bandol> resource: node_modules/react/lib/EventPluginRegistry.js */
-/**bandol> default export: EventPluginRegistry */
-/**bandol> exports: - */
 
-var b3Ng = null;
+var baOJ = null;
 
-var bpNm = {};
+var b2ML = {};
 
-function bmnx() {
-  if (!b3Ng) {
+function beyn() {
+  if (!baOJ) {
     return;
   }
-  for (var pluginName in bpNm) {
-    var PluginModule = bpNm[pluginName];
-    var pluginIndex = b3Ng.indexOf(pluginName);
+  for (var pluginName in b2ML) {
+    var PluginModule = b2ML[pluginName];
+    var pluginIndex = baOJ.indexOf(pluginName);
     !(pluginIndex > -1) ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject event plugins that do not exist in ' + 'the plugin ordering, `%s`.', pluginName) : invariant(false) : undefined;
     if (EventPluginRegistry.plugins[pluginIndex]) {
       continue;
@@ -4167,12 +4011,12 @@ function bmnx() {
     EventPluginRegistry.plugins[pluginIndex] = PluginModule;
     var publishedEvents = PluginModule.eventTypes;
     for (var eventName in publishedEvents) {
-      !bnPv(publishedEvents[eventName], PluginModule, eventName) ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Failed to publish event `%s` for plugin `%s`.', eventName, pluginName) : invariant(false) : undefined;
+      !bBee(publishedEvents[eventName], PluginModule, eventName) ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Failed to publish event `%s` for plugin `%s`.', eventName, pluginName) : invariant(false) : undefined;
     }
   }
 }
 
-function bnPv(dispatchConfig, PluginModule, eventName) {
+function bBee(dispatchConfig, PluginModule, eventName) {
   !!EventPluginRegistry.eventNameDispatchConfigs.hasOwnProperty(eventName) ? 'production' !== 'production' ? invariant(false, 'EventPluginHub: More than one plugin attempted to publish the same ' + 'event name, `%s`.', eventName) : invariant(false) : undefined;
   EventPluginRegistry.eventNameDispatchConfigs[eventName] = dispatchConfig;
 
@@ -4181,18 +4025,18 @@ function bnPv(dispatchConfig, PluginModule, eventName) {
     for (var phaseName in phasedRegistrationNames) {
       if (phasedRegistrationNames.hasOwnProperty(phaseName)) {
         var phasedRegistrationName = phasedRegistrationNames[phaseName];
-        bzzE(phasedRegistrationName, PluginModule, eventName);
+        bYzX(phasedRegistrationName, PluginModule, eventName);
       }
     }
     return true;
   } else if (dispatchConfig.registrationName) {
-    bzzE(dispatchConfig.registrationName, PluginModule, eventName);
+    bYzX(dispatchConfig.registrationName, PluginModule, eventName);
     return true;
   }
   return false;
 }
 
-function bzzE(registrationName, PluginModule, eventName) {
+function bYzX(registrationName, PluginModule, eventName) {
   !!EventPluginRegistry.registrationNameModules[registrationName] ? 'production' !== 'production' ? invariant(false, 'EventPluginHub: More than one plugin attempted to publish the same ' + 'registration name, `%s`.', registrationName) : invariant(false) : undefined;
   EventPluginRegistry.registrationNameModules[registrationName] = PluginModule;
   EventPluginRegistry.registrationNameDependencies[registrationName] = PluginModule.eventTypes[eventName].dependencies;
@@ -4208,10 +4052,10 @@ var EventPluginRegistry = {
   registrationNameDependencies: {},
 
   injectEventPluginOrder: function (InjectedEventPluginOrder) {
-    !!b3Ng ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject event plugin ordering more than ' + 'once. You are likely trying to load more than one copy of React.') : invariant(false) : undefined;
+    !!baOJ ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject event plugin ordering more than ' + 'once. You are likely trying to load more than one copy of React.') : invariant(false) : undefined;
 
-    b3Ng = Array.prototype.slice.call(InjectedEventPluginOrder);
-    bmnx();
+    baOJ = Array.prototype.slice.call(InjectedEventPluginOrder);
+    beyn();
   },
 
   injectEventPluginsByName: function (injectedNamesToPlugins) {
@@ -4221,14 +4065,14 @@ var EventPluginRegistry = {
         continue;
       }
       var PluginModule = injectedNamesToPlugins[pluginName];
-      if (!bpNm.hasOwnProperty(pluginName) || bpNm[pluginName] !== PluginModule) {
-        !!bpNm[pluginName] ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject two different event plugins ' + 'using the same name, `%s`.', pluginName) : invariant(false) : undefined;
-        bpNm[pluginName] = PluginModule;
+      if (!b2ML.hasOwnProperty(pluginName) || b2ML[pluginName] !== PluginModule) {
+        !!b2ML[pluginName] ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject two different event plugins ' + 'using the same name, `%s`.', pluginName) : invariant(false) : undefined;
+        b2ML[pluginName] = PluginModule;
         isOrderingDirty = true;
       }
     }
     if (isOrderingDirty) {
-      bmnx();
+      beyn();
     }
   },
 
@@ -4250,10 +4094,10 @@ var EventPluginRegistry = {
   },
 
   _resetEventPlugins: function () {
-    b3Ng = null;
-    for (var pluginName in bpNm) {
-      if (bpNm.hasOwnProperty(pluginName)) {
-        delete bpNm[pluginName];
+    baOJ = null;
+    for (var pluginName in b2ML) {
+      if (b2ML.hasOwnProperty(pluginName)) {
+        delete b2ML[pluginName];
       }
     }
     EventPluginRegistry.plugins.length = 0;
@@ -4275,14 +4119,12 @@ var EventPluginRegistry = {
 
 };
 /**bandol> resource: node_modules/react/lib/EventPluginHub.js */
-/**bandol> default export: EventPluginHub */
-/**bandol> exports: - */
 
-var bV38 = {};
+var b3Ng = {};
 
-var bgGK = null;
+var bpNm = null;
 
-var bMkZ = function (event, simulated) {
+var bmnx = function (event, simulated) {
   if (event) {
     EventPluginUtils.executeDispatchesInOrder(event, simulated);
 
@@ -4291,25 +4133,25 @@ var bMkZ = function (event, simulated) {
     }
   }
 };
-var b6QP = function (e) {
-  return bMkZ(e, true);
+var bnPv = function (e) {
+  return bmnx(e, true);
 };
-var bZPg = function (e) {
-  return bMkZ(e, false);
+var bzzE = function (e) {
+  return bmnx(e, false);
 };
 
-var bAVL = null;
+var bvXV = null;
 
 var EventPluginHub = {
   injection: {
     injectMount: EventPluginUtils.injection.injectMount,
 
     injectInstanceHandle: function (InjectedInstanceHandle) {
-      bAVL = InjectedInstanceHandle;
+      bvXV = InjectedInstanceHandle;
     },
 
     getInstanceHandle: function () {
-      return bAVL;
+      return bvXV;
     },
 
     injectEventPluginOrder: EventPluginRegistry.injectEventPluginOrder,
@@ -4325,7 +4167,7 @@ var EventPluginHub = {
   putListener: function (id, registrationName, listener) {
     !(typeof listener === 'function') ? 'production' !== 'production' ? invariant(false, 'Expected %s listener to be a function, instead got type %s', registrationName, typeof listener) : invariant(false) : undefined;
 
-    var bankForRegistrationName = bV38[registrationName] || (bV38[registrationName] = {});
+    var bankForRegistrationName = b3Ng[registrationName] || (b3Ng[registrationName] = {});
     bankForRegistrationName[id] = listener;
 
     var PluginModule = EventPluginRegistry.registrationNameModules[registrationName];
@@ -4335,7 +4177,7 @@ var EventPluginHub = {
   },
 
   getListener: function (id, registrationName) {
-    var bankForRegistrationName = bV38[registrationName];
+    var bankForRegistrationName = b3Ng[registrationName];
     return bankForRegistrationName && bankForRegistrationName[id];
   },
 
@@ -4345,7 +4187,7 @@ var EventPluginHub = {
       PluginModule.willDeleteListener(id, registrationName);
     }
 
-    var bankForRegistrationName = bV38[registrationName];
+    var bankForRegistrationName = b3Ng[registrationName];
 
     if (bankForRegistrationName) {
       delete bankForRegistrationName[id];
@@ -4353,8 +4195,8 @@ var EventPluginHub = {
   },
 
   deleteAllListeners: function (id) {
-    for (var registrationName in bV38) {
-      if (!bV38[registrationName][id]) {
+    for (var registrationName in b3Ng) {
+      if (!b3Ng[registrationName][id]) {
         continue;
       }
 
@@ -4363,7 +4205,7 @@ var EventPluginHub = {
         PluginModule.willDeleteListener(id, registrationName);
       }
 
-      delete bV38[registrationName][id];
+      delete b3Ng[registrationName][id];
     }
   },
 
@@ -4384,38 +4226,36 @@ var EventPluginHub = {
 
   enqueueEvents: function (events) {
     if (events) {
-      bgGK = accumulateInto(bgGK, events);
+      bpNm = accumulateInto(bpNm, events);
     }
   },
 
   processEventQueue: function (simulated) {
-    var processingEventQueue = bgGK;
-    bgGK = null;
+    var processingEventQueue = bpNm;
+    bpNm = null;
     if (simulated) {
-      forEachAccumulated(processingEventQueue, b6QP);
+      forEachAccumulated(processingEventQueue, bnPv);
     } else {
-      forEachAccumulated(processingEventQueue, bZPg);
+      forEachAccumulated(processingEventQueue, bzzE);
     }
-    !!bgGK ? 'production' !== 'production' ? invariant(false, 'processEventQueue(): Additional events were enqueued while processing ' + 'an event queue. Support for this has not yet been implemented.') : invariant(false) : undefined;
+    !!bpNm ? 'production' !== 'production' ? invariant(false, 'processEventQueue(): Additional events were enqueued while processing ' + 'an event queue. Support for this has not yet been implemented.') : invariant(false) : undefined;
 
     ReactErrorUtils.rethrowCaughtError();
   },
 
   __purge: function () {
-    bV38 = {};
+    b3Ng = {};
   },
 
   __getListenerBank: function () {
-    return bV38;
+    return b3Ng;
   }
 
 };
 /**bandol> resource: node_modules/react/lib/ReactEventEmitterMixin.js */
-/**bandol> default export: ReactEventEmitterMixin */
-/**bandol> exports: - */
 
 
-function blKg(events) {
+function bAVL(events) {
   EventPluginHub.enqueueEvents(events);
   EventPluginHub.processEventQueue(false);
 }
@@ -4423,19 +4263,17 @@ function blKg(events) {
 var ReactEventEmitterMixin = {
   handleTopLevel: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
     var events = EventPluginHub.extractEvents(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget);
-    blKg(events);
+    bAVL(events);
   }
 };
 /**bandol> resource: node_modules/react/lib/ReactBrowserEventEmitter.js */
-/**bandol> default export: ReactBrowserEventEmitter */
-/**bandol> exports: - */
 
 
-var bXr3 = {};
-var bRK9 = false;
-var bKer = 0;
+var blKg = {};
+var bV38 = false;
+var bgGK = 0;
 
-var b4O3 = {
+var bMkZ = {
   topAbort: 'abort',
   topBlur: 'blur',
   topCanPlay: 'canplay',
@@ -4498,14 +4336,14 @@ var b4O3 = {
   topWheel: 'wheel'
 };
 
-var bGVy = '_reactListenersID' + String(Math.random()).slice(2);
+var b6QP = '_reactListenersID' + String(Math.random()).slice(2);
 
-function bbkz(mountAt) {
-  if (!Object.prototype.hasOwnProperty.call(mountAt, bGVy)) {
-    mountAt[bGVy] = bKer++;
-    bXr3[mountAt[bGVy]] = {};
+function bZPg(mountAt) {
+  if (!Object.prototype.hasOwnProperty.call(mountAt, b6QP)) {
+    mountAt[b6QP] = bgGK++;
+    blKg[mountAt[b6QP]] = {};
   }
-  return bXr3[mountAt[bGVy]];
+  return blKg[mountAt[b6QP]];
 }
 
 var ReactBrowserEventEmitter = assign({}, ReactEventEmitterMixin, {
@@ -4530,7 +4368,7 @@ var ReactBrowserEventEmitter = assign({}, ReactEventEmitterMixin, {
 
   listenTo: function (registrationName, contentDocumentHandle) {
     var mountAt = contentDocumentHandle;
-    var isListening = bbkz(mountAt);
+    var isListening = bZPg(mountAt);
     var dependencies = EventPluginRegistry.registrationNameDependencies[registrationName];
 
     var topLevelTypes = EventConstants.topLevelTypes;
@@ -4564,8 +4402,8 @@ var ReactBrowserEventEmitter = assign({}, ReactEventEmitterMixin, {
 
           isListening[topLevelTypes.topBlur] = true;
           isListening[topLevelTypes.topFocus] = true;
-        } else if (b4O3.hasOwnProperty(dependency)) {
-          ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(dependency, b4O3[dependency], mountAt);
+        } else if (bMkZ.hasOwnProperty(dependency)) {
+          ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(dependency, bMkZ[dependency], mountAt);
         }
 
         isListening[dependency] = true;
@@ -4582,10 +4420,10 @@ var ReactBrowserEventEmitter = assign({}, ReactEventEmitterMixin, {
   },
 
   ensureScrollValueMonitoring: function () {
-    if (!bRK9) {
+    if (!bV38) {
       var refresh = ViewportMetrics.refreshScrollValues;
       ReactBrowserEventEmitter.ReactEventListener.monitorScrollValue(refresh);
-      bRK9 = true;
+      bV38 = true;
     }
   },
 
@@ -4608,26 +4446,24 @@ ReactPerf.measureMethods(ReactBrowserEventEmitter, 'ReactBrowserEventEmitter', {
   deleteListener: 'deleteListener'
 });
 /**bandol> resource: node_modules/react/lib/ReactMount.js */
-/**bandol> default export: ReactMount */
-/**bandol> exports: - */
 
 
-var bnkv = DOMProperty.ID_ATTRIBUTE_NAME;
-var bzYE = {};
-
-var bvYV = 1;
-var bapJ = 9;
-var b2aL = 11;
-
-var benn = '__ReactMount_ownerDocument$' + Math.random().toString(36).slice(2);
-
-var bBne = {};
-
+var bBne = DOMProperty.ID_ATTRIBUTE_NAME;
 var bYQX = {};
 
-var bO6g = [];
+var bO6g = 1;
+var b8x6 = 9;
+var bN0w = 11;
 
-function b8x6(string1, string2) {
+var bdJ9 = '__ReactMount_ownerDocument$' + Math.random().toString(36).slice(2);
+
+var b9XZ = {};
+
+var bEn0 = {};
+
+var b7Pd = [];
+
+function bLbO(string1, string2) {
   var minLen = Math.min(string1.length, string2.length);
   for (var i = 0; i < minLen; i++) {
     if (string1.charAt(i) !== string2.charAt(i)) {
@@ -4637,75 +4473,75 @@ function b8x6(string1, string2) {
   return string1.length === string2.length ? -1 : minLen;
 }
 
-function bN0w(container) {
+function b0Kg(container) {
   if (!container) {
     return null;
   }
 
-  if (container.nodeType === bapJ) {
+  if (container.nodeType === b8x6) {
     return container.documentElement;
   } else {
     return container.firstChild;
   }
 }
 
-function bdJ9(container) {
-  var rootElement = bN0w(container);
+function b148(container) {
+  var rootElement = b0Kg(container);
   return rootElement && ReactMount.getID(rootElement);
 }
 
-function b9XZ(node) {
-  var id = bEn0(node);
+function bwL2(node) {
+  var id = bkvQ(node);
   if (id) {
-    if (bzYE.hasOwnProperty(id)) {
-      var cached = bzYE[id];
+    if (bYQX.hasOwnProperty(id)) {
+      var cached = bYQX[id];
       if (cached !== node) {
-        !!b148(cached, id) ? 'production' !== 'production' ? invariant(false, 'ReactMount: Two valid but unequal nodes with the same `%s`: %s', bnkv, id) : invariant(false) : undefined;
+        !!byEQ(cached, id) ? 'production' !== 'production' ? invariant(false, 'ReactMount: Two valid but unequal nodes with the same `%s`: %s', bBne, id) : invariant(false) : undefined;
 
-        bzYE[id] = node;
+        bYQX[id] = node;
       }
     } else {
-      bzYE[id] = node;
+      bYQX[id] = node;
     }
   }
 
   return id;
 }
 
-function bEn0(node) {
-  return node && node.getAttribute && node.getAttribute(bnkv) || '';
+function bkvQ(node) {
+  return node && node.getAttribute && node.getAttribute(bBne) || '';
 }
 
-function b7Pd(node, id) {
-  var oldID = bEn0(node);
+function b5rZ(node, id) {
+  var oldID = bkvQ(node);
   if (oldID !== id) {
-    delete bzYE[oldID];
+    delete bYQX[oldID];
   }
-  node.setAttribute(bnkv, id);
-  bzYE[id] = node;
+  node.setAttribute(bBne, id);
+  bYQX[id] = node;
 }
 
-function bLbO(id) {
-  if (!bzYE.hasOwnProperty(id) || !b148(bzYE[id], id)) {
-    bzYE[id] = ReactMount.findReactNodeByID(id);
+function bJbQ(id) {
+  if (!bYQX.hasOwnProperty(id) || !byEQ(bYQX[id], id)) {
+    bYQX[id] = ReactMount.findReactNodeByID(id);
   }
-  return bzYE[id];
+  return bYQX[id];
 }
 
-function b0Kg(instance) {
+function bq8O(instance) {
   var id = ReactInstanceMap.get(instance)._rootNodeID;
   if (ReactEmptyComponentRegistry.isNullComponentID(id)) {
     return null;
   }
-  if (!bzYE.hasOwnProperty(id) || !b148(bzYE[id], id)) {
-    bzYE[id] = ReactMount.findReactNodeByID(id);
+  if (!bYQX.hasOwnProperty(id) || !byEQ(bYQX[id], id)) {
+    bYQX[id] = ReactMount.findReactNodeByID(id);
   }
-  return bzYE[id];
+  return bYQX[id];
 }
 
-function b148(node, id) {
+function byEQ(node, id) {
   if (node) {
-    !(bEn0(node) === id) ? 'production' !== 'production' ? invariant(false, 'ReactMount: Unexpected modification of `%s`', bnkv) : invariant(false) : undefined;
+    !(bkvQ(node) === id) ? 'production' !== 'production' ? invariant(false, 'ReactMount: Unexpected modification of `%s`', bBne) : invariant(false) : undefined;
 
     var container = ReactMount.findReactContainerForID(id);
     if (container && containsNode(container, node)) {
@@ -4716,36 +4552,36 @@ function b148(node, id) {
   return false;
 }
 
-function bwL2(id) {
-  delete bzYE[id];
+function br4x(id) {
+  delete bYQX[id];
 }
 
-var bkvQ = null;
-function b5rZ(ancestorID) {
-  var ancestor = bzYE[ancestorID];
-  if (ancestor && b148(ancestor, ancestorID)) {
-    bkvQ = ancestor;
+var bQLd = null;
+function bPM5(ancestorID) {
+  var ancestor = bYQX[ancestorID];
+  if (ancestor && byEQ(ancestor, ancestorID)) {
+    bQLd = ancestor;
   } else {
     return false;
   }
 }
 
-function bJbQ(targetID) {
-  bkvQ = null;
-  ReactInstanceHandles.traverseAncestors(targetID, b5rZ);
+function bx3V(targetID) {
+  bQLd = null;
+  ReactInstanceHandles.traverseAncestors(targetID, bPM5);
 
-  var foundNode = bkvQ;
-  bkvQ = null;
+  var foundNode = bQLd;
+  bQLd = null;
   return foundNode;
 }
 
-function bq8O(componentInstance, rootID, container, transaction, shouldReuseMarkup, context) {
+function bXr3(componentInstance, rootID, container, transaction, shouldReuseMarkup, context) {
   if (ReactDOMFeatureFlags.useCreateElement) {
     context = assign({}, context);
-    if (container.nodeType === bapJ) {
-      context[benn] = container;
+    if (container.nodeType === b8x6) {
+      context[bdJ9] = container;
     } else {
-      context[benn] = container.ownerDocument;
+      context[bdJ9] = container.ownerDocument;
     }
   }
 
@@ -4754,16 +4590,16 @@ function bq8O(componentInstance, rootID, container, transaction, shouldReuseMark
   ReactMount._mountImageIntoNode(markup, container, shouldReuseMarkup, transaction);
 }
 
-function byEQ(componentInstance, rootID, container, shouldReuseMarkup, context) {
+function bRK9(componentInstance, rootID, container, shouldReuseMarkup, context) {
   var transaction = ReactUpdates.ReactReconcileTransaction.getPooled(shouldReuseMarkup);
-  transaction.perform(bq8O, null, componentInstance, rootID, container, transaction, shouldReuseMarkup, context);
+  transaction.perform(bXr3, null, componentInstance, rootID, container, transaction, shouldReuseMarkup, context);
   ReactUpdates.ReactReconcileTransaction.release(transaction);
 }
 
-function br4x(instance, container) {
+function bKer(instance, container) {
   ReactReconciler.unmountComponent(instance);
 
-  if (container.nodeType === bapJ) {
+  if (container.nodeType === b8x6) {
     container = container.documentElement;
   }
 
@@ -4772,17 +4608,17 @@ function br4x(instance, container) {
   }
 }
 
-function bQLd(node) {
-  var reactRootID = bdJ9(node);
+function b4O3(node) {
+  var reactRootID = b148(node);
   return reactRootID ? reactRootID !== ReactInstanceHandles.getReactRootIDFromNodeID(reactRootID) : false;
 }
 
-function bPM5(node) {
+function bGVy(node) {
   for (; node && node.parentNode !== node; node = node.parentNode) {
     if (node.nodeType !== 1) {
       continue;
     }
-    var nodeID = bEn0(node);
+    var nodeID = bkvQ(node);
     if (!nodeID) {
       continue;
     }
@@ -4791,32 +4627,32 @@ function bPM5(node) {
     var current = node;
     var lastID;
     do {
-      lastID = bEn0(current);
+      lastID = bkvQ(current);
       current = current.parentNode;
       if (current == null) {
         return null;
       }
     } while (lastID !== reactRootID);
 
-    if (current === bYQX[reactRootID]) {
+    if (current === bEn0[reactRootID]) {
       return node;
     }
   }
   return null;
 }
 
-var bx3V = function () {};
-bx3V.prototype.isReactComponent = {};
+var bbkz = function () {};
+bbkz.prototype.isReactComponent = {};
 
-bx3V.prototype.render = function () {
+bbkz.prototype.render = function () {
   return this.props;
 };
 
 var ReactMount = {
 
-  TopLevelWrapper: bx3V,
+  TopLevelWrapper: bbkz,
 
-  _instancesByReactRootID: bBne,
+  _instancesByReactRootID: b9XZ,
 
   scrollMonitor: function (container, renderCallback) {
     renderCallback();
@@ -4834,12 +4670,12 @@ var ReactMount = {
   },
 
   _registerComponent: function (nextComponent, container) {
-    !(container && (container.nodeType === bvYV || container.nodeType === bapJ || container.nodeType === b2aL)) ? 'production' !== 'production' ? invariant(false, '_registerComponent(...): Target container is not a DOM element.') : invariant(false) : undefined;
+    !(container && (container.nodeType === bO6g || container.nodeType === b8x6 || container.nodeType === bN0w)) ? 'production' !== 'production' ? invariant(false, '_registerComponent(...): Target container is not a DOM element.') : invariant(false) : undefined;
 
     ReactBrowserEventEmitter.ensureScrollValueMonitoring();
 
     var reactRootID = ReactMount.registerContainer(container);
-    bBne[reactRootID] = nextComponent;
+    b9XZ[reactRootID] = nextComponent;
     return reactRootID;
   },
 
@@ -4849,7 +4685,7 @@ var ReactMount = {
     var componentInstance = instantiateReactComponent(nextElement, null);
     var reactRootID = ReactMount._registerComponent(componentInstance, container);
 
-    ReactUpdates.batchedUpdates(byEQ, componentInstance, reactRootID, container, shouldReuseMarkup, context);
+    ReactUpdates.batchedUpdates(bRK9, componentInstance, reactRootID, container, shouldReuseMarkup, context);
 
     return componentInstance;
   },
@@ -4864,9 +4700,9 @@ var ReactMount = {
 
     'production' !== 'production' ? warning(!container || !container.tagName || container.tagName.toUpperCase() !== 'BODY', 'render(): Rendering components directly into document.body is ' + 'discouraged, since its children are often manipulated by third-party ' + 'scripts and browser extensions. This may lead to subtle ' + 'reconciliation issues. Try rendering into a container element created ' + 'for your app.') : undefined;
 
-    var nextWrappedElement = new ReactElement(bx3V, null, null, null, null, null, nextElement);
+    var nextWrappedElement = new ReactElement(bbkz, null, null, null, null, null, nextElement);
 
-    var prevComponent = bBne[bdJ9(container)];
+    var prevComponent = b9XZ[b148(container)];
 
     if (prevComponent) {
       var prevWrappedElement = prevComponent._currentElement;
@@ -4883,9 +4719,9 @@ var ReactMount = {
       }
     }
 
-    var reactRootElement = bN0w(container);
-    var containerHasReactMarkup = reactRootElement && !!bEn0(reactRootElement);
-    var containerHasNonRootReactChild = bQLd(container);
+    var reactRootElement = b0Kg(container);
+    var containerHasReactMarkup = reactRootElement && !!bkvQ(reactRootElement);
+    var containerHasNonRootReactChild = b4O3(container);
 
     var shouldReuseMarkup = containerHasReactMarkup && !prevComponent && !containerHasNonRootReactChild;
     var component = ReactMount._renderNewRootComponent(nextWrappedElement, container, shouldReuseMarkup, parentComponent != null ? parentComponent._reactInternalInstance._processChildContext(parentComponent._reactInternalInstance._context) : emptyObject)._renderedComponent.getPublicInstance();
@@ -4900,42 +4736,42 @@ var ReactMount = {
   },
 
   registerContainer: function (container) {
-    var reactRootID = bdJ9(container);
+    var reactRootID = b148(container);
     if (reactRootID) {
       reactRootID = ReactInstanceHandles.getReactRootIDFromNodeID(reactRootID);
     }
     if (!reactRootID) {
       reactRootID = ReactInstanceHandles.createReactRootID();
     }
-    bYQX[reactRootID] = container;
+    bEn0[reactRootID] = container;
     return reactRootID;
   },
 
   unmountComponentAtNode: function (container) {
     'production' !== 'production' ? warning(ReactCurrentOwner.current == null, 'unmountComponentAtNode(): Render methods should be a pure function ' + 'of props and state; triggering nested component updates from render ' + 'is not allowed. If necessary, trigger nested updates in ' + 'componentDidUpdate. Check the render method of %s.', ReactCurrentOwner.current && ReactCurrentOwner.current.getName() || 'ReactCompositeComponent') : undefined;
 
-    !(container && (container.nodeType === bvYV || container.nodeType === bapJ || container.nodeType === b2aL)) ? 'production' !== 'production' ? invariant(false, 'unmountComponentAtNode(...): Target container is not a DOM element.') : invariant(false) : undefined;
+    !(container && (container.nodeType === bO6g || container.nodeType === b8x6 || container.nodeType === bN0w)) ? 'production' !== 'production' ? invariant(false, 'unmountComponentAtNode(...): Target container is not a DOM element.') : invariant(false) : undefined;
 
-    var reactRootID = bdJ9(container);
-    var component = bBne[reactRootID];
+    var reactRootID = b148(container);
+    var component = b9XZ[reactRootID];
     if (!component) {
-      var containerHasNonRootReactChild = bQLd(container);
+      var containerHasNonRootReactChild = b4O3(container);
 
-      var containerID = bEn0(container);
+      var containerID = bkvQ(container);
       var isContainerReactRoot = containerID && containerID === ReactInstanceHandles.getReactRootIDFromNodeID(containerID);
 
       return false;
     }
-    ReactUpdates.batchedUpdates(br4x, component, container);
-    delete bBne[reactRootID];
-    delete bYQX[reactRootID];
+    ReactUpdates.batchedUpdates(bKer, component, container);
+    delete b9XZ[reactRootID];
+    delete bEn0[reactRootID];
 
     return true;
   },
 
   findReactContainerForID: function (id) {
     var reactRootID = ReactInstanceHandles.getReactRootIDFromNodeID(id);
-    var container = bYQX[reactRootID];
+    var container = bEn0[reactRootID];
 
     return container;
   },
@@ -4946,14 +4782,14 @@ var ReactMount = {
   },
 
   getFirstReactDOM: function (node) {
-    return bPM5(node);
+    return bGVy(node);
   },
 
   findComponentRoot: function (ancestorNode, targetID) {
-    var firstChildren = bO6g;
+    var firstChildren = b7Pd;
     var childIndex = 0;
 
-    var deepestAncestor = bJbQ(targetID) || ancestorNode;
+    var deepestAncestor = bx3V(targetID) || ancestorNode;
 
     firstChildren[0] = deepestAncestor.firstChild;
     firstChildren.length = 1;
@@ -4992,10 +4828,10 @@ var ReactMount = {
   },
 
   _mountImageIntoNode: function (markup, container, shouldReuseMarkup, transaction) {
-    !(container && (container.nodeType === bvYV || container.nodeType === bapJ || container.nodeType === b2aL)) ? 'production' !== 'production' ? invariant(false, 'mountComponentIntoNode(...): Target container is not valid.') : invariant(false) : undefined;
+    !(container && (container.nodeType === bO6g || container.nodeType === b8x6 || container.nodeType === bN0w)) ? 'production' !== 'production' ? invariant(false, 'mountComponentIntoNode(...): Target container is not valid.') : invariant(false) : undefined;
 
     if (shouldReuseMarkup) {
-      var rootElement = bN0w(container);
+      var rootElement = b0Kg(container);
       if (ReactMarkupChecksum.canReuseMarkup(markup, rootElement)) {
         return;
       } else {
@@ -5008,14 +4844,14 @@ var ReactMount = {
         var normalizedMarkup = markup;
 
 
-        var diffIndex = b8x6(normalizedMarkup, rootMarkup);
+        var diffIndex = bLbO(normalizedMarkup, rootMarkup);
         var difference = ' (client) ' + normalizedMarkup.substring(diffIndex - 20, diffIndex + 20) + '\n (server) ' + rootMarkup.substring(diffIndex - 20, diffIndex + 20);
 
-        !(container.nodeType !== bapJ) ? 'production' !== 'production' ? invariant(false, 'You\'re trying to render a component to the document using ' + 'server rendering but the checksum was invalid. This usually ' + 'means you rendered a different component type or props on ' + 'the client from the one on the server, or your render() ' + 'methods are impure. React cannot handle this case due to ' + 'cross-browser quirks by rendering at the document root. You ' + 'should look for environment dependent code in your components ' + 'and ensure the props are the same client and server side:\n%s', difference) : invariant(false) : undefined;
+        !(container.nodeType !== b8x6) ? 'production' !== 'production' ? invariant(false, 'You\'re trying to render a component to the document using ' + 'server rendering but the checksum was invalid. This usually ' + 'means you rendered a different component type or props on ' + 'the client from the one on the server, or your render() ' + 'methods are impure. React cannot handle this case due to ' + 'cross-browser quirks by rendering at the document root. You ' + 'should look for environment dependent code in your components ' + 'and ensure the props are the same client and server side:\n%s', difference) : invariant(false) : undefined;
       }
     }
 
-    !(container.nodeType !== bapJ) ? 'production' !== 'production' ? invariant(false, 'You\'re trying to render a component to the document but ' + 'you didn\'t use server rendering. We can\'t do this ' + 'without using server rendering due to cross-browser quirks. ' + 'See ReactDOMServer.renderToString() for server rendering.') : invariant(false) : undefined;
+    !(container.nodeType !== b8x6) ? 'production' !== 'production' ? invariant(false, 'You\'re trying to render a component to the document but ' + 'you didn\'t use server rendering. We can\'t do this ' + 'without using server rendering due to cross-browser quirks. ' + 'See ReactDOMServer.renderToString() for server rendering.') : invariant(false) : undefined;
 
     if (transaction.useCreateElement) {
       while (container.lastChild) {
@@ -5027,21 +4863,21 @@ var ReactMount = {
     }
   },
 
-  ownerDocumentContextKey: benn,
+  ownerDocumentContextKey: bdJ9,
 
-  getReactRootID: bdJ9,
+  getReactRootID: b148,
 
-  getID: b9XZ,
+  getID: bwL2,
 
-  setID: b7Pd,
+  setID: b5rZ,
 
-  getNode: bLbO,
+  getNode: bJbQ,
 
-  getNodeFromInstance: b0Kg,
+  getNodeFromInstance: bq8O,
 
-  isValid: b148,
+  isValid: byEQ,
 
-  purgeID: bwL2
+  purgeID: br4x
 };
 
 ReactPerf.measureMethods(ReactMount, 'ReactMount', {
@@ -5049,43 +4885,41 @@ ReactPerf.measureMethods(ReactMount, 'ReactMount', {
   _mountImageIntoNode: '_mountImageIntoNode'
 });
 /**bandol> resource: node_modules/react/lib/EventPropagators.js */
-/**bandol> default export: EventPropagators */
-/**bandol> exports: - */
 
 
-var bGay = EventConstants.PropagationPhases;
-var bbJz = EventPluginHub.getListener;
+var b66P = EventConstants.PropagationPhases;
+var bZag = EventPluginHub.getListener;
 
-function bl2g(id, event, propagationPhase) {
+function bA7L(id, event, propagationPhase) {
   var registrationName = event.dispatchConfig.phasedRegistrationNames[propagationPhase];
-  return bbJz(id, registrationName);
+  return bZag(id, registrationName);
 }
 
-function bVq8(domID, upwards, event) {
-  var phase = upwards ? bGay.bubbled : bGay.captured;
-  var listener = bl2g(domID, event, phase);
+function b3Lg(domID, upwards, event) {
+  var phase = upwards ? b66P.bubbled : b66P.captured;
+  var listener = bA7L(domID, event, phase);
   if (listener) {
     event._dispatchListeners = accumulateInto(event._dispatchListeners, listener);
     event._dispatchIDs = accumulateInto(event._dispatchIDs, domID);
   }
 }
 
-function bg3K(event) {
+function bplm(event) {
   if (event && event.dispatchConfig.phasedRegistrationNames) {
-    EventPluginHub.injection.getInstanceHandle().traverseTwoPhase(event.dispatchMarker, bVq8, event);
+    EventPluginHub.injection.getInstanceHandle().traverseTwoPhase(event.dispatchMarker, b3Lg, event);
   }
 }
 
-function bMMZ(event) {
+function bm4x(event) {
   if (event && event.dispatchConfig.phasedRegistrationNames) {
-    EventPluginHub.injection.getInstanceHandle().traverseTwoPhaseSkipTarget(event.dispatchMarker, bVq8, event);
+    EventPluginHub.injection.getInstanceHandle().traverseTwoPhaseSkipTarget(event.dispatchMarker, b3Lg, event);
   }
 }
 
-function b66P(id, ignoredDirection, event) {
+function bnkv(id, ignoredDirection, event) {
   if (event && event.dispatchConfig.registrationName) {
     var registrationName = event.dispatchConfig.registrationName;
-    var listener = bbJz(id, registrationName);
+    var listener = bZag(id, registrationName);
     if (listener) {
       event._dispatchListeners = accumulateInto(event._dispatchListeners, listener);
       event._dispatchIDs = accumulateInto(event._dispatchIDs, id);
@@ -5093,37 +4927,35 @@ function b66P(id, ignoredDirection, event) {
   }
 }
 
-function bZag(event) {
+function bzYE(event) {
   if (event && event.dispatchConfig.registrationName) {
-    b66P(event.dispatchMarker, null, event);
+    bnkv(event.dispatchMarker, null, event);
   }
 }
 
-function bA7L(events) {
-  forEachAccumulated(events, bg3K);
+function bvYV(events) {
+  forEachAccumulated(events, bplm);
 }
 
-function b3Lg(events) {
-  forEachAccumulated(events, bMMZ);
+function bapJ(events) {
+  forEachAccumulated(events, bm4x);
 }
 
-function bplm(leave, enter, fromID, toID) {
-  EventPluginHub.injection.getInstanceHandle().traverseEnterLeave(fromID, toID, b66P, leave, enter);
+function b2aL(leave, enter, fromID, toID) {
+  EventPluginHub.injection.getInstanceHandle().traverseEnterLeave(fromID, toID, bnkv, leave, enter);
 }
 
-function bm4x(events) {
-  forEachAccumulated(events, bZag);
+function benn(events) {
+  forEachAccumulated(events, bzYE);
 }
 
 var EventPropagators = {
-  accumulateTwoPhaseDispatches: bA7L,
-  accumulateTwoPhaseDispatchesSkipTarget: b3Lg,
-  accumulateDirectDispatches: bm4x,
-  accumulateEnterLeaveDispatches: bplm
+  accumulateTwoPhaseDispatches: bvYV,
+  accumulateTwoPhaseDispatchesSkipTarget: bapJ,
+  accumulateDirectDispatches: benn,
+  accumulateEnterLeaveDispatches: b2aL
 };
 /**bandol> resource: node_modules/fbjs/lib/EventListener.js */
-/**bandol> default export: EventListener */
-/**bandol> exports: - */
 
 var EventListener = {
   listen: function (target, eventType, callback) {
@@ -5162,13 +4994,11 @@ var EventListener = {
   registerDefault: function () {}
 };
 /**bandol> resource: node_modules/react/lib/SimpleEventPlugin.js */
-/**bandol> default export: SimpleEventPlugin */
-/**bandol> exports: - */
 
 
-var bP75 = EventConstants.topLevelTypes;
+var bGay = EventConstants.topLevelTypes;
 
-var bxvV = {
+var bbJz = {
   abort: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onAbort: true }),
@@ -5514,165 +5344,165 @@ var bxvV = {
   }
 };
 
-var bXz3 = {
-  topAbort: bxvV.abort,
-  topBlur: bxvV.blur,
-  topCanPlay: bxvV.canPlay,
-  topCanPlayThrough: bxvV.canPlayThrough,
-  topClick: bxvV.click,
-  topContextMenu: bxvV.contextMenu,
-  topCopy: bxvV.copy,
-  topCut: bxvV.cut,
-  topDoubleClick: bxvV.doubleClick,
-  topDrag: bxvV.drag,
-  topDragEnd: bxvV.dragEnd,
-  topDragEnter: bxvV.dragEnter,
-  topDragExit: bxvV.dragExit,
-  topDragLeave: bxvV.dragLeave,
-  topDragOver: bxvV.dragOver,
-  topDragStart: bxvV.dragStart,
-  topDrop: bxvV.drop,
-  topDurationChange: bxvV.durationChange,
-  topEmptied: bxvV.emptied,
-  topEncrypted: bxvV.encrypted,
-  topEnded: bxvV.ended,
-  topError: bxvV.error,
-  topFocus: bxvV.focus,
-  topInput: bxvV.input,
-  topKeyDown: bxvV.keyDown,
-  topKeyPress: bxvV.keyPress,
-  topKeyUp: bxvV.keyUp,
-  topLoad: bxvV.load,
-  topLoadedData: bxvV.loadedData,
-  topLoadedMetadata: bxvV.loadedMetadata,
-  topLoadStart: bxvV.loadStart,
-  topMouseDown: bxvV.mouseDown,
-  topMouseMove: bxvV.mouseMove,
-  topMouseOut: bxvV.mouseOut,
-  topMouseOver: bxvV.mouseOver,
-  topMouseUp: bxvV.mouseUp,
-  topPaste: bxvV.paste,
-  topPause: bxvV.pause,
-  topPlay: bxvV.play,
-  topPlaying: bxvV.playing,
-  topProgress: bxvV.progress,
-  topRateChange: bxvV.rateChange,
-  topReset: bxvV.reset,
-  topScroll: bxvV.scroll,
-  topSeeked: bxvV.seeked,
-  topSeeking: bxvV.seeking,
-  topStalled: bxvV.stalled,
-  topSubmit: bxvV.submit,
-  topSuspend: bxvV.suspend,
-  topTimeUpdate: bxvV.timeUpdate,
-  topTouchCancel: bxvV.touchCancel,
-  topTouchEnd: bxvV.touchEnd,
-  topTouchMove: bxvV.touchMove,
-  topTouchStart: bxvV.touchStart,
-  topVolumeChange: bxvV.volumeChange,
-  topWaiting: bxvV.waiting,
-  topWheel: bxvV.wheel
+var bl2g = {
+  topAbort: bbJz.abort,
+  topBlur: bbJz.blur,
+  topCanPlay: bbJz.canPlay,
+  topCanPlayThrough: bbJz.canPlayThrough,
+  topClick: bbJz.click,
+  topContextMenu: bbJz.contextMenu,
+  topCopy: bbJz.copy,
+  topCut: bbJz.cut,
+  topDoubleClick: bbJz.doubleClick,
+  topDrag: bbJz.drag,
+  topDragEnd: bbJz.dragEnd,
+  topDragEnter: bbJz.dragEnter,
+  topDragExit: bbJz.dragExit,
+  topDragLeave: bbJz.dragLeave,
+  topDragOver: bbJz.dragOver,
+  topDragStart: bbJz.dragStart,
+  topDrop: bbJz.drop,
+  topDurationChange: bbJz.durationChange,
+  topEmptied: bbJz.emptied,
+  topEncrypted: bbJz.encrypted,
+  topEnded: bbJz.ended,
+  topError: bbJz.error,
+  topFocus: bbJz.focus,
+  topInput: bbJz.input,
+  topKeyDown: bbJz.keyDown,
+  topKeyPress: bbJz.keyPress,
+  topKeyUp: bbJz.keyUp,
+  topLoad: bbJz.load,
+  topLoadedData: bbJz.loadedData,
+  topLoadedMetadata: bbJz.loadedMetadata,
+  topLoadStart: bbJz.loadStart,
+  topMouseDown: bbJz.mouseDown,
+  topMouseMove: bbJz.mouseMove,
+  topMouseOut: bbJz.mouseOut,
+  topMouseOver: bbJz.mouseOver,
+  topMouseUp: bbJz.mouseUp,
+  topPaste: bbJz.paste,
+  topPause: bbJz.pause,
+  topPlay: bbJz.play,
+  topPlaying: bbJz.playing,
+  topProgress: bbJz.progress,
+  topRateChange: bbJz.rateChange,
+  topReset: bbJz.reset,
+  topScroll: bbJz.scroll,
+  topSeeked: bbJz.seeked,
+  topSeeking: bbJz.seeking,
+  topStalled: bbJz.stalled,
+  topSubmit: bbJz.submit,
+  topSuspend: bbJz.suspend,
+  topTimeUpdate: bbJz.timeUpdate,
+  topTouchCancel: bbJz.touchCancel,
+  topTouchEnd: bbJz.touchEnd,
+  topTouchMove: bbJz.touchMove,
+  topTouchStart: bbJz.touchStart,
+  topVolumeChange: bbJz.volumeChange,
+  topWaiting: bbJz.waiting,
+  topWheel: bbJz.wheel
 };
 
-for (var bR09 in bXz3) {
-  bXz3[bR09].dependencies = [bR09];
+for (var bVq8 in bl2g) {
+  bl2g[bVq8].dependencies = [bVq8];
 }
 
-var bK7r = keyOf({ onClick: null });
-var b4L3 = {};
+var bg3K = keyOf({ onClick: null });
+var bMMZ = {};
 
 var SimpleEventPlugin = {
 
-  eventTypes: bxvV,
+  eventTypes: bbJz,
 
   extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-    var dispatchConfig = bXz3[topLevelType];
+    var dispatchConfig = bl2g[topLevelType];
     if (!dispatchConfig) {
       return null;
     }
     var EventConstructor;
     switch (topLevelType) {
-      case bP75.topAbort:
-      case bP75.topCanPlay:
-      case bP75.topCanPlayThrough:
-      case bP75.topDurationChange:
-      case bP75.topEmptied:
-      case bP75.topEncrypted:
-      case bP75.topEnded:
-      case bP75.topError:
-      case bP75.topInput:
-      case bP75.topLoad:
-      case bP75.topLoadedData:
-      case bP75.topLoadedMetadata:
-      case bP75.topLoadStart:
-      case bP75.topPause:
-      case bP75.topPlay:
-      case bP75.topPlaying:
-      case bP75.topProgress:
-      case bP75.topRateChange:
-      case bP75.topReset:
-      case bP75.topSeeked:
-      case bP75.topSeeking:
-      case bP75.topStalled:
-      case bP75.topSubmit:
-      case bP75.topSuspend:
-      case bP75.topTimeUpdate:
-      case bP75.topVolumeChange:
-      case bP75.topWaiting:
+      case bGay.topAbort:
+      case bGay.topCanPlay:
+      case bGay.topCanPlayThrough:
+      case bGay.topDurationChange:
+      case bGay.topEmptied:
+      case bGay.topEncrypted:
+      case bGay.topEnded:
+      case bGay.topError:
+      case bGay.topInput:
+      case bGay.topLoad:
+      case bGay.topLoadedData:
+      case bGay.topLoadedMetadata:
+      case bGay.topLoadStart:
+      case bGay.topPause:
+      case bGay.topPlay:
+      case bGay.topPlaying:
+      case bGay.topProgress:
+      case bGay.topRateChange:
+      case bGay.topReset:
+      case bGay.topSeeked:
+      case bGay.topSeeking:
+      case bGay.topStalled:
+      case bGay.topSubmit:
+      case bGay.topSuspend:
+      case bGay.topTimeUpdate:
+      case bGay.topVolumeChange:
+      case bGay.topWaiting:
         EventConstructor = SyntheticEvent;
         break;
-      case bP75.topKeyPress:
+      case bGay.topKeyPress:
         if (getEventCharCode(nativeEvent) === 0) {
           return null;
         }
 
-      case bP75.topKeyDown:
-      case bP75.topKeyUp:
+      case bGay.topKeyDown:
+      case bGay.topKeyUp:
         EventConstructor = SyntheticKeyboardEvent;
         break;
-      case bP75.topBlur:
-      case bP75.topFocus:
+      case bGay.topBlur:
+      case bGay.topFocus:
         EventConstructor = SyntheticFocusEvent;
         break;
-      case bP75.topClick:
+      case bGay.topClick:
         if (nativeEvent.button === 2) {
           return null;
         }
 
-      case bP75.topContextMenu:
-      case bP75.topDoubleClick:
-      case bP75.topMouseDown:
-      case bP75.topMouseMove:
-      case bP75.topMouseOut:
-      case bP75.topMouseOver:
-      case bP75.topMouseUp:
+      case bGay.topContextMenu:
+      case bGay.topDoubleClick:
+      case bGay.topMouseDown:
+      case bGay.topMouseMove:
+      case bGay.topMouseOut:
+      case bGay.topMouseOver:
+      case bGay.topMouseUp:
         EventConstructor = SyntheticMouseEvent;
         break;
-      case bP75.topDrag:
-      case bP75.topDragEnd:
-      case bP75.topDragEnter:
-      case bP75.topDragExit:
-      case bP75.topDragLeave:
-      case bP75.topDragOver:
-      case bP75.topDragStart:
-      case bP75.topDrop:
+      case bGay.topDrag:
+      case bGay.topDragEnd:
+      case bGay.topDragEnter:
+      case bGay.topDragExit:
+      case bGay.topDragLeave:
+      case bGay.topDragOver:
+      case bGay.topDragStart:
+      case bGay.topDrop:
         EventConstructor = SyntheticDragEvent;
         break;
-      case bP75.topTouchCancel:
-      case bP75.topTouchEnd:
-      case bP75.topTouchMove:
-      case bP75.topTouchStart:
+      case bGay.topTouchCancel:
+      case bGay.topTouchEnd:
+      case bGay.topTouchMove:
+      case bGay.topTouchStart:
         EventConstructor = SyntheticTouchEvent;
         break;
-      case bP75.topScroll:
+      case bGay.topScroll:
         EventConstructor = SyntheticUIEvent;
         break;
-      case bP75.topWheel:
+      case bGay.topWheel:
         EventConstructor = SyntheticWheelEvent;
         break;
-      case bP75.topCopy:
-      case bP75.topCut:
-      case bP75.topPaste:
+      case bGay.topCopy:
+      case bGay.topCut:
+      case bGay.topPaste:
         EventConstructor = SyntheticClipboardEvent;
         break;
     }
@@ -5683,39 +5513,35 @@ var SimpleEventPlugin = {
   },
 
   didPutListener: function (id, registrationName, listener) {
-    if (registrationName === bK7r) {
+    if (registrationName === bg3K) {
       var node = ReactMount.getNode(id);
-      if (!b4L3[id]) {
-        b4L3[id] = EventListener.listen(node, 'click', emptyFunction);
+      if (!bMMZ[id]) {
+        bMMZ[id] = EventListener.listen(node, 'click', emptyFunction);
       }
     }
   },
 
   willDeleteListener: function (id, registrationName) {
-    if (registrationName === bK7r) {
-      b4L3[id].remove();
-      delete b4L3[id];
+    if (registrationName === bg3K) {
+      bMMZ[id].remove();
+      delete bMMZ[id];
     }
   }
 
 };
 /**bandol> resource: node_modules/react/lib/ServerReactRootIndex.js */
-/**bandol> default export: ServerReactRootIndex */
-/**bandol> exports: - */
 
-var bQRd = Math.pow(2, 53);
+var b4L3 = Math.pow(2, 53);
 
 var ServerReactRootIndex = {
   createReactRootIndex: function () {
-    return Math.ceil(Math.random() * bQRd);
+    return Math.ceil(Math.random() * b4L3);
   }
 };
 /**bandol> resource: node_modules/fbjs/lib/shallowEqual.js */
-/**bandol> default export: shallowEqual */
-/**bandol> exports: - */
 
 
-var brKx = Object.prototype.hasOwnProperty;
+var bK7r = Object.prototype.hasOwnProperty;
 
 function shallowEqual(objA, objB) {
   if (objA === objB) {
@@ -5733,7 +5559,7 @@ function shallowEqual(objA, objB) {
     return false;
   }
 
-  var bHasOwnProperty = brKx.bind(objB);
+  var bHasOwnProperty = bK7r.bind(objB);
   for (var i = 0; i < keysA.length; i++) {
     if (!bHasOwnProperty(keysA[i]) || objA[keysA[i]] !== objB[keysA[i]]) {
       return false;
@@ -5743,10 +5569,8 @@ function shallowEqual(objA, objB) {
   return true;
 }
 /**bandol> resource: node_modules/react/lib/isTextInputElement.js */
-/**bandol> default export: isTextInputElement */
-/**bandol> exports: - */
 
-var bVqg = {
+var bR09 = {
   'color': true,
   'date': true,
   'datetime': true,
@@ -5766,11 +5590,9 @@ var bVqg = {
 
 function isTextInputElement(elem) {
   var nodeName = elem && elem.nodeName && elem.nodeName.toLowerCase();
-  return nodeName && (nodeName === 'input' && bVqg[elem.type] || nodeName === 'textarea');
+  return nodeName && (nodeName === 'input' && bR09[elem.type] || nodeName === 'textarea');
 }
 /**bandol> resource: node_modules/fbjs/lib/getActiveElement.js */
-/**bandol> default export: getActiveElement */
-/**bandol> exports: - */
 
 
 function getActiveElement() {
@@ -5784,8 +5606,6 @@ function getActiveElement() {
   }
 }
 /**bandol> resource: node_modules/fbjs/lib/focusNode.js */
-/**bandol> default export: focusNode */
-/**bandol> exports: - */
 
 function focusNode(node) {
   try {
@@ -5793,30 +5613,26 @@ function focusNode(node) {
   } catch (e) {}
 }
 /**bandol> resource: node_modules/react/lib/getTextContentAccessor.js */
-/**bandol> default export: getTextContentAccessor */
-/**bandol> exports: - */
 
 
-var bl2J = null;
+var bXz3 = null;
 
 function getTextContentAccessor() {
-  if (!bl2J && ExecutionEnvironment.canUseDOM) {
-    bl2J = 'textContent' in document.documentElement ? 'textContent' : 'innerText';
+  if (!bXz3 && ExecutionEnvironment.canUseDOM) {
+    bXz3 = 'textContent' in document.documentElement ? 'textContent' : 'innerText';
   }
-  return bl2J;
+  return bXz3;
 }
 /**bandol> resource: node_modules/react/lib/getNodeForCharacterOffset.js */
-/**bandol> default export: getNodeForCharacterOffset */
-/**bandol> exports: - */
 
-function bGa8(node) {
+function bP75(node) {
   while (node && node.firstChild) {
     node = node.firstChild;
   }
   return node;
 }
 
-function bbJX(node) {
+function bxvV(node) {
   while (node) {
     if (node.nextSibling) {
       return node.nextSibling;
@@ -5826,7 +5642,7 @@ function bbJX(node) {
 }
 
 function getNodeForCharacterOffset(root, offset) {
-  var node = bGa8(root);
+  var node = bP75(root);
   var nodeStart = 0;
   var nodeEnd = 0;
 
@@ -5844,18 +5660,16 @@ function getNodeForCharacterOffset(root, offset) {
       nodeStart = nodeEnd;
     }
 
-    node = bGa8(bbJX(node));
+    node = bP75(bxvV(node));
   }
 }
 /**bandol> resource: node_modules/react/lib/ReactDOMSelection.js */
-/**bandol> default export: ReactDOMSelection */
-/**bandol> exports: - */
 
-function bP7V(anchorNode, anchorOffset, focusNode, focusOffset) {
+function bGa8(anchorNode, anchorOffset, focusNode, focusOffset) {
   return anchorNode === focusNode && anchorOffset === focusOffset;
 }
 
-function bxvA(node) {
+function bbJX(node) {
   var selection = document.selection;
   var selectedRange = selection.createRange();
   var selectedLength = selectedRange.text.length;
@@ -5873,7 +5687,7 @@ function bxvA(node) {
   };
 }
 
-function bXzy(node) {
+function bl2J(node) {
   var selection = window.getSelection && window.getSelection();
 
   if (!selection || selection.rangeCount === 0) {
@@ -5894,7 +5708,7 @@ function bXzy(node) {
     return null;
   }
 
-  var isSelectionCollapsed = bP7V(selection.anchorNode, selection.anchorOffset, selection.focusNode, selection.focusOffset);
+  var isSelectionCollapsed = bGa8(selection.anchorNode, selection.anchorOffset, selection.focusNode, selection.focusOffset);
 
   var rangeLength = isSelectionCollapsed ? 0 : currentRange.toString().length;
 
@@ -5902,7 +5716,7 @@ function bXzy(node) {
   tempRange.selectNodeContents(node);
   tempRange.setEnd(currentRange.startContainer, currentRange.startOffset);
 
-  var isTempRangeCollapsed = bP7V(tempRange.startContainer, tempRange.startOffset, tempRange.endContainer, tempRange.endOffset);
+  var isTempRangeCollapsed = bGa8(tempRange.startContainer, tempRange.startOffset, tempRange.endContainer, tempRange.endOffset);
 
   var start = isTempRangeCollapsed ? 0 : tempRange.toString().length;
   var end = start + rangeLength;
@@ -5918,7 +5732,7 @@ function bXzy(node) {
   };
 }
 
-function bR0l(node, offsets) {
+function bVqg(node, offsets) {
   var range = document.selection.createRange().duplicate();
   var start, end;
 
@@ -5940,7 +5754,7 @@ function bR0l(node, offsets) {
   range.select();
 }
 
-function bK7N(node, offsets) {
+function brKx(node, offsets) {
   if (!window.getSelection) {
     return;
   }
@@ -5974,19 +5788,17 @@ function bK7N(node, offsets) {
   }
 }
 
-var b4Lx = ExecutionEnvironment.canUseDOM && 'selection' in document && !('getSelection' in window);
+var bQRd = ExecutionEnvironment.canUseDOM && 'selection' in document && !('getSelection' in window);
 
 var ReactDOMSelection = {
-  getOffsets: b4Lx ? bxvA : bXzy,
+  getOffsets: bQRd ? bbJX : bl2J,
 
-  setOffsets: b4Lx ? bR0l : bK7N
+  setOffsets: bQRd ? bVqg : brKx
 };
 /**bandol> resource: node_modules/react/lib/ReactInputSelection.js */
-/**bandol> default export: ReactInputSelection */
-/**bandol> exports: - */
 
 
-function bQRw(node) {
+function b4Lx(node) {
   return containsNode(document.documentElement, node);
 }
 
@@ -6009,7 +5821,7 @@ var ReactInputSelection = {
     var curFocusedElem = getActiveElement();
     var priorFocusedElem = priorSelectionInformation.focusedElem;
     var priorSelectionRange = priorSelectionInformation.selectionRange;
-    if (curFocusedElem !== priorFocusedElem && bQRw(priorFocusedElem)) {
+    if (curFocusedElem !== priorFocusedElem && b4Lx(priorFocusedElem)) {
       if (ReactInputSelection.hasSelectionCapabilities(priorFocusedElem)) {
         ReactInputSelection.setSelection(priorFocusedElem, priorSelectionRange);
       }
@@ -6063,33 +5875,31 @@ var ReactInputSelection = {
   }
 };
 /**bandol> resource: node_modules/react/lib/SelectEventPlugin.js */
-/**bandol> default export: SelectEventPlugin */
-/**bandol> exports: - */
 
 
-var b7ma = EventConstants.topLevelTypes;
+var b5LK = EventConstants.topLevelTypes;
 
-var bLwq = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
+var bJ0z = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
-var b088 = {
+var bqlJ = {
   select: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onSelect: null }),
       captured: keyOf({ onSelectCapture: null })
     },
-    dependencies: [b7ma.topBlur, b7ma.topContextMenu, b7ma.topFocus, b7ma.topKeyDown, b7ma.topMouseDown, b7ma.topMouseUp, b7ma.topSelectionChange]
+    dependencies: [b5LK.topBlur, b5LK.topContextMenu, b5LK.topFocus, b5LK.topKeyDown, b5LK.topMouseDown, b5LK.topMouseUp, b5LK.topSelectionChange]
   }
 };
 
-var b194 = null;
-var bwVR = null;
-var bk29 = null;
-var b5LK = false;
+var byyb = null;
+var brKl = null;
+var bQRw = null;
+var bP7V = false;
 
-var bJ0z = false;
-var bqlJ = keyOf({ onSelect: null });
+var bxvA = false;
+var bXzy = keyOf({ onSelect: null });
 
-function byyb(node) {
+function bR0l(node) {
   if ('selectionStart' in node && ReactInputSelection.hasSelectionCapabilities(node)) {
     return {
       start: node.selectionStart,
@@ -6114,19 +5924,19 @@ function byyb(node) {
   }
 }
 
-function brKl(nativeEvent, nativeEventTarget) {
-  if (b5LK || b194 == null || b194 !== getActiveElement()) {
+function bK7N(nativeEvent, nativeEventTarget) {
+  if (bP7V || byyb == null || byyb !== getActiveElement()) {
     return null;
   }
 
-  var currentSelection = byyb(b194);
-  if (!bk29 || !shallowEqual(bk29, currentSelection)) {
-    bk29 = currentSelection;
+  var currentSelection = bR0l(byyb);
+  if (!bQRw || !shallowEqual(bQRw, currentSelection)) {
+    bQRw = currentSelection;
 
-    var syntheticEvent = SyntheticEvent.getPooled(b088.select, bwVR, nativeEvent, nativeEventTarget);
+    var syntheticEvent = SyntheticEvent.getPooled(bqlJ.select, brKl, nativeEvent, nativeEventTarget);
 
     syntheticEvent.type = 'select';
-    syntheticEvent.target = b194;
+    syntheticEvent.target = byyb;
 
     EventPropagators.accumulateTwoPhaseDispatches(syntheticEvent);
 
@@ -6138,65 +5948,63 @@ function brKl(nativeEvent, nativeEventTarget) {
 
 var SelectEventPlugin = {
 
-  eventTypes: b088,
+  eventTypes: bqlJ,
 
   extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-    if (!bJ0z) {
+    if (!bxvA) {
       return null;
     }
 
     switch (topLevelType) {
-      case b7ma.topFocus:
+      case b5LK.topFocus:
         if (isTextInputElement(topLevelTarget) || topLevelTarget.contentEditable === 'true') {
-          b194 = topLevelTarget;
-          bwVR = topLevelTargetID;
-          bk29 = null;
+          byyb = topLevelTarget;
+          brKl = topLevelTargetID;
+          bQRw = null;
         }
         break;
-      case b7ma.topBlur:
-        b194 = null;
-        bwVR = null;
-        bk29 = null;
+      case b5LK.topBlur:
+        byyb = null;
+        brKl = null;
+        bQRw = null;
         break;
 
-      case b7ma.topMouseDown:
-        b5LK = true;
+      case b5LK.topMouseDown:
+        bP7V = true;
         break;
-      case b7ma.topContextMenu:
-      case b7ma.topMouseUp:
-        b5LK = false;
-        return brKl(nativeEvent, nativeEventTarget);
+      case b5LK.topContextMenu:
+      case b5LK.topMouseUp:
+        bP7V = false;
+        return bK7N(nativeEvent, nativeEventTarget);
 
-      case b7ma.topSelectionChange:
-        if (bLwq) {
+      case b5LK.topSelectionChange:
+        if (bJ0z) {
           break;
         }
 
-      case b7ma.topKeyDown:
-      case b7ma.topKeyUp:
-        return brKl(nativeEvent, nativeEventTarget);
+      case b5LK.topKeyDown:
+      case b5LK.topKeyUp:
+        return bK7N(nativeEvent, nativeEventTarget);
     }
 
     return null;
   },
 
   didPutListener: function (id, registrationName, listener) {
-    if (registrationName === bqlJ) {
-      bJ0z = true;
+    if (registrationName === bXzy) {
+      bxvA = true;
     }
   }
 };
 /**bandol> resource: node_modules/react/lib/ReactReconcileTransaction.js */
-/**bandol> default export: ReactReconcileTransaction */
-/**bandol> exports: - */
 
-var b853 = {
+var bLwq = {
   initialize: ReactInputSelection.getSelectionInformation,
 
   close: ReactInputSelection.restoreSelection
 };
 
-var bNvy = {
+var b088 = {
   initialize: function () {
     var currentlyEnabled = ReactBrowserEventEmitter.isEnabled();
     ReactBrowserEventEmitter.setEnabled(false);
@@ -6208,7 +6016,7 @@ var bNvy = {
   }
 };
 
-var bdzO = {
+var b194 = {
   initialize: function () {
     this.reactMountReady.reset();
   },
@@ -6218,7 +6026,7 @@ var bdzO = {
   }
 };
 
-var b9an = [b853, bNvy, bdzO];
+var bwVR = [bLwq, b088, b194];
 
 function ReactReconcileTransaction(forceHTML) {
   this.reinitializeTransaction();
@@ -6228,9 +6036,9 @@ function ReactReconcileTransaction(forceHTML) {
   this.useCreateElement = !forceHTML && ReactDOMFeatureFlags.useCreateElement;
 }
 
-var bEZz = {
+var bk29 = {
   getTransactionWrappers: function () {
-    return b9an;
+    return bwVR;
   },
 
   getReactMountReady: function () {
@@ -6243,12 +6051,10 @@ var bEZz = {
   }
 };
 
-assign(ReactReconcileTransaction.prototype, Transaction.Mixin, bEZz);
+assign(ReactReconcileTransaction.prototype, Transaction.Mixin, bk29);
 
 PooledClass.addPoolingTo(ReactReconcileTransaction);
 /**bandol> resource: node_modules/react/lib/ReactInjection.js */
-/**bandol> default export: ReactInjection */
-/**bandol> exports: - */
 
 
 var ReactInjection = {
@@ -6264,8 +6070,6 @@ var ReactInjection = {
   Updates: ReactUpdates.injection
 };
 /**bandol> resource: node_modules/fbjs/lib/getUnboundedScrollPosition.js */
-/**bandol> default export: getUnboundedScrollPosition */
-/**bandol> exports: - */
 
 function getUnboundedScrollPosition(scrollable) {
   if (scrollable === window) {
@@ -6280,13 +6084,11 @@ function getUnboundedScrollPosition(scrollable) {
   };
 }
 /**bandol> resource: node_modules/react/lib/ReactEventListener.js */
-/**bandol> default export: ReactEventListener */
-/**bandol> exports: - */
 
 
-var bv3v = 11;
+var bOLb = 11;
 
-function baJR(node) {
+function b853(node) {
   var nodeID = ReactMount.getID(node);
   var rootID = ReactInstanceHandles.getReactRootIDFromNodeID(nodeID);
   var container = ReactMount.findReactContainerForID(rootID);
@@ -6294,33 +6096,33 @@ function baJR(node) {
   return parent;
 }
 
-function b2A1(topLevelType, nativeEvent) {
+function bNvy(topLevelType, nativeEvent) {
   this.topLevelType = topLevelType;
   this.nativeEvent = nativeEvent;
   this.ancestors = [];
 }
-assign(b2A1.prototype, {
+assign(bNvy.prototype, {
   destructor: function () {
     this.topLevelType = null;
     this.nativeEvent = null;
     this.ancestors.length = 0;
   }
 });
-PooledClass.addPoolingTo(b2A1, PooledClass.twoArgumentPooler);
+PooledClass.addPoolingTo(bNvy, PooledClass.twoArgumentPooler);
 
-function be9P(bookKeeping) {
+function bdzO(bookKeeping) {
 
-  void bY3V;
-  bBQ6(bookKeeping);
+  void bEZz;
+  b9an(bookKeeping);
 }
 
-function bBQ6(bookKeeping) {
+function b9an(bookKeeping) {
   var topLevelTarget = ReactMount.getFirstReactDOM(getEventTarget(bookKeeping.nativeEvent)) || window;
 
   var ancestor = topLevelTarget;
   while (ancestor) {
     bookKeeping.ancestors.push(ancestor);
-    ancestor = baJR(ancestor);
+    ancestor = b853(ancestor);
   }
 
   for (var i = 0; i < bookKeeping.ancestors.length; i++) {
@@ -6330,13 +6132,13 @@ function bBQ6(bookKeeping) {
   }
 }
 
-function bY3V(bookKeeping) {
+function bEZz(bookKeeping) {
   var path = bookKeeping.nativeEvent.path;
   var currentNativeTarget = path[0];
   var eventsFired = 0;
   for (var i = 0; i < path.length; i++) {
     var currentPathElement = path[i];
-    if (currentPathElement.nodeType === bv3v) {
+    if (currentPathElement.nodeType === bOLb) {
       currentNativeTarget = path[i + 1];
     }
 
@@ -6362,7 +6164,7 @@ function bY3V(bookKeeping) {
   }
 }
 
-function bOLb(cb) {
+function b7ma(cb) {
   var scrollPosition = getUnboundedScrollPosition(window);
   cb(scrollPosition);
 }
@@ -6402,7 +6204,7 @@ var ReactEventListener = {
   },
 
   monitorScrollValue: function (refresh) {
-    var callback = bOLb.bind(null, refresh);
+    var callback = b7ma.bind(null, refresh);
     EventListener.listen(window, 'scroll', callback);
   },
 
@@ -6411,20 +6213,18 @@ var ReactEventListener = {
       return;
     }
 
-    var bookKeeping = b2A1.getPooled(topLevelType, nativeEvent);
+    var bookKeeping = bNvy.getPooled(topLevelType, nativeEvent);
     try {
-      ReactUpdates.batchedUpdates(be9P, bookKeeping);
+      ReactUpdates.batchedUpdates(bdzO, bookKeeping);
     } finally {
-      b2A1.release(bookKeeping);
+      bNvy.release(bookKeeping);
     }
   }
 };
 /**bandol> resource: node_modules/react/lib/escapeTextContentForBrowser.js */
-/**bandol> default export: escapeTextContentForBrowser */
-/**bandol> exports: - */
 
 
-var bmP0 = {
+var be9P = {
   '&': '&amp;',
   '>': '&gt;',
   '<': '&lt;',
@@ -6432,18 +6232,16 @@ var bmP0 = {
   '\'': '&#x27;'
 };
 
-var bnGw = /[&><"']/g;
+var bBQ6 = /[&><"']/g;
 
-function bzk5(match) {
-  return bmP0[match];
+function bY3V(match) {
+  return be9P[match];
 }
 
 function escapeTextContentForBrowser(text) {
-  return ('' + text).replace(bnGw, bzk5);
+  return ('' + text).replace(bBQ6, bY3V);
 }
 /**bandol> resource: node_modules/react/lib/setTextContent.js */
-/**bandol> default export: setTextContent */
-/**bandol> exports: - */
 
 var setTextContent = function (node, text) {
   node.textContent = text;
@@ -6457,37 +6255,33 @@ if (ExecutionEnvironment.canUseDOM) {
   }
 }
 /**bandol> resource: node_modules/react/lib/quoteAttributeValueForBrowser.js */
-/**bandol> default export: quoteAttributeValueForBrowser */
-/**bandol> exports: - */
 
 function quoteAttributeValueForBrowser(value) {
   return '"' + escapeTextContentForBrowser(value) + '"';
 }
 /**bandol> resource: node_modules/react/lib/DOMPropertyOperations.js */
-/**bandol> default export: DOMPropertyOperations */
-/**bandol> exports: - */
 
-var b6dE = /^[a-zA-Z_][\w\.\-]*$/;
-var bZzy = {};
-var bArv = {};
+var bnGw = /^[a-zA-Z_][\w\.\-]*$/;
+var bzk5 = {};
+var bv3v = {};
 
-function b3Ov(attributeName) {
-  if (bArv.hasOwnProperty(attributeName)) {
+function baJR(attributeName) {
+  if (bv3v.hasOwnProperty(attributeName)) {
     return true;
   }
-  if (bZzy.hasOwnProperty(attributeName)) {
+  if (bzk5.hasOwnProperty(attributeName)) {
     return false;
   }
-  if (b6dE.test(attributeName)) {
-    bArv[attributeName] = true;
+  if (bnGw.test(attributeName)) {
+    bv3v[attributeName] = true;
     return true;
   }
-  bZzy[attributeName] = true;
+  bzk5[attributeName] = true;
   'production' !== 'production' ? warning(false, 'Invalid attribute name: `%s`', attributeName) : undefined;
   return false;
 }
 
-function bpR4(propertyInfo, value) {
+function b2A1(propertyInfo, value) {
   return value == null || propertyInfo.hasBooleanValue && !value || propertyInfo.hasNumericValue && isNaN(value) || propertyInfo.hasPositiveNumericValue && value < 1 || propertyInfo.hasOverloadedBooleanValue && value === false;
 }
 
@@ -6503,7 +6297,7 @@ var DOMPropertyOperations = {
   createMarkupForProperty: function (name, value) {
     var propertyInfo = DOMProperty.properties.hasOwnProperty(name) ? DOMProperty.properties[name] : null;
     if (propertyInfo) {
-      if (bpR4(propertyInfo, value)) {
+      if (b2A1(propertyInfo, value)) {
         return '';
       }
       var attributeName = propertyInfo.attributeName;
@@ -6521,7 +6315,7 @@ var DOMPropertyOperations = {
   },
 
   createMarkupForCustomAttribute: function (name, value) {
-    if (!b3Ov(name) || value == null) {
+    if (!baJR(name) || value == null) {
       return '';
     }
     return name + '=' + quoteAttributeValueForBrowser(value);
@@ -6533,7 +6327,7 @@ var DOMPropertyOperations = {
       var mutationMethod = propertyInfo.mutationMethod;
       if (mutationMethod) {
         mutationMethod(node, value);
-      } else if (bpR4(propertyInfo, value)) {
+      } else if (b2A1(propertyInfo, value)) {
         this.deleteValueForProperty(node, name);
       } else if (propertyInfo.mustUseAttribute) {
         var attributeName = propertyInfo.attributeName;
@@ -6559,7 +6353,7 @@ var DOMPropertyOperations = {
   },
 
   setValueForAttribute: function (node, name, value) {
-    if (!b3Ov(name)) {
+    if (!baJR(name)) {
       return;
     }
     if (value == null) {
@@ -6597,8 +6391,6 @@ ReactPerf.measureMethods(DOMPropertyOperations, 'DOMPropertyOperations', {
   deleteValueForProperty: 'deleteValueForProperty'
 });
 /**bandol> resource: node_modules/react/lib/ReactMultiChildUpdateTypes.js */
-/**bandol> default export: ReactMultiChildUpdateTypes */
-/**bandol> exports: - */
 
 var ReactMultiChildUpdateTypes = keyMirror({
   INSERT_MARKUP: null,
@@ -6608,20 +6400,18 @@ var ReactMultiChildUpdateTypes = keyMirror({
   TEXT_CONTENT: null
 });
 /**bandol> resource: node_modules/fbjs/lib/getMarkupWrap.js */
-/**bandol> default export: getMarkupWrap */
-/**bandol> exports: - */
 
-var bKVN = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
+var bgk8 = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
 
-var b4gx = {};
+var bMYd = {};
 
-var bG78 = [1, '<select multiple="true">', '</select>'];
-var bbvX = [1, '<table>', '</table>'];
-var blyJ = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
+var b6dE = [1, '<select multiple="true">', '</select>'];
+var bZzy = [1, '<table>', '</table>'];
+var bArv = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
 
-var bVvg = [1, '<svg xmlns="http://www.w3.org/2000/svg">', '</svg>'];
+var b3Ov = [1, '<svg xmlns="http://www.w3.org/2000/svg">', '</svg>'];
 
-var bgk8 = {
+var bpR4 = {
   '*': [1, '?<div>', '</div>'],
 
   'area': [1, '<map>', '</map>'],
@@ -6630,43 +6420,41 @@ var bgk8 = {
   'param': [1, '<object>', '</object>'],
   'tr': [2, '<table><tbody>', '</tbody></table>'],
 
-  'optgroup': bG78,
-  'option': bG78,
+  'optgroup': b6dE,
+  'option': b6dE,
 
-  'caption': bbvX,
-  'colgroup': bbvX,
-  'tbody': bbvX,
-  'tfoot': bbvX,
-  'thead': bbvX,
+  'caption': bZzy,
+  'colgroup': bZzy,
+  'tbody': bZzy,
+  'tfoot': bZzy,
+  'thead': bZzy,
 
-  'td': blyJ,
-  'th': blyJ
+  'td': bArv,
+  'th': bArv
 };
 
-var bMYd = ['circle', 'clipPath', 'defs', 'ellipse', 'g', 'image', 'line', 'linearGradient', 'mask', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'stop', 'text', 'tspan'];
-bMYd.forEach(function (nodeName) {
-  bgk8[nodeName] = bVvg;
-  b4gx[nodeName] = true;
+var bmP0 = ['circle', 'clipPath', 'defs', 'ellipse', 'g', 'image', 'line', 'linearGradient', 'mask', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'stop', 'text', 'tspan'];
+bmP0.forEach(function (nodeName) {
+  bpR4[nodeName] = b3Ov;
+  bMYd[nodeName] = true;
 });
 
 function getMarkupWrap(nodeName) {
-  !!!bKVN ? 'production' !== 'production' ? invariant(false, 'Markup wrapping node not initialized') : invariant(false) : undefined;
-  if (!bgk8.hasOwnProperty(nodeName)) {
+  !!!bgk8 ? 'production' !== 'production' ? invariant(false, 'Markup wrapping node not initialized') : invariant(false) : undefined;
+  if (!bpR4.hasOwnProperty(nodeName)) {
     nodeName = '*';
   }
-  if (!b4gx.hasOwnProperty(nodeName)) {
+  if (!bMYd.hasOwnProperty(nodeName)) {
     if (nodeName === '*') {
-      bKVN.innerHTML = '<link />';
+      bgk8.innerHTML = '<link />';
     } else {
-      bKVN.innerHTML = '<' + nodeName + '></' + nodeName + '>';
+      bgk8.innerHTML = '<' + nodeName + '></' + nodeName + '>';
     }
-    b4gx[nodeName] = !bKVN.firstChild;
+    bMYd[nodeName] = !bgk8.firstChild;
   }
-  return b4gx[nodeName] ? bgk8[nodeName] : null;
+  return bMYd[nodeName] ? bpR4[nodeName] : null;
 }
 /**bandol> resource: node_modules/fbjs/lib/toArray.js */
-/**bandol> default export: toArray */
-/**bandol> exports: - */
 
 function toArray(obj) {
   var length = obj.length;
@@ -6690,15 +6478,13 @@ function toArray(obj) {
   return ret;
 }
 /**bandol> resource: node_modules/fbjs/lib/createArrayFromMixed.js */
-/**bandol> default export: createArrayFromMixed */
-/**bandol> exports: - */
 
-function bR3l(obj) {
+function bVvg(obj) {
   return !!obj && (typeof obj == 'object' || typeof obj == 'function') && 'length' in obj && !('setInterval' in obj) && typeof obj.nodeType != 'number' && (Array.isArray(obj) || 'callee' in obj || 'item' in obj);
 }
 
 function createArrayFromMixed(obj) {
-  if (!bR3l(obj)) {
+  if (!bVvg(obj)) {
     return [obj];
   } else if (Array.isArray(obj)) {
     return obj.slice();
@@ -6707,22 +6493,20 @@ function createArrayFromMixed(obj) {
   }
 }
 /**bandol> resource: node_modules/fbjs/lib/createNodesFromMarkup.js */
-/**bandol> default export: createNodesFromMarkup */
-/**bandol> exports: - */
 
-var bPBV = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
+var bG78 = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
 
-var bxqA = /^\s*<(\w+)/;
+var bbvX = /^\s*<(\w+)/;
 
-function bXey(markup) {
-  var nodeNameMatch = markup.match(bxqA);
+function blyJ(markup) {
+  var nodeNameMatch = markup.match(bbvX);
   return nodeNameMatch && nodeNameMatch[1].toLowerCase();
 }
 
 function createNodesFromMarkup(markup, handleScript) {
-  var node = bPBV;
-  !!!bPBV ? 'production' !== 'production' ? invariant(false, 'createNodesFromMarkup dummy not initialized') : invariant(false) : undefined;
-  var nodeName = bXey(markup);
+  var node = bG78;
+  !!!bG78 ? 'production' !== 'production' ? invariant(false, 'createNodesFromMarkup dummy not initialized') : invariant(false) : undefined;
+  var nodeName = blyJ(markup);
 
   var wrap = nodeName && getMarkupWrap(nodeName);
   if (wrap) {
@@ -6749,14 +6533,12 @@ function createNodesFromMarkup(markup, handleScript) {
   return nodes;
 }
 /**bandol> resource: node_modules/react/lib/Danger.js */
-/**bandol> default export: Danger */
-/**bandol> exports: - */
 
 
-var byMb = /^(<[^ \/>]+)/;
-var brNl = 'data-danger-index';
+var bR3l = /^(<[^ \/>]+)/;
+var bKVN = 'data-danger-index';
 
-function bQew(markup) {
+function b4gx(markup) {
   return markup.substring(1, markup.indexOf(' '));
 }
 
@@ -6768,7 +6550,7 @@ var Danger = {
 
     for (var i = 0; i < markupList.length; i++) {
       !markupList[i] ? 'production' !== 'production' ? invariant(false, 'dangerouslyRenderMarkup(...): Missing markup.') : invariant(false) : undefined;
-      nodeName = bQew(markupList[i]);
+      nodeName = b4gx(markupList[i]);
       nodeName = getMarkupWrap(nodeName) ? nodeName : '*';
       markupByNodeName[nodeName] = markupByNodeName[nodeName] || [];
       markupByNodeName[nodeName][i] = markupList[i];
@@ -6786,7 +6568,7 @@ var Danger = {
         if (markupListByNodeName.hasOwnProperty(resultIndex)) {
           var markup = markupListByNodeName[resultIndex];
 
-          markupListByNodeName[resultIndex] = markup.replace(byMb, '$1 ' + brNl + '="' + resultIndex + '" ');
+          markupListByNodeName[resultIndex] = markup.replace(bR3l, '$1 ' + bKVN + '="' + resultIndex + '" ');
         }
       }
 
@@ -6794,10 +6576,10 @@ var Danger = {
 
       for (var j = 0; j < renderNodes.length; ++j) {
         var renderNode = renderNodes[j];
-        if (renderNode.hasAttribute && renderNode.hasAttribute(brNl)) {
+        if (renderNode.hasAttribute && renderNode.hasAttribute(bKVN)) {
 
-          resultIndex = +renderNode.getAttribute(brNl);
-          renderNode.removeAttribute(brNl);
+          resultIndex = +renderNode.getAttribute(bKVN);
+          renderNode.removeAttribute(bKVN);
 
           !!resultList.hasOwnProperty(resultIndex) ? 'production' !== 'production' ? invariant(false, 'Danger: Assigning to an already-occupied result index.') : invariant(false) : undefined;
 
@@ -6831,10 +6613,8 @@ var Danger = {
 
 };
 /**bandol> resource: node_modules/react/lib/DOMChildrenOperations.js */
-/**bandol> default export: DOMChildrenOperations */
-/**bandol> exports: - */
 
-function bqKJ(parentNode, childNode, index) {
+function bXey(parentNode, childNode, index) {
   var beforeChild = index >= parentNode.childNodes.length ? null : parentNode.childNodes.item(index);
 
   parentNode.insertBefore(childNode, beforeChild);
@@ -6889,10 +6669,10 @@ var DOMChildrenOperations = {
       update = updates[k];
       switch (update.type) {
         case ReactMultiChildUpdateTypes.INSERT_MARKUP:
-          bqKJ(update.parentNode, renderedMarkup[update.markupIndex], update.toIndex);
+          bXey(update.parentNode, renderedMarkup[update.markupIndex], update.toIndex);
           break;
         case ReactMultiChildUpdateTypes.MOVE_EXISTING:
-          bqKJ(update.parentNode, initialChildren[update.parentID][update.fromIndex], update.toIndex);
+          bXey(update.parentNode, initialChildren[update.parentID][update.fromIndex], update.toIndex);
           break;
         case ReactMultiChildUpdateTypes.SET_MARKUP:
           setInnerHTML(update.parentNode, update.content);
@@ -6912,10 +6692,8 @@ ReactPerf.measureMethods(DOMChildrenOperations, 'DOMChildrenOperations', {
   updateTextContent: 'updateTextContent'
 });
 /**bandol> resource: node_modules/react/lib/ReactDOMIDOperations.js */
-/**bandol> default export: ReactDOMIDOperations */
-/**bandol> exports: - */
 
-var bJlz = {
+var bxqA = {
   dangerouslySetInnerHTML: '`dangerouslySetInnerHTML` must be set using `updateInnerHTMLByID()`.',
   style: '`style` must be set using `updateStylesByID()`.'
 };
@@ -6923,7 +6701,7 @@ var bJlz = {
 var ReactDOMIDOperations = {
   updatePropertyByID: function (id, name, value) {
     var node = ReactMount.getNode(id);
-    !!bJlz.hasOwnProperty(name) ? 'production' !== 'production' ? invariant(false, 'updatePropertyByID(...): %s', bJlz[name]) : invariant(false) : undefined;
+    !!bxqA.hasOwnProperty(name) ? 'production' !== 'production' ? invariant(false, 'updatePropertyByID(...): %s', bxqA[name]) : invariant(false) : undefined;
 
     if (value != null) {
       DOMPropertyOperations.setValueForProperty(node, name, value);
@@ -6950,8 +6728,6 @@ ReactPerf.measureMethods(ReactDOMIDOperations, 'ReactDOMIDOperations', {
   dangerouslyProcessChildrenUpdates: 'dangerouslyProcessChildrenUpdates'
 });
 /**bandol> resource: node_modules/react/lib/ReactComponentBrowserEnvironment.js */
-/**bandol> default export: ReactComponentBrowserEnvironment */
-/**bandol> exports: - */
 
 var ReactComponentBrowserEnvironment = {
 
@@ -6965,8 +6741,6 @@ var ReactComponentBrowserEnvironment = {
 
 };
 /**bandol> resource: node_modules/react/lib/ReactDOMTextComponent.js */
-/**bandol> default export: ReactDOMTextComponent */
-/**bandol> exports: - */
 
 var ReactDOMTextComponent = function (props) {};
 
@@ -7019,22 +6793,16 @@ assign(ReactDOMTextComponent.prototype, {
 
 });
 /**bandol> resource: node_modules/react/lib/validateDOMNesting.js */
-/**bandol> default export: validateDOMNesting */
-/**bandol> exports: - */
 
 
 var validateDOMNesting = emptyFunction;
 /**bandol> resource: node_modules/react/lib/canDefineProperty.js */
-/**bandol> default export: canDefineProperty */
-/**bandol> exports: - */
 
 
 var canDefineProperty = false;
 /**bandol> resource: node_modules/react/lib/flattenChildren.js */
-/**bandol> default export: flattenChildren */
-/**bandol> exports: - */
 
-function b5NK(traverseContext, child, name) {
+function bPBV(traverseContext, child, name) {
   var result = traverseContext;
   var keyUnique = result[name] === undefined;
 
@@ -7048,15 +6816,13 @@ function flattenChildren(children) {
     return children;
   }
   var result = {};
-  traverseAllChildren(children, b5NK, result);
+  traverseAllChildren(children, bPBV, result);
   return result;
 }
 /**bandol> resource: node_modules/react/lib/ReactChildReconciler.js */
-/**bandol> default export: ReactChildReconciler */
-/**bandol> exports: - */
 
 
-function bkr9(childInstances, child, name) {
+function bQew(childInstances, child, name) {
   var keyUnique = childInstances[name] === undefined;
 
   if (child != null && keyUnique) {
@@ -7070,7 +6836,7 @@ var ReactChildReconciler = {
       return null;
     }
     var childInstances = {};
-    traverseAllChildren(nestedChildNodes, bkr9, childInstances);
+    traverseAllChildren(nestedChildNodes, bQew, childInstances);
     return childInstances;
   },
 
@@ -7118,29 +6884,27 @@ var ReactChildReconciler = {
 
 };
 /**bandol> resource: node_modules/react/lib/ReactMultiChild.js */
-/**bandol> default export: ReactMultiChild */
-/**bandol> exports: - */
 
-var b8a3 = 0;
+var bLqq = 0;
 
-var bNMy = [];
+var b0z8 = [];
 
-var bd5O = [];
+var b1d4 = [];
 
-function b9Nn(parentID, markup, toIndex) {
-  bNMy.push({
+function bwNR(parentID, markup, toIndex) {
+  b0z8.push({
     parentID: parentID,
     parentNode: null,
     type: ReactMultiChildUpdateTypes.INSERT_MARKUP,
-    markupIndex: bd5O.push(markup) - 1,
+    markupIndex: b1d4.push(markup) - 1,
     content: null,
     fromIndex: null,
     toIndex: toIndex
   });
 }
 
-function bE7z(parentID, fromIndex, toIndex) {
-  bNMy.push({
+function bkr9(parentID, fromIndex, toIndex) {
+  b0z8.push({
     parentID: parentID,
     parentNode: null,
     type: ReactMultiChildUpdateTypes.MOVE_EXISTING,
@@ -7151,8 +6915,8 @@ function bE7z(parentID, fromIndex, toIndex) {
   });
 }
 
-function b7Ma(parentID, fromIndex) {
-  bNMy.push({
+function b5NK(parentID, fromIndex) {
+  b0z8.push({
     parentID: parentID,
     parentNode: null,
     type: ReactMultiChildUpdateTypes.REMOVE_NODE,
@@ -7163,8 +6927,8 @@ function b7Ma(parentID, fromIndex) {
   });
 }
 
-function bLqq(parentID, markup) {
-  bNMy.push({
+function bJlz(parentID, markup) {
+  b0z8.push({
     parentID: parentID,
     parentNode: null,
     type: ReactMultiChildUpdateTypes.SET_MARKUP,
@@ -7175,8 +6939,8 @@ function bLqq(parentID, markup) {
   });
 }
 
-function b0z8(parentID, textContent) {
-  bNMy.push({
+function bqKJ(parentID, textContent) {
+  b0z8.push({
     parentID: parentID,
     parentNode: null,
     type: ReactMultiChildUpdateTypes.TEXT_CONTENT,
@@ -7187,16 +6951,16 @@ function b0z8(parentID, textContent) {
   });
 }
 
-function b1d4() {
-  if (bNMy.length) {
-    ReactComponentEnvironment.processChildrenUpdates(bNMy, bd5O);
-    bwNR();
+function byMb() {
+  if (b0z8.length) {
+    ReactComponentEnvironment.processChildrenUpdates(b0z8, b1d4);
+    brNl();
   }
 }
 
-function bwNR() {
-  bNMy.length = 0;
-  bd5O.length = 0;
+function brNl() {
+  b0z8.length = 0;
+  b1d4.length = 0;
 }
 
 var ReactMultiChild = {
@@ -7232,7 +6996,7 @@ var ReactMultiChild = {
     },
 
     updateTextContent: function (nextContent) {
-      b8a3++;
+      bLqq++;
       var errorThrown = true;
       try {
         var prevChildren = this._renderedChildren;
@@ -7248,19 +7012,19 @@ var ReactMultiChild = {
         this.setTextContent(nextContent);
         errorThrown = false;
       } finally {
-        b8a3--;
-        if (!b8a3) {
+        bLqq--;
+        if (!bLqq) {
           if (errorThrown) {
-            bwNR();
+            brNl();
           } else {
-            b1d4();
+            byMb();
           }
         }
       }
     },
 
     updateMarkup: function (nextMarkup) {
-      b8a3++;
+      bLqq++;
       var errorThrown = true;
       try {
         var prevChildren = this._renderedChildren;
@@ -7274,30 +7038,30 @@ var ReactMultiChild = {
         this.setMarkup(nextMarkup);
         errorThrown = false;
       } finally {
-        b8a3--;
-        if (!b8a3) {
+        bLqq--;
+        if (!bLqq) {
           if (errorThrown) {
-            bwNR();
+            brNl();
           } else {
-            b1d4();
+            byMb();
           }
         }
       }
     },
 
     updateChildren: function (nextNestedChildrenElements, transaction, context) {
-      b8a3++;
+      bLqq++;
       var errorThrown = true;
       try {
         this._updateChildren(nextNestedChildrenElements, transaction, context);
         errorThrown = false;
       } finally {
-        b8a3--;
-        if (!b8a3) {
+        bLqq--;
+        if (!bLqq) {
           if (errorThrown) {
-            bwNR();
+            brNl();
           } else {
-            b1d4();
+            byMb();
           }
         }
       }
@@ -7350,24 +7114,24 @@ var ReactMultiChild = {
 
     moveChild: function (child, toIndex, lastIndex) {
       if (child._mountIndex < lastIndex) {
-        bE7z(this._rootNodeID, child._mountIndex, toIndex);
+        bkr9(this._rootNodeID, child._mountIndex, toIndex);
       }
     },
 
     createChild: function (child, mountImage) {
-      b9Nn(this._rootNodeID, mountImage, child._mountIndex);
+      bwNR(this._rootNodeID, mountImage, child._mountIndex);
     },
 
     removeChild: function (child) {
-      b7Ma(this._rootNodeID, child._mountIndex);
+      b5NK(this._rootNodeID, child._mountIndex);
     },
 
     setTextContent: function (textContent) {
-      b0z8(this._rootNodeID, textContent);
+      bqKJ(this._rootNodeID, textContent);
     },
 
     setMarkup: function (markup) {
-      bLqq(this._rootNodeID, markup);
+      bJlz(this._rootNodeID, markup);
     },
 
     _mountChildByNameAtIndex: function (child, name, index, transaction, context) {
@@ -7386,11 +7150,9 @@ var ReactMultiChild = {
 
 };
 /**bandol> resource: node_modules/react/lib/LinkedValueUtils.js */
-/**bandol> default export: LinkedValueUtils */
-/**bandol> exports: - */
 
 
-var bvVv = {
+var bO0b = {
   'button': true,
   'checkbox': true,
   'image': true,
@@ -7400,22 +7162,22 @@ var bvVv = {
   'submit': true
 };
 
-function babR(inputProps) {
+function b8a3(inputProps) {
   !(inputProps.checkedLink == null || inputProps.valueLink == null) ? 'production' !== 'production' ? invariant(false, 'Cannot provide a checkedLink and a valueLink. If you want to use ' + 'checkedLink, you probably don\'t want to use valueLink and vice versa.') : invariant(false) : undefined;
 }
-function b2G1(inputProps) {
-  babR(inputProps);
+function bNMy(inputProps) {
+  b8a3(inputProps);
   !(inputProps.value == null && inputProps.onChange == null) ? 'production' !== 'production' ? invariant(false, 'Cannot provide a valueLink and a value or onChange event. If you want ' + 'to use value or onChange, you probably don\'t want to use valueLink.') : invariant(false) : undefined;
 }
 
-function be3P(inputProps) {
-  babR(inputProps);
+function bd5O(inputProps) {
+  b8a3(inputProps);
   !(inputProps.checked == null && inputProps.onChange == null) ? 'production' !== 'production' ? invariant(false, 'Cannot provide a checkedLink and a checked property or onChange event. ' + 'If you want to use checked or onChange, you probably don\'t want to ' + 'use checkedLink') : invariant(false) : undefined;
 }
 
-var bB76 = {
+var b9Nn = {
   value: function (props, propName, componentName) {
-    if (!props[propName] || bvVv[props.type] || props.onChange || props.readOnly || props.disabled) {
+    if (!props[propName] || bO0b[props.type] || props.onChange || props.readOnly || props.disabled) {
       return null;
     }
     return new Error('You provided a `value` prop to a form field without an ' + '`onChange` handler. This will render a read-only field. If ' + 'the field should be mutable use `defaultValue`. Otherwise, ' + 'set either `onChange` or `readOnly`.');
@@ -7429,8 +7191,8 @@ var bB76 = {
   onChange: ReactPropTypes.func
 };
 
-var bY0V = {};
-function bO0b(owner) {
+var bE7z = {};
+function b7Ma(owner) {
   if (owner) {
     var name = owner.getName();
     if (name) {
@@ -7442,14 +7204,14 @@ function bO0b(owner) {
 
 var LinkedValueUtils = {
   checkPropTypes: function (tagName, props, owner) {
-    for (var propName in bB76) {
-      if (bB76.hasOwnProperty(propName)) {
-        var error = bB76[propName](props, propName, tagName, ReactPropTypeLocations.prop);
+    for (var propName in b9Nn) {
+      if (b9Nn.hasOwnProperty(propName)) {
+        var error = b9Nn[propName](props, propName, tagName, ReactPropTypeLocations.prop);
       }
-      if (error instanceof Error && !(error.message in bY0V)) {
-        bY0V[error.message] = true;
+      if (error instanceof Error && !(error.message in bE7z)) {
+        bE7z[error.message] = true;
 
-        var addendum = bO0b(owner);
+        var addendum = b7Ma(owner);
         'production' !== 'production' ? warning(false, 'Failed form propType: %s%s', error.message, addendum) : undefined;
       }
     }
@@ -7457,7 +7219,7 @@ var LinkedValueUtils = {
 
   getValue: function (inputProps) {
     if (inputProps.valueLink) {
-      b2G1(inputProps);
+      bNMy(inputProps);
       return inputProps.valueLink.value;
     }
     return inputProps.value;
@@ -7465,7 +7227,7 @@ var LinkedValueUtils = {
 
   getChecked: function (inputProps) {
     if (inputProps.checkedLink) {
-      be3P(inputProps);
+      bd5O(inputProps);
       return inputProps.checkedLink.value;
     }
     return inputProps.checked;
@@ -7473,10 +7235,10 @@ var LinkedValueUtils = {
 
   executeOnChange: function (inputProps, event) {
     if (inputProps.valueLink) {
-      b2G1(inputProps);
+      bNMy(inputProps);
       return inputProps.valueLink.requestChange(event.target.value);
     } else if (inputProps.checkedLink) {
-      be3P(inputProps);
+      bd5O(inputProps);
       return inputProps.checkedLink.requestChange(event.target.checked);
     } else if (inputProps.onChange) {
       return inputProps.onChange.call(undefined, event);
@@ -7484,11 +7246,9 @@ var LinkedValueUtils = {
   }
 };
 /**bandol> resource: node_modules/react/lib/ReactDOMTextarea.js */
-/**bandol> default export: ReactDOMTextarea */
-/**bandol> exports: - */
 
 
-function bnxw() {
+function bB76() {
   if (this._rootNodeID) {
     ReactDOMTextarea.updateWrapper(this);
   }
@@ -7529,7 +7289,7 @@ var ReactDOMTextarea = {
 
     inst._wrapperState = {
       initialValue: '' + (value != null ? value : defaultValue),
-      onChange: bzG5.bind(inst)
+      onChange: bY0V.bind(inst)
     };
   },
 
@@ -7542,20 +7302,18 @@ var ReactDOMTextarea = {
   }
 };
 
-function bzG5(event) {
+function bY0V(event) {
   var props = this._currentElement.props;
   var returnValue = LinkedValueUtils.executeOnChange(props, event);
-  ReactUpdates.asap(bnxw, this);
+  ReactUpdates.asap(bB76, this);
   return returnValue;
 }
 /**bandol> resource: node_modules/react/lib/ReactDOMSelect.js */
-/**bandol> default export: ReactDOMSelect */
-/**bandol> exports: - */
 
 
-var b6NE = '__ReactDOMSelect_value$' + Math.random().toString(36).slice(2);
+var bnxw = '__ReactDOMSelect_value$' + Math.random().toString(36).slice(2);
 
-function bZpy() {
+function bzG5() {
   if (this._rootNodeID && this._wrapperState.pendingUpdate) {
     this._wrapperState.pendingUpdate = false;
 
@@ -7563,12 +7321,12 @@ function bZpy() {
     var value = LinkedValueUtils.getValue(props);
 
     if (value != null) {
-      bpa4(this, Boolean(props.multiple), value);
+      b2G1(this, Boolean(props.multiple), value);
     }
   }
 }
 
-function bAdv(owner) {
+function bvVv(owner) {
   if (owner) {
     var name = owner.getName();
     if (name) {
@@ -7578,9 +7336,9 @@ function bAdv(owner) {
   return '';
 }
 
-var b3bv = ['value', 'defaultValue'];
+var babR = ['value', 'defaultValue'];
 
-function bpa4(inst, multiple, propValue) {
+function b2G1(inst, multiple, propValue) {
   var selectedValue, i;
   var options = ReactMount.getNode(inst._rootNodeID).options;
 
@@ -7610,7 +7368,7 @@ function bpa4(inst, multiple, propValue) {
 }
 
 var ReactDOMSelect = {
-  valueContextKey: b6NE,
+  valueContextKey: bnxw,
 
   getNativeProps: function (inst, props, context) {
     return assign({}, props, {
@@ -7625,14 +7383,14 @@ var ReactDOMSelect = {
     inst._wrapperState = {
       pendingUpdate: false,
       initialValue: value != null ? value : props.defaultValue,
-      onChange: bm60.bind(inst),
+      onChange: be3P.bind(inst),
       wasMultiple: Boolean(props.multiple)
     };
   },
 
   processChildContext: function (inst, props, context) {
     var childContext = assign({}, context);
-    childContext[b6NE] = inst._wrapperState.initialValue;
+    childContext[bnxw] = inst._wrapperState.initialValue;
     return childContext;
   },
 
@@ -7647,35 +7405,33 @@ var ReactDOMSelect = {
     var value = LinkedValueUtils.getValue(props);
     if (value != null) {
       inst._wrapperState.pendingUpdate = false;
-      bpa4(inst, Boolean(props.multiple), value);
+      b2G1(inst, Boolean(props.multiple), value);
     } else if (wasMultiple !== Boolean(props.multiple)) {
       if (props.defaultValue != null) {
-        bpa4(inst, Boolean(props.multiple), props.defaultValue);
+        b2G1(inst, Boolean(props.multiple), props.defaultValue);
       } else {
-        bpa4(inst, Boolean(props.multiple), props.multiple ? [] : '');
+        b2G1(inst, Boolean(props.multiple), props.multiple ? [] : '');
       }
     }
   }
 };
 
-function bm60(event) {
+function be3P(event) {
   var props = this._currentElement.props;
   var returnValue = LinkedValueUtils.executeOnChange(props, event);
 
   this._wrapperState.pendingUpdate = true;
-  ReactUpdates.asap(bZpy, this);
+  ReactUpdates.asap(bzG5, this);
   return returnValue;
 }
 /**bandol> resource: node_modules/react/lib/ReactDOMOption.js */
-/**bandol> default export: ReactDOMOption */
-/**bandol> exports: - */
 
 
-var bMQd = ReactDOMSelect.valueContextKey;
+var bm60 = ReactDOMSelect.valueContextKey;
 
 var ReactDOMOption = {
   mountWrapper: function (inst, props, context) {
-    var selectValue = context[bMQd];
+    var selectValue = context[bm60];
 
     var selected = null;
     if (selectValue != null) {
@@ -7724,13 +7480,11 @@ var ReactDOMOption = {
 
 };
 /**bandol> resource: node_modules/react/lib/ReactDOMInput.js */
-/**bandol> default export: ReactDOMInput */
-/**bandol> exports: - */
 
 
-var blvJ = {};
+var bAdv = {};
 
-function bVRg() {
+function b3bv() {
   if (this._rootNodeID) {
     ReactDOMInput.updateWrapper(this);
   }
@@ -7758,16 +7512,16 @@ var ReactDOMInput = {
     inst._wrapperState = {
       initialChecked: props.defaultChecked || false,
       initialValue: defaultValue != null ? defaultValue : null,
-      onChange: bg58.bind(inst)
+      onChange: bpa4.bind(inst)
     };
   },
 
   mountReadyWrapper: function (inst) {
-    blvJ[inst._rootNodeID] = inst;
+    bAdv[inst._rootNodeID] = inst;
   },
 
   unmountWrapper: function (inst) {
-    delete blvJ[inst._rootNodeID];
+    delete bAdv[inst._rootNodeID];
   },
 
   updateWrapper: function (inst) {
@@ -7785,12 +7539,12 @@ var ReactDOMInput = {
   }
 };
 
-function bg58(event) {
+function bpa4(event) {
   var props = this._currentElement.props;
 
   var returnValue = LinkedValueUtils.executeOnChange(props, event);
 
-  ReactUpdates.asap(bVRg, this);
+  ReactUpdates.asap(b3bv, this);
 
   var name = props.name;
   if (props.type === 'radio' && name != null) {
@@ -7811,21 +7565,19 @@ function bg58(event) {
 
       var otherID = ReactMount.getID(otherNode);
       !otherID ? 'production' !== 'production' ? invariant(false, 'ReactDOMInput: Mixing React and non-React radio inputs with the ' + 'same `name` is not supported.') : invariant(false) : undefined;
-      var otherInstance = blvJ[otherID];
+      var otherInstance = bAdv[otherID];
       !otherInstance ? 'production' !== 'production' ? invariant(false, 'ReactDOMInput: Unknown radio button ID %s.', otherID) : invariant(false) : undefined;
 
-      ReactUpdates.asap(bVRg, otherInstance);
+      ReactUpdates.asap(b3bv, otherInstance);
     }
   }
 
   return returnValue;
 }
 /**bandol> resource: node_modules/react/lib/ReactDOMButton.js */
-/**bandol> default export: ReactDOMButton */
-/**bandol> exports: - */
 
 
-var bblX = {
+var bZpy = {
   onClick: true,
   onDoubleClick: true,
   onMouseDown: true,
@@ -7847,7 +7599,7 @@ var ReactDOMButton = {
 
     var nativeProps = {};
     for (var key in props) {
-      if (props.hasOwnProperty(key) && !bblX[key]) {
+      if (props.hasOwnProperty(key) && !bZpy[key]) {
         nativeProps[key] = props[key];
       }
     }
@@ -7856,8 +7608,6 @@ var ReactDOMButton = {
   }
 };
 /**bandol> resource: node_modules/fbjs/lib/memoizeStringOnly.js */
-/**bandol> default export: memoizeStringOnly */
-/**bandol> exports: - */
 
 function memoizeStringOnly(callback) {
   var cache = {};
@@ -7869,30 +7619,24 @@ function memoizeStringOnly(callback) {
   };
 }
 /**bandol> resource: node_modules/fbjs/lib/hyphenate.js */
-/**bandol> default export: hyphenate */
-/**bandol> exports: - */
 
 
-var bGX8 = /([A-Z])/g;
+var b6NE = /([A-Z])/g;
 
 function hyphenate(string) {
-  return string.replace(bGX8, '-$1').toLowerCase();
+  return string.replace(b6NE, '-$1').toLowerCase();
 }
 /**bandol> resource: node_modules/fbjs/lib/hyphenateStyleName.js */
-/**bandol> default export: hyphenateStyleName */
-/**bandol> exports: - */
 
 
-var b4Ax = /^ms-/;
+var bMQd = /^ms-/;
 
 function hyphenateStyleName(string) {
-  return hyphenate(string).replace(b4Ax, '-ms-');
+  return hyphenate(string).replace(bMQd, '-ms-');
 }
 /**bandol> resource: node_modules/react/lib/CSSProperty.js */
-/**bandol> default export: CSSProperty */
-/**bandol> exports: - */
 
-var bxKA = {
+var bblX = {
   animationIterationCount: true,
   boxFlex: true,
   boxFlexGroup: true,
@@ -7922,19 +7666,19 @@ var bxKA = {
   strokeWidth: true
 };
 
-function bXay(prefix, key) {
+function blvJ(prefix, key) {
   return prefix + key.charAt(0).toUpperCase() + key.substring(1);
 }
 
-var bRvl = ['Webkit', 'ms', 'Moz', 'O'];
+var bVRg = ['Webkit', 'ms', 'Moz', 'O'];
 
-Object.keys(bxKA).forEach(function (prop) {
-  bRvl.forEach(function (prefix) {
-    bxKA[bXay(prefix, prop)] = bxKA[prop];
+Object.keys(bblX).forEach(function (prop) {
+  bVRg.forEach(function (prefix) {
+    bblX[blvJ(prefix, prop)] = bblX[prop];
   });
 });
 
-var bKkN = {
+var bg58 = {
   background: {
     backgroundAttachment: true,
     backgroundColor: true,
@@ -7988,15 +7732,13 @@ var bKkN = {
 };
 
 var CSSProperty = {
-  isUnitlessNumber: bxKA,
-  shorthandPropertyExpansions: bKkN
+  isUnitlessNumber: bblX,
+  shorthandPropertyExpansions: bg58
 };
 /**bandol> resource: node_modules/react/lib/dangerousStyleValue.js */
-/**bandol> default export: dangerousStyleValue */
-/**bandol> exports: - */
 
 
-var bPqV = CSSProperty.isUnitlessNumber;
+var bGX8 = CSSProperty.isUnitlessNumber;
 
 function dangerousStyleValue(name, value) {
 
@@ -8006,7 +7748,7 @@ function dangerousStyleValue(name, value) {
   }
 
   var isNonNumeric = isNaN(value);
-  if (isNonNumeric || value === 0 || bPqV.hasOwnProperty(name) && bPqV[name]) {
+  if (isNonNumeric || value === 0 || bGX8.hasOwnProperty(name) && bGX8[name]) {
     return '' + value;
   }
 
@@ -8016,26 +7758,24 @@ function dangerousStyleValue(name, value) {
   return value + 'px';
 }
 /**bandol> resource: node_modules/react/lib/CSSPropertyOperations.js */
-/**bandol> default export: CSSPropertyOperations */
-/**bandol> exports: - */
 
 
-var blvM = memoizeStringOnly(function (styleName) {
+var bXay = memoizeStringOnly(function (styleName) {
   return hyphenateStyleName(styleName);
 });
 
-var bVR4 = false;
-var brgl = 'cssFloat';
+var bRvl = false;
+var bKkN = 'cssFloat';
 if (ExecutionEnvironment.canUseDOM) {
-  var bQvw = document.createElement('div').style;
+  var b4Ax = document.createElement('div').style;
   try {
-    bQvw.font = '';
+    b4Ax.font = '';
   } catch (e) {
-    bVR4 = true;
+    bRvl = true;
   }
 
   if (document.documentElement.style.cssFloat === undefined) {
-    brgl = 'styleFloat';
+    bKkN = 'styleFloat';
   }
 }
 
@@ -8049,7 +7789,7 @@ var CSSPropertyOperations = {
       var styleValue = styles[styleName];
 
       if (styleValue != null) {
-        serialized += blvM(styleName) + ':';
+        serialized += bXay(styleName) + ':';
         serialized += dangerousStyleValue(styleName, styleValue) + ';';
       }
     }
@@ -8065,12 +7805,12 @@ var CSSPropertyOperations = {
 
       var styleValue = dangerousStyleValue(styleName, styles[styleName]);
       if (styleName === 'float') {
-        styleName = brgl;
+        styleName = bKkN;
       }
       if (styleValue) {
         style[styleName] = styleValue;
       } else {
-        var expansion = bVR4 && CSSProperty.shorthandPropertyExpansions[styleName];
+        var expansion = bRvl && CSSProperty.shorthandPropertyExpansions[styleName];
         if (expansion) {
           for (var individualStyleName in expansion) {
             style[individualStyleName] = '';
@@ -8088,8 +7828,6 @@ ReactPerf.measureMethods(CSSPropertyOperations, 'CSSPropertyOperations', {
   setValueForStyles: 'setValueForStyles'
 });
 /**bandol> resource: node_modules/react/lib/findDOMNode.js */
-/**bandol> default export: findDOMNode */
-/**bandol> exports: - */
 
 function findDOMNode(componentOrElement) {
   if (componentOrElement == null) {
@@ -8105,11 +7843,9 @@ function findDOMNode(componentOrElement) {
   !false ? 'production' !== 'production' ? invariant(false, 'Element appears to be neither ReactComponent nor DOMNode (keys: %s)', Object.keys(componentOrElement)) : invariant(false) : undefined;
 }
 /**bandol> resource: node_modules/react/lib/AutoFocusUtils.js */
-/**bandol> default export: AutoFocusUtils */
-/**bandol> exports: - */
 
 
-var bble = {
+var bxKA = {
   componentDidMount: function () {
     if (this.props.autoFocus) {
       focusNode(findDOMNode(this));
@@ -8118,30 +7854,28 @@ var bble = {
 };
 
 var AutoFocusUtils = {
-  Mixin: bble,
+  Mixin: bxKA,
 
   focusDOMComponent: function () {
     focusNode(ReactMount.getNode(this._rootNodeID));
   }
 };
 /**bandol> resource: node_modules/react/lib/ReactDOMComponent.js */
-/**bandol> default export: ReactDOMComponent */
-/**bandol> exports: - */
 
 
-var ba6d = ReactBrowserEventEmitter.deleteListener;
-var b2Nk = ReactBrowserEventEmitter.listenTo;
-var beYl = ReactBrowserEventEmitter.registrationNameModules;
+var b8AY = ReactBrowserEventEmitter.deleteListener;
+var bNPx = ReactBrowserEventEmitter.listenTo;
+var bdZ0 = ReactBrowserEventEmitter.registrationNameModules;
 
-var bB4E = { 'string': true, 'number': true };
+var b9ld = { 'string': true, 'number': true };
 
-var bYn4 = keyOf({ children: null });
-var bOZG = keyOf({ style: null });
-var b8AY = keyOf({ __html: null });
+var bEze = keyOf({ children: null });
+var b7GY = keyOf({ style: null });
+var bL7m = keyOf({ __html: null });
 
-var bNPx = 1;
+var b0A1 = 1;
 
-function bdZ0(internalInstance) {
+function b1q2(internalInstance) {
   if (internalInstance) {
     var owner = internalInstance._currentElement._owner || null;
     if (owner) {
@@ -8154,19 +7888,19 @@ function bdZ0(internalInstance) {
   return '';
 }
 
-function b9ld() {
+function bwg8() {
   return this;
 }
 
-function bEze() {
+function bkg8() {
   var component = this._reactInternalComponent;
 
   return !!component;
 }
 
-function b7GY() {}
+function b5ma() {}
 
-function bL7m(partialProps, callback) {
+function bJ2L(partialProps, callback) {
   var component = this._reactInternalComponent;
 
   if (!component) {
@@ -8178,7 +7912,7 @@ function bL7m(partialProps, callback) {
   }
 }
 
-function b0A1(partialProps, callback) {
+function bqqn(partialProps, callback) {
   var component = this._reactInternalComponent;
 
   if (!component) {
@@ -8190,16 +7924,16 @@ function b0A1(partialProps, callback) {
   }
 }
 
-function b1q2(obj) {
+function byqY(obj) {
   if (typeof obj === 'object') {
     if (Array.isArray(obj)) {
-      return '[' + obj.map(b1q2).join(', ') + ']';
+      return '[' + obj.map(byqY).join(', ') + ']';
     } else {
       var pairs = [];
       for (var key in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, key)) {
           var keyEscaped = /^[a-z$_][\w$_]*$/i.test(key) ? key : JSON.stringify(key);
-          pairs.push(keyEscaped + ': ' + b1q2(obj[key]));
+          pairs.push(keyEscaped + ': ' + byqY(obj[key]));
         }
       }
       return '{' + pairs.join(', ') + '}';
@@ -8213,40 +7947,40 @@ function b1q2(obj) {
   return String(obj);
 }
 
-var bwg8 = {};
+var brge = {};
 
-function bkg8(component, props) {
+function bQvr(component, props) {
   if (!props) {
     return;
   }
 
   if (props.dangerouslySetInnerHTML != null) {
     !(props.children == null) ? 'production' !== 'production' ? invariant(false, 'Can only set one of `children` or `props.dangerouslySetInnerHTML`.') : invariant(false) : undefined;
-    !(typeof props.dangerouslySetInnerHTML === 'object' && b8AY in props.dangerouslySetInnerHTML) ? 'production' !== 'production' ? invariant(false, '`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. ' + 'Please visit https://fb.me/react-invariant-dangerously-set-inner-html ' + 'for more information.') : invariant(false) : undefined;
+    !(typeof props.dangerouslySetInnerHTML === 'object' && bL7m in props.dangerouslySetInnerHTML) ? 'production' !== 'production' ? invariant(false, '`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. ' + 'Please visit https://fb.me/react-invariant-dangerously-set-inner-html ' + 'for more information.') : invariant(false) : undefined;
   }
 
-  !(props.style == null || typeof props.style === 'object') ? 'production' !== 'production' ? invariant(false, 'The `style` prop expects a mapping from style properties to values, ' + 'not a string. For example, style={{marginRight: spacing + \'em\'}} when ' + 'using JSX.%s', bdZ0(component)) : invariant(false) : undefined;
+  !(props.style == null || typeof props.style === 'object') ? 'production' !== 'production' ? invariant(false, 'The `style` prop expects a mapping from style properties to values, ' + 'not a string. For example, style={{marginRight: spacing + \'em\'}} when ' + 'using JSX.%s', b1q2(component)) : invariant(false) : undefined;
 }
 
-function b5ma(id, registrationName, listener, transaction) {
+function bPqq(id, registrationName, listener, transaction) {
   var container = ReactMount.findReactContainerForID(id);
   if (container) {
-    var doc = container.nodeType === bNPx ? container.ownerDocument : container;
-    b2Nk(registrationName, doc);
+    var doc = container.nodeType === b0A1 ? container.ownerDocument : container;
+    bNPx(registrationName, doc);
   }
-  transaction.getReactMountReady().enqueue(bJ2L, {
+  transaction.getReactMountReady().enqueue(bxKq, {
     id: id,
     registrationName: registrationName,
     listener: listener
   });
 }
 
-function bJ2L() {
+function bxKq() {
   var listenerToPut = this;
   ReactBrowserEventEmitter.putListener(listenerToPut.id, listenerToPut.registrationName, listenerToPut.listener);
 }
 
-var bqqn = {
+var bXaz = {
   topAbort: 'abort',
   topCanPlay: 'canplay',
   topCanPlayThrough: 'canplaythrough',
@@ -8272,7 +8006,7 @@ var bqqn = {
   topWaiting: 'waiting'
 };
 
-function byqY() {
+function bRvK() {
   var inst = this;
 
   !inst._rootNodeID ? 'production' !== 'production' ? invariant(false, 'Must be mounted to trap events') : invariant(false) : undefined;
@@ -8288,9 +8022,9 @@ function byqY() {
 
       inst._wrapperState.listeners = [];
 
-      for (var event in bqqn) {
-        if (bqqn.hasOwnProperty(event)) {
-          inst._wrapperState.listeners.push(ReactBrowserEventEmitter.trapBubbledEvent(EventConstants.topLevelTypes[event], bqqn[event], node));
+      for (var event in bXaz) {
+        if (bXaz.hasOwnProperty(event)) {
+          inst._wrapperState.listeners.push(ReactBrowserEventEmitter.trapBubbledEvent(EventConstants.topLevelTypes[event], bXaz[event], node));
         }
       }
 
@@ -8304,15 +8038,15 @@ function byqY() {
   }
 }
 
-function brge() {
+function bKkv() {
   ReactDOMInput.mountReadyWrapper(this);
 }
 
-function bQvr() {
+function b4Al() {
   ReactDOMSelect.postUpdateWrapper(this);
 }
 
-var bPqq = {
+var bGXZ = {
   'area': true,
   'base': true,
   'br': true,
@@ -8330,29 +8064,29 @@ var bPqq = {
   'wbr': true
 };
 
-var bxKq = {
+var bble = {
   'listing': true,
   'pre': true,
   'textarea': true
 };
 
-var bXaz = /^[a-zA-Z][a-zA-Z:_\.\-\d]*$/;
-var bRvK = {};
-var bKkv = {}.hasOwnProperty;
+var blvM = /^[a-zA-Z][a-zA-Z:_\.\-\d]*$/;
+var bVR4 = {};
+var brgl = {}.hasOwnProperty;
 
-function b4Al(tag) {
-  if (!bKkv.call(bRvK, tag)) {
-    !bXaz.test(tag) ? 'production' !== 'production' ? invariant(false, 'Invalid tag: %s', tag) : invariant(false) : undefined;
-    bRvK[tag] = true;
+function bQvw(tag) {
+  if (!brgl.call(bVR4, tag)) {
+    !blvM.test(tag) ? 'production' !== 'production' ? invariant(false, 'Invalid tag: %s', tag) : invariant(false) : undefined;
+    bVR4[tag] = true;
   }
 }
 
-function bGXZ(tagName, props) {
+function bPqV(tagName, props) {
   return tagName.indexOf('-') >= 0 || props.is != null;
 }
 
 function ReactDOMComponent(tag) {
-  b4Al(tag);
+  bQvw(tag);
   this._tag = tag.toLowerCase();
   this._renderedChildren = null;
   this._previousStyle = null;
@@ -8385,7 +8119,7 @@ ReactDOMComponent.Mixin = {
         this._wrapperState = {
           listeners: null
         };
-        transaction.getReactMountReady().enqueue(byqY, this);
+        transaction.getReactMountReady().enqueue(bRvK, this);
         break;
       case 'button':
         props = ReactDOMButton.getNativeProps(this, props, context);
@@ -8409,7 +8143,7 @@ ReactDOMComponent.Mixin = {
         break;
     }
 
-    bkg8(this, props);
+    bQvr(this, props);
 
 
     var mountImage;
@@ -8425,7 +8159,7 @@ ReactDOMComponent.Mixin = {
     } else {
       var tagOpen = this._createOpenTagMarkupAndPutListeners(transaction, props);
       var tagContent = this._createContentMarkup(transaction, props, context);
-      if (!tagContent && bPqq[this._tag]) {
+      if (!tagContent && bGXZ[this._tag]) {
         mountImage = tagOpen + '/>';
       } else {
         mountImage = tagOpen + '>' + tagContent + '</' + this._currentElement.type + '>';
@@ -8434,7 +8168,7 @@ ReactDOMComponent.Mixin = {
 
     switch (this._tag) {
       case 'input':
-        transaction.getReactMountReady().enqueue(brge, this);
+        transaction.getReactMountReady().enqueue(bKkv, this);
 
       case 'button':
       case 'select':
@@ -8459,20 +8193,20 @@ ReactDOMComponent.Mixin = {
       if (propValue == null) {
         continue;
       }
-      if (beYl.hasOwnProperty(propKey)) {
+      if (bdZ0.hasOwnProperty(propKey)) {
         if (propValue) {
-          b5ma(this._rootNodeID, propKey, propValue, transaction);
+          bPqq(this._rootNodeID, propKey, propValue, transaction);
         }
       } else {
-        if (propKey === bOZG) {
+        if (propKey === b7GY) {
           if (propValue) {
             propValue = this._previousStyleCopy = assign({}, props.style);
           }
           propValue = CSSPropertyOperations.createMarkupForStyles(propValue);
         }
         var markup = null;
-        if (this._tag != null && bGXZ(this._tag, props)) {
-          if (propKey !== bYn4) {
+        if (this._tag != null && bPqV(this._tag, props)) {
+          if (propKey !== bEze) {
             markup = DOMPropertyOperations.createMarkupForCustomAttribute(propKey, propValue);
           }
         } else {
@@ -8501,7 +8235,7 @@ ReactDOMComponent.Mixin = {
         ret = innerHTML.__html;
       }
     } else {
-      var contentToUse = bB4E[typeof props.children] ? props.children : null;
+      var contentToUse = b9ld[typeof props.children] ? props.children : null;
       var childrenToUse = contentToUse != null ? null : props.children;
       if (contentToUse != null) {
         ret = escapeTextContentForBrowser(contentToUse);
@@ -8510,7 +8244,7 @@ ReactDOMComponent.Mixin = {
         ret = mountImages.join('');
       }
     }
-    if (bxKq[this._tag] && ret.charAt(0) === '\n') {
+    if (bble[this._tag] && ret.charAt(0) === '\n') {
       return '\n' + ret;
     } else {
       return ret;
@@ -8524,7 +8258,7 @@ ReactDOMComponent.Mixin = {
         setInnerHTML(el, innerHTML.__html);
       }
     } else {
-      var contentToUse = bB4E[typeof props.children] ? props.children : null;
+      var contentToUse = b9ld[typeof props.children] ? props.children : null;
       var childrenToUse = contentToUse != null ? null : props.children;
       if (contentToUse != null) {
         setTextContent(el, contentToUse);
@@ -8572,7 +8306,7 @@ ReactDOMComponent.Mixin = {
         break;
     }
 
-    bkg8(this, nextProps);
+    bQvr(this, nextProps);
     this._updateDOMProperties(lastProps, nextProps, transaction, null);
     this._updateDOMChildren(lastProps, nextProps, transaction, context);
 
@@ -8581,7 +8315,7 @@ ReactDOMComponent.Mixin = {
     }
 
     if (this._tag === 'select') {
-      transaction.getReactMountReady().enqueue(bQvr, this);
+      transaction.getReactMountReady().enqueue(b4Al, this);
     }
   },
 
@@ -8593,7 +8327,7 @@ ReactDOMComponent.Mixin = {
       if (nextProps.hasOwnProperty(propKey) || !lastProps.hasOwnProperty(propKey)) {
         continue;
       }
-      if (propKey === bOZG) {
+      if (propKey === b7GY) {
         var lastStyle = this._previousStyleCopy;
         for (styleName in lastStyle) {
           if (lastStyle.hasOwnProperty(styleName)) {
@@ -8602,9 +8336,9 @@ ReactDOMComponent.Mixin = {
           }
         }
         this._previousStyleCopy = null;
-      } else if (beYl.hasOwnProperty(propKey)) {
+      } else if (bdZ0.hasOwnProperty(propKey)) {
         if (lastProps[propKey]) {
-          ba6d(this._rootNodeID, propKey);
+          b8AY(this._rootNodeID, propKey);
         }
       } else if (DOMProperty.properties[propKey] || DOMProperty.isCustomAttribute(propKey)) {
         if (!node) {
@@ -8615,11 +8349,11 @@ ReactDOMComponent.Mixin = {
     }
     for (propKey in nextProps) {
       var nextProp = nextProps[propKey];
-      var lastProp = propKey === bOZG ? this._previousStyleCopy : lastProps[propKey];
+      var lastProp = propKey === b7GY ? this._previousStyleCopy : lastProps[propKey];
       if (!nextProps.hasOwnProperty(propKey) || nextProp === lastProp) {
         continue;
       }
-      if (propKey === bOZG) {
+      if (propKey === b7GY) {
         if (nextProp) {
           nextProp = this._previousStyleCopy = assign({}, nextProp);
         } else {
@@ -8642,17 +8376,17 @@ ReactDOMComponent.Mixin = {
         } else {
           styleUpdates = nextProp;
         }
-      } else if (beYl.hasOwnProperty(propKey)) {
+      } else if (bdZ0.hasOwnProperty(propKey)) {
         if (nextProp) {
-          b5ma(this._rootNodeID, propKey, nextProp, transaction);
+          bPqq(this._rootNodeID, propKey, nextProp, transaction);
         } else if (lastProp) {
-          ba6d(this._rootNodeID, propKey);
+          b8AY(this._rootNodeID, propKey);
         }
-      } else if (bGXZ(this._tag, nextProps)) {
+      } else if (bPqV(this._tag, nextProps)) {
         if (!node) {
           node = ReactMount.getNode(this._rootNodeID);
         }
-        if (propKey === bYn4) {
+        if (propKey === bEze) {
           nextProp = null;
         }
         DOMPropertyOperations.setValueForAttribute(node, propKey, nextProp);
@@ -8677,8 +8411,8 @@ ReactDOMComponent.Mixin = {
   },
 
   _updateDOMChildren: function (lastProps, nextProps, transaction, context) {
-    var lastContent = bB4E[typeof lastProps.children] ? lastProps.children : null;
-    var nextContent = bB4E[typeof nextProps.children] ? nextProps.children : null;
+    var lastContent = b9ld[typeof lastProps.children] ? lastProps.children : null;
+    var nextContent = b9ld[typeof nextProps.children] ? nextProps.children : null;
 
     var lastHtml = lastProps.dangerouslySetInnerHTML && lastProps.dangerouslySetInnerHTML.__html;
     var nextHtml = nextProps.dangerouslySetInnerHTML && nextProps.dangerouslySetInnerHTML.__html;
@@ -8748,13 +8482,13 @@ ReactDOMComponent.Mixin = {
       var node = ReactMount.getNode(this._rootNodeID);
 
       node._reactInternalComponent = this;
-      node.getDOMNode = b9ld;
-      node.isMounted = bEze;
-      node.setState = b7GY;
-      node.replaceState = b7GY;
-      node.forceUpdate = b7GY;
-      node.setProps = bL7m;
-      node.replaceProps = b0A1;
+      node.getDOMNode = bwg8;
+      node.isMounted = bkg8;
+      node.setState = b5ma;
+      node.replaceState = b5ma;
+      node.forceUpdate = b5ma;
+      node.setProps = bJ2L;
+      node.replaceProps = bqqn;
 
       node.props = this._currentElement.props;
 
@@ -8773,36 +8507,32 @@ ReactPerf.measureMethods(ReactDOMComponent, 'ReactDOMComponent', {
 
 assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);
 /**bandol> resource: node_modules/react/lib/ReactBrowserComponentMixin.js */
-/**bandol> default export: ReactBrowserComponentMixin */
-/**bandol> exports: - */
 
 
-var bva9 = '_getDOMNodeDidWarn';
+var bOZG = '_getDOMNodeDidWarn';
 
 var ReactBrowserComponentMixin = {
   getDOMNode: function () {
-    'production' !== 'production' ? warning(this.constructor[bva9], '%s.getDOMNode(...) is deprecated. Please use ' + 'ReactDOM.findDOMNode(instance) instead.', ReactInstanceMap.get(this).getName() || this.tagName || 'Unknown') : undefined;
-    this.constructor[bva9] = true;
+    'production' !== 'production' ? warning(this.constructor[bOZG], '%s.getDOMNode(...) is deprecated. Please use ' + 'ReactDOM.findDOMNode(instance) instead.', ReactInstanceMap.get(this).getName() || this.tagName || 'Unknown') : undefined;
+    this.constructor[bOZG] = true;
     return findDOMNode(this);
   }
 };
 /**bandol> resource: node_modules/react/lib/HTMLDOMPropertyConfig.js */
-/**bandol> default export: HTMLDOMPropertyConfig */
-/**bandol> exports: - */
 
 
-var bMla = DOMProperty.injection.MUST_USE_ATTRIBUTE;
-var b63p = DOMProperty.injection.MUST_USE_PROPERTY;
-var bZ6X = DOMProperty.injection.HAS_BOOLEAN_VALUE;
-var bAmk = DOMProperty.injection.HAS_SIDE_EFFECTS;
-var b3Y5 = DOMProperty.injection.HAS_NUMERIC_VALUE;
-var bpy2 = DOMProperty.injection.HAS_POSITIVE_NUMERIC_VALUE;
-var bm2y = DOMProperty.injection.HAS_OVERLOADED_BOOLEAN_VALUE;
+var bm2y = DOMProperty.injection.MUST_USE_ATTRIBUTE;
+var bnJg = DOMProperty.injection.MUST_USE_PROPERTY;
+var bzE4 = DOMProperty.injection.HAS_BOOLEAN_VALUE;
+var bva9 = DOMProperty.injection.HAS_SIDE_EFFECTS;
+var ba6d = DOMProperty.injection.HAS_NUMERIC_VALUE;
+var b2Nk = DOMProperty.injection.HAS_POSITIVE_NUMERIC_VALUE;
+var beYl = DOMProperty.injection.HAS_OVERLOADED_BOOLEAN_VALUE;
 
-var bnJg;
+var bB4E;
 if (ExecutionEnvironment.canUseDOM) {
-  var bzE4 = document.implementation;
-  bnJg = bzE4 && bzE4.hasFeature && bzE4.hasFeature('http://www.w3.org/TR/SVG11/feature#BasicStructure', '1.1');
+  var bYn4 = document.implementation;
+  bB4E = bYn4 && bYn4.hasFeature && bYn4.hasFeature('http://www.w3.org/TR/SVG11/feature#BasicStructure', '1.1');
 }
 
 var HTMLDOMPropertyConfig = {
@@ -8812,112 +8542,112 @@ var HTMLDOMPropertyConfig = {
     acceptCharset: null,
     accessKey: null,
     action: null,
-    allowFullScreen: bMla | bZ6X,
-    allowTransparency: bMla,
+    allowFullScreen: bm2y | bzE4,
+    allowTransparency: bm2y,
     alt: null,
-    async: bZ6X,
+    async: bzE4,
     autoComplete: null,
 
-    autoPlay: bZ6X,
-    capture: bMla | bZ6X,
+    autoPlay: bzE4,
+    capture: bm2y | bzE4,
     cellPadding: null,
     cellSpacing: null,
-    charSet: bMla,
-    challenge: bMla,
-    checked: b63p | bZ6X,
-    classID: bMla,
+    charSet: bm2y,
+    challenge: bm2y,
+    checked: bnJg | bzE4,
+    classID: bm2y,
 
-    className: bnJg ? bMla : b63p,
-    cols: bMla | bpy2,
+    className: bB4E ? bm2y : bnJg,
+    cols: bm2y | b2Nk,
     colSpan: null,
     content: null,
     contentEditable: null,
-    contextMenu: bMla,
-    controls: b63p | bZ6X,
+    contextMenu: bm2y,
+    controls: bnJg | bzE4,
     coords: null,
     crossOrigin: null,
     data: null,
-    dateTime: bMla,
-    'default': bZ6X,
-    defer: bZ6X,
+    dateTime: bm2y,
+    'default': bzE4,
+    defer: bzE4,
     dir: null,
-    disabled: bMla | bZ6X,
-    download: bm2y,
+    disabled: bm2y | bzE4,
+    download: beYl,
     draggable: null,
     encType: null,
-    form: bMla,
-    formAction: bMla,
-    formEncType: bMla,
-    formMethod: bMla,
-    formNoValidate: bZ6X,
-    formTarget: bMla,
-    frameBorder: bMla,
+    form: bm2y,
+    formAction: bm2y,
+    formEncType: bm2y,
+    formMethod: bm2y,
+    formNoValidate: bzE4,
+    formTarget: bm2y,
+    frameBorder: bm2y,
     headers: null,
-    height: bMla,
-    hidden: bMla | bZ6X,
+    height: bm2y,
+    hidden: bm2y | bzE4,
     high: null,
     href: null,
     hrefLang: null,
     htmlFor: null,
     httpEquiv: null,
     icon: null,
-    id: b63p,
-    inputMode: bMla,
+    id: bnJg,
+    inputMode: bm2y,
     integrity: null,
-    is: bMla,
-    keyParams: bMla,
-    keyType: bMla,
+    is: bm2y,
+    keyParams: bm2y,
+    keyType: bm2y,
     kind: null,
     label: null,
     lang: null,
-    list: bMla,
-    loop: b63p | bZ6X,
+    list: bm2y,
+    loop: bnJg | bzE4,
     low: null,
-    manifest: bMla,
+    manifest: bm2y,
     marginHeight: null,
     marginWidth: null,
     max: null,
-    maxLength: bMla,
-    media: bMla,
+    maxLength: bm2y,
+    media: bm2y,
     mediaGroup: null,
     method: null,
     min: null,
-    minLength: bMla,
-    multiple: b63p | bZ6X,
-    muted: b63p | bZ6X,
+    minLength: bm2y,
+    multiple: bnJg | bzE4,
+    muted: bnJg | bzE4,
     name: null,
-    nonce: bMla,
-    noValidate: bZ6X,
-    open: bZ6X,
+    nonce: bm2y,
+    noValidate: bzE4,
+    open: bzE4,
     optimum: null,
     pattern: null,
     placeholder: null,
     poster: null,
     preload: null,
     radioGroup: null,
-    readOnly: b63p | bZ6X,
+    readOnly: bnJg | bzE4,
     rel: null,
-    required: bZ6X,
-    reversed: bZ6X,
-    role: bMla,
-    rows: bMla | bpy2,
+    required: bzE4,
+    reversed: bzE4,
+    role: bm2y,
+    rows: bm2y | b2Nk,
     rowSpan: null,
     sandbox: null,
     scope: null,
-    scoped: bZ6X,
+    scoped: bzE4,
     scrolling: null,
-    seamless: bMla | bZ6X,
-    selected: b63p | bZ6X,
+    seamless: bm2y | bzE4,
+    selected: bnJg | bzE4,
     shape: null,
-    size: bMla | bpy2,
-    sizes: bMla,
-    span: bpy2,
+    size: bm2y | b2Nk,
+    sizes: bm2y,
+    span: b2Nk,
     spellCheck: null,
     src: null,
-    srcDoc: b63p,
+    srcDoc: bnJg,
     srcLang: null,
-    srcSet: bMla,
-    start: b3Y5,
+    srcSet: bm2y,
+    start: ba6d,
     step: null,
     style: null,
     summary: null,
@@ -8926,40 +8656,40 @@ var HTMLDOMPropertyConfig = {
     title: null,
     type: null,
     useMap: null,
-    value: b63p | bAmk,
-    width: bMla,
-    wmode: bMla,
+    value: bnJg | bva9,
+    width: bm2y,
+    wmode: bm2y,
     wrap: null,
 
-    about: bMla,
-    datatype: bMla,
-    inlist: bMla,
-    prefix: bMla,
+    about: bm2y,
+    datatype: bm2y,
+    inlist: bm2y,
+    prefix: bm2y,
 
-    property: bMla,
-    resource: bMla,
-    'typeof': bMla,
-    vocab: bMla,
+    property: bm2y,
+    resource: bm2y,
+    'typeof': bm2y,
+    vocab: bm2y,
 
-    autoCapitalize: bMla,
-    autoCorrect: bMla,
+    autoCapitalize: bm2y,
+    autoCorrect: bm2y,
 
     autoSave: null,
 
     color: null,
 
-    itemProp: bMla,
-    itemScope: bMla | bZ6X,
-    itemType: bMla,
+    itemProp: bm2y,
+    itemScope: bm2y | bzE4,
+    itemType: bm2y,
 
-    itemID: bMla,
-    itemRef: bMla,
+    itemID: bm2y,
+    itemRef: bm2y,
 
     results: null,
 
-    security: bMla,
+    security: bm2y,
 
-    unselectable: bMla
+    unselectable: bm2y
   },
   DOMAttributeNames: {
     acceptCharset: 'accept-charset',
@@ -8982,35 +8712,33 @@ var HTMLDOMPropertyConfig = {
   }
 };
 /**bandol> resource: node_modules/react/lib/EnterLeaveEventPlugin.js */
-/**bandol> default export: EnterLeaveEventPlugin */
-/**bandol> exports: - */
 
 
-var bb3e = EventConstants.topLevelTypes;
-var blYM = ReactMount.getFirstReactDOM;
+var bZ6X = EventConstants.topLevelTypes;
+var bAmk = ReactMount.getFirstReactDOM;
 
-var bVl4 = {
+var b3Y5 = {
   mouseEnter: {
     registrationName: keyOf({ onMouseEnter: null }),
-    dependencies: [bb3e.topMouseOut, bb3e.topMouseOver]
+    dependencies: [bZ6X.topMouseOut, bZ6X.topMouseOver]
   },
   mouseLeave: {
     registrationName: keyOf({ onMouseLeave: null }),
-    dependencies: [bb3e.topMouseOut, bb3e.topMouseOver]
+    dependencies: [bZ6X.topMouseOut, bZ6X.topMouseOver]
   }
 };
 
-var bgnL = [null, null];
+var bpy2 = [null, null];
 
 var EnterLeaveEventPlugin = {
 
-  eventTypes: bVl4,
+  eventTypes: b3Y5,
 
   extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-    if (topLevelType === bb3e.topMouseOver && (nativeEvent.relatedTarget || nativeEvent.fromElement)) {
+    if (topLevelType === bZ6X.topMouseOver && (nativeEvent.relatedTarget || nativeEvent.fromElement)) {
       return null;
     }
-    if (topLevelType !== bb3e.topMouseOut && topLevelType !== bb3e.topMouseOver) {
+    if (topLevelType !== bZ6X.topMouseOut && topLevelType !== bZ6X.topMouseOver) {
       return null;
     }
 
@@ -9030,10 +8758,10 @@ var EnterLeaveEventPlugin = {
     var to;
     var fromID = '';
     var toID = '';
-    if (topLevelType === bb3e.topMouseOut) {
+    if (topLevelType === bZ6X.topMouseOut) {
       from = topLevelTarget;
       fromID = topLevelTargetID;
-      to = blYM(nativeEvent.relatedTarget || nativeEvent.toElement);
+      to = bAmk(nativeEvent.relatedTarget || nativeEvent.toElement);
       if (to) {
         toID = ReactMount.getID(to);
       } else {
@@ -9050,229 +8778,223 @@ var EnterLeaveEventPlugin = {
       return null;
     }
 
-    var leave = SyntheticMouseEvent.getPooled(bVl4.mouseLeave, fromID, nativeEvent, nativeEventTarget);
+    var leave = SyntheticMouseEvent.getPooled(b3Y5.mouseLeave, fromID, nativeEvent, nativeEventTarget);
     leave.type = 'mouseleave';
     leave.target = from;
     leave.relatedTarget = to;
 
-    var enter = SyntheticMouseEvent.getPooled(bVl4.mouseEnter, toID, nativeEvent, nativeEventTarget);
+    var enter = SyntheticMouseEvent.getPooled(b3Y5.mouseEnter, toID, nativeEvent, nativeEventTarget);
     enter.type = 'mouseenter';
     enter.target = to;
     enter.relatedTarget = from;
 
     EventPropagators.accumulateEnterLeaveDispatches(leave, enter, fromID, toID);
 
-    bgnL[0] = leave;
-    bgnL[1] = enter;
+    bpy2[0] = leave;
+    bpy2[1] = enter;
 
-    return bgnL;
+    return bpy2;
   }
 
 };
 /**bandol> resource: node_modules/react/lib/DefaultEventPluginOrder.js */
-/**bandol> default export: DefaultEventPluginOrder */
-/**bandol> exports: - */
 
 var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ SimpleEventPlugin: null }), keyOf({ TapEventPlugin: null }), keyOf({ EnterLeaveEventPlugin: null }), keyOf({ ChangeEventPlugin: null }), keyOf({ SelectEventPlugin: null }), keyOf({ BeforeInputEventPlugin: null })];
 /**bandol> resource: node_modules/react/lib/ClientReactRootIndex.js */
-/**bandol> default export: ClientReactRootIndex */
-/**bandol> exports: - */
 
 
-var bGKZ = 0;
+var b63p = 0;
 
 var ClientReactRootIndex = {
   createReactRootIndex: function () {
-    return bGKZ++;
+    return b63p++;
   }
 };
 /**bandol> resource: node_modules/react/lib/ChangeEventPlugin.js */
-/**bandol> default export: ChangeEventPlugin */
-/**bandol> exports: - */
 
 
-var bOG = EventConstants.topLevelTypes;
+var b7Y = EventConstants.topLevelTypes;
 
-var b8Y = {
+var bLm = {
   change: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onChange: null }),
       captured: keyOf({ onChangeCapture: null })
     },
-    dependencies: [bOG.topBlur, bOG.topChange, bOG.topClick, bOG.topFocus, bOG.topInput, bOG.topKeyDown, bOG.topKeyUp, bOG.topSelectionChange]
+    dependencies: [b7Y.topBlur, b7Y.topChange, b7Y.topClick, b7Y.topFocus, b7Y.topInput, b7Y.topKeyDown, b7Y.topKeyUp, b7Y.topSelectionChange]
   }
 };
 
-var bNx = null;
-var bd0 = null;
-var b9d = null;
-var bEe = null;
+var b01 = null;
+var b12 = null;
+var bw8 = null;
+var bk8 = null;
 
-function b7Y(elem) {
+function b5a(elem) {
   var nodeName = elem.nodeName && elem.nodeName.toLowerCase();
   return nodeName === 'select' || nodeName === 'input' && elem.type === 'file';
 }
 
-var bLm = false;
+var bJL = false;
 if (ExecutionEnvironment.canUseDOM) {
-  bLm = isEventSupported('change') && (!('documentMode' in document) || document.documentMode > 8);
+  bJL = isEventSupported('change') && (!('documentMode' in document) || document.documentMode > 8);
 }
 
-function b01(nativeEvent) {
-  var event = SyntheticEvent.getPooled(b8Y.change, bd0, nativeEvent, getEventTarget(nativeEvent));
+function bqn(nativeEvent) {
+  var event = SyntheticEvent.getPooled(bLm.change, b12, nativeEvent, getEventTarget(nativeEvent));
   EventPropagators.accumulateTwoPhaseDispatches(event);
 
-  ReactUpdates.batchedUpdates(b12, event);
+  ReactUpdates.batchedUpdates(byY, event);
 }
 
-function b12(event) {
+function byY(event) {
   EventPluginHub.enqueueEvents(event);
   EventPluginHub.processEventQueue(false);
 }
 
-function bw8(target, targetID) {
-  bNx = target;
-  bd0 = targetID;
-  bNx.attachEvent('onchange', b01);
-}
-
-function bk8() {
-  if (!bNx) {
-    return;
-  }
-  bNx.detachEvent('onchange', b01);
-  bNx = null;
-  bd0 = null;
-}
-
-function b5a(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === bOG.topChange) {
-    return topLevelTargetID;
-  }
-}
-function bJL(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === bOG.topFocus) {
-    bk8();
-    bw8(topLevelTarget, topLevelTargetID);
-  } else if (topLevelType === bOG.topBlur) {
-    bk8();
-  }
-}
-
-var bqn = false;
-if (ExecutionEnvironment.canUseDOM) {
-  bqn = isEventSupported('input') && (!('documentMode' in document) || document.documentMode > 9);
-}
-
-var byY = {
-  get: function () {
-    return bEe.get.call(this);
-  },
-  set: function (val) {
-    b9d = '' + val;
-    bEe.set.call(this, val);
-  }
-};
-
 function brVe(target, targetID) {
-  bNx = target;
-  bd0 = targetID;
-  b9d = target.value;
-  bEe = Object.getOwnPropertyDescriptor(target.constructor.prototype, 'value');
-
-  Object.defineProperty(bNx, 'value', byY);
-  bNx.attachEvent('onpropertychange', bPXq);
+  b01 = target;
+  b12 = targetID;
+  b01.attachEvent('onchange', bqn);
 }
 
 function bQrr() {
-  if (!bNx) {
+  if (!b01) {
+    return;
+  }
+  b01.detachEvent('onchange', bqn);
+  b01 = null;
+  b12 = null;
+}
+
+function bPXq(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === b7Y.topChange) {
+    return topLevelTargetID;
+  }
+}
+function bxgq(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === b7Y.topFocus) {
+    bQrr();
+    brVe(topLevelTarget, topLevelTargetID);
+  } else if (topLevelType === b7Y.topBlur) {
+    bQrr();
+  }
+}
+
+var bX4z = false;
+if (ExecutionEnvironment.canUseDOM) {
+  bX4z = isEventSupported('input') && (!('documentMode' in document) || document.documentMode > 9);
+}
+
+var bRyK = {
+  get: function () {
+    return bk8.get.call(this);
+  },
+  set: function (val) {
+    bw8 = '' + val;
+    bk8.set.call(this, val);
+  }
+};
+
+function bKLv(target, targetID) {
+  b01 = target;
+  b12 = targetID;
+  bw8 = target.value;
+  bk8 = Object.getOwnPropertyDescriptor(target.constructor.prototype, 'value');
+
+  Object.defineProperty(b01, 'value', bRyK);
+  b01.attachEvent('onpropertychange', bGKZ);
+}
+
+function b45l() {
+  if (!b01) {
     return;
   }
 
-  delete bNx.value;
-  bNx.detachEvent('onpropertychange', bPXq);
+  delete b01.value;
+  b01.detachEvent('onpropertychange', bGKZ);
 
-  bNx = null;
-  bd0 = null;
-  b9d = null;
-  bEe = null;
+  b01 = null;
+  b12 = null;
+  bw8 = null;
+  bk8 = null;
 }
 
-function bPXq(nativeEvent) {
+function bGKZ(nativeEvent) {
   if (nativeEvent.propertyName !== 'value') {
     return;
   }
   var value = nativeEvent.srcElement.value;
-  if (value === b9d) {
+  if (value === bw8) {
     return;
   }
-  b9d = value;
+  bw8 = value;
 
-  b01(nativeEvent);
+  bqn(nativeEvent);
 }
 
-function bxgq(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === bOG.topInput) {
+function bb3e(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === b7Y.topInput) {
     return topLevelTargetID;
   }
 }
 
-function bX4z(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === bOG.topFocus) {
-    bQrr();
-    brVe(topLevelTarget, topLevelTargetID);
-  } else if (topLevelType === bOG.topBlur) {
-    bQrr();
+function blYM(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === b7Y.topFocus) {
+    b45l();
+    bKLv(topLevelTarget, topLevelTargetID);
+  } else if (topLevelType === b7Y.topBlur) {
+    b45l();
   }
 }
 
-function bRyK(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === bOG.topSelectionChange || topLevelType === bOG.topKeyUp || topLevelType === bOG.topKeyDown) {
-    if (bNx && bNx.value !== b9d) {
-      b9d = bNx.value;
-      return bd0;
+function bVl4(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === b7Y.topSelectionChange || topLevelType === b7Y.topKeyUp || topLevelType === b7Y.topKeyDown) {
+    if (b01 && b01.value !== bw8) {
+      bw8 = b01.value;
+      return b12;
     }
   }
 }
 
-function bKLv(elem) {
+function bgnL(elem) {
   return elem.nodeName && elem.nodeName.toLowerCase() === 'input' && (elem.type === 'checkbox' || elem.type === 'radio');
 }
 
-function b45l(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === bOG.topClick) {
+function bMla(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === b7Y.topClick) {
     return topLevelTargetID;
   }
 }
 
 var ChangeEventPlugin = {
 
-  eventTypes: b8Y,
+  eventTypes: bLm,
 
   extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
 
     var getTargetIDFunc, handleEventFunc;
-    if (b7Y(topLevelTarget)) {
-      if (bLm) {
-        getTargetIDFunc = b5a;
+    if (b5a(topLevelTarget)) {
+      if (bJL) {
+        getTargetIDFunc = bPXq;
       } else {
-        handleEventFunc = bJL;
+        handleEventFunc = bxgq;
       }
     } else if (isTextInputElement(topLevelTarget)) {
-      if (bqn) {
-        getTargetIDFunc = bxgq;
+      if (bX4z) {
+        getTargetIDFunc = bb3e;
       } else {
-        getTargetIDFunc = bRyK;
-        handleEventFunc = bX4z;
+        getTargetIDFunc = bVl4;
+        handleEventFunc = blYM;
       }
-    } else if (bKLv(topLevelTarget)) {
-      getTargetIDFunc = b45l;
+    } else if (bgnL(topLevelTarget)) {
+      getTargetIDFunc = bMla;
     }
 
     if (getTargetIDFunc) {
       var targetID = getTargetIDFunc(topLevelType, topLevelTarget, topLevelTargetID);
       if (targetID) {
-        var event = SyntheticEvent.getPooled(b8Y.change, targetID, nativeEvent, nativeEventTarget);
+        var event = SyntheticEvent.getPooled(bLm.change, targetID, nativeEvent, nativeEventTarget);
         event.type = 'change';
         EventPropagators.accumulateTwoPhaseDispatches(event);
         return event;
@@ -9286,10 +9008,8 @@ var ChangeEventPlugin = {
 
 };
 /**bandol> resource: node_modules/react/lib/SyntheticInputEvent.js */
-/**bandol> default export: SyntheticInputEvent */
-/**bandol> exports: - */
 
-var bY4 = {
+var bEe = {
   data: null
 };
 
@@ -9297,12 +9017,10 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticInputEvent, bY4);
+SyntheticEvent.augmentClass(SyntheticInputEvent, bEe);
 /**bandol> resource: node_modules/react/lib/SyntheticCompositionEvent.js */
-/**bandol> default export: SyntheticCompositionEvent */
-/**bandol> exports: - */
 
-var bBE = {
+var b9d = {
   data: null
 };
 
@@ -9310,10 +9028,8 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticCompositionEvent, bBE);
+SyntheticEvent.augmentClass(SyntheticCompositionEvent, b9d);
 /**bandol> resource: node_modules/react/lib/FallbackCompositionState.js */
-/**bandol> default export: FallbackCompositionState */
-/**bandol> exports: - */
 
 function FallbackCompositionState(root) {
   this._root = root;
@@ -9368,102 +9084,100 @@ assign(FallbackCompositionState.prototype, {
 
 PooledClass.addPoolingTo(FallbackCompositionState);
 /**bandol> resource: node_modules/react/lib/BeforeInputEventPlugin.js */
-/**bandol> default export: BeforeInputEventPlugin */
-/**bandol> exports: - */
 
 
-var bXz = [9, 13, 27, 32];
-var bRK = 229;
+var blM = [9, 13, 27, 32];
+var bV4 = 229;
 
-var bKv = ExecutionEnvironment.canUseDOM && 'CompositionEvent' in window;
+var bgL = ExecutionEnvironment.canUseDOM && 'CompositionEvent' in window;
 
-var b4l = null;
+var bMa = null;
 if (ExecutionEnvironment.canUseDOM && 'documentMode' in document) {
-  b4l = document.documentMode;
+  bMa = document.documentMode;
 }
 
-var bGZ = ExecutionEnvironment.canUseDOM && 'TextEvent' in window && !b4l && !blM();
+var b6p = ExecutionEnvironment.canUseDOM && 'TextEvent' in window && !bMa && !bAk();
 
-var bbe = ExecutionEnvironment.canUseDOM && (!bKv || b4l && b4l > 8 && b4l <= 11);
+var bZX = ExecutionEnvironment.canUseDOM && (!bgL || bMa && bMa > 8 && bMa <= 11);
 
-function blM() {
+function bAk() {
   var opera = window.opera;
   return typeof opera === 'object' && typeof opera.version === 'function' && parseInt(opera.version(), 10) <= 12;
 }
 
-var bV4 = 32;
-var bgL = String.fromCharCode(bV4);
+var b35 = 32;
+var bp2 = String.fromCharCode(b35);
 
-var bMa = EventConstants.topLevelTypes;
+var bmy = EventConstants.topLevelTypes;
 
-var b6p = {
+var bng = {
   beforeInput: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onBeforeInput: null }),
       captured: keyOf({ onBeforeInputCapture: null })
     },
-    dependencies: [bMa.topCompositionEnd, bMa.topKeyPress, bMa.topTextInput, bMa.topPaste]
+    dependencies: [bmy.topCompositionEnd, bmy.topKeyPress, bmy.topTextInput, bmy.topPaste]
   },
   compositionEnd: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onCompositionEnd: null }),
       captured: keyOf({ onCompositionEndCapture: null })
     },
-    dependencies: [bMa.topBlur, bMa.topCompositionEnd, bMa.topKeyDown, bMa.topKeyPress, bMa.topKeyUp, bMa.topMouseDown]
+    dependencies: [bmy.topBlur, bmy.topCompositionEnd, bmy.topKeyDown, bmy.topKeyPress, bmy.topKeyUp, bmy.topMouseDown]
   },
   compositionStart: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onCompositionStart: null }),
       captured: keyOf({ onCompositionStartCapture: null })
     },
-    dependencies: [bMa.topBlur, bMa.topCompositionStart, bMa.topKeyDown, bMa.topKeyPress, bMa.topKeyUp, bMa.topMouseDown]
+    dependencies: [bmy.topBlur, bmy.topCompositionStart, bmy.topKeyDown, bmy.topKeyPress, bmy.topKeyUp, bmy.topMouseDown]
   },
   compositionUpdate: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onCompositionUpdate: null }),
       captured: keyOf({ onCompositionUpdateCapture: null })
     },
-    dependencies: [bMa.topBlur, bMa.topCompositionUpdate, bMa.topKeyDown, bMa.topKeyPress, bMa.topKeyUp, bMa.topMouseDown]
+    dependencies: [bmy.topBlur, bmy.topCompositionUpdate, bmy.topKeyDown, bmy.topKeyPress, bmy.topKeyUp, bmy.topMouseDown]
   }
 };
 
-var bZX = false;
+var bz4 = false;
 
-function bAk(nativeEvent) {
+function bv9(nativeEvent) {
   return (nativeEvent.ctrlKey || nativeEvent.altKey || nativeEvent.metaKey) && !(nativeEvent.ctrlKey && nativeEvent.altKey);
 }
 
-function b35(topLevelType) {
+function bad(topLevelType) {
   switch (topLevelType) {
-    case bMa.topCompositionStart:
-      return b6p.compositionStart;
-    case bMa.topCompositionEnd:
-      return b6p.compositionEnd;
-    case bMa.topCompositionUpdate:
-      return b6p.compositionUpdate;
+    case bmy.topCompositionStart:
+      return bng.compositionStart;
+    case bmy.topCompositionEnd:
+      return bng.compositionEnd;
+    case bmy.topCompositionUpdate:
+      return bng.compositionUpdate;
   }
 }
 
-function bp2(topLevelType, nativeEvent) {
-  return topLevelType === bMa.topKeyDown && nativeEvent.keyCode === bRK;
+function b2k(topLevelType, nativeEvent) {
+  return topLevelType === bmy.topKeyDown && nativeEvent.keyCode === bV4;
 }
 
-function bmy(topLevelType, nativeEvent) {
+function bel(topLevelType, nativeEvent) {
   switch (topLevelType) {
-    case bMa.topKeyUp:
-      return bXz.indexOf(nativeEvent.keyCode) !== -1;
-    case bMa.topKeyDown:
-      return nativeEvent.keyCode !== bRK;
-    case bMa.topKeyPress:
-    case bMa.topMouseDown:
-    case bMa.topBlur:
+    case bmy.topKeyUp:
+      return blM.indexOf(nativeEvent.keyCode) !== -1;
+    case bmy.topKeyDown:
+      return nativeEvent.keyCode !== bV4;
+    case bmy.topKeyPress:
+    case bmy.topMouseDown:
+    case bmy.topBlur:
       return true;
     default:
       return false;
   }
 }
 
-function bng(nativeEvent) {
+function bBE(nativeEvent) {
   var detail = nativeEvent.detail;
   if (typeof detail === 'object' && 'data' in detail) {
     return detail.data;
@@ -9471,32 +9185,32 @@ function bng(nativeEvent) {
   return null;
 }
 
-var bz4 = null;
+var bY4 = null;
 
-function bv9(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+function bOG(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
   var eventType;
   var fallbackData;
 
-  if (bKv) {
-    eventType = b35(topLevelType);
-  } else if (!bz4) {
-    if (bp2(topLevelType, nativeEvent)) {
-      eventType = b6p.compositionStart;
+  if (bgL) {
+    eventType = bad(topLevelType);
+  } else if (!bY4) {
+    if (b2k(topLevelType, nativeEvent)) {
+      eventType = bng.compositionStart;
     }
-  } else if (bmy(topLevelType, nativeEvent)) {
-    eventType = b6p.compositionEnd;
+  } else if (bel(topLevelType, nativeEvent)) {
+    eventType = bng.compositionEnd;
   }
 
   if (!eventType) {
     return null;
   }
 
-  if (bbe) {
-    if (!bz4 && eventType === b6p.compositionStart) {
-      bz4 = FallbackCompositionState.getPooled(topLevelTarget);
-    } else if (eventType === b6p.compositionEnd) {
-      if (bz4) {
-        fallbackData = bz4.getData();
+  if (bZX) {
+    if (!bY4 && eventType === bng.compositionStart) {
+      bY4 = FallbackCompositionState.getPooled(topLevelTarget);
+    } else if (eventType === bng.compositionEnd) {
+      if (bY4) {
+        fallbackData = bY4.getData();
       }
     }
   }
@@ -9506,7 +9220,7 @@ function bv9(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, native
   if (fallbackData) {
     event.data = fallbackData;
   } else {
-    var customData = bng(nativeEvent);
+    var customData = bBE(nativeEvent);
     if (customData !== null) {
       event.data = customData;
     }
@@ -9516,23 +9230,23 @@ function bv9(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, native
   return event;
 }
 
-function bad(topLevelType, nativeEvent) {
+function b8Y(topLevelType, nativeEvent) {
   switch (topLevelType) {
-    case bMa.topCompositionEnd:
-      return bng(nativeEvent);
-    case bMa.topKeyPress:
+    case bmy.topCompositionEnd:
+      return bBE(nativeEvent);
+    case bmy.topKeyPress:
       var which = nativeEvent.which;
-      if (which !== bV4) {
+      if (which !== b35) {
         return null;
       }
 
-      bZX = true;
-      return bgL;
+      bz4 = true;
+      return bp2;
 
-    case bMa.topTextInput:
+    case bmy.topTextInput:
       var chars = nativeEvent.data;
 
-      if (chars === bgL && bZX) {
+      if (chars === bp2 && bz4) {
         return null;
       }
 
@@ -9543,46 +9257,46 @@ function bad(topLevelType, nativeEvent) {
   }
 }
 
-function b2k(topLevelType, nativeEvent) {
-  if (bz4) {
-    if (topLevelType === bMa.topCompositionEnd || bmy(topLevelType, nativeEvent)) {
-      var chars = bz4.getData();
-      FallbackCompositionState.release(bz4);
-      bz4 = null;
+function bNx(topLevelType, nativeEvent) {
+  if (bY4) {
+    if (topLevelType === bmy.topCompositionEnd || bel(topLevelType, nativeEvent)) {
+      var chars = bY4.getData();
+      FallbackCompositionState.release(bY4);
+      bY4 = null;
       return chars;
     }
     return null;
   }
 
   switch (topLevelType) {
-    case bMa.topPaste:
+    case bmy.topPaste:
       return null;
-    case bMa.topKeyPress:
-      if (nativeEvent.which && !bAk(nativeEvent)) {
+    case bmy.topKeyPress:
+      if (nativeEvent.which && !bv9(nativeEvent)) {
         return String.fromCharCode(nativeEvent.which);
       }
       return null;
-    case bMa.topCompositionEnd:
-      return bbe ? null : nativeEvent.data;
+    case bmy.topCompositionEnd:
+      return bZX ? null : nativeEvent.data;
     default:
       return null;
   }
 }
 
-function bel(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+function bd0(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
   var chars;
 
-  if (bGZ) {
-    chars = bad(topLevelType, nativeEvent);
+  if (b6p) {
+    chars = b8Y(topLevelType, nativeEvent);
   } else {
-    chars = b2k(topLevelType, nativeEvent);
+    chars = bNx(topLevelType, nativeEvent);
   }
 
   if (!chars) {
     return null;
   }
 
-  var event = SyntheticInputEvent.getPooled(b6p.beforeInput, topLevelTargetID, nativeEvent, nativeEventTarget);
+  var event = SyntheticInputEvent.getPooled(bng.beforeInput, topLevelTargetID, nativeEvent, nativeEventTarget);
 
   event.data = chars;
   EventPropagators.accumulateTwoPhaseDispatches(event);
@@ -9591,24 +9305,22 @@ function bel(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, native
 
 var BeforeInputEventPlugin = {
 
-  eventTypes: b6p,
+  eventTypes: bng,
 
   extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-    return [bv9(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget), bel(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget)];
+    return [bOG(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget), bd0(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget)];
   }
 };
 /**bandol> resource: node_modules/react/lib/ReactDefaultInjection.js */
-/**bandol> default export: ReactDefaultInjection */
-/**bandol> exports: - */
 
 
-var bPq = false;
+var bGZ = false;
 
-function bxq() {
-  if (bPq) {
+function bbe() {
+  if (bGZ) {
     return;
   }
-  bPq = true;
+  bGZ = true;
 
   ReactInjection.EventEmitter.injectReactEventListener(ReactEventListener);
 
@@ -9643,67 +9355,57 @@ function bxq() {
   ReactInjection.Component.injectEnvironment(ReactComponentBrowserEnvironment);
 }
 
-var ReactDefaultInjection = {
-  inject: bxq
+var bxq = {
+  inject: bbe
 };
 /**bandol> resource: node_modules/react/lib/ReactDOMServer.js */
-/**bandol> default export: ReactDOMServer */
-/**bandol> exports: - */
 
 
-ReactDefaultInjection.inject();
+bxq.inject();
 
 var ReactDOMServer = {
-  renderToString: ReactServerRendering.renderToString,
-  renderToStaticMarkup: ReactServerRendering.renderToStaticMarkup,
-  version: ReactVersion
+  renderToString: bPq.renderToString,
+  renderToStaticMarkup: bPq.renderToStaticMarkup,
+  version: bQr
 };
 /**bandol> resource: node_modules/react/lib/renderSubtreeIntoContainer.js */
-/**bandol> default export: renderSubtreeIntoContainer */
-/**bandol> exports: - */
-var renderSubtreeIntoContainer = ReactMount.renderSubtreeIntoContainer;
+var bXz = ReactMount.renderSubtreeIntoContainer;
 /**bandol> resource: node_modules/react/lib/ReactDOM.js */
-/**bandol> default export: ReactDOM */
-/**bandol> exports: - */
 
 
-ReactDefaultInjection.inject();
+bxq.inject();
 
-var bQr = ReactPerf.measure('React', 'render', ReactMount.render);
+var b4l = ReactPerf.measure('React', 'render', ReactMount.render);
 
-var ReactDOM = {
+var bRK = {
   findDOMNode: findDOMNode,
-  render: bQr,
+  render: b4l,
   unmountComponentAtNode: ReactMount.unmountComponentAtNode,
-  version: ReactVersion,
+  version: bQr,
 
   unstable_batchedUpdates: ReactUpdates.batchedUpdates,
-  unstable_renderSubtreeIntoContainer: renderSubtreeIntoContainer
+  unstable_renderSubtreeIntoContainer: bXz
 };
 /**bandol> resource: node_modules/react/lib/React.js */
-/**bandol> default export: React */
-/**bandol> exports: - */
 
 var React = {};
 
-assign(React, ReactIsomorphic);
+assign(React, bKv);
 
 assign(React, {
-  findDOMNode: deprecated('findDOMNode', 'ReactDOM', 'react-dom', ReactDOM, ReactDOM.findDOMNode),
-  render: deprecated('render', 'ReactDOM', 'react-dom', ReactDOM, ReactDOM.render),
-  unmountComponentAtNode: deprecated('unmountComponentAtNode', 'ReactDOM', 'react-dom', ReactDOM, ReactDOM.unmountComponentAtNode),
+  findDOMNode: deprecated('findDOMNode', 'ReactDOM', 'react-dom', bRK, bRK.findDOMNode),
+  render: deprecated('render', 'ReactDOM', 'react-dom', bRK, bRK.render),
+  unmountComponentAtNode: deprecated('unmountComponentAtNode', 'ReactDOM', 'react-dom', bRK, bRK.unmountComponentAtNode),
 
   renderToString: deprecated('renderToString', 'ReactDOMServer', 'react-dom/server', ReactDOMServer, ReactDOMServer.renderToString),
   renderToStaticMarkup: deprecated('renderToStaticMarkup', 'ReactDOMServer', 'react-dom/server', ReactDOMServer, ReactDOMServer.renderToStaticMarkup)
 });
 
-React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOM;
+React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = bRK;
 React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;
 /**bandol> resource: actual.js */
-/**bandol> default export: - */
-/**bandol> exports: - */
 
 
-ReactDOM.render(React.createElement('h1', null, 'Hello Bandol'), document.getElementById('content'));
+bRK.render(React.createElement('h1', null, 'Hello Bandol'), document.getElementById('content'));
 
 }());

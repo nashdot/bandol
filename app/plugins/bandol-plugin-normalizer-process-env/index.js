@@ -25,7 +25,6 @@ export default class Plugin extends BasePlugin {
               && node.object.object.name === 'process'
               && node.object.property.type === 'Identifier'
               && node.object.property.name === 'env') {
-            this.logAst(node);
             nodePath.replaceWith(t.valueToNode(process.env[node.property.name]));
           }
         }

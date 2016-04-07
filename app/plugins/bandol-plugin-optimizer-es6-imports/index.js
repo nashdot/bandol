@@ -17,6 +17,20 @@ export default class Plugin extends BasePlugin {
     for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
       const resource = this.bundle.sortedResources[i];
 
+      const transformNamespaceVariables = {
+        Identifier: (nodePath) => {
+          // Last condition: traverse going inside new added statement
+          if (nodePath.node.name === this.opts.identifier
+              && !t.isImportSpecifier(nodePath.parentPath)
+              && !t.isImportDefaultSpecifier(nodePath.parentPath)
+              && !t.isObjectProperty(nodePath.parentPath)
+              && !t.isMemberExpression(nodePath.parentPath)) {
+            nodePath.replaceWith(t.memberExpression(
+              t.identifier(this.opts.namespace), t.identifier(this.opts.identifier)));
+          }
+        }
+      };
+
       traverse(resource.ast, {
         ImportDeclaration: (nodePath) => {
           const node = nodePath.node;
@@ -25,12 +39,21 @@ export default class Plugin extends BasePlugin {
             if (t.isImportDefaultSpecifier(specifier)) {
               // Get exported name
               const name = this.bundle.defaultExportsById.get(sourceId);
-              this.log.info(`Exported name: '${name}' from ${sourceId}`);
               nodePath.parentPath.scope.rename(specifier.local.name, name);
             } else if (t.isImportSpecifier(specifier)) {
               const name = this.bundle.namedExportsById.get(`${sourceId}_${specifier.imported.name}`);
-              this.log.info(`Exported name: '${name}' from ${sourceId}`);
-              nodePath.parentPath.scope.rename(specifier.local.name, name);
+              if (name) {
+                nodePath.parentPath.scope.rename(specifier.local.name, name);
+              } else {
+                // Namespace
+                const id = this.bundle.resolveResource(node.source.value, resource.id);
+                this.opts = {
+                  identifier: specifier.local.name,
+                  namespace: this.bundle.defaultExportsById.get(id)
+                };
+                nodePath.parentPath.traverse(transformNamespaceVariables);
+                delete this.opts;
+              }
             }
           });
 
