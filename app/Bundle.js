@@ -109,7 +109,7 @@ export default class Bundle {
     this.sortedResources = sortDependencies(this.resources);
 
     this.log.info('Optimizing...');
-    this.optimizeBundle();
+    await this.optimizeBundle();
   }
 
   async processResource(id) {
