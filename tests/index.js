@@ -119,6 +119,16 @@ test('core/logAst', t => {
   });
 });
 
+test('core/sort', t => {
+  const opts = getOptions('core/sort', {
+    plugins: basePlugins
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('core/sort'));
+  });
+});
+
 test('uid/hashids', t => {
   const opts = getOptions('uid/hashids', {
     plugins: [
