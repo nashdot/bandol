@@ -583,6 +583,36 @@ test('optimizer/es6-exports-imports_6', t => {
   });
 });
 
+test('optimizer/namespaceImport', t => {
+  const opts = getOptions('optimizer/namespaceImport', {
+    plugins: allPlugins
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('optimizer/namespaceImport'));
+  });
+});
+
+test('optimizer/namespaceImport-2', t => {
+  const opts = getOptions('optimizer/namespaceImport-2', {
+    plugins: allPlugins
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('optimizer/namespaceImport-2'));
+  });
+});
+
+test('optimizer/namespaceImport-3', t => {
+  const opts = getOptions('optimizer/namespaceImport-3', {
+    plugins: allPlugins
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('optimizer/namespaceImport-3'));
+  });
+});
+
 test('finalizer/iife', t => {
   const opts = getOptions('finalizer/iife', {
     plugins: basePlugins
@@ -604,36 +634,6 @@ test('finalizer/iife_2', t => {
   return bandol(opts).then(b => {
     b.finalize({ debug: true });
     t.is(b.code, expected('finalizer/iife_2'));
-  });
-});
-
-test('core/namespaceImport', t => {
-  const opts = getOptions('core/namespaceImport', {
-    plugins: allPlugins
-  });
-  return bandol(opts).then(b => {
-    b.finalize();
-    t.is(b.code, expected('core/namespaceImport'));
-  });
-});
-
-test('core/namespaceImport-2', t => {
-  const opts = getOptions('core/namespaceImport-2', {
-    plugins: allPlugins
-  });
-  return bandol(opts).then(b => {
-    b.finalize();
-    t.is(b.code, expected('core/namespaceImport-2'));
-  });
-});
-
-test('core/namespaceImport-3', t => {
-  const opts = getOptions('core/namespaceImport-3', {
-    plugins: allPlugins
-  });
-  return bandol(opts).then(b => {
-    b.finalize();
-    t.is(b.code, expected('core/namespaceImport-3'));
   });
 });
 
