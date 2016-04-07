@@ -27,6 +27,10 @@ export default class Plugin extends BasePlugin {
               const name = this.bundle.defaultExportsById.get(sourceId);
               this.log.info(`Exported name: '${name}' from ${sourceId}`);
               nodePath.parentPath.scope.rename(specifier.local.name, name);
+            } else if (t.isImportSpecifier(specifier)) {
+              const name = this.bundle.namedExportsById.get(`${sourceId}_${specifier.imported.name}`);
+              this.log.info(`Exported name: '${name}' from ${sourceId}`);
+              nodePath.parentPath.scope.rename(specifier.local.name, name);
             }
           });
 

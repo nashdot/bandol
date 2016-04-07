@@ -78,22 +78,18 @@ export default class Plugin extends BasePlugin {
           if (!node.declaration) {
             node.specifiers.forEach(spec => {
               let name = spec.exported.name;
+              const originalName = name;
               if (this.bundle.defaultExportsByName.has(name)
                   || this.bundle.namedExportsByName.has(name)) {
                 // Already used by another module
                 name = this.bundle.generateUid();
-                nodePath.parentPath.scope.rename(spec.exported.name, name);
-                // Register transformation
-                this.bundle.renamedExports.set({ id: resource.id, name: spec.exported.name }, name);
+                nodePath.parentPath.scope.rename(originalName, name);
               }
 
+              // Register
               this.bundle.namedExportsByName.set(name, resource.id);
-              if (this.bundle.namedExportsById.has(resource.id)) {
-                const names = this.bundle.namedExportsById.get(resource.id);
-                this.bundle.namedExportsById.set(resource.id, [...names, name]);
-              } else {
-                this.bundle.namedExportsById.set(resource.id, [name]);
-              }
+              this.bundle.namedExportsById.set(`${resource.id}_${originalName}`, name);
+
               nodePath.remove();
             });
           } else {
