@@ -54,7 +54,7 @@ export default class Plugin extends BasePlugin {
             } else if (this._isNamedModuleExports(node)) {
               // module.exports.<id> = expression
               const id = node.left.property.name;
-              this.log.info(`TODO: module.exports.${id} = ...`);
+              throw new Error(`TODO: module.exports.${id} = ...`);
             }
           }
         },

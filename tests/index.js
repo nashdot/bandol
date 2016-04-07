@@ -651,6 +651,16 @@ test('todo/es6-exports-imports_2', t => {
   return t.throws(bandol(opts), 'TODO: ExportAllDeclaration from ./imported.js');
 });
 
+test('todo/cjs-to-es6', t => {
+  const opts = getOptions('todo/cjs-to-es6', {
+    plugins: [
+      ...basePlugins,
+      cjsToEs6NormalizerPlugin
+    ]
+  });
+  return t.throws(bandol(opts), 'TODO: module.exports.message = ...');
+});
+
 // test('core/module', t => {
 //   const opts = getOptions('core/module', {
 //     env: { NODE_ENV: 'production' },
