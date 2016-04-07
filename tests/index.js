@@ -482,6 +482,16 @@ test('normalizer/es6-exports_8', t => {
   });
 });
 
+test('analyzer/es6', t => {
+  const opts = getOptions('analyzer/es6', {
+    plugins: basePlugins
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('analyzer/es6'));
+  });
+});
+
 test('optimizer/remove-use-strict', t => {
   const opts = getOptions('optimizer/remove-use-strict', {
     plugins: [
