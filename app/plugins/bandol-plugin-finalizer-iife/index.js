@@ -29,13 +29,6 @@ export default class Plugin extends BasePlugin {
 
       if (opts.debug) {
         this.bundle.code += `/**bandol> resource: ${this.bundle.getShortPath(resource.id)} */\n`;
-        this.bundle.code += `/**bandol> default export: ${this.bundle.defaultExportsById.get(resource.id) || '-'} */\n`;
-        const exports = this.bundle.namedExportsById.get(resource.id) || '-';
-        if (exports === '-') {
-          this.bundle.code += `/**bandol> exports: ${exports} */\n`;
-        } else {
-          this.bundle.code += `/**bandol> exports:\n${JSON.stringify(exports, null, ' ')}\n*/\n`;
-        }
       }
 
       this.bundle.code += `${resource.code}\n`;
