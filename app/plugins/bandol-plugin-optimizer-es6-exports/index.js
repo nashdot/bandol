@@ -61,7 +61,6 @@ export default class Plugin extends BasePlugin {
             };
             nodePath.parentPath.traverse(transformExportedDeclaration);
 
-            // const declPath = nodePath.getSibling(name);
             this.log.info(`Declaration type for ${name}: '${this.opts.type}'`);
             delete this.opts;
 
@@ -69,6 +68,8 @@ export default class Plugin extends BasePlugin {
             this.bundle.defaultExportsByName.set(name, resource.id);
             this.bundle.defaultExportsById.set(resource.id, name);
             nodePath.remove();
+          } else {
+            throw new Error(`${this.bundle.getShortPath(resource.id)} should be normalised.`);
           }
         },
         ExportNamedDeclaration: (nodePath) => {
@@ -96,7 +97,7 @@ export default class Plugin extends BasePlugin {
               nodePath.remove();
             });
           } else {
-            this.log.info('ERROR: found export with declaration');
+            throw new Error(`${this.bundle.getShortPath(resource.id)} should be normalised.`);
           }
         },
         ExportAllDeclaration: (nodePath) => {

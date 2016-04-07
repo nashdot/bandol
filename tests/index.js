@@ -529,6 +529,17 @@ test('optimizer/es6-exports-imports_2', t => {
   });
 });
 
+test('optimizer/es6-exports-imports_3', t => {
+  const opts = getOptions('optimizer/es6-exports-imports_3', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin
+    ]
+  });
+  return t.throws(bandol(opts), 'imported2.js should be normalised.');
+});
+
 test('finalizer/iife', t => {
   const opts = getOptions('finalizer/iife', {
     plugins: basePlugins
