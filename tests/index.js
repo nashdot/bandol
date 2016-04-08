@@ -12,7 +12,6 @@ import jsLoaderPlugin from '../app/plugins/bandol-plugin-loader-js';
 import jsonLoaderPlugin from '../app/plugins/bandol-plugin-loader-json';
 import cjsToEs6NormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-cjs-to-es6';
 import es6ExportsNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-es6-exports';
-import es6ImportsNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-es6-imports';
 import processEnvNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-process-env';
 import runningContextNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-running-context';
 import removeFalsyBlocksNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-remove-falsy-blocks';
@@ -49,7 +48,6 @@ const allPlugins = [
   runningContextNormalizerPlugin,
   removeFalsyBlocksNormalizerPlugin,
   es6ExportsNormalizerPlugin,
-  es6ImportsNormalizerPlugin,
   removeUnusedNormalizerPlugin,
   // Optimisation
   es6ExportsOptimizerPlugin,
@@ -346,48 +344,6 @@ test('normalizer/running-context', t => {
   return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/running-context'));
-  });
-});
-
-test('normalizer/es6-imports', t => {
-  const opts = getOptions('normalizer/es6-imports', {
-    runningContext: createRunningContext2(),
-    plugins: [
-      ...basePlugins,
-      es6ImportsNormalizerPlugin
-    ]
-  });
-  return bandol(opts).then(b => {
-    b.finalize({ debug: true });
-    t.is(b.code, expected('normalizer/es6-imports'));
-  });
-});
-
-test('normalizer/es6-imports_2', t => {
-  const opts = getOptions('normalizer/es6-imports_2', {
-    runningContext: createRunningContext2(),
-    plugins: [
-      ...basePlugins,
-      es6ImportsNormalizerPlugin
-    ]
-  });
-  return bandol(opts).then(b => {
-    b.finalize({ debug: true });
-    t.is(b.code, expected('normalizer/es6-imports_2'));
-  });
-});
-
-test('normalizer/es6-imports_3', t => {
-  const opts = getOptions('normalizer/es6-imports_3', {
-    runningContext: createRunningContext2(),
-    plugins: [
-      ...basePlugins,
-      es6ImportsNormalizerPlugin
-    ]
-  });
-  return bandol(opts).then(b => {
-    b.finalize({ debug: true });
-    t.is(b.code, expected('normalizer/es6-imports_3'));
   });
 });
 
