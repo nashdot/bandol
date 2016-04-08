@@ -40,7 +40,9 @@ export default class Plugin extends BasePlugin {
               // Get exported name
               const name = this.bundle.defaultExportsById.get(sourceId);
               nodePath.parentPath.scope.rename(specifier.local.name, name);
-            } else if (t.isImportSpecifier(specifier)) {
+            } else if (t.isImportNamespaceSpecifier(specifier)) {
+              throw new Error('TODO: ImportNamespaceSpecifier');
+            } else {
               const name = this.bundle.namedExportsById.get(`${sourceId}_${specifier.imported.name}`);
               if (name) {
                 nodePath.parentPath.scope.rename(specifier.local.name, name);

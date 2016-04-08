@@ -562,6 +562,17 @@ test('optimizer/es6-exports-imports_6', t => {
   });
 });
 
+test('optimizer/es6-exports-imports_7', t => {
+  const opts = getOptions('optimizer/es6-exports-imports_7', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin
+    ]
+  });
+  return t.throws(bandol(opts), 'TODO: ImportNamespaceSpecifier');
+});
+
 test('finalizer/iife', t => {
   const opts = getOptions('finalizer/iife', {
     plugins: basePlugins
