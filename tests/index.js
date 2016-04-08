@@ -558,7 +558,7 @@ test('optimizer/es6-exports-imports_6', t => {
   });
   return bandol(opts).then(b => {
     b.finalize();
-    t.is(b.code, expected('optimizer/es6-exports-imports_2'));
+    t.is(b.code, expected('optimizer/es6-exports-imports_6'));
   });
 });
 
@@ -570,7 +570,10 @@ test('optimizer/es6-exports-imports_7', t => {
       es6ImportsOptimizerPlugin
     ]
   });
-  return t.throws(bandol(opts), 'TODO: ImportNamespaceSpecifier');
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('optimizer/es6-exports-imports_7'));
+  });
 });
 
 test('finalizer/iife', t => {

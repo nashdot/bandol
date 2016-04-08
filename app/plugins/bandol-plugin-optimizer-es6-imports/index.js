@@ -31,6 +31,20 @@ export default class Plugin extends BasePlugin {
         }
       };
 
+      const transformNamespaceImport = {
+        MemberExpression: (nodePath) => {
+          // Found <namespace>.<varaible>
+          if (t.isIdentifier(nodePath.node.object)
+              && nodePath.node.object.name === this.opts.namespace) {
+            const importName = nodePath.node.property.name;
+
+            const name = this.bundle.namedExportsById.get(`${this.opts.sourceId}_${importName}`);
+            // Replace MemberExpression by Identifier
+            nodePath.replaceWith(t.identifier(name));
+          }
+        }
+      };
+
       traverse(resource.ast, {
         ImportDeclaration: (nodePath) => {
           const node = nodePath.node;
@@ -41,7 +55,14 @@ export default class Plugin extends BasePlugin {
               const name = this.bundle.defaultExportsById.get(sourceId);
               nodePath.parentPath.scope.rename(specifier.local.name, name);
             } else if (t.isImportNamespaceSpecifier(specifier)) {
-              throw new Error('TODO: ImportNamespaceSpecifier');
+              // Temporary options object for worker visitor
+              this.opts = {
+                importedModule: nodePath.node.source.value,
+                namespace: specifier.local.name,
+                sourceId: sourceId
+              };
+              nodePath.parentPath.traverse(transformNamespaceImport);
+              delete this.opts;
             } else {
               const name = this.bundle.namedExportsById.get(`${sourceId}_${specifier.imported.name}`);
               if (name) {
