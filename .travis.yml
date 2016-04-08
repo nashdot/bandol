@@ -7,7 +7,8 @@ before_install:
   - 'npm install -g npm@latest'
 install:
   - 'npm install -g codecov'
+  - 'npm install -g nyc'
 script:
-  - 'npm run coverage && nyc report --reporter=lcov'
+  - 'npm run report'
 after_success:
   - 'npm run codecov'
