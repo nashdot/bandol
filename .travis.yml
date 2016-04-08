@@ -8,6 +8,6 @@ before_install:
 install:
   - 'npm install -g codecov'
 script:
-  - 'npm run report'
+  - 'npm run coverage && nyc report --reporter=lcov'
 after_success:
   - 'npm run codecov'
