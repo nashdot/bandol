@@ -6,4 +6,4 @@ node_js:
 before_install:
   - 'npm install -g npm@latest'
 after_success:
-  - 'npm run coveralls'
+  - 'npm run codecov'
