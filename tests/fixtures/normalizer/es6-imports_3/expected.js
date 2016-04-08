@@ -1,17 +1,21 @@
 (function () {
+/**bandol> resource: imported1.js */
 
 export const test = 1;
+/**bandol> resource: imported2.js */
 
 export const test = 2;
+/**bandol> resource: imported3.js */
 
 export const test = 3;
+/**bandol> resource: actual.js */
 
-import { test as bQr } from './imported1';
-import { test as bPq } from './imported2';
-import { test } from './imported3';
+import { test as test1 } from './imported1';
+import { test as test2 } from './imported2';
+import { test as test3 } from './imported3';
 
-console.log(bQr);
-console.log(bPq);
-console.log(test);
+console.log(test1);
+console.log(test2);
+console.log(test3);
 
 }());

@@ -358,7 +358,7 @@ test('normalizer/es6-imports', t => {
     ]
   });
   return bandol(opts).then(b => {
-    b.finalize();
+    b.finalize({ debug: true });
     t.is(b.code, expected('normalizer/es6-imports'));
   });
 });
@@ -372,7 +372,7 @@ test('normalizer/es6-imports_2', t => {
     ]
   });
   return bandol(opts).then(b => {
-    b.finalize();
+    b.finalize({ debug: true });
     t.is(b.code, expected('normalizer/es6-imports_2'));
   });
 });
@@ -386,7 +386,7 @@ test('normalizer/es6-imports_3', t => {
     ]
   });
   return bandol(opts).then(b => {
-    b.finalize();
+    b.finalize({ debug: true });
     t.is(b.code, expected('normalizer/es6-imports_3'));
   });
 });

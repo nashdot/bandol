@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import traverse from 'babel-traverse';
 import * as t from 'babel-types';
 
@@ -48,27 +47,12 @@ export default class Plugin extends BasePlugin {
       };
 
       traverse(resource.ast, {
-        // - 1. Remove aliases from named imports
-        // - 2. Expand namespace import to named imports
+        // -- Expand namespace import to named imports
         ImportDeclaration: (nodePath) => {
           const node = nodePath.node;
 
           node.specifiers.forEach(specifier => {
-            if (t.isImportSpecifier(specifier)
-                && specifier.imported.name !== specifier.local.name) {
-            // -- Named import with alias
-              if (nodePath.parentPath.scope.bindings[specifier.imported.name]) {
-                // Imported name is already in use, rename it
-                // TODO: Verify if this name is not used by module exports
-                nodePath.parentPath.scope.rename(specifier.imported.name, this.bundle.generateUid());
-              }
-
-              // Rename referenced alias by real import name
-              nodePath.parentPath.scope.rename(specifier.local.name, specifier.imported.name);
-
-              // Make alias identical to imported
-              specifier.local = _.clone(specifier.imported);
-            } else if (t.isImportNamespaceSpecifier(specifier)) {
+            if (t.isImportNamespaceSpecifier(specifier)) {
             // -- Namespace import
               // Temporary options object for worker visitor
               this.opts = {
@@ -79,9 +63,7 @@ export default class Plugin extends BasePlugin {
               delete this.opts;
               nodePath.remove();
             }
-            // else: ImportDefaultSpecifier don't have aliases
           });
-          // If no specifiers provieded: Empty import
         }
       });
 

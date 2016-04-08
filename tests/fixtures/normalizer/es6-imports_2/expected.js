@@ -1,12 +1,14 @@
 (function () {
+/**bandol> resource: imported.js */
 
 export const test = 'Test';
+/**bandol> resource: actual.js */
 
-import { test } from './imported';
+import { test as test2 } from './imported';
 
-const bQr = 'test';
+const test = 'test';
 
-console.log(bQr);
 console.log(test);
+console.log(test2);
 
 }());
