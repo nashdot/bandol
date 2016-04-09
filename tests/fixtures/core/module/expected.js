@@ -450,52 +450,6 @@ function brEK(shapeTypes) {
   return b7Zx(validate);
 }
 
-function isNode(propValue) {
-  switch (typeof propValue) {
-    case 'number':
-    case 'string':
-    case 'undefined':
-      return true;
-    case 'boolean':
-      return !propValue;
-    case 'object':
-      if (Array.isArray(propValue)) {
-        return propValue.every(isNode);
-      }
-      if (propValue === null || ReactElement.isValidElement(propValue)) {
-        return true;
-      }
-
-      var iteratorFn = getIteratorFn(propValue);
-      if (iteratorFn) {
-        var iterator = iteratorFn.call(propValue);
-        var step;
-        if (iteratorFn !== propValue.entries) {
-          while (!(step = iterator.next()).done) {
-            if (!isNode(step.value)) {
-              return false;
-            }
-          }
-        } else {
-          while (!(step = iterator.next()).done) {
-            var entry = step.value;
-            if (entry) {
-              if (!isNode(entry[1])) {
-                return false;
-              }
-            }
-          }
-        }
-      } else {
-        return false;
-      }
-
-      return true;
-    default:
-      return false;
-  }
-}
-
 function bQ6L(propValue) {
   var propType = typeof propValue;
   if (Array.isArray(propValue)) {
@@ -1521,12 +1475,6 @@ function bwr6(traverseContext, child, name) {
 
 function bkX0(children, context) {
   return traverseAllChildren(children, bwr6, null);
-}
-
-function toArray(children) {
-  var result = [];
-  b0QR(children, result, null, emptyFunction.thatReturnsArgument);
-  return result;
 }
 
 var ReactChildren = {
