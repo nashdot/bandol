@@ -613,6 +613,22 @@ test('optimizer/remove-unused', t => {
   });
 });
 
+test('optimizer/remove-unused_2', t => {
+  const opts = getOptions('optimizer/remove-unused_2', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin,
+      removeUnusedOptimizerPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('optimizer/remove-unused_2'));
+  });
+});
+
 test('finalizer/iife', t => {
   const opts = getOptions('finalizer/iife', {
     plugins: basePlugins
