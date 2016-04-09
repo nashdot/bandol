@@ -40,7 +40,6 @@ export default class Bundle {
     this.defaultExportsById = new Map();
     this.namedExportsByName = new Map();
     this.namedExportsById = new Map();
-    this.renamedExports = new Map();
 
     // Plugins
     this.uidPlugins = [];
