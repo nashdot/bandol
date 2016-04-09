@@ -1,5 +1,6 @@
 (function () {
-var bQr = {
+
+const a = {
   square: function (n) {
     return n * n;
   },
@@ -10,8 +11,8 @@ var bQr = {
 };
 
 
-const bPq = bQr.square(4);
+const a = a.square(4);
 
-console.log(`${ bPq }`);
+console.log(`${ a }`);
 
 }());

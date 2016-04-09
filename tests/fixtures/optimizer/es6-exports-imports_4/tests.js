@@ -1,5 +1,5 @@
 
-export default {
+const a = {
   square: function (n) {
     return n * n;
   },
@@ -8,3 +8,5 @@ export default {
     return x * x * x;
   }
 };
+
+export default a;

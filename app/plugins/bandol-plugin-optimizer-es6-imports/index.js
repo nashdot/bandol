@@ -41,6 +41,8 @@ export default class Plugin extends BasePlugin {
             const name = this.bundle.getNamedName(this.opts.sourceId, importName);
             // Replace MemberExpression by Identifier
             nodePath.replaceWith(t.identifier(name));
+            // Mark as used
+            this.bundle.markUsed(this.opts.sourceId, importName);
           }
         }
       };
@@ -54,6 +56,8 @@ export default class Plugin extends BasePlugin {
               // Get exported name
               const name = this.bundle.getDefaultName(sourceId);
               nodePath.parentPath.scope.rename(specifier.local.name, name);
+              // Mark as used
+              this.bundle.markUsed(sourceId, name);
             } else if (t.isImportNamespaceSpecifier(specifier)) {
               // Temporary options object for worker visitor
               this.opts = {
@@ -67,6 +71,8 @@ export default class Plugin extends BasePlugin {
               const name = this.bundle.getNamedName(sourceId, specifier.imported.name);
               if (name) {
                 nodePath.parentPath.scope.rename(specifier.local.name, name);
+                // Mark as used
+                this.bundle.markUsed(sourceId, name);
               } else {
                 // Namespace
                 const id = this.bundle.resolveResource(node.source.value, resource.id);

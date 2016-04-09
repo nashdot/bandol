@@ -22,6 +22,7 @@ import renameInternalsOptimizerPlugin from '../app/plugins/bandol-plugin-optimiz
 // import optimizerPlugin from '../app/plugins/bandol-plugin-optimizer';
 import es6ImportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-es6-imports';
 import removeUseStrictOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-remove-use-strict';
+import removeUnusedOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-remove-unused';
 import iifeFinalizerPlugin from '../app/plugins/bandol-plugin-finalizer-iife';
 
 import testLogPlugin from './fixtures/core/logAst/bandol-plugin-normalizer-test-log'
@@ -54,7 +55,8 @@ const allPlugins = [
   renameInternalsOptimizerPlugin,
   // optimizerPlugin,
   es6ImportsOptimizerPlugin,
-  removeUseStrictOptimizerPlugin
+  removeUseStrictOptimizerPlugin,
+  removeUnusedOptimizerPlugin
 ];
 
 const fixturesDir = join(__dirname, 'fixtures');
@@ -529,7 +531,11 @@ test('optimizer/es6-exports-imports_3', t => {
 
 test('optimizer/es6-exports-imports_4', t => {
   const opts = getOptions('optimizer/es6-exports-imports_4', {
-    plugins: allPlugins
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin
+    ]
   });
   return bandol(opts).then(b => {
     b.finalize();
@@ -573,6 +579,37 @@ test('optimizer/es6-exports-imports_7', t => {
   return bandol(opts).then(b => {
     b.finalize({ debug: true });
     t.is(b.code, expected('optimizer/es6-exports-imports_7'));
+  });
+});
+
+test('optimizer/rename-internals', t => {
+  const opts = getOptions('optimizer/rename-internals', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin,
+      renameInternalsOptimizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('optimizer/rename-internals'));
+  });
+});
+
+test('optimizer/remove-unused', t => {
+  const opts = getOptions('optimizer/remove-unused', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin,
+      removeUnusedOptimizerPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('optimizer/remove-unused'));
   });
 });
 

@@ -40,6 +40,7 @@ export default class Bundle {
     this.defaultExportsById = new Map();
     this.namedExportsByName = new Map();
     this.namedExportsById = new Map();
+    this.usedNames = new Map();
 
     // Plugins
     this.uidPlugins = [];
@@ -235,5 +236,13 @@ export default class Bundle {
 
   getNamedName(id, originalName) {
     return this.namedExportsById.get(`${id}_${originalName}`);
+  }
+
+  markUsed(id, name) {
+    this.usedNames.set(`${id}_${name}`, true);
+  }
+
+  isUsed(id, name) {
+    return this.usedNames.has(`${id}_${name}`);
   }
 }
