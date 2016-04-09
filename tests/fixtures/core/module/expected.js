@@ -750,8 +750,6 @@ var bZYe = keyMirror({
 
 var bAy8 = [];
 
-var b3Vn = false;
-
 var bpYO = {
   mixins: bZYe.DEFINE_MANY,
 
@@ -7274,18 +7272,6 @@ function bzG5() {
   }
 }
 
-function bvVv(owner) {
-  if (owner) {
-    var name = owner.getName();
-    if (name) {
-      return ' Check the render method of `' + name + '`.';
-    }
-  }
-  return '';
-}
-
-var babR = ['value', 'defaultValue'];
-
 function b2G1(inst, multiple, propValue) {
   var selectedValue, i;
   var options = ReactMount.getNode(inst._rootNodeID).options;
@@ -7894,8 +7880,6 @@ function byqY(obj) {
 
   return String(obj);
 }
-
-var brge = {};
 
 function bQvr(component, props) {
   if (!props) {
