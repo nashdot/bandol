@@ -19,7 +19,6 @@ import removeUnusedNormalizerPlugin from '../app/plugins/bandol-plugin-normalize
 import es6AnalyzerPlugin from '../app/plugins/bandol-plugin-analyzer-es6';
 import es6ExportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-es6-exports';
 import renameInternalsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-rename-internals';
-// import optimizerPlugin from '../app/plugins/bandol-plugin-optimizer';
 import es6ImportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-es6-imports';
 import removeUseStrictOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-remove-use-strict';
 import removeUnusedOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-remove-unused';
@@ -53,7 +52,6 @@ const allPlugins = [
   // Optimisation
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
-  // optimizerPlugin,
   es6ImportsOptimizerPlugin,
   removeUseStrictOptimizerPlugin,
   removeUnusedOptimizerPlugin
