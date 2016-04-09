@@ -44,12 +44,9 @@ export default class Plugin extends BasePlugin {
 
           if (t.isIdentifier(node.declaration)) {
             let name = node.declaration.name;
-            if (this.bundle.defaultExportsByName.has(name)
-                || this.bundle.namedExportsByName.has(name)) {
+            if (this.bundle.hasName(name)) {
               // Already used by another module
-              this.log.info(`Already used: '${name}'`);
               name = this.bundle.generateUid();
-              this.log.info(`New name: '${name}'`);
               nodePath.parentPath.scope.rename(node.declaration.name, name);
             }
 
@@ -60,13 +57,10 @@ export default class Plugin extends BasePlugin {
               excludeType: 'ExportDefaultDeclaration'
             };
             nodePath.parentPath.traverse(transformExportedDeclaration);
-
-            this.log.info(`Declaration type for ${name}: '${this.opts.type}'`);
             delete this.opts;
 
-            this.log.info(`Module: ${resource.id}`);
-            this.bundle.defaultExportsByName.set(name, resource.id);
-            this.bundle.defaultExportsById.set(resource.id, name);
+            // Register
+            this.bundle.addDefaultExport(resource.id, name);
             nodePath.remove();
           } else {
             throw new Error(`${this.bundle.getShortPath(resource.id)} should be normalised.`);
@@ -80,16 +74,14 @@ export default class Plugin extends BasePlugin {
               node.specifiers.forEach(spec => {
                 let name = spec.exported.name;
                 const originalName = name;
-                if (this.bundle.defaultExportsByName.has(name)
-                    || this.bundle.namedExportsByName.has(name)) {
+                if (this.bundle.hasName(name)) {
                   // Already used by another module
                   name = this.bundle.generateUid();
                   nodePath.parentPath.scope.rename(originalName, name);
                 }
 
                 // Register
-                this.bundle.namedExportsByName.set(name, resource.id);
-                this.bundle.namedExportsById.set(`${resource.id}_${originalName}`, name);
+                this.bundle.addNamedExport(resource.id, originalName, name);
                 nodePath.remove();
               });
             } else {

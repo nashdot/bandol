@@ -38,7 +38,7 @@ export default class Plugin extends BasePlugin {
               && nodePath.node.object.name === this.opts.namespace) {
             const importName = nodePath.node.property.name;
 
-            const name = this.bundle.namedExportsById.get(`${this.opts.sourceId}_${importName}`);
+            const name = this.bundle.getNamedName(this.opts.sourceId, importName);
             // Replace MemberExpression by Identifier
             nodePath.replaceWith(t.identifier(name));
           }
@@ -52,7 +52,7 @@ export default class Plugin extends BasePlugin {
           node.specifiers.forEach(specifier => {
             if (t.isImportDefaultSpecifier(specifier)) {
               // Get exported name
-              const name = this.bundle.defaultExportsById.get(sourceId);
+              const name = this.bundle.getDefaultName(sourceId);
               nodePath.parentPath.scope.rename(specifier.local.name, name);
             } else if (t.isImportNamespaceSpecifier(specifier)) {
               // Temporary options object for worker visitor
@@ -64,7 +64,7 @@ export default class Plugin extends BasePlugin {
               nodePath.parentPath.traverse(transformNamespaceImport);
               delete this.opts;
             } else {
-              const name = this.bundle.namedExportsById.get(`${sourceId}_${specifier.imported.name}`);
+              const name = this.bundle.getNamedName(sourceId, specifier.imported.name);
               if (name) {
                 nodePath.parentPath.scope.rename(specifier.local.name, name);
               } else {
@@ -72,7 +72,7 @@ export default class Plugin extends BasePlugin {
                 const id = this.bundle.resolveResource(node.source.value, resource.id);
                 this.opts = {
                   identifier: specifier.local.name,
-                  namespace: this.bundle.defaultExportsById.get(id)
+                  namespace: this.bundle.getDefaultName(id)
                 };
                 nodePath.parentPath.traverse(transformNamespaceVariables);
                 delete this.opts;

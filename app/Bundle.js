@@ -214,4 +214,27 @@ export default class Bundle {
     }
     return name;
   }
+
+  addDefaultExport(id, name) {
+    this.defaultExportsByName.set(name, id);
+    this.defaultExportsById.set(id, name);
+  }
+
+  addNamedExport(id, originalName, name) {
+    this.namedExportsByName.set(name, id);
+    this.namedExportsById.set(`${id}_${originalName}`, name);
+  }
+
+  hasName(name) {
+    return this.defaultExportsByName.has(name)
+        || this.namedExportsByName.has(name);
+  }
+
+  getDefaultName(id) {
+    return this.defaultExportsById.get(id);
+  }
+
+  getNamedName(id, originalName) {
+    return this.namedExportsById.get(`${id}_${originalName}`);
+  }
 }
