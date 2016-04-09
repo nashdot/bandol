@@ -50,7 +50,13 @@ export default class Plugin extends BasePlugin {
               && t.isProgram(nodePath.parentPath.parentPath.node)) {
             if (this._isModuleExports(node)) {
               // module.exports = expression
-              nodePath.parentPath.replaceWith(t.exportDefaultDeclaration(node.right));
+              const exportDeclarations = [t.exportDefaultDeclaration(node.right)];
+              if (t.isObjectProperty(node.right)) {
+                // TODO: Convert each property to named export
+                // exportDeclarations.unshift(t.ExportNamedDeclaration(...));
+              }
+
+              nodePath.parentPath.replaceWithMultiple(exportDeclarations);
             } else if (this._isNamedModuleExports(node)) {
               // module.exports.<id> = expression
               const id = node.left.property.name;
