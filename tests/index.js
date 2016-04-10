@@ -16,6 +16,7 @@ import processEnvNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-
 import runningContextNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-running-context';
 import removeFalsyBlocksNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-remove-falsy-blocks';
 import removeUnusedNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-remove-unused';
+import objectPropertyNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-object-property';
 import es6AnalyzerPlugin from '../app/plugins/bandol-plugin-analyzer-es6';
 import es6ExportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-es6-exports';
 import renameInternalsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-rename-internals';
@@ -49,6 +50,7 @@ const allPlugins = [
   removeFalsyBlocksNormalizerPlugin,
   es6ExportsNormalizerPlugin,
   removeUnusedNormalizerPlugin,
+  objectPropertyNormalizerPlugin,
   // Optimisation
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
