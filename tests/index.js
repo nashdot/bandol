@@ -11,6 +11,7 @@ import nodeResolverPlugin from '../app/plugins/bandol-plugin-resolver-node';
 import jsLoaderPlugin from '../app/plugins/bandol-plugin-loader-js';
 import jsonLoaderPlugin from '../app/plugins/bandol-plugin-loader-json';
 import cjsToEs6NormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-cjs-to-es6';
+import removeDeprecatedNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-remove-deprecated';
 import es6ExportsNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-es6-exports';
 import processEnvNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-process-env';
 import runningContextNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-running-context';
@@ -45,6 +46,7 @@ const allPlugins = [
   jsonLoaderPlugin,
   // Normalisation
   cjsToEs6NormalizerPlugin,
+  removeDeprecatedNormalizerPlugin,
   processEnvNormalizerPlugin,
   runningContextNormalizerPlugin,
   removeFalsyBlocksNormalizerPlugin,

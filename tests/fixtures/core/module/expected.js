@@ -1,12 +1,4 @@
 (function () {
-/**bandol> resource: node_modules/react/lib/deprecated.js */
-
-function deprecated(fnName, newModule, newPackage, ctx, fn) {
-  var warned = false;
-
-
-  return fn;
-}
 /**bandol> resource: node_modules/react/lib/Object.assign.js */
 
 
@@ -9691,12 +9683,12 @@ var React = {};
 assign(React, b4y3);
 
 assign(React, {
-  findDOMNode: deprecated('findDOMNode', 'ReactDOM', 'react-dom', bKvr, bKvr.findDOMNode),
-  render: deprecated('render', 'ReactDOM', 'react-dom', bKvr, bKvr.render),
-  unmountComponentAtNode: deprecated('unmountComponentAtNode', 'ReactDOM', 'react-dom', bKvr, bKvr.unmountComponentAtNode),
+  findDOMNode: null,
+  render: null,
+  unmountComponentAtNode: null,
 
-  renderToString: deprecated('renderToString', 'ReactDOMServer', 'react-dom/server', ReactDOMServer, ReactDOMServer.renderToString),
-  renderToStaticMarkup: deprecated('renderToStaticMarkup', 'ReactDOMServer', 'react-dom/server', ReactDOMServer, ReactDOMServer.renderToStaticMarkup)
+  renderToString: null,
+  renderToStaticMarkup: null
 });
 
 React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = bKvr;
