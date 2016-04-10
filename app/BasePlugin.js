@@ -40,4 +40,8 @@ export default class BasePlugin {
   getProgramPath(nodePath) {
     return nodePath.findParent((_path) => _path.isProgram());
   }
+
+  getRootPath(nodePath) {
+    return nodePath.findParent((_path) => _path.parentPath.isProgram());
+  }
 }

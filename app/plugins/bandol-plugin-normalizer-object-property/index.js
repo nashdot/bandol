@@ -19,21 +19,21 @@ export default class Plugin extends BasePlugin {
         ObjectExpression: (nodePath) => {
           const node = nodePath.node;
           const normalizedProperties = [];
+          const rootPath = this.getRootPath(nodePath);
 
           let i = 0;
           let shouldReplace = false;
           node.properties.forEach(property => {
             if (t.isIdentifier(property.value)) {
               // Normalized
-              normalizedProperties.push(
-                t.objectProperty(property.key, property.value, property.computed, property.shorthand, property.decorators));
+              normalizedProperties.push(property);
             } else if (t.isFunctionExpression(property.value)) {
               // Generate function name if not provided
               const name = property.value.id ? property.value.id.name : this.bundle.generateUid();
               // Get function definition
               const { params: params, body: body, generator: generator } = property.value;
               // Extract function
-              nodePath.insertBefore(t.functionDeclaration(t.identifier(name), params, body, generator, node.declaration.async));
+              rootPath.insertBefore(t.functionDeclaration(t.identifier(name), params, body, generator, property.value.async));
               // Shorthand
               let isShorthand = false;
               if (t.isIdentifier(property.key) && property.key.name === name) {
@@ -49,7 +49,7 @@ export default class Plugin extends BasePlugin {
               // Get class definition
               const { superClass: superClass, body: body } = property.value;
               // Extract class
-              nodePath.insertBefore(t.classDeclaration(t.identifier(name), superClass, body, []));
+              rootPath.insertBefore(t.classDeclaration(t.identifier(name), superClass, body, []));
               // Shorthand
               let isShorthand = false;
               if (t.isIdentifier(property.key) && property.key.name === name) {
@@ -59,14 +59,16 @@ export default class Plugin extends BasePlugin {
               normalizedProperties.push(
                 t.objectProperty(property.key, t.identifier(name), property.computed, isShorthand, property.decorators));
               shouldReplace = true;
+            } else if (t.isCallExpression) {
+              normalizedProperties.push(property);
             } else {
               // Generate variable name
               const name = this.bundle.generateUid();
               // Extract value to variable
-              nodePath.insertBefore(t.variableDeclaration(t.identifier(name), property.value));
+              rootPath.insertBefore(t.variableDeclaration(t.identifier(name), property.value));
               // And replace property value with its name
               normalizedProperties.push(
-                t.objectProperty(property.key, t.identifier(name), property.computed, false, property.decorators));
+                t.objectProperty(property.key.name, t.identifier(name), property.computed, false, property.decorators));
               shouldReplace = true;
             }
             i++;
