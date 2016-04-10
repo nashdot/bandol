@@ -65,9 +65,9 @@ var ReactCurrentOwner = {
 };
 /**bandol> resource: node_modules/react/lib/ReactElement.js */
 
-var b4PK = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
+var b8qv = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
 
-var bGN3 = {
+var bNXN = {
   key: true,
   ref: true,
   __self: true,
@@ -76,7 +76,7 @@ var bGN3 = {
 
 var ReactElement = function (type, key, ref, self, source, owner, props) {
   var element = {
-    $$typeof: b4PK,
+    $$typeof: b8qv,
 
     type: type,
     key: key,
@@ -106,7 +106,7 @@ ReactElement.createElement = function (type, config, children) {
     source = config.__source === undefined ? null : config.__source;
 
     for (propName in config) {
-      if (config.hasOwnProperty(propName) && !bGN3.hasOwnProperty(propName)) {
+      if (config.hasOwnProperty(propName) && !bNXN.hasOwnProperty(propName)) {
         props[propName] = config[propName];
       }
     }
@@ -178,7 +178,7 @@ ReactElement.cloneElement = function (element, config, children) {
     }
 
     for (propName in config) {
-      if (config.hasOwnProperty(propName) && !bGN3.hasOwnProperty(propName)) {
+      if (config.hasOwnProperty(propName) && !bNXN.hasOwnProperty(propName)) {
         props[propName] = config[propName];
       }
     }
@@ -199,7 +199,7 @@ ReactElement.cloneElement = function (element, config, children) {
 };
 
 ReactElement.isValidElement = function (object) {
-  return typeof object === 'object' && object !== null && object.$$typeof === b4PK;
+  return typeof object === 'object' && object !== null && object.$$typeof === b8qv;
 };
 /**bandol> resource: node_modules/react/lib/onlyChild.js */
 
@@ -208,13 +208,13 @@ function onlyChild(children) {
   return children;
 }
 /**bandol> resource: node_modules/react/lib/ReactVersion.js */
-var bQr = '0.14.7';
+var bPq = '0.14.7';
 /**bandol> resource: node_modules/react/lib/getIteratorFn.js */
 
-var bRBY = typeof Symbol === 'function' && Symbol.iterator;
-var bKBB = '@@iterator';
+var bYZx = typeof Symbol === 'function' && Symbol.iterator;
+var bORm = '@@iterator';
 function getIteratorFn(maybeIterable) {
-  var iteratorFn = maybeIterable && (bRBY && maybeIterable[bRBY] || maybeIterable[bKBB]);
+  var iteratorFn = maybeIterable && (bYZx && maybeIterable[bYZx] || maybeIterable[bORm]);
   if (typeof iteratorFn === 'function') {
     return iteratorFn;
   }
@@ -222,7 +222,7 @@ function getIteratorFn(maybeIterable) {
 /**bandol> resource: node_modules/fbjs/lib/emptyFunction.js */
 
 
-function bXg7(arg) {
+function bBqm(arg) {
   return function () {
     return arg;
   };
@@ -230,10 +230,10 @@ function bXg7(arg) {
 
 function emptyFunction() {}
 
-emptyFunction.thatReturns = bXg7;
-emptyFunction.thatReturnsFalse = bXg7(false);
-emptyFunction.thatReturnsTrue = bXg7(true);
-emptyFunction.thatReturnsNull = bXg7(null);
+emptyFunction.thatReturns = bBqm;
+emptyFunction.thatReturnsFalse = bBqm(false);
+emptyFunction.thatReturnsTrue = bBqm(true);
+emptyFunction.thatReturnsNull = bBqm(null);
 emptyFunction.thatReturnsThis = function () {
   return this;
 };
@@ -247,30 +247,30 @@ var ReactPropTypeLocationNames = {};
 /**bandol> resource: node_modules/react/lib/ReactPropTypes.js */
 
 
-var bER4 = '<<anonymous>>';
+var bVEr = '<<anonymous>>';
 
 var ReactPropTypes = {
-  array: bLvJ('array'),
-  bool: bLvJ('boolean'),
-  func: bLvJ('function'),
-  number: bLvJ('number'),
-  object: bLvJ('object'),
-  string: bLvJ('string'),
+  array: bMxl('array'),
+  bool: bMxl('boolean'),
+  func: bMxl('function'),
+  number: bMxl('number'),
+  object: bMxl('object'),
+  string: bMxl('string'),
 
-  any: b0Vp(),
-  arrayOf: b13l,
-  element: bwqB(),
-  instanceOf: bkpq,
-  node: byaM(),
-  objectOf: bJB2,
-  oneOf: b5x5,
-  oneOfType: bqJy,
-  shape: brEK
+  any: b6qN(),
+  arrayOf: bZAz,
+  element: bAq7(),
+  instanceOf: b3qN,
+  node: bzPn(),
+  objectOf: bm5L,
+  oneOf: bpdX,
+  oneOfType: bnd4,
+  shape: bvdE
 };
 
-function b7Zx(validate) {
+function bgdY(validate) {
   function checkType(isRequired, props, propName, componentName, location, propFullName) {
-    componentName = componentName || bER4;
+    componentName = componentName || bVEr;
     propFullName = propFullName || propName;
     if (props[propName] == null) {
       var locationName = ReactPropTypeLocationNames[location];
@@ -289,32 +289,32 @@ function b7Zx(validate) {
   return chainedCheckType;
 }
 
-function bLvJ(expectedType) {
+function bMxl(expectedType) {
   function validate(props, propName, componentName, location, propFullName) {
     var propValue = props[propName];
-    var propType = bQ6L(propValue);
+    var propType = bad9(propValue);
     if (propType !== expectedType) {
       var locationName = ReactPropTypeLocationNames[location];
 
-      var preciseType = bPAZ(propValue);
+      var preciseType = b2YB(propValue);
 
       return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
     }
     return null;
   }
-  return b7Zx(validate);
+  return bgdY(validate);
 }
 
-function b0Vp() {
-  return b7Zx(emptyFunction.thatReturns(null));
+function b6qN() {
+  return bgdY(emptyFunction.thatReturns(null));
 }
 
-function b13l(typeChecker) {
+function bZAz(typeChecker) {
   function validate(props, propName, componentName, location, propFullName) {
     var propValue = props[propName];
     if (!Array.isArray(propValue)) {
       var locationName = ReactPropTypeLocationNames[location];
-      var propType = bQ6L(propValue);
+      var propType = bad9(propValue);
       return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
     }
     for (var i = 0; i < propValue.length; i++) {
@@ -325,10 +325,10 @@ function b13l(typeChecker) {
     }
     return null;
   }
-  return b7Zx(validate);
+  return bgdY(validate);
 }
 
-function bwqB() {
+function bAq7() {
   function validate(props, propName, componentName, location, propFullName) {
     if (!ReactElement.isValidElement(props[propName])) {
       var locationName = ReactPropTypeLocationNames[location];
@@ -336,25 +336,25 @@ function bwqB() {
     }
     return null;
   }
-  return b7Zx(validate);
+  return bgdY(validate);
 }
 
-function bkpq(expectedClass) {
+function b3qN(expectedClass) {
   function validate(props, propName, componentName, location, propFullName) {
     if (!(props[propName] instanceof expectedClass)) {
       var locationName = ReactPropTypeLocationNames[location];
-      var expectedClassName = expectedClass.name || bER4;
-      var actualClassName = bxdE(props[propName]);
+      var expectedClassName = expectedClass.name || bVEr;
+      var actualClassName = be5A(props[propName]);
       return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
     }
     return null;
   }
-  return b7Zx(validate);
+  return bgdY(validate);
 }
 
-function b5x5(expectedValues) {
+function bpdX(expectedValues) {
   if (!Array.isArray(expectedValues)) {
-    return b7Zx(function () {
+    return bgdY(function () {
       return new Error('Invalid argument supplied to oneOf, expected an instance of array.');
     });
   }
@@ -371,13 +371,13 @@ function b5x5(expectedValues) {
     var valuesString = JSON.stringify(expectedValues);
     return new Error('Invalid ' + locationName + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
   }
-  return b7Zx(validate);
+  return bgdY(validate);
 }
 
-function bJB2(typeChecker) {
+function bm5L(typeChecker) {
   function validate(props, propName, componentName, location, propFullName) {
     var propValue = props[propName];
-    var propType = bQ6L(propValue);
+    var propType = bad9(propValue);
     if (propType !== 'object') {
       var locationName = ReactPropTypeLocationNames[location];
       return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
@@ -392,12 +392,12 @@ function bJB2(typeChecker) {
     }
     return null;
   }
-  return b7Zx(validate);
+  return bgdY(validate);
 }
 
-function bqJy(arrayOfTypeCheckers) {
+function bnd4(arrayOfTypeCheckers) {
   if (!Array.isArray(arrayOfTypeCheckers)) {
-    return b7Zx(function () {
+    return bgdY(function () {
       return new Error('Invalid argument supplied to oneOfType, expected an instance of array.');
     });
   }
@@ -413,10 +413,10 @@ function bqJy(arrayOfTypeCheckers) {
     var locationName = ReactPropTypeLocationNames[location];
     return new Error('Invalid ' + locationName + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
   }
-  return b7Zx(validate);
+  return bgdY(validate);
 }
 
-function byaM() {
+function bzPn() {
   function validate(props, propName, componentName, location, propFullName) {
     if (!isNode(props[propName])) {
       var locationName = ReactPropTypeLocationNames[location];
@@ -424,13 +424,13 @@ function byaM() {
     }
     return null;
   }
-  return b7Zx(validate);
+  return bgdY(validate);
 }
 
-function brEK(shapeTypes) {
+function bvdE(shapeTypes) {
   function validate(props, propName, componentName, location, propFullName) {
     var propValue = props[propName];
-    var propType = bQ6L(propValue);
+    var propType = bad9(propValue);
     if (propType !== 'object') {
       var locationName = ReactPropTypeLocationNames[location];
       return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
@@ -447,10 +447,10 @@ function brEK(shapeTypes) {
     }
     return null;
   }
-  return b7Zx(validate);
+  return bgdY(validate);
 }
 
-function bQ6L(propValue) {
+function bad9(propValue) {
   var propType = typeof propValue;
   if (Array.isArray(propValue)) {
     return 'array';
@@ -461,8 +461,8 @@ function bQ6L(propValue) {
   return propType;
 }
 
-function bPAZ(propValue) {
-  var propType = bQ6L(propValue);
+function b2YB(propValue) {
+  var propType = bad9(propValue);
   if (propType === 'object') {
     if (propValue instanceof Date) {
       return 'date';
@@ -473,7 +473,7 @@ function bPAZ(propValue) {
   return propType;
 }
 
-function bxdE(propValue) {
+function be5A(propValue) {
   if (!propValue.constructor || !propValue.constructor.name) {
     return '<<anonymous>>';
   }
@@ -482,7 +482,7 @@ function bxdE(propValue) {
 /**bandol> resource: node_modules/fbjs/lib/mapObject.js */
 
 
-var b971 = Object.prototype.hasOwnProperty;
+var blJZ = Object.prototype.hasOwnProperty;
 
 function mapObject(object, callback, context) {
   if (!object) {
@@ -490,7 +490,7 @@ function mapObject(object, callback, context) {
   }
   var result = {};
   for (var name in object) {
-    if (b971.call(object, name)) {
+    if (blJZ.call(object, name)) {
       result[name] = callback.call(context, object[name], name, object);
     }
   }
@@ -498,7 +498,7 @@ function mapObject(object, callback, context) {
 }
 /**bandol> resource: node_modules/react/lib/ReactDOMFactories.js */
 
-function bd3G(tag) {
+function bbEp(tag) {
   return ReactElement.createFactory(tag);
 }
 
@@ -637,7 +637,7 @@ var ReactDOMFactories = mapObject({
   text: 'text',
   tspan: 'tspan'
 
-}, bd3G);
+}, bbEp);
 /**bandol> resource: node_modules/fbjs/lib/warning.js */
 
 
@@ -676,35 +676,42 @@ var emptyObject = {};
 /**bandol> resource: node_modules/react/lib/ReactNoopUpdateQueue.js */
 
 
-function bNL1(publicInstance, callerName) {}
+function bQyX(publicInstance, callerName) {}
+
+function bPE1(publicInstance) {
+  return false;
+}
+
+function bxLO(publicInstance, callback) {}
+
+function bXEY(publicInstance) {
+  bQyX(publicInstance, 'forceUpdate');
+}
+
+function bREn(publicInstance, completeState) {
+  bQyX(publicInstance, 'replaceState');
+}
+
+function bKYa(publicInstance, partialState) {
+  bQyX(publicInstance, 'setState');
+}
+
+function b4mJ(publicInstance, partialProps) {
+  bQyX(publicInstance, 'setProps');
+}
+
+function bGEQ(publicInstance, props) {
+  bQyX(publicInstance, 'replaceProps');
+}
 
 var ReactNoopUpdateQueue = {
-  isMounted: function (publicInstance) {
-    return false;
-  },
-
-  enqueueCallback: function (publicInstance, callback) {},
-
-  enqueueForceUpdate: function (publicInstance) {
-    bNL1(publicInstance, 'forceUpdate');
-  },
-
-  enqueueReplaceState: function (publicInstance, completeState) {
-    bNL1(publicInstance, 'replaceState');
-  },
-
-  enqueueSetState: function (publicInstance, partialState) {
-    bNL1(publicInstance, 'setState');
-  },
-
-  enqueueSetProps: function (publicInstance, partialProps) {
-    bNL1(publicInstance, 'setProps');
-  },
-
-  enqueueReplaceProps: function (publicInstance, props) {
-    bNL1(publicInstance, 'replaceProps');
-  }
-
+  isMounted: bPE1,
+  enqueueCallback: bxLO,
+  enqueueForceUpdate: bXEY,
+  enqueueReplaceState: bREn,
+  enqueueSetState: bKYa,
+  enqueueSetProps: b4mJ,
+  enqueueReplaceProps: bGEQ
 };
 /**bandol> resource: node_modules/react/lib/ReactComponent.js */
 
@@ -736,9 +743,9 @@ ReactComponent.prototype.forceUpdate = function (callback) {
 /**bandol> resource: node_modules/react/lib/ReactClass.js */
 
 
-var b6L5 = keyOf({ mixins: null });
+var bYE3 = keyOf({ mixins: null });
 
-var bZYe = keyMirror({
+var bOEe = keyMirror({
   DEFINE_ONCE: null,
 
   DEFINE_MANY: null,
@@ -748,91 +755,107 @@ var bZYe = keyMirror({
   DEFINE_MANY_MERGED: null
 });
 
-var bAy8 = [];
+var b88x = [];
 
-var bpYO = {
-  mixins: bZYe.DEFINE_MANY,
+var bdyk = {
+  mixins: bOEe.DEFINE_MANY,
 
-  statics: bZYe.DEFINE_MANY,
+  statics: bOEe.DEFINE_MANY,
 
-  propTypes: bZYe.DEFINE_MANY,
+  propTypes: bOEe.DEFINE_MANY,
 
-  contextTypes: bZYe.DEFINE_MANY,
+  contextTypes: bOEe.DEFINE_MANY,
 
-  childContextTypes: bZYe.DEFINE_MANY,
+  childContextTypes: bOEe.DEFINE_MANY,
 
-  getDefaultProps: bZYe.DEFINE_MANY_MERGED,
+  getDefaultProps: bOEe.DEFINE_MANY_MERGED,
 
-  getInitialState: bZYe.DEFINE_MANY_MERGED,
+  getInitialState: bOEe.DEFINE_MANY_MERGED,
 
-  getChildContext: bZYe.DEFINE_MANY_MERGED,
+  getChildContext: bOEe.DEFINE_MANY_MERGED,
 
-  render: bZYe.DEFINE_ONCE,
+  render: bOEe.DEFINE_ONCE,
 
-  componentWillMount: bZYe.DEFINE_MANY,
+  componentWillMount: bOEe.DEFINE_MANY,
 
-  componentDidMount: bZYe.DEFINE_MANY,
+  componentDidMount: bOEe.DEFINE_MANY,
 
-  componentWillReceiveProps: bZYe.DEFINE_MANY,
+  componentWillReceiveProps: bOEe.DEFINE_MANY,
 
-  shouldComponentUpdate: bZYe.DEFINE_ONCE,
+  shouldComponentUpdate: bOEe.DEFINE_ONCE,
 
-  componentWillUpdate: bZYe.DEFINE_MANY,
+  componentWillUpdate: bOEe.DEFINE_MANY,
 
-  componentDidUpdate: bZYe.DEFINE_MANY,
+  componentDidUpdate: bOEe.DEFINE_MANY,
 
-  componentWillUnmount: bZYe.DEFINE_MANY,
+  componentWillUnmount: bOEe.DEFINE_MANY,
 
-  updateComponent: bZYe.OVERRIDE_BASE
+  updateComponent: bOEe.OVERRIDE_BASE
 
 };
 
-var bmY5 = {
-  displayName: function (Constructor, displayName) {
-    Constructor.displayName = displayName;
-  },
-  mixins: function (Constructor, mixins) {
-    if (mixins) {
-      for (var i = 0; i < mixins.length; i++) {
-        bznq(Constructor, mixins[i]);
-      }
+function b95B(Constructor, displayName) {
+  Constructor.displayName = displayName;
+}
+
+function bEYR(Constructor, mixins) {
+  if (mixins) {
+    for (var i = 0; i < mixins.length; i++) {
+      bqO2(Constructor, mixins[i]);
     }
-  },
-  childContextTypes: function (Constructor, childContextTypes) {
-    Constructor.childContextTypes = assign({}, Constructor.childContextTypes, childContextTypes);
-  },
-  contextTypes: function (Constructor, contextTypes) {
-    Constructor.contextTypes = assign({}, Constructor.contextTypes, contextTypes);
-  },
-
-  getDefaultProps: function (Constructor, getDefaultProps) {
-    if (Constructor.getDefaultProps) {
-      Constructor.getDefaultProps = b2p4(Constructor.getDefaultProps, getDefaultProps);
-    } else {
-      Constructor.getDefaultProps = getDefaultProps;
-    }
-  },
-  propTypes: function (Constructor, propTypes) {
-    Constructor.propTypes = assign({}, Constructor.propTypes, propTypes);
-  },
-  statics: function (Constructor, statics) {
-    bvn7(Constructor, statics);
-  },
-  autobind: function () {} };
-
-function bnY8(proto, name) {
-  var specPolicy = bpYO.hasOwnProperty(name) ? bpYO[name] : null;
-
-  if (bOyz.hasOwnProperty(name)) {
-    !(specPolicy === bZYe.OVERRIDE_BASE) ? 'production' !== 'production' ? invariant(false, 'ReactClassInterface: You are attempting to override ' + '`%s` from your class specification. Ensure that your method names ' + 'do not overlap with React methods.', name) : invariant(false) : undefined;
-  }
-
-  if (proto.hasOwnProperty(name)) {
-    !(specPolicy === bZYe.DEFINE_MANY || specPolicy === bZYe.DEFINE_MANY_MERGED) ? 'production' !== 'production' ? invariant(false, 'ReactClassInterface: You are attempting to define ' + '`%s` on your component more than once. This conflict may be due ' + 'to a mixin.', name) : invariant(false) : undefined;
   }
 }
 
-function bznq(Constructor, spec) {
+function b77R(Constructor, childContextTypes) {
+  Constructor.childContextTypes = assign({}, Constructor.childContextTypes, childContextTypes);
+}
+
+function bLYg(Constructor, contextTypes) {
+  Constructor.contextTypes = assign({}, Constructor.contextTypes, contextTypes);
+}
+
+function b0ZL(Constructor, getDefaultProps) {
+  if (Constructor.getDefaultProps) {
+    Constructor.getDefaultProps = bQyG(Constructor.getDefaultProps, getDefaultProps);
+  } else {
+    Constructor.getDefaultProps = getDefaultProps;
+  }
+}
+
+function b1AQ(Constructor, propTypes) {
+  Constructor.propTypes = assign({}, Constructor.propTypes, propTypes);
+}
+
+function bwOp(Constructor, statics) {
+  byJZ(Constructor, statics);
+}
+
+function bkOK() {}
+
+var b5yz = {
+  displayName: b95B,
+  mixins: bEYR,
+  childContextTypes: b77R,
+  contextTypes: bLYg,
+  getDefaultProps: b0ZL,
+  propTypes: b1AQ,
+  statics: bwOp,
+  autobind: bkOK
+};
+
+function bJYP(proto, name) {
+  var specPolicy = bdyk.hasOwnProperty(name) ? bdyk[name] : null;
+
+  if (bbEV.hasOwnProperty(name)) {
+    !(specPolicy === bOEe.OVERRIDE_BASE) ? 'production' !== 'production' ? invariant(false, 'ReactClassInterface: You are attempting to override ' + '`%s` from your class specification. Ensure that your method names ' + 'do not overlap with React methods.', name) : invariant(false) : undefined;
+  }
+
+  if (proto.hasOwnProperty(name)) {
+    !(specPolicy === bOEe.DEFINE_MANY || specPolicy === bOEe.DEFINE_MANY_MERGED) ? 'production' !== 'production' ? invariant(false, 'ReactClassInterface: You are attempting to define ' + '`%s` on your component more than once. This conflict may be due ' + 'to a mixin.', name) : invariant(false) : undefined;
+  }
+}
+
+function bqO2(Constructor, spec) {
   if (!spec) {
     return;
   }
@@ -842,8 +865,8 @@ function bznq(Constructor, spec) {
 
   var proto = Constructor.prototype;
 
-  if (spec.hasOwnProperty(b6L5)) {
-    bmY5.mixins(Constructor, spec.mixins);
+  if (spec.hasOwnProperty(bYE3)) {
+    b5yz.mixins(Constructor, spec.mixins);
   }
 
   for (var name in spec) {
@@ -851,17 +874,17 @@ function bznq(Constructor, spec) {
       continue;
     }
 
-    if (name === b6L5) {
+    if (name === bYE3) {
       continue;
     }
 
     var property = spec[name];
-    bnY8(proto, name);
+    bJYP(proto, name);
 
-    if (bmY5.hasOwnProperty(name)) {
-      bmY5[name](Constructor, property);
+    if (b5yz.hasOwnProperty(name)) {
+      b5yz[name](Constructor, property);
     } else {
-      var isReactClassMethod = bpYO.hasOwnProperty(name);
+      var isReactClassMethod = bdyk.hasOwnProperty(name);
       var isAlreadyDefined = proto.hasOwnProperty(name);
       var isFunction = typeof property === 'function';
       var shouldAutoBind = isFunction && !isReactClassMethod && !isAlreadyDefined && spec.autobind !== false;
@@ -874,14 +897,14 @@ function bznq(Constructor, spec) {
         proto[name] = property;
       } else {
         if (isAlreadyDefined) {
-          var specPolicy = bpYO[name];
+          var specPolicy = bdyk[name];
 
-          !(isReactClassMethod && (specPolicy === bZYe.DEFINE_MANY_MERGED || specPolicy === bZYe.DEFINE_MANY)) ? 'production' !== 'production' ? invariant(false, 'ReactClass: Unexpected spec policy %s for key %s ' + 'when mixing in component specs.', specPolicy, name) : invariant(false) : undefined;
+          !(isReactClassMethod && (specPolicy === bOEe.DEFINE_MANY_MERGED || specPolicy === bOEe.DEFINE_MANY)) ? 'production' !== 'production' ? invariant(false, 'ReactClass: Unexpected spec policy %s for key %s ' + 'when mixing in component specs.', specPolicy, name) : invariant(false) : undefined;
 
-          if (specPolicy === bZYe.DEFINE_MANY_MERGED) {
-            proto[name] = b2p4(proto[name], property);
-          } else if (specPolicy === bZYe.DEFINE_MANY) {
-            proto[name] = bee6(proto[name], property);
+          if (specPolicy === bOEe.DEFINE_MANY_MERGED) {
+            proto[name] = bQyG(proto[name], property);
+          } else if (specPolicy === bOEe.DEFINE_MANY) {
+            proto[name] = bPEE(proto[name], property);
           }
         } else {
           proto[name] = property;
@@ -891,7 +914,7 @@ function bznq(Constructor, spec) {
   }
 }
 
-function bvn7(Constructor, statics) {
+function byJZ(Constructor, statics) {
   if (!statics) {
     return;
   }
@@ -901,7 +924,7 @@ function bvn7(Constructor, statics) {
       continue;
     }
 
-    var isReserved = name in bmY5;
+    var isReserved = name in b5yz;
     !!isReserved ? 'production' !== 'production' ? invariant(false, 'ReactClass: You are attempting to define a reserved ' + 'property, `%s`, that shouldn\'t be on the "statics" key. Define it ' + 'as an instance property instead; it will still be accessible on the ' + 'constructor.', name) : invariant(false) : undefined;
 
     var isInherited = name in Constructor;
@@ -910,7 +933,7 @@ function bvn7(Constructor, statics) {
   }
 }
 
-function baeZ(one, two) {
+function brOA(one, two) {
   !(one && two && typeof one === 'object' && typeof two === 'object') ? 'production' !== 'production' ? invariant(false, 'mergeIntoWithNoDuplicateKeys(): Cannot merge non-objects.') : invariant(false) : undefined;
 
   for (var key in two) {
@@ -922,7 +945,7 @@ function baeZ(one, two) {
   return one;
 }
 
-function b2p4(one, two) {
+function bQyG(one, two) {
   return function mergedResult() {
     var a = one.apply(this, arguments);
     var b = two.apply(this, arguments);
@@ -932,172 +955,182 @@ function b2p4(one, two) {
       return a;
     }
     var c = {};
-    baeZ(c, a);
-    baeZ(c, b);
+    brOA(c, a);
+    brOA(c, b);
     return c;
   };
 }
 
-function bee6(one, two) {
+function bPEE(one, two) {
   return function chainedFunction() {
     one.apply(this, arguments);
     two.apply(this, arguments);
   };
 }
 
-function bBPz(component, method) {
+function bxLr(component, method) {
   var boundMethod = method.bind(component);
 
   return boundMethod;
 }
 
-function bY7a(component) {
+function bXE8(component) {
   for (var autoBindKey in component.__reactAutoBindMap) {
     if (component.__reactAutoBindMap.hasOwnProperty(autoBindKey)) {
       var method = component.__reactAutoBindMap[autoBindKey];
-      component[autoBindKey] = bBPz(component, method);
+      component[autoBindKey] = bxLr(component, method);
     }
   }
 }
 
-var bOyz = {
-  replaceState: function (newState, callback) {
-    this.updater.enqueueReplaceState(this, newState);
-    if (callback) {
-      this.updater.enqueueCallback(this, callback);
-    }
-  },
-
-  isMounted: function () {
-    return this.updater.isMounted(this);
-  },
-
-  setProps: function (partialProps, callback) {
-    this.updater.enqueueSetProps(this, partialProps);
-    if (callback) {
-      this.updater.enqueueCallback(this, callback);
-    }
-  },
-
-  replaceProps: function (newProps, callback) {
-    this.updater.enqueueReplaceProps(this, newProps);
-    if (callback) {
-      this.updater.enqueueCallback(this, callback);
-    }
+function bREq(newState, callback) {
+  this.updater.enqueueReplaceState(this, newState);
+  if (callback) {
+    this.updater.enqueueCallback(this, callback);
   }
+}
+
+function bKY5() {
+  return this.updater.isMounted(this);
+}
+
+function b4m7(partialProps, callback) {
+  this.updater.enqueueSetProps(this, partialProps);
+  if (callback) {
+    this.updater.enqueueCallback(this, callback);
+  }
+}
+
+function bGEr(newProps, callback) {
+  this.updater.enqueueReplaceProps(this, newProps);
+  if (callback) {
+    this.updater.enqueueCallback(this, callback);
+  }
+}
+
+var bbEV = {
+  replaceState: bREq,
+  isMounted: bKY5,
+  setProps: b4m7,
+  replaceProps: bGEr
 };
 
-var b86g = function () {};
-assign(b86g.prototype, ReactComponent.prototype, bOyz);
+var blJx = function () {};
+assign(blJx.prototype, ReactComponent.prototype, bbEV);
+
+function bVEn(spec) {
+  var Constructor = function (props, context, updater) {
+    if (this.__reactAutoBindMap) {
+      bXE8(this);
+    }
+
+    this.props = props;
+    this.context = context;
+    this.refs = emptyObject;
+    this.updater = updater || ReactNoopUpdateQueue;
+
+    this.state = null;
+
+    var initialState = this.getInitialState ? this.getInitialState() : null;
+
+    !(typeof initialState === 'object' && !Array.isArray(initialState)) ? 'production' !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : invariant(false) : undefined;
+
+    this.state = initialState;
+  };
+  Constructor.prototype = new blJx();
+  Constructor.prototype.constructor = Constructor;
+
+  b88x.forEach(bqO2.bind(null, Constructor));
+
+  bqO2(Constructor, spec);
+
+  if (Constructor.getDefaultProps) {
+    Constructor.defaultProps = Constructor.getDefaultProps();
+  }
+
+  !Constructor.prototype.render ? 'production' !== 'production' ? invariant(false, 'createClass(...): Class specification must implement a `render` method.') : invariant(false) : undefined;
+
+  for (var methodName in bdyk) {
+    if (!Constructor.prototype[methodName]) {
+      Constructor.prototype[methodName] = null;
+    }
+  }
+
+  return Constructor;
+}
+
+function brOw(mixin) {
+  b88x.push(mixin);
+}
 
 var ReactClass = {
-  createClass: function (spec) {
-    var Constructor = function (props, context, updater) {
-      if (this.__reactAutoBindMap) {
-        bY7a(this);
-      }
+  createClass: bVEn,
 
-      this.props = props;
-      this.context = context;
-      this.refs = emptyObject;
-      this.updater = updater || ReactNoopUpdateQueue;
-
-      this.state = null;
-
-      var initialState = this.getInitialState ? this.getInitialState() : null;
-
-      !(typeof initialState === 'object' && !Array.isArray(initialState)) ? 'production' !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : invariant(false) : undefined;
-
-      this.state = initialState;
-    };
-    Constructor.prototype = new b86g();
-    Constructor.prototype.constructor = Constructor;
-
-    bAy8.forEach(bznq.bind(null, Constructor));
-
-    bznq(Constructor, spec);
-
-    if (Constructor.getDefaultProps) {
-      Constructor.defaultProps = Constructor.getDefaultProps();
-    }
-
-    !Constructor.prototype.render ? 'production' !== 'production' ? invariant(false, 'createClass(...): Class specification must implement a `render` method.') : invariant(false) : undefined;
-
-    for (var methodName in bpYO) {
-      if (!Constructor.prototype[methodName]) {
-        Constructor.prototype[methodName] = null;
-      }
-    }
-
-    return Constructor;
-  },
 
   injection: {
-    injectMixin: function (mixin) {
-      bAy8.push(mixin);
-    }
+    injectMixin: brOw
   }
 
 };
 /**bandol> resource: node_modules/react/lib/ReactRootIndex.js */
+function beOY(_createReactRootIndex) {
+  ReactRootIndex.createReactRootIndex = _createReactRootIndex;
+}
 
-
-var bMzR = {
-  injectCreateReactRootIndex: function (_createReactRootIndex) {
-    ReactRootIndex.createReactRootIndex = _createReactRootIndex;
-  }
+var bBk7 = {
+  injectCreateReactRootIndex: beOY
 };
 
 var ReactRootIndex = {
   createReactRootIndex: null,
-  injection: bMzR
+  injection: bBk7
 };
 /**bandol> resource: node_modules/react/lib/ReactInstanceHandles.js */
 
 
-var bPzZ = '.';
-var bxnE = bPzZ.length;
+var b4w7 = '.';
+var bGwr = b4w7.length;
 
-var bXw7 = 10000;
+var bbXV = 10000;
 
-function bRYY(index) {
-  return bPzZ + index.toString(36);
+function bl6x(index) {
+  return b4w7 + index.toString(36);
 }
 
-function bKyB(id, index) {
-  return id.charAt(index) === bPzZ || index === id.length;
+function bVMn(id, index) {
+  return id.charAt(index) === b4w7 || index === id.length;
 }
 
-function b4dK(id) {
-  return id === '' || id.charAt(0) === bPzZ && id.charAt(id.length - 1) !== bPzZ;
+function bgbw(id) {
+  return id === '' || id.charAt(0) === b4w7 && id.charAt(id.length - 1) !== b4w7;
 }
 
-function bG43(ancestorID, descendantID) {
-  return descendantID.indexOf(ancestorID) === 0 && bKyB(descendantID, ancestorID.length);
+function bMXr(ancestorID, descendantID) {
+  return descendantID.indexOf(ancestorID) === 0 && bVMn(descendantID, ancestorID.length);
 }
 
-function bbem(id) {
-  return id ? id.substr(0, id.lastIndexOf(bPzZ)) : '';
+function b6wB(id) {
+  return id ? id.substr(0, id.lastIndexOf(b4w7)) : '';
 }
 
-function blna(ancestorID, destinationID) {
-  !(b4dK(ancestorID) && b4dK(destinationID)) ? 'production' !== 'production' ? invariant(false, 'getNextDescendantID(%s, %s): Received an invalid React DOM ID.', ancestorID, destinationID) : invariant(false) : undefined;
-  !bG43(ancestorID, destinationID) ? 'production' !== 'production' ? invariant(false, 'getNextDescendantID(...): React has made an invalid assumption about ' + 'the DOM hierarchy. Expected `%s` to be an ancestor of `%s`.', ancestorID, destinationID) : invariant(false) : undefined;
+function bZ3E(ancestorID, destinationID) {
+  !(bgbw(ancestorID) && bgbw(destinationID)) ? 'production' !== 'production' ? invariant(false, 'getNextDescendantID(%s, %s): Received an invalid React DOM ID.', ancestorID, destinationID) : invariant(false) : undefined;
+  !bMXr(ancestorID, destinationID) ? 'production' !== 'production' ? invariant(false, 'getNextDescendantID(...): React has made an invalid assumption about ' + 'the DOM hierarchy. Expected `%s` to be an ancestor of `%s`.', ancestorID, destinationID) : invariant(false) : undefined;
   if (ancestorID === destinationID) {
     return ancestorID;
   }
 
-  var start = ancestorID.length + bxnE;
+  var start = ancestorID.length + bGwr;
   var i;
   for (i = start; i < destinationID.length; i++) {
-    if (bKyB(destinationID, i)) {
+    if (bVMn(destinationID, i)) {
       break;
     }
   }
   return destinationID.substr(0, i);
 }
 
-function bVYy(oneID, twoID) {
+function bAwX(oneID, twoID) {
   var minLength = Math.min(oneID.length, twoID.length);
   if (minLength === 0) {
     return '';
@@ -1105,26 +1138,26 @@ function bVYy(oneID, twoID) {
   var lastCommonMarkerIndex = 0;
 
   for (var i = 0; i <= minLength; i++) {
-    if (bKyB(oneID, i) && bKyB(twoID, i)) {
+    if (bVMn(oneID, i) && bVMn(twoID, i)) {
       lastCommonMarkerIndex = i;
     } else if (oneID.charAt(i) !== twoID.charAt(i)) {
       break;
     }
   }
   var longestCommonID = oneID.substr(0, lastCommonMarkerIndex);
-  !b4dK(longestCommonID) ? 'production' !== 'production' ? invariant(false, 'getFirstCommonAncestorID(%s, %s): Expected a valid React DOM ID: %s', oneID, twoID, longestCommonID) : invariant(false) : undefined;
+  !bgbw(longestCommonID) ? 'production' !== 'production' ? invariant(false, 'getFirstCommonAncestorID(%s, %s): Expected a valid React DOM ID: %s', oneID, twoID, longestCommonID) : invariant(false) : undefined;
   return longestCommonID;
 }
 
-function bgpx(start, stop, cb, arg, skipFirst, skipLast) {
+function b3nB(start, stop, cb, arg, skipFirst, skipLast) {
   start = start || '';
   stop = stop || '';
   !(start !== stop) ? 'production' !== 'production' ? invariant(false, 'traverseParentPath(...): Cannot traverse from and to the same ID, `%s`.', start) : invariant(false) : undefined;
-  var traverseUp = bG43(stop, start);
-  !(traverseUp || bG43(start, stop)) ? 'production' !== 'production' ? invariant(false, 'traverseParentPath(%s, %s, ...): Cannot traverse from two IDs that do ' + 'not have a parent path.', start, stop) : invariant(false) : undefined;
+  var traverseUp = bMXr(stop, start);
+  !(traverseUp || bMXr(start, stop)) ? 'production' !== 'production' ? invariant(false, 'traverseParentPath(%s, %s, ...): Cannot traverse from two IDs that do ' + 'not have a parent path.', start, stop) : invariant(false) : undefined;
 
   var depth = 0;
-  var traverse = traverseUp ? bbem : blna;
+  var traverse = traverseUp ? b6wB : bZ3E;
   for (var id = start;; id = traverse(id, stop)) {
     var ret;
     if ((!skipFirst || id !== start) && (!skipLast || id !== stop)) {
@@ -1133,99 +1166,108 @@ function bgpx(start, stop, cb, arg, skipFirst, skipLast) {
     if (ret === false || id === stop) {
       break;
     }
-    !(depth++ < bXw7) ? 'production' !== 'production' ? invariant(false, 'traverseParentPath(%s, %s, ...): Detected an infinite loop while ' + 'traversing the React DOM ID tree. This may be due to malformed IDs: %s', start, stop, id) : invariant(false) : undefined;
+    !(depth++ < bbXV) ? 'production' !== 'production' ? invariant(false, 'traverseParentPath(%s, %s, ...): Detected an infinite loop while ' + 'traversing the React DOM ID tree. This may be due to malformed IDs: %s', start, stop, id) : invariant(false) : undefined;
   }
 }
 
+function bppv() {
+  return bl6x(ReactRootIndex.createReactRootIndex());
+}
+
+function bmZd(rootID, name) {
+  return rootID + name;
+}
+
+function bnAr(id) {
+  if (id && id.charAt(0) === b4w7 && id.length > 1) {
+    var index = id.indexOf(b4w7, 1);
+    return index > -1 ? id.substr(0, index) : id;
+  }
+  return null;
+}
+
+function bz4Q(leaveID, enterID, cb, upArg, downArg) {
+  var ancestorID = bAwX(leaveID, enterID);
+  if (ancestorID !== leaveID) {
+    b3nB(leaveID, ancestorID, cb, upArg, false, true);
+  }
+  if (ancestorID !== enterID) {
+    b3nB(ancestorID, enterID, cb, downArg, true, false);
+  }
+}
+
+function bvxe(targetID, cb, arg) {
+  if (targetID) {
+    b3nB('', targetID, cb, arg, true, false);
+    b3nB(targetID, '', cb, arg, false, true);
+  }
+}
+
+function baxv(targetID, cb, arg) {
+  if (targetID) {
+    b3nB('', targetID, cb, arg, true, true);
+    b3nB(targetID, '', cb, arg, true, true);
+  }
+}
+
+function b238(targetID, cb, arg) {
+  b3nB('', targetID, cb, arg, true, false);
+}
+
 var ReactInstanceHandles = {
-  createReactRootID: function () {
-    return bRYY(ReactRootIndex.createReactRootIndex());
-  },
+  createReactRootID: bppv,
+  createReactID: bmZd,
+  getReactRootIDFromNodeID: bnAr,
+  traverseEnterLeave: bz4Q,
+  traverseTwoPhase: bvxe,
+  traverseTwoPhaseSkipTarget: baxv,
+  traverseAncestors: b238,
 
-  createReactID: function (rootID, name) {
-    return rootID + name;
-  },
 
-  getReactRootIDFromNodeID: function (id) {
-    if (id && id.charAt(0) === bPzZ && id.length > 1) {
-      var index = id.indexOf(bPzZ, 1);
-      return index > -1 ? id.substr(0, index) : id;
-    }
-    return null;
-  },
+  getFirstCommonAncestorID: bAwX,
 
-  traverseEnterLeave: function (leaveID, enterID, cb, upArg, downArg) {
-    var ancestorID = bVYy(leaveID, enterID);
-    if (ancestorID !== leaveID) {
-      bgpx(leaveID, ancestorID, cb, upArg, false, true);
-    }
-    if (ancestorID !== enterID) {
-      bgpx(ancestorID, enterID, cb, downArg, true, false);
-    }
-  },
+  _getNextDescendantID: bZ3E,
 
-  traverseTwoPhase: function (targetID, cb, arg) {
-    if (targetID) {
-      bgpx('', targetID, cb, arg, true, false);
-      bgpx(targetID, '', cb, arg, false, true);
-    }
-  },
+  isAncestorIDOf: bMXr,
 
-  traverseTwoPhaseSkipTarget: function (targetID, cb, arg) {
-    if (targetID) {
-      bgpx('', targetID, cb, arg, true, true);
-      bgpx(targetID, '', cb, arg, true, true);
-    }
-  },
-
-  traverseAncestors: function (targetID, cb, arg) {
-    bgpx('', targetID, cb, arg, true, false);
-  },
-
-  getFirstCommonAncestorID: bVYy,
-
-  _getNextDescendantID: blna,
-
-  isAncestorIDOf: bG43,
-
-  SEPARATOR: bPzZ
+  SEPARATOR: b4w7
 
 };
 /**bandol> resource: node_modules/react/lib/traverseAllChildren.js */
 
 
-var bRZP = ReactInstanceHandles.SEPARATOR;
-var bKZ2 = ':';
+var bqm2 = ReactInstanceHandles.SEPARATOR;
+var byKZ = ':';
 
-var b4Rp = {
+var brnA = {
   '=': '=0',
   '.': '=1',
   ':': '=2'
 };
 
-var bG4p = /[=.:]/g;
+var bQGG = /[=.:]/g;
 
-function bbe3(match) {
-  return b4Rp[match];
+function bP4E(match) {
+  return brnA[match];
 }
 
-function blnv(component, index) {
+function bxRr(component, index) {
   if (component && component.key != null) {
-    return br8K(component.key);
+    return bRbq(component.key);
   }
 
   return index.toString(36);
 }
 
-function bVYv(text) {
-  return ('' + text).replace(bG4p, bbe3);
+function bXZ8(text) {
+  return ('' + text).replace(bQGG, bP4E);
 }
 
-function br8K(key) {
-  return '$' + bVYv(key);
+function bRbq(key) {
+  return '$' + bXZ8(key);
 }
 
-function bQzL(children, nameSoFar, callback, traverseContext) {
+function bKP5(children, nameSoFar, callback, traverseContext) {
   var type = typeof children;
 
   if (type === 'undefined' || type === 'boolean') {
@@ -1233,20 +1275,20 @@ function bQzL(children, nameSoFar, callback, traverseContext) {
   }
 
   if (children === null || type === 'string' || type === 'number' || ReactElement.isValidElement(children)) {
-    callback(traverseContext, children, nameSoFar === '' ? bRZP + blnv(children, 0) : nameSoFar);
+    callback(traverseContext, children, nameSoFar === '' ? bqm2 + bxRr(children, 0) : nameSoFar);
     return 1;
   }
 
   var child;
   var nextName;
   var subtreeCount = 0;
-  var nextNamePrefix = nameSoFar === '' ? bRZP : nameSoFar + bKZ2;
+  var nextNamePrefix = nameSoFar === '' ? bqm2 : nameSoFar + byKZ;
 
   if (Array.isArray(children)) {
     for (var i = 0; i < children.length; i++) {
       child = children[i];
-      nextName = nextNamePrefix + blnv(child, i);
-      subtreeCount += bQzL(child, nextName, callback, traverseContext);
+      nextName = nextNamePrefix + bxRr(child, i);
+      subtreeCount += bKP5(child, nextName, callback, traverseContext);
     }
   } else {
     var iteratorFn = getIteratorFn(children);
@@ -1257,16 +1299,16 @@ function bQzL(children, nameSoFar, callback, traverseContext) {
         var ii = 0;
         while (!(step = iterator.next()).done) {
           child = step.value;
-          nextName = nextNamePrefix + blnv(child, ii++);
-          subtreeCount += bQzL(child, nextName, callback, traverseContext);
+          nextName = nextNamePrefix + bxRr(child, ii++);
+          subtreeCount += bKP5(child, nextName, callback, traverseContext);
         }
       } else {
         while (!(step = iterator.next()).done) {
           var entry = step.value;
           if (entry) {
             child = entry[1];
-            nextName = nextNamePrefix + br8K(entry[0]) + bKZ2 + blnv(child, 0);
-            subtreeCount += bQzL(child, nextName, callback, traverseContext);
+            nextName = nextNamePrefix + bRbq(entry[0]) + byKZ + bxRr(child, 0);
+            subtreeCount += bKP5(child, nextName, callback, traverseContext);
           }
         }
       }
@@ -1286,11 +1328,11 @@ function traverseAllChildren(children, callback, traverseContext) {
     return 0;
   }
 
-  return bQzL(children, '', callback, traverseContext);
+  return bKP5(children, '', callback, traverseContext);
 }
 /**bandol> resource: node_modules/react/lib/PooledClass.js */
 
-var b5KY = function (copyFieldsFrom) {
+var bEwR = function (copyFieldsFrom) {
   var Klass = this;
   if (Klass.instancePool.length) {
     var instance = Klass.instancePool.pop();
@@ -1301,7 +1343,7 @@ var b5KY = function (copyFieldsFrom) {
   }
 };
 
-var bJZN = function (a1, a2) {
+var b7wR = function (a1, a2) {
   var Klass = this;
   if (Klass.instancePool.length) {
     var instance = Klass.instancePool.pop();
@@ -1312,7 +1354,7 @@ var bJZN = function (a1, a2) {
   }
 };
 
-var bqe3 = function (a1, a2, a3) {
+var bLxg = function (a1, a2, a3) {
   var Klass = this;
   if (Klass.instancePool.length) {
     var instance = Klass.instancePool.pop();
@@ -1323,7 +1365,7 @@ var bqe3 = function (a1, a2, a3) {
   }
 };
 
-var byP8 = function (a1, a2, a3, a4) {
+var b03L = function (a1, a2, a3, a4) {
   var Klass = this;
   if (Klass.instancePool.length) {
     var instance = Klass.instancePool.pop();
@@ -1334,7 +1376,7 @@ var byP8 = function (a1, a2, a3, a4) {
   }
 };
 
-var brq3 = function (a1, a2, a3, a4, a5) {
+var b1pQ = function (a1, a2, a3, a4, a5) {
   var Klass = this;
   if (Klass.instancePool.length) {
     var instance = Klass.instancePool.pop();
@@ -1345,7 +1387,7 @@ var brq3 = function (a1, a2, a3, a4, a5) {
   }
 };
 
-var bQYm = function (instance) {
+var bwXp = function (instance) {
   var Klass = this;
   !(instance instanceof Klass) ? 'production' !== 'production' ? invariant(false, 'Trying to release an instance into a pool of a different type.') : invariant(false) : undefined;
   instance.destructor();
@@ -1354,84 +1396,84 @@ var bQYm = function (instance) {
   }
 };
 
-var bPYO = 10;
-var bxQx = b5KY;
+var bkMK = 10;
+var b5wz = bEwR;
 
-var bX7p = function (CopyConstructor, pooler) {
+var bJQP = function (CopyConstructor, pooler) {
   var NewKlass = CopyConstructor;
   NewKlass.instancePool = [];
-  NewKlass.getPooled = pooler || bxQx;
+  NewKlass.getPooled = pooler || b5wz;
   if (!NewKlass.poolSize) {
-    NewKlass.poolSize = bPYO;
+    NewKlass.poolSize = bkMK;
   }
-  NewKlass.release = bQYm;
+  NewKlass.release = bwXp;
   return NewKlass;
 };
 
 var PooledClass = {
-  addPoolingTo: bX7p,
-  oneArgumentPooler: b5KY,
-  twoArgumentPooler: bJZN,
-  threeArgumentPooler: bqe3,
-  fourArgumentPooler: byP8,
-  fiveArgumentPooler: brq3
+  addPoolingTo: bJQP,
+  oneArgumentPooler: bEwR,
+  twoArgumentPooler: b7wR,
+  threeArgumentPooler: bLxg,
+  fourArgumentPooler: b03L,
+  fiveArgumentPooler: b1pQ
 };
 /**bandol> resource: node_modules/react/lib/ReactChildren.js */
 
 
-var bYM2 = PooledClass.twoArgumentPooler;
-var bOgk = PooledClass.fourArgumentPooler;
+var bngr = PooledClass.twoArgumentPooler;
+var bzXQ = PooledClass.fourArgumentPooler;
 
-var b8bw = /\/(?!\/)/g;
-function bN2E(text) {
-  return ('' + text).replace(b8bw, '//');
+var bvre = /\/(?!\/)/g;
+function bakv(text) {
+  return ('' + text).replace(bvre, '//');
 }
 
-function bdRd(forEachFunction, forEachContext) {
+function b2m8(forEachFunction, forEachContext) {
   this.func = forEachFunction;
   this.context = forEachContext;
   this.count = 0;
 }
-bdRd.prototype.destructor = function () {
+b2m8.prototype.destructor = function () {
   this.func = null;
   this.context = null;
   this.count = 0;
 };
-PooledClass.addPoolingTo(bdRd, bYM2);
+PooledClass.addPoolingTo(b2m8, bngr);
 
-function b9Bk(bookKeeping, child, name) {
+function be4Y(bookKeeping, child, name) {
   var func = bookKeeping.func;
   var context = bookKeeping.context;
 
   func.call(context, child, bookKeeping.count++);
 }
 
-function bE5d(children, forEachFunc, forEachContext) {
+function bBw7(children, forEachFunc, forEachContext) {
   if (children == null) {
     return children;
   }
-  var traverseContext = bdRd.getPooled(forEachFunc, forEachContext);
-  traverseAllChildren(children, b9Bk, traverseContext);
-  bdRd.release(traverseContext);
+  var traverseContext = b2m8.getPooled(forEachFunc, forEachContext);
+  traverseAllChildren(children, be4Y, traverseContext);
+  b2m8.release(traverseContext);
 }
 
-function b7OL(mapResult, keyPrefix, mapFunction, mapContext) {
+function bYA3(mapResult, keyPrefix, mapFunction, mapContext) {
   this.result = mapResult;
   this.keyPrefix = keyPrefix;
   this.func = mapFunction;
   this.context = mapContext;
   this.count = 0;
 }
-b7OL.prototype.destructor = function () {
+bYA3.prototype.destructor = function () {
   this.result = null;
   this.keyPrefix = null;
   this.func = null;
   this.context = null;
   this.count = 0;
 };
-PooledClass.addPoolingTo(b7OL, bOgk);
+PooledClass.addPoolingTo(bYA3, bzXQ);
 
-function bL0z(bookKeeping, child, childKey) {
+function bOKe(bookKeeping, child, childKey) {
   var result = bookKeeping.result;
   var keyPrefix = bookKeeping.keyPrefix;
   var func = bookKeeping.func;
@@ -1439,57 +1481,61 @@ function bL0z(bookKeeping, child, childKey) {
 
   var mappedChild = func.call(context, child, bookKeeping.count++);
   if (Array.isArray(mappedChild)) {
-    b0QR(mappedChild, result, childKey, emptyFunction.thatReturnsArgument);
+    b8wx(mappedChild, result, childKey, emptyFunction.thatReturnsArgument);
   } else if (mappedChild != null) {
     if (ReactElement.isValidElement(mappedChild)) {
-      mappedChild = ReactElement.cloneAndReplaceKey(mappedChild, keyPrefix + (mappedChild !== child ? bN2E(mappedChild.key || '') + '/' : '') + childKey);
+      mappedChild = ReactElement.cloneAndReplaceKey(mappedChild, keyPrefix + (mappedChild !== child ? bakv(mappedChild.key || '') + '/' : '') + childKey);
     }
     result.push(mappedChild);
   }
 }
 
-function b0QR(children, array, prefix, func, context) {
+function b8wx(children, array, prefix, func, context) {
   var escapedPrefix = '';
   if (prefix != null) {
-    escapedPrefix = bN2E(prefix) + '/';
+    escapedPrefix = bakv(prefix) + '/';
   }
-  var traverseContext = b7OL.getPooled(array, escapedPrefix, func, context);
-  traverseAllChildren(children, bL0z, traverseContext);
-  b7OL.release(traverseContext);
+  var traverseContext = bYA3.getPooled(array, escapedPrefix, func, context);
+  traverseAllChildren(children, bOKe, traverseContext);
+  bYA3.release(traverseContext);
 }
 
-function b1Pn(children, func, context) {
+function bNRV(children, func, context) {
   if (children == null) {
     return children;
   }
   var result = [];
-  b0QR(children, result, null, func, context);
+  b8wx(children, result, null, func, context);
   return result;
 }
 
-function bwr6(traverseContext, child, name) {
+function bdKk(traverseContext, child, name) {
   return null;
 }
 
-function bkX0(children, context) {
-  return traverseAllChildren(children, bwr6, null);
+function b9wB(children, context) {
+  return traverseAllChildren(children, bdKk, null);
 }
 
 var ReactChildren = {
-  forEach: bE5d,
-  map: b1Pn,
-  mapIntoWithKeyPrefixInternal: b0QR,
-  count: bkX0,
+  forEach: bBw7,
+  map: bNRV,
+  mapIntoWithKeyPrefixInternal: b8wx,
+  count: b9wB,
   toArray: toArray
 };
 /**bandol> resource: node_modules/react/lib/ReactIsomorphic.js */
 
 
-var b2xy = ReactElement.createElement;
-var beKg = ReactElement.createFactory;
-var bB2L = ReactElement.cloneElement;
+var bA8X = ReactElement.createElement;
+var b3MB = ReactElement.createFactory;
+var bp6v = ReactElement.cloneElement;
 
-var bKv = {
+function bmVd(mixin) {
+  return mixin;
+}
+
+var b4y3 = {
 
   Children: {
     map: ReactChildren.map,
@@ -1501,105 +1547,109 @@ var bKv = {
 
   Component: ReactComponent,
 
-  createElement: b2xy,
-  cloneElement: bB2L,
+  createElement: bA8X,
+  cloneElement: bp6v,
   isValidElement: ReactElement.isValidElement,
 
   PropTypes: ReactPropTypes,
   createClass: ReactClass.createClass,
-  createFactory: beKg,
-  createMixin: function (mixin) {
-    return mixin;
-  },
+  createFactory: b3MB,
+  createMixin: bmVd,
 
   DOM: ReactDOMFactories,
 
-  version: bQr,
+  version: bPq,
 
   __spread: assign
 };
 /**bandol> resource: node_modules/react/lib/ReactNativeComponent.js */
 
 
-var bZvR = null;
-var bAee = null;
+var bXk8 = null;
+var bRkq = null;
 
-var b3XV = {};
-var bpLE = null;
+var bK85 = {};
+var b467 = null;
 
-var bmKz = {
-  injectGenericComponentClass: function (componentClass) {
-    bAee = componentClass;
-  },
+function bG8r(componentClass) {
+  bRkq = componentClass;
+}
 
-  injectTextComponentClass: function (componentClass) {
-    bpLE = componentClass;
-  },
+function bbrV(componentClass) {
+  b467 = componentClass;
+}
 
-  injectComponentClasses: function (componentClasses) {
-    assign(b3XV, componentClasses);
-  }
+function bllx(componentClasses) {
+  assign(bK85, componentClasses);
+}
+
+var bVkn = {
+  injectGenericComponentClass: bG8r,
+  injectTextComponentClass: bbrV,
+  injectComponentClasses: bllx
 };
 
-function bn4K(element) {
+function bgRw(element) {
   if (typeof element.type === 'function') {
     return element.type;
   }
   var tag = element.type;
-  var componentClass = b3XV[tag];
+  var componentClass = bK85[tag];
   if (componentClass == null) {
-    b3XV[tag] = componentClass = bZvR(tag);
+    bK85[tag] = componentClass = bXk8(tag);
   }
   return componentClass;
 }
 
-function bzxb(element) {
-  !bAee ? 'production' !== 'production' ? invariant(false, 'There is no registered component for the tag %s', element.type) : invariant(false) : undefined;
-  return new bAee(element.type, element.props);
+function bM8r(element) {
+  !bRkq ? 'production' !== 'production' ? invariant(false, 'There is no registered component for the tag %s', element.type) : invariant(false) : undefined;
+  return new bRkq(element.type, element.props);
 }
 
-function bv6p(text) {
-  return new bpLE(text);
+function b6AB(text) {
+  return new b467(text);
 }
 
-function baPV(component) {
-  return component instanceof bpLE;
+function bZqE(component) {
+  return component instanceof b467;
 }
 
 var ReactNativeComponent = {
-  getComponentClassForElement: bn4K,
-  createInternalComponent: bzxb,
-  createInstanceForText: bv6p,
-  isTextComponent: baPV,
-  injection: bmKz
+  getComponentClassForElement: bgRw,
+  createInternalComponent: bM8r,
+  createInstanceForText: b6AB,
+  isTextComponent: bZqE,
+  injection: bVkn
 };
 /**bandol> resource: node_modules/react/lib/ReactOwner.js */
+function bQkG(object) {
+  return !!(object && typeof object.attachRef === 'function' && typeof object.detachRef === 'function');
+}
+
+function bPkE(component, ref, owner) {
+  !ReactOwner.isValidOwner(owner) ? 'production' !== 'production' ? invariant(false, 'addComponentAsRefTo(...): Only a ReactOwner can have refs. You might ' + 'be adding a ref to a component that was not created inside a component\'s ' + '`render` method, or you have multiple copies of React loaded ' + '(details: https://fb.me/react-refs-must-have-owner).') : invariant(false) : undefined;
+  owner.attachRef(ref, component);
+}
+
+function bxPr(component, ref, owner) {
+  !ReactOwner.isValidOwner(owner) ? 'production' !== 'production' ? invariant(false, 'removeComponentAsRefFrom(...): Only a ReactOwner can have refs. You might ' + 'be removing a ref to a component that was not created inside a component\'s ' + '`render` method, or you have multiple copies of React loaded ' + '(details: https://fb.me/react-refs-must-have-owner).') : invariant(false) : undefined;
+
+  if (owner.getPublicInstance().refs[ref] === component.getPublicInstance()) {
+    owner.detachRef(ref);
+  }
+}
 
 var ReactOwner = {
-  isValidOwner: function (object) {
-    return !!(object && typeof object.attachRef === 'function' && typeof object.detachRef === 'function');
-  },
-
-  addComponentAsRefTo: function (component, ref, owner) {
-    !ReactOwner.isValidOwner(owner) ? 'production' !== 'production' ? invariant(false, 'addComponentAsRefTo(...): Only a ReactOwner can have refs. You might ' + 'be adding a ref to a component that was not created inside a component\'s ' + '`render` method, or you have multiple copies of React loaded ' + '(details: https://fb.me/react-refs-must-have-owner).') : invariant(false) : undefined;
-    owner.attachRef(ref, component);
-  },
-
-  removeComponentAsRefFrom: function (component, ref, owner) {
-    !ReactOwner.isValidOwner(owner) ? 'production' !== 'production' ? invariant(false, 'removeComponentAsRefFrom(...): Only a ReactOwner can have refs. You might ' + 'be removing a ref to a component that was not created inside a component\'s ' + '`render` method, or you have multiple copies of React loaded ' + '(details: https://fb.me/react-refs-must-have-owner).') : invariant(false) : undefined;
-
-    if (owner.getPublicInstance().refs[ref] === component.getPublicInstance()) {
-      owner.detachRef(ref);
-    }
-  }
-
+  isValidOwner: bQkG,
+  addComponentAsRefTo: bPkE,
+  removeComponentAsRefFrom: bxPr
 };
 /**bandol> resource: node_modules/react/lib/ReactRef.js */
 
 
 var ReactRef = {};
 
-function bM7k(ref, component, owner) {
+function bVkp(ref, component, owner) {
   if (typeof ref === 'function') {
     ref(component.getPublicInstance());
   } else {
@@ -1607,7 +1657,7 @@ function bM7k(ref, component, owner) {
   }
 }
 
-function b64r(ref, component, owner) {
+function brAA(ref, component, owner) {
   if (typeof ref === 'function') {
     ref(null);
   } else {
@@ -1621,7 +1671,7 @@ ReactRef.attachRefs = function (instance, element) {
   }
   var ref = element.ref;
   if (ref != null) {
-    bM7k(ref, instance, element._owner);
+    bVkp(ref, instance, element._owner);
   }
 };
 
@@ -1639,108 +1689,123 @@ ReactRef.detachRefs = function (instance, element) {
   }
   var ref = element.ref;
   if (ref != null) {
-    b64r(ref, instance, element._owner);
+    brAA(ref, instance, element._owner);
   }
 };
 /**bandol> resource: node_modules/react/lib/ReactReconciler.js */
 
-function bgr3() {
+function bK8K() {
   ReactRef.attachRefs(this, this._currentElement);
 }
 
-var ReactReconciler = {
-  mountComponent: function (internalInstance, rootID, transaction, context) {
-    var markup = internalInstance.mountComponent(rootID, transaction, context);
-    if (internalInstance._currentElement && internalInstance._currentElement.ref != null) {
-      transaction.getReactMountReady().enqueue(bgr3, internalInstance);
-    }
-    return markup;
-  },
+function b46e(internalInstance, rootID, transaction, context) {
+  var markup = internalInstance.mountComponent(rootID, transaction, context);
+  if (internalInstance._currentElement && internalInstance._currentElement.ref != null) {
+    transaction.getReactMountReady().enqueue(bK8K, internalInstance);
+  }
+  return markup;
+}
 
-  unmountComponent: function (internalInstance) {
-    ReactRef.detachRefs(internalInstance, internalInstance._currentElement);
-    internalInstance.unmountComponent();
-  },
+function bG8z(internalInstance) {
+  ReactRef.detachRefs(internalInstance, internalInstance._currentElement);
+  internalInstance.unmountComponent();
+}
 
-  receiveComponent: function (internalInstance, nextElement, transaction, context) {
-    var prevElement = internalInstance._currentElement;
+function bbrb(internalInstance, nextElement, transaction, context) {
+  var prevElement = internalInstance._currentElement;
 
-    if (nextElement === prevElement && context === internalInstance._context) {
-      return;
-    }
-
-    var refsChanged = ReactRef.shouldUpdateRefs(prevElement, nextElement);
-
-    if (refsChanged) {
-      ReactRef.detachRefs(internalInstance, prevElement);
-    }
-
-    internalInstance.receiveComponent(nextElement, transaction, context);
-
-    if (refsChanged && internalInstance._currentElement && internalInstance._currentElement.ref != null) {
-      transaction.getReactMountReady().enqueue(bgr3, internalInstance);
-    }
-  },
-
-  performUpdateIfNecessary: function (internalInstance, transaction) {
-    internalInstance.performUpdateIfNecessary(transaction);
+  if (nextElement === prevElement && context === internalInstance._context) {
+    return;
   }
 
+  var refsChanged = ReactRef.shouldUpdateRefs(prevElement, nextElement);
+
+  if (refsChanged) {
+    ReactRef.detachRefs(internalInstance, prevElement);
+  }
+
+  internalInstance.receiveComponent(nextElement, transaction, context);
+
+  if (refsChanged && internalInstance._currentElement && internalInstance._currentElement.ref != null) {
+    transaction.getReactMountReady().enqueue(bK8K, internalInstance);
+  }
+}
+
+function bllq(internalInstance, transaction) {
+  internalInstance.performUpdateIfNecessary(transaction);
+}
+
+var ReactReconciler = {
+  mountComponent: b46e,
+  unmountComponent: bG8z,
+  receiveComponent: bbrb,
+  performUpdateIfNecessary: bllq
 };
 /**bandol> resource: node_modules/react/lib/ReactEmptyComponentRegistry.js */
 
-var bGZp = {};
+var bPkA = {};
 
-function bbx3(id) {
-  return !!bGZp[id];
+function bxPG(id) {
+  return !!bPkA[id];
 }
 
-function blRv(id) {
-  bGZp[id] = true;
+function bXkJ(id) {
+  bPkA[id] = true;
 }
 
-function bVmv(id) {
-  delete bGZp[id];
+function bRka(id) {
+  delete bPkA[id];
 }
 
 var ReactEmptyComponentRegistry = {
-  isNullComponentID: bbx3,
-  registerNullComponentID: blRv,
-  deregisterNullComponentID: bVmv
+  isNullComponentID: bxPG,
+  registerNullComponentID: bXkJ,
+  deregisterNullComponentID: bRka
 };
 /**bandol> resource: node_modules/react/lib/ReactEmptyComponent.js */
 
 
-var bKG2;
+var bkbr;
 
-var b4lp = {
-  injectEmptyComponent: function (component) {
-    bKG2 = ReactElement.createElement(component);
-  }
+function b5ZL(component) {
+  bkbr = ReactElement.createElement(component);
+}
+
+var bJEb = {
+  injectEmptyComponent: b5ZL
 };
 
 var ReactEmptyComponent = function (instantiate) {
   this._currentElement = null;
   this._rootNodeID = null;
-  this._renderedComponent = instantiate(bKG2);
+  this._renderedComponent = instantiate(bkbr);
 };
+
+function bqZR(element) {}
+
+function byx6(rootID, transaction, context) {
+  ReactEmptyComponentRegistry.registerNullComponentID(rootID);
+  this._rootNodeID = rootID;
+  return ReactReconciler.mountComponent(this._renderedComponent, rootID, transaction, context);
+}
+
+function brAq() {}
+
+function bQkz(rootID, transaction, context) {
+  ReactReconciler.unmountComponent(this._renderedComponent);
+  ReactEmptyComponentRegistry.deregisterNullComponentID(this._rootNodeID);
+  this._rootNodeID = null;
+  this._renderedComponent = null;
+}
+
 assign(ReactEmptyComponent.prototype, {
-  construct: function (element) {},
-  mountComponent: function (rootID, transaction, context) {
-    ReactEmptyComponentRegistry.registerNullComponentID(rootID);
-    this._rootNodeID = rootID;
-    return ReactReconciler.mountComponent(this._renderedComponent, rootID, transaction, context);
-  },
-  receiveComponent: function () {},
-  unmountComponent: function (rootID, transaction, context) {
-    ReactReconciler.unmountComponent(this._renderedComponent);
-    ReactEmptyComponentRegistry.deregisterNullComponentID(this._rootNodeID);
-    this._rootNodeID = null;
-    this._renderedComponent = null;
-  }
+  construct: bqZR,
+  mountComponent: byx6,
+  receiveComponent: brAq,
+  unmountComponent: bQkz
 });
 
-ReactEmptyComponent.injection = b4lp;
+ReactEmptyComponent.injection = bJEb;
 /**bandol> resource: node_modules/react/lib/shouldUpdateReactComponent.js */
 
 function shouldUpdateReactComponent(prevElement, nextElement) {
@@ -1760,123 +1825,135 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
   return false;
 }
 /**bandol> resource: node_modules/react/lib/Transaction.js */
+function bEQN() {
+  this.transactionWrappers = this.getTransactionWrappers();
+  if (this.wrapperInitData) {
+    this.wrapperInitData.length = 0;
+  } else {
+    this.wrapperInitData = [];
+  }
+  this._isInTransaction = false;
+}
 
-var bR7P = {
-  reinitializeTransaction: function () {
-    this.transactionWrappers = this.getTransactionWrappers();
-    if (this.wrapperInitData) {
-      this.wrapperInitData.length = 0;
-    } else {
-      this.wrapperInitData = [];
+function b7KX() {
+  return !!this._isInTransaction;
+}
+
+function bLGa(method, scope, a, b, c, d, e, f) {
+  !!this.isInTransaction() ? 'production' !== 'production' ? invariant(false, 'Transaction.perform(...): Cannot initialize a transaction when there ' + 'is already an outstanding transaction.') : invariant(false) : undefined;
+  var errorThrown;
+  var ret;
+  try {
+    this._isInTransaction = true;
+
+    errorThrown = true;
+    this.initializeAll(0);
+    ret = method.call(scope, a, b, c, d, e, f);
+    errorThrown = false;
+  } finally {
+    try {
+      if (errorThrown) {
+        try {
+          this.closeAll(0);
+        } catch (err) {}
+      } else {
+        this.closeAll(0);
+      }
+    } finally {
+      this._isInTransaction = false;
     }
-    this._isInTransaction = false;
-  },
+  }
+  return ret;
+}
+
+function b0yN(startIndex) {
+  var transactionWrappers = this.transactionWrappers;
+  for (var i = startIndex; i < transactionWrappers.length; i++) {
+    var wrapper = transactionWrappers[i];
+    try {
+      this.wrapperInitData[i] = Transaction.OBSERVED_ERROR;
+      this.wrapperInitData[i] = wrapper.initialize ? wrapper.initialize.call(this) : null;
+    } finally {
+      if (this.wrapperInitData[i] === Transaction.OBSERVED_ERROR) {
+        try {
+          this.initializeAll(i + 1);
+        } catch (err) {}
+      }
+    }
+  }
+}
+
+function b1Vq(startIndex) {
+  !this.isInTransaction() ? 'production' !== 'production' ? invariant(false, 'Transaction.closeAll(): Cannot close transaction when none are open.') : invariant(false) : undefined;
+  var transactionWrappers = this.transactionWrappers;
+  for (var i = startIndex; i < transactionWrappers.length; i++) {
+    var wrapper = transactionWrappers[i];
+    var initData = this.wrapperInitData[i];
+    var errorThrown;
+    try {
+      errorThrown = true;
+      if (initData !== Transaction.OBSERVED_ERROR && wrapper.close) {
+        wrapper.close.call(this, initData);
+      }
+      errorThrown = false;
+    } finally {
+      if (errorThrown) {
+        try {
+          this.closeAll(i + 1);
+        } catch (e) {}
+      }
+    }
+  }
+  this.wrapperInitData.length = 0;
+}
+
+var bwQz = {
+  reinitializeTransaction: bEQN,
+
 
   _isInTransaction: false,
 
   getTransactionWrappers: null,
 
-  isInTransaction: function () {
-    return !!this._isInTransaction;
-  },
-
-  perform: function (method, scope, a, b, c, d, e, f) {
-    !!this.isInTransaction() ? 'production' !== 'production' ? invariant(false, 'Transaction.perform(...): Cannot initialize a transaction when there ' + 'is already an outstanding transaction.') : invariant(false) : undefined;
-    var errorThrown;
-    var ret;
-    try {
-      this._isInTransaction = true;
-
-      errorThrown = true;
-      this.initializeAll(0);
-      ret = method.call(scope, a, b, c, d, e, f);
-      errorThrown = false;
-    } finally {
-      try {
-        if (errorThrown) {
-          try {
-            this.closeAll(0);
-          } catch (err) {}
-        } else {
-          this.closeAll(0);
-        }
-      } finally {
-        this._isInTransaction = false;
-      }
-    }
-    return ret;
-  },
-
-  initializeAll: function (startIndex) {
-    var transactionWrappers = this.transactionWrappers;
-    for (var i = startIndex; i < transactionWrappers.length; i++) {
-      var wrapper = transactionWrappers[i];
-      try {
-        this.wrapperInitData[i] = Transaction.OBSERVED_ERROR;
-        this.wrapperInitData[i] = wrapper.initialize ? wrapper.initialize.call(this) : null;
-      } finally {
-        if (this.wrapperInitData[i] === Transaction.OBSERVED_ERROR) {
-          try {
-            this.initializeAll(i + 1);
-          } catch (err) {}
-        }
-      }
-    }
-  },
-
-  closeAll: function (startIndex) {
-    !this.isInTransaction() ? 'production' !== 'production' ? invariant(false, 'Transaction.closeAll(): Cannot close transaction when none are open.') : invariant(false) : undefined;
-    var transactionWrappers = this.transactionWrappers;
-    for (var i = startIndex; i < transactionWrappers.length; i++) {
-      var wrapper = transactionWrappers[i];
-      var initData = this.wrapperInitData[i];
-      var errorThrown;
-      try {
-        errorThrown = true;
-        if (initData !== Transaction.OBSERVED_ERROR && wrapper.close) {
-          wrapper.close.call(this, initData);
-        }
-        errorThrown = false;
-      } finally {
-        if (errorThrown) {
-          try {
-            this.closeAll(i + 1);
-          } catch (e) {}
-        }
-      }
-    }
-    this.wrapperInitData.length = 0;
-  }
+  isInTransaction: b7KX,
+  perform: bLGa,
+  initializeAll: b0yN,
+  closeAll: b1Vq
 };
 
 var Transaction = {
 
-  Mixin: bR7P,
+  Mixin: bwQz,
 
   OBSERVED_ERROR: {}
 
 };
 /**bandol> resource: node_modules/react/lib/ReactPerf.js */
+function b84d(object, objectName, methodNames) {}
+
+function bNlB(objName, fnName, func) {
+  return func;
+}
+
+function bd2v(measure) {
+  ReactPerf.storedMeasure = measure;
+}
 
 var ReactPerf = {
   enableMeasure: false,
 
-  storedMeasure: bXxp,
+  storedMeasure: b9GY,
 
-  measureMethods: function (object, objectName, methodNames) {},
+  measureMethods: b84d,
+  measure: bNlB,
 
-  measure: function (objName, fnName, func) {
-    return func;
-  },
 
   injection: {
-    injectMeasure: function (measure) {
-      ReactPerf.storedMeasure = measure;
-    }
+    injectMeasure: bd2v
   }
 };
 
-function bXxp(objName, fnName, func) {
+function b9GY(objName, fnName, func) {
   return func;
 }
 /**bandol> resource: node_modules/react/lib/CallbackQueue.js */
@@ -1886,123 +1963,139 @@ function CallbackQueue() {
   this._contexts = null;
 }
 
-assign(CallbackQueue.prototype, {
-  enqueue: function (callback, context) {
-    this._callbacks = this._callbacks || [];
-    this._contexts = this._contexts || [];
-    this._callbacks.push(callback);
-    this._contexts.push(context);
-  },
+function beE2(callback, context) {
+  this._callbacks = this._callbacks || [];
+  this._contexts = this._contexts || [];
+  this._callbacks.push(callback);
+  this._contexts.push(context);
+}
 
-  notifyAll: function () {
-    var callbacks = this._callbacks;
-    var contexts = this._contexts;
-    if (callbacks) {
-      !(callbacks.length === contexts.length) ? 'production' !== 'production' ? invariant(false, 'Mismatched list of contexts in callback queue') : invariant(false) : undefined;
-      this._callbacks = null;
-      this._contexts = null;
-      for (var i = 0; i < callbacks.length; i++) {
-        callbacks[i].call(contexts[i]);
-      }
-      callbacks.length = 0;
-      contexts.length = 0;
-    }
-  },
-
-  reset: function () {
+function bB31() {
+  var callbacks = this._callbacks;
+  var contexts = this._contexts;
+  if (callbacks) {
+    !(callbacks.length === contexts.length) ? 'production' !== 'production' ? invariant(false, 'Mismatched list of contexts in callback queue') : invariant(false) : undefined;
     this._callbacks = null;
     this._contexts = null;
-  },
-
-  destructor: function () {
-    this.reset();
+    for (var i = 0; i < callbacks.length; i++) {
+      callbacks[i].call(contexts[i]);
+    }
+    callbacks.length = 0;
+    contexts.length = 0;
   }
+}
 
+function bY29() {
+  this._callbacks = null;
+  this._contexts = null;
+}
+
+function bOVp() {
+  this.reset();
+}
+
+assign(CallbackQueue.prototype, {
+  enqueue: beE2,
+  notifyAll: bB31,
+  reset: bY29,
+  destructor: bOVp
 });
 
 PooledClass.addPoolingTo(CallbackQueue);
 /**bandol> resource: node_modules/react/lib/ReactUpdates.js */
 
 
-var b9Vk = [];
-var bEld = CallbackQueue.getPooled();
-var b70L = false;
+var brGq = [];
+var bQMz = CallbackQueue.getPooled();
+var bPgA = false;
 
-var bLVz = null;
+var bx6G = null;
 
-function b0OR() {
-  !(ReactUpdates.ReactReconcileTransaction && bLVz) ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must inject a reconcile transaction class and batching ' + 'strategy') : invariant(false) : undefined;
+function bX2J() {
+  !(ReactUpdates.ReactReconcileTransaction && bx6G) ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must inject a reconcile transaction class and batching ' + 'strategy') : invariant(false) : undefined;
 }
 
-var b1On = {
-  initialize: function () {
-    this.dirtyComponentsLength = b9Vk.length;
-  },
-  close: function () {
-    if (this.dirtyComponentsLength !== b9Vk.length) {
-      b9Vk.splice(0, this.dirtyComponentsLength);
-      brL3();
-    } else {
-      b9Vk.length = 0;
-    }
+function bR6a() {
+  this.dirtyComponentsLength = brGq.length;
+}
+
+function bK4K() {
+  if (this.dirtyComponentsLength !== brGq.length) {
+    brGq.splice(0, this.dirtyComponentsLength);
+    bmyr();
+  } else {
+    brGq.length = 0;
   }
+}
+
+var b4xe = {
+  initialize: bR6a,
+  close: bK4K
 };
 
-var bw36 = {
-  initialize: function () {
-    this.callbackQueue.reset();
-  },
-  close: function () {
-    this.callbackQueue.notifyAll();
-  }
+function bGxz() {
+  this.callbackQueue.reset();
+}
+
+function bbyb() {
+  this.callbackQueue.notifyAll();
+}
+
+var blPq = {
+  initialize: bGxz,
+  close: bbyb
 };
 
-var bk90 = [b1On, bw36];
+var bVpp = [b4xe, blPq];
 
-function b50Y() {
+function bg2R() {
   this.reinitializeTransaction();
   this.dirtyComponentsLength = null;
   this.callbackQueue = CallbackQueue.getPooled();
   this.reconcileTransaction = ReactUpdates.ReactReconcileTransaction.getPooled(false);
 }
 
-assign(b50Y.prototype, Transaction.Mixin, {
-  getTransactionWrappers: function () {
-    return bk90;
-  },
-
-  destructor: function () {
-    this.dirtyComponentsLength = null;
-    CallbackQueue.release(this.callbackQueue);
-    this.callbackQueue = null;
-    ReactUpdates.ReactReconcileTransaction.release(this.reconcileTransaction);
-    this.reconcileTransaction = null;
-  },
-
-  perform: function (method, scope, a) {
-    return Transaction.Mixin.perform.call(this, this.reconcileTransaction.perform, this.reconcileTransaction, method, scope, a);
-  }
-});
-
-PooledClass.addPoolingTo(b50Y);
-
-function bJeN(callback, a, b, c, d, e) {
-  b0OR();
-  bLVz.batchedUpdates(callback, a, b, c, d, e);
+function bMbX() {
+  return bVpp;
 }
 
-function bq93(c1, c2) {
+function b6Rz() {
+  this.dirtyComponentsLength = null;
+  CallbackQueue.release(this.callbackQueue);
+  this.callbackQueue = null;
+  ReactUpdates.ReactReconcileTransaction.release(this.reconcileTransaction);
+  this.reconcileTransaction = null;
+}
+
+function bZeA(method, scope, a) {
+  return Transaction.Mixin.perform.call(this, this.reconcileTransaction.perform, this.reconcileTransaction, method, scope, a);
+}
+
+assign(bg2R.prototype, Transaction.Mixin, {
+  getTransactionWrappers: bMbX,
+  destructor: b6Rz,
+  perform: bZeA
+});
+
+PooledClass.addPoolingTo(bg2R);
+
+function bAAP(callback, a, b, c, d, e) {
+  bX2J();
+  bx6G.batchedUpdates(callback, a, b, c, d, e);
+}
+
+function b3Pl(c1, c2) {
   return c1._mountOrder - c2._mountOrder;
 }
 
-function by68(transaction) {
+function bpKk(transaction) {
   var len = transaction.dirtyComponentsLength;
-  !(len === b9Vk.length) ? 'production' !== 'production' ? invariant(false, 'Expected flush transaction\'s stored dirty-components length (%s) to ' + 'match dirty-components array length (%s).', len, b9Vk.length) : invariant(false) : undefined;
+  !(len === brGq.length) ? 'production' !== 'production' ? invariant(false, 'Expected flush transaction\'s stored dirty-components length (%s) to ' + 'match dirty-components array length (%s).', len, brGq.length) : invariant(false) : undefined;
 
-  b9Vk.sort(bq93);
+  brGq.sort(b3Pl);
 
   for (var i = 0; i < len; i++) {
-    var component = b9Vk[i];
+    var component = brGq[i];
 
     var callbacks = component._pendingCallbacks;
     component._pendingCallbacks = null;
@@ -2017,93 +2110,99 @@ function by68(transaction) {
   }
 }
 
-var brL3 = function () {
-  while (b9Vk.length || b70L) {
-    if (b9Vk.length) {
-      var transaction = b50Y.getPooled();
-      transaction.perform(by68, null, transaction);
-      b50Y.release(transaction);
+var bmyr = function () {
+  while (brGq.length || bPgA) {
+    if (brGq.length) {
+      var transaction = bg2R.getPooled();
+      transaction.perform(bpKk, null, transaction);
+      bg2R.release(transaction);
     }
 
-    if (b70L) {
-      b70L = false;
-      var queue = bEld;
-      bEld = CallbackQueue.getPooled();
+    if (bPgA) {
+      bPgA = false;
+      var queue = bQMz;
+      bQMz = CallbackQueue.getPooled();
       queue.notifyAll();
       CallbackQueue.release(queue);
     }
   }
 };
-brL3 = ReactPerf.measure('ReactUpdates', 'flushBatchedUpdates', brL3);
+bmyr = ReactPerf.measure('ReactUpdates', 'flushBatchedUpdates', bmyr);
 
-function bQ0m(component) {
-  b0OR();
+function bnX1(component) {
+  bX2J();
 
-  if (!bLVz.isBatchingUpdates) {
-    bLVz.batchedUpdates(bQ0m, component);
+  if (!bx6G.isBatchingUpdates) {
+    bx6G.batchedUpdates(bnX1, component);
     return;
   }
 
-  b9Vk.push(component);
+  brGq.push(component);
 }
 
-function bPnO(callback, context) {
-  !bLVz.isBatchingUpdates ? 'production' !== 'production' ? invariant(false, 'ReactUpdates.asap: Can\'t enqueue an asap callback in a context where' + 'updates are not being batched.') : invariant(false) : undefined;
-  bEld.enqueue(callback, context);
-  b70L = true;
+function bzAK(callback, context) {
+  !bx6G.isBatchingUpdates ? 'production' !== 'production' ? invariant(false, 'ReactUpdates.asap: Can\'t enqueue an asap callback in a context where' + 'updates are not being batched.') : invariant(false) : undefined;
+  bQMz.enqueue(callback, context);
+  bPgA = true;
 }
 
-var bxEx = {
-  injectReconcileTransaction: function (ReconcileTransaction) {
-    !ReconcileTransaction ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide a reconcile transaction class') : invariant(false) : undefined;
-    ReactUpdates.ReactReconcileTransaction = ReconcileTransaction;
-  },
+function bvgM(ReconcileTransaction) {
+  !ReconcileTransaction ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide a reconcile transaction class') : invariant(false) : undefined;
+  ReactUpdates.ReactReconcileTransaction = ReconcileTransaction;
+}
 
-  injectBatchingStrategy: function (_batchingStrategy) {
-    !_batchingStrategy ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide a batching strategy') : invariant(false) : undefined;
-    !(typeof _batchingStrategy.batchedUpdates === 'function') ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide a batchedUpdates() function') : invariant(false) : undefined;
-    !(typeof _batchingStrategy.isBatchingUpdates === 'boolean') ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide an isBatchingUpdates boolean attribute') : invariant(false) : undefined;
-    bLVz = _batchingStrategy;
-  }
+function ba20(_batchingStrategy) {
+  !_batchingStrategy ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide a batching strategy') : invariant(false) : undefined;
+  !(typeof _batchingStrategy.batchedUpdates === 'function') ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide a batchedUpdates() function') : invariant(false) : undefined;
+  !(typeof _batchingStrategy.isBatchingUpdates === 'boolean') ? 'production' !== 'production' ? invariant(false, 'ReactUpdates: must provide an isBatchingUpdates boolean attribute') : invariant(false) : undefined;
+  bx6G = _batchingStrategy;
+}
+
+var b2Q2 = {
+  injectReconcileTransaction: bvgM,
+  injectBatchingStrategy: ba20
 };
 
 var ReactUpdates = {
   ReactReconcileTransaction: null,
 
-  batchedUpdates: bJeN,
-  enqueueUpdate: bQ0m,
-  flushBatchedUpdates: brL3,
-  injection: bxEx,
-  asap: bPnO
+  batchedUpdates: bAAP,
+  enqueueUpdate: bnX1,
+  flushBatchedUpdates: bmyr,
+  injection: b2Q2,
+  asap: bzAK
 };
 /**bandol> resource: node_modules/react/lib/ReactInstanceMap.js */
+function b5XL(key) {
+  key._reactInternalInstance = undefined;
+}
+
+function bJKb(key) {
+  return key._reactInternalInstance;
+}
+
+function bq4R(key) {
+  return key._reactInternalInstance !== undefined;
+}
+
+function byZ6(key, value) {
+  key._reactInternalInstance = value;
+}
 
 var ReactInstanceMap = {
-  remove: function (key) {
-    key._reactInternalInstance = undefined;
-  },
-
-  get: function (key) {
-    return key._reactInternalInstance;
-  },
-
-  has: function (key) {
-    return key._reactInternalInstance !== undefined;
-  },
-
-  set: function (key, value) {
-    key._reactInternalInstance = value;
-  }
-
+  remove: b5XL,
+  get: bJKb,
+  has: bq4R,
+  set: byZ6
 };
 /**bandol> resource: node_modules/react/lib/ReactUpdateQueue.js */
 
 
-function bN8E(internalInstance) {
+function bYN9(internalInstance) {
   ReactUpdates.enqueueUpdate(internalInstance);
 }
 
-function bdkd(publicInstance, callerName) {
+function bONp(publicInstance, callerName) {
   var internalInstance = ReactInstanceMap.get(publicInstance);
   if (!internalInstance) {
     return null;
@@ -2112,125 +2211,136 @@ function bdkd(publicInstance, callerName) {
   return internalInstance;
 }
 
-var ReactUpdateQueue = {
-  isMounted: function (publicInstance) {
-    var internalInstance = ReactInstanceMap.get(publicInstance);
-    if (internalInstance) {
-      return !!internalInstance._renderedComponent;
-    } else {
-      return false;
-    }
-  },
+function b82d(publicInstance) {
+  var internalInstance = ReactInstanceMap.get(publicInstance);
+  if (internalInstance) {
+    return !!internalInstance._renderedComponent;
+  } else {
+    return false;
+  }
+}
 
-  enqueueCallback: function (publicInstance, callback) {
-    !(typeof callback === 'function') ? 'production' !== 'production' ? invariant(false, 'enqueueCallback(...): You called `setProps`, `replaceProps`, ' + '`setState`, `replaceState`, or `forceUpdate` with a callback that ' + 'isn\'t callable.') : invariant(false) : undefined;
-    var internalInstance = bdkd(publicInstance);
+function bNNB(publicInstance, callback) {
+  !(typeof callback === 'function') ? 'production' !== 'production' ? invariant(false, 'enqueueCallback(...): You called `setProps`, `replaceProps`, ' + '`setState`, `replaceState`, or `forceUpdate` with a callback that ' + 'isn\'t callable.') : invariant(false) : undefined;
+  var internalInstance = bONp(publicInstance);
 
-    if (!internalInstance) {
-      return null;
-    }
-
-    if (internalInstance._pendingCallbacks) {
-      internalInstance._pendingCallbacks.push(callback);
-    } else {
-      internalInstance._pendingCallbacks = [callback];
-    }
-
-    bN8E(internalInstance);
-  },
-
-  enqueueCallbackInternal: function (internalInstance, callback) {
-    !(typeof callback === 'function') ? 'production' !== 'production' ? invariant(false, 'enqueueCallback(...): You called `setProps`, `replaceProps`, ' + '`setState`, `replaceState`, or `forceUpdate` with a callback that ' + 'isn\'t callable.') : invariant(false) : undefined;
-    if (internalInstance._pendingCallbacks) {
-      internalInstance._pendingCallbacks.push(callback);
-    } else {
-      internalInstance._pendingCallbacks = [callback];
-    }
-    bN8E(internalInstance);
-  },
-
-  enqueueForceUpdate: function (publicInstance) {
-    var internalInstance = bdkd(publicInstance, 'forceUpdate');
-
-    if (!internalInstance) {
-      return;
-    }
-
-    internalInstance._pendingForceUpdate = true;
-
-    bN8E(internalInstance);
-  },
-
-  enqueueReplaceState: function (publicInstance, completeState) {
-    var internalInstance = bdkd(publicInstance, 'replaceState');
-
-    if (!internalInstance) {
-      return;
-    }
-
-    internalInstance._pendingStateQueue = [completeState];
-    internalInstance._pendingReplaceState = true;
-
-    bN8E(internalInstance);
-  },
-
-  enqueueSetState: function (publicInstance, partialState) {
-    var internalInstance = bdkd(publicInstance, 'setState');
-
-    if (!internalInstance) {
-      return;
-    }
-
-    var queue = internalInstance._pendingStateQueue || (internalInstance._pendingStateQueue = []);
-    queue.push(partialState);
-
-    bN8E(internalInstance);
-  },
-
-  enqueueSetProps: function (publicInstance, partialProps) {
-    var internalInstance = bdkd(publicInstance, 'setProps');
-    if (!internalInstance) {
-      return;
-    }
-    ReactUpdateQueue.enqueueSetPropsInternal(internalInstance, partialProps);
-  },
-
-  enqueueSetPropsInternal: function (internalInstance, partialProps) {
-    var topLevelWrapper = internalInstance._topLevelWrapper;
-    !topLevelWrapper ? 'production' !== 'production' ? invariant(false, 'setProps(...): You called `setProps` on a ' + 'component with a parent. This is an anti-pattern since props will ' + 'get reactively updated when rendered. Instead, change the owner\'s ' + '`render` method to pass the correct value as props to the component ' + 'where it is created.') : invariant(false) : undefined;
-
-    var wrapElement = topLevelWrapper._pendingElement || topLevelWrapper._currentElement;
-    var element = wrapElement.props;
-    var props = assign({}, element.props, partialProps);
-    topLevelWrapper._pendingElement = ReactElement.cloneAndReplaceProps(wrapElement, ReactElement.cloneAndReplaceProps(element, props));
-
-    bN8E(topLevelWrapper);
-  },
-
-  enqueueReplaceProps: function (publicInstance, props) {
-    var internalInstance = bdkd(publicInstance, 'replaceProps');
-    if (!internalInstance) {
-      return;
-    }
-    ReactUpdateQueue.enqueueReplacePropsInternal(internalInstance, props);
-  },
-
-  enqueueReplacePropsInternal: function (internalInstance, props) {
-    var topLevelWrapper = internalInstance._topLevelWrapper;
-    !topLevelWrapper ? 'production' !== 'production' ? invariant(false, 'replaceProps(...): You called `replaceProps` on a ' + 'component with a parent. This is an anti-pattern since props will ' + 'get reactively updated when rendered. Instead, change the owner\'s ' + '`render` method to pass the correct value as props to the component ' + 'where it is created.') : invariant(false) : undefined;
-
-    var wrapElement = topLevelWrapper._pendingElement || topLevelWrapper._currentElement;
-    var element = wrapElement.props;
-    topLevelWrapper._pendingElement = ReactElement.cloneAndReplaceProps(wrapElement, ReactElement.cloneAndReplaceProps(element, props));
-
-    bN8E(topLevelWrapper);
-  },
-
-  enqueueElementInternal: function (internalInstance, newElement) {
-    internalInstance._pendingElement = newElement;
-    bN8E(internalInstance);
+  if (!internalInstance) {
+    return null;
   }
 
+  if (internalInstance._pendingCallbacks) {
+    internalInstance._pendingCallbacks.push(callback);
+  } else {
+    internalInstance._pendingCallbacks = [callback];
+  }
+
+  bYN9(internalInstance);
+}
+
+function bdqv(internalInstance, callback) {
+  !(typeof callback === 'function') ? 'production' !== 'production' ? invariant(false, 'enqueueCallback(...): You called `setProps`, `replaceProps`, ' + '`setState`, `replaceState`, or `forceUpdate` with a callback that ' + 'isn\'t callable.') : invariant(false) : undefined;
+  if (internalInstance._pendingCallbacks) {
+    internalInstance._pendingCallbacks.push(callback);
+  } else {
+    internalInstance._pendingCallbacks = [callback];
+  }
+  bYN9(internalInstance);
+}
+
+function b9LY(publicInstance) {
+  var internalInstance = bONp(publicInstance, 'forceUpdate');
+
+  if (!internalInstance) {
+    return;
+  }
+
+  internalInstance._pendingForceUpdate = true;
+
+  bYN9(internalInstance);
+}
+
+function bELN(publicInstance, completeState) {
+  var internalInstance = bONp(publicInstance, 'replaceState');
+
+  if (!internalInstance) {
+    return;
+  }
+
+  internalInstance._pendingStateQueue = [completeState];
+  internalInstance._pendingReplaceState = true;
+
+  bYN9(internalInstance);
+}
+
+function b7yX(publicInstance, partialState) {
+  var internalInstance = bONp(publicInstance, 'setState');
+
+  if (!internalInstance) {
+    return;
+  }
+
+  var queue = internalInstance._pendingStateQueue || (internalInstance._pendingStateQueue = []);
+  queue.push(partialState);
+
+  bYN9(internalInstance);
+}
+
+function bLNa(publicInstance, partialProps) {
+  var internalInstance = bONp(publicInstance, 'setProps');
+  if (!internalInstance) {
+    return;
+  }
+  ReactUpdateQueue.enqueueSetPropsInternal(internalInstance, partialProps);
+}
+
+function b05N(internalInstance, partialProps) {
+  var topLevelWrapper = internalInstance._topLevelWrapper;
+  !topLevelWrapper ? 'production' !== 'production' ? invariant(false, 'setProps(...): You called `setProps` on a ' + 'component with a parent. This is an anti-pattern since props will ' + 'get reactively updated when rendered. Instead, change the owner\'s ' + '`render` method to pass the correct value as props to the component ' + 'where it is created.') : invariant(false) : undefined;
+
+  var wrapElement = topLevelWrapper._pendingElement || topLevelWrapper._currentElement;
+  var element = wrapElement.props;
+  var props = assign({}, element.props, partialProps);
+  topLevelWrapper._pendingElement = ReactElement.cloneAndReplaceProps(wrapElement, ReactElement.cloneAndReplaceProps(element, props));
+
+  bYN9(topLevelWrapper);
+}
+
+function b1rq(publicInstance, props) {
+  var internalInstance = bONp(publicInstance, 'replaceProps');
+  if (!internalInstance) {
+    return;
+  }
+  ReactUpdateQueue.enqueueReplacePropsInternal(internalInstance, props);
+}
+
+function bwMz(internalInstance, props) {
+  var topLevelWrapper = internalInstance._topLevelWrapper;
+  !topLevelWrapper ? 'production' !== 'production' ? invariant(false, 'replaceProps(...): You called `replaceProps` on a ' + 'component with a parent. This is an anti-pattern since props will ' + 'get reactively updated when rendered. Instead, change the owner\'s ' + '`render` method to pass the correct value as props to the component ' + 'where it is created.') : invariant(false) : undefined;
+
+  var wrapElement = topLevelWrapper._pendingElement || topLevelWrapper._currentElement;
+  var element = wrapElement.props;
+  topLevelWrapper._pendingElement = ReactElement.cloneAndReplaceProps(wrapElement, ReactElement.cloneAndReplaceProps(element, props));
+
+  bYN9(topLevelWrapper);
+}
+
+function bkQr(internalInstance, newElement) {
+  internalInstance._pendingElement = newElement;
+  bYN9(internalInstance);
+}
+
+var ReactUpdateQueue = {
+  isMounted: b82d,
+  enqueueCallback: bNNB,
+  enqueueCallbackInternal: bdqv,
+  enqueueForceUpdate: b9LY,
+  enqueueReplaceState: bELN,
+  enqueueSetState: b7yX,
+  enqueueSetProps: bLNa,
+  enqueueSetPropsInternal: b05N,
+  enqueueReplaceProps: b1rq,
+  enqueueReplacePropsInternal: bwMz,
+  enqueueElementInternal: bkQr
 };
 /**bandol> resource: node_modules/react/lib/ReactPropTypeLocations.js */
 
@@ -2243,7 +2353,15 @@ var ReactPropTypeLocations = keyMirror({
 /**bandol> resource: node_modules/react/lib/ReactComponentEnvironment.js */
 
 
-var b89w = false;
+var beq2 = false;
+
+function bBL1(environment) {
+  !!beq2 ? 'production' !== 'production' ? invariant(false, 'ReactCompositeComponent: injectEnvironment() can only be called once.') : invariant(false) : undefined;
+  ReactComponentEnvironment.unmountIDFromEnvironment = environment.unmountIDFromEnvironment;
+  ReactComponentEnvironment.replaceNodeWithMarkupByID = environment.replaceNodeWithMarkupByID;
+  ReactComponentEnvironment.processChildrenUpdates = environment.processChildrenUpdates;
+  beq2 = true;
+}
 
 var ReactComponentEnvironment = {
   unmountIDFromEnvironment: null,
@@ -2253,20 +2371,14 @@ var ReactComponentEnvironment = {
   processChildrenUpdates: null,
 
   injection: {
-    injectEnvironment: function (environment) {
-      !!b89w ? 'production' !== 'production' ? invariant(false, 'ReactCompositeComponent: injectEnvironment() can only be called once.') : invariant(false) : undefined;
-      ReactComponentEnvironment.unmountIDFromEnvironment = environment.unmountIDFromEnvironment;
-      ReactComponentEnvironment.replaceNodeWithMarkupByID = environment.replaceNodeWithMarkupByID;
-      ReactComponentEnvironment.processChildrenUpdates = environment.processChildrenUpdates;
-      b89w = true;
-    }
+    injectEnvironment: bBL1
   }
 
 };
 /**bandol> resource: node_modules/react/lib/ReactCompositeComponent.js */
 
 
-function bevg(component) {
+function br9q(component) {
   var owner = component._currentElement._owner || null;
   if (owner) {
     var name = owner.getName();
@@ -2277,367 +2389,389 @@ function bevg(component) {
   return '';
 }
 
-function bBAL(Component) {}
-bBAL.prototype.render = function () {
+function bQqz(Component) {}
+bQqz.prototype.render = function () {
   var Component = ReactInstanceMap.get(this)._currentElement.type;
   return Component(this.props, this.context, this.updater);
 };
 
-var bYX2 = 1;
+var bPNA = 1;
 
-var bOnk = {
-  construct: function (element) {
-    this._currentElement = element;
-    this._rootNodeID = null;
-    this._instance = null;
+function bxBG(element) {
+  this._currentElement = element;
+  this._rootNodeID = null;
+  this._instance = null;
 
-    this._pendingElement = null;
-    this._pendingStateQueue = null;
-    this._pendingReplaceState = false;
-    this._pendingForceUpdate = false;
+  this._pendingElement = null;
+  this._pendingStateQueue = null;
+  this._pendingReplaceState = false;
+  this._pendingForceUpdate = false;
 
-    this._renderedComponent = null;
+  this._renderedComponent = null;
 
-    this._context = null;
-    this._mountOrder = 0;
-    this._topLevelWrapper = null;
+  this._context = null;
+  this._mountOrder = 0;
+  this._topLevelWrapper = null;
 
-    this._pendingCallbacks = null;
-  },
+  this._pendingCallbacks = null;
+}
 
-  mountComponent: function (rootID, transaction, context) {
-    this._context = context;
-    this._mountOrder = bYX2++;
-    this._rootNodeID = rootID;
+function bX9J(rootID, transaction, context) {
+  this._context = context;
+  this._mountOrder = bPNA++;
+  this._rootNodeID = rootID;
 
-    var publicProps = this._processProps(this._currentElement.props);
-    var publicContext = this._processContext(context);
+  var publicProps = this._processProps(this._currentElement.props);
+  var publicContext = this._processContext(context);
 
-    var Component = this._currentElement.type;
+  var Component = this._currentElement.type;
 
-    var inst;
-    var renderedElement;
+  var inst;
+  var renderedElement;
 
-    var canInstantiate = 'prototype' in Component;
+  var canInstantiate = 'prototype' in Component;
 
-    if (canInstantiate) {
-      inst = new Component(publicProps, publicContext, ReactUpdateQueue);
+  if (canInstantiate) {
+    inst = new Component(publicProps, publicContext, ReactUpdateQueue);
+  }
+
+  if (!canInstantiate || inst === null || inst === false || ReactElement.isValidElement(inst)) {
+    renderedElement = inst;
+    inst = new bQqz(Component);
+  }
+
+  inst.props = publicProps;
+  inst.context = publicContext;
+  inst.refs = emptyObject;
+  inst.updater = ReactUpdateQueue;
+
+  this._instance = inst;
+
+  ReactInstanceMap.set(inst, this);
+
+  var initialState = inst.state;
+  if (initialState === undefined) {
+    inst.state = initialState = null;
+  }
+  !(typeof initialState === 'object' && !Array.isArray(initialState)) ? 'production' !== 'production' ? invariant(false, '%s.state: must be set to an object or null', this.getName() || 'ReactCompositeComponent') : invariant(false) : undefined;
+
+  this._pendingStateQueue = null;
+  this._pendingReplaceState = false;
+  this._pendingForceUpdate = false;
+
+  if (inst.componentWillMount) {
+    inst.componentWillMount();
+
+    if (this._pendingStateQueue) {
+      inst.state = this._processPendingState(inst.props, inst.context);
     }
+  }
 
-    if (!canInstantiate || inst === null || inst === false || ReactElement.isValidElement(inst)) {
-      renderedElement = inst;
-      inst = new bBAL(Component);
+  if (renderedElement === undefined) {
+    renderedElement = this._renderValidatedComponent();
+  }
+
+  this._renderedComponent = this._instantiateReactComponent(renderedElement);
+
+  var markup = ReactReconciler.mountComponent(this._renderedComponent, rootID, transaction, this._processChildContext(context));
+  if (inst.componentDidMount) {
+    transaction.getReactMountReady().enqueue(inst.componentDidMount, inst);
+  }
+
+  return markup;
+}
+
+function bRwa() {
+  var inst = this._instance;
+
+  if (inst.componentWillUnmount) {
+    inst.componentWillUnmount();
+  }
+
+  ReactReconciler.unmountComponent(this._renderedComponent);
+  this._renderedComponent = null;
+  this._instance = null;
+
+  this._pendingStateQueue = null;
+  this._pendingReplaceState = false;
+  this._pendingForceUpdate = false;
+  this._pendingCallbacks = null;
+  this._pendingElement = null;
+
+  this._context = null;
+  this._rootNodeID = null;
+  this._topLevelWrapper = null;
+
+  ReactInstanceMap.remove(inst);
+}
+
+function bKNK(context) {
+  var maskedContext = null;
+  var Component = this._currentElement.type;
+  var contextTypes = Component.contextTypes;
+  if (!contextTypes) {
+    return emptyObject;
+  }
+  maskedContext = {};
+  for (var contextName in contextTypes) {
+    maskedContext[contextName] = context[contextName];
+  }
+  return maskedContext;
+}
+
+function b40e(context) {
+  var maskedContext = this._maskContext(context);
+
+  return maskedContext;
+}
+
+function bGLz(currentContext) {
+  var Component = this._currentElement.type;
+  var inst = this._instance;
+  var childContext = inst.getChildContext && inst.getChildContext();
+  if (childContext) {
+    !(typeof Component.childContextTypes === 'object') ? 'production' !== 'production' ? invariant(false, '%s.getChildContext(): childContextTypes must be defined in order to ' + 'use getChildContext().', this.getName() || 'ReactCompositeComponent') : invariant(false) : undefined;
+
+    for (var name in childContext) {
+      !(name in Component.childContextTypes) ? 'production' !== 'production' ? invariant(false, '%s.getChildContext(): key "%s" is not defined in childContextTypes.', this.getName() || 'ReactCompositeComponent', name) : invariant(false) : undefined;
     }
+    return assign({}, currentContext, childContext);
+  }
+  return currentContext;
+}
 
-    inst.props = publicProps;
-    inst.context = publicContext;
-    inst.refs = emptyObject;
-    inst.updater = ReactUpdateQueue;
+function bbqb(newProps) {
+  return newProps;
+}
 
-    this._instance = inst;
-
-    ReactInstanceMap.set(inst, this);
-
-    var initialState = inst.state;
-    if (initialState === undefined) {
-      inst.state = initialState = null;
-    }
-    !(typeof initialState === 'object' && !Array.isArray(initialState)) ? 'production' !== 'production' ? invariant(false, '%s.state: must be set to an object or null', this.getName() || 'ReactCompositeComponent') : invariant(false) : undefined;
-
-    this._pendingStateQueue = null;
-    this._pendingReplaceState = false;
-    this._pendingForceUpdate = false;
-
-    if (inst.componentWillMount) {
-      inst.componentWillMount();
-
-      if (this._pendingStateQueue) {
-        inst.state = this._processPendingState(inst.props, inst.context);
+function blqq(propTypes, props, location) {
+  var componentName = this.getName();
+  for (var propName in propTypes) {
+    if (propTypes.hasOwnProperty(propName)) {
+      var error;
+      try {
+        !(typeof propTypes[propName] === 'function') ? 'production' !== 'production' ? invariant(false, '%s: %s type `%s` is invalid; it must be a function, usually ' + 'from React.PropTypes.', componentName || 'React class', ReactPropTypeLocationNames[location], propName) : invariant(false) : undefined;
+        error = propTypes[propName](props, propName, componentName, location);
+      } catch (ex) {
+        error = ex;
       }
-    }
+      if (error instanceof Error) {
+        var addendum = br9q(this);
 
-    if (renderedElement === undefined) {
-      renderedElement = this._renderValidatedComponent();
-    }
-
-    this._renderedComponent = this._instantiateReactComponent(renderedElement);
-
-    var markup = ReactReconciler.mountComponent(this._renderedComponent, rootID, transaction, this._processChildContext(context));
-    if (inst.componentDidMount) {
-      transaction.getReactMountReady().enqueue(inst.componentDidMount, inst);
-    }
-
-    return markup;
-  },
-
-  unmountComponent: function () {
-    var inst = this._instance;
-
-    if (inst.componentWillUnmount) {
-      inst.componentWillUnmount();
-    }
-
-    ReactReconciler.unmountComponent(this._renderedComponent);
-    this._renderedComponent = null;
-    this._instance = null;
-
-    this._pendingStateQueue = null;
-    this._pendingReplaceState = false;
-    this._pendingForceUpdate = false;
-    this._pendingCallbacks = null;
-    this._pendingElement = null;
-
-    this._context = null;
-    this._rootNodeID = null;
-    this._topLevelWrapper = null;
-
-    ReactInstanceMap.remove(inst);
-  },
-
-  _maskContext: function (context) {
-    var maskedContext = null;
-    var Component = this._currentElement.type;
-    var contextTypes = Component.contextTypes;
-    if (!contextTypes) {
-      return emptyObject;
-    }
-    maskedContext = {};
-    for (var contextName in contextTypes) {
-      maskedContext[contextName] = context[contextName];
-    }
-    return maskedContext;
-  },
-
-  _processContext: function (context) {
-    var maskedContext = this._maskContext(context);
-
-    return maskedContext;
-  },
-
-  _processChildContext: function (currentContext) {
-    var Component = this._currentElement.type;
-    var inst = this._instance;
-    var childContext = inst.getChildContext && inst.getChildContext();
-    if (childContext) {
-      !(typeof Component.childContextTypes === 'object') ? 'production' !== 'production' ? invariant(false, '%s.getChildContext(): childContextTypes must be defined in order to ' + 'use getChildContext().', this.getName() || 'ReactCompositeComponent') : invariant(false) : undefined;
-
-      for (var name in childContext) {
-        !(name in Component.childContextTypes) ? 'production' !== 'production' ? invariant(false, '%s.getChildContext(): key "%s" is not defined in childContextTypes.', this.getName() || 'ReactCompositeComponent', name) : invariant(false) : undefined;
-      }
-      return assign({}, currentContext, childContext);
-    }
-    return currentContext;
-  },
-
-  _processProps: function (newProps) {
-    return newProps;
-  },
-
-  _checkPropTypes: function (propTypes, props, location) {
-    var componentName = this.getName();
-    for (var propName in propTypes) {
-      if (propTypes.hasOwnProperty(propName)) {
-        var error;
-        try {
-          !(typeof propTypes[propName] === 'function') ? 'production' !== 'production' ? invariant(false, '%s: %s type `%s` is invalid; it must be a function, usually ' + 'from React.PropTypes.', componentName || 'React class', ReactPropTypeLocationNames[location], propName) : invariant(false) : undefined;
-          error = propTypes[propName](props, propName, componentName, location);
-        } catch (ex) {
-          error = ex;
-        }
-        if (error instanceof Error) {
-          var addendum = bevg(this);
-
-          if (location === ReactPropTypeLocations.prop) {
-            'production' !== 'production' ? warning(false, 'Failed Composite propType: %s%s', error.message, addendum) : undefined;
-          } else {
-            'production' !== 'production' ? warning(false, 'Failed Context Types: %s%s', error.message, addendum) : undefined;
-          }
+        if (location === ReactPropTypeLocations.prop) {
+          'production' !== 'production' ? warning(false, 'Failed Composite propType: %s%s', error.message, addendum) : undefined;
+        } else {
+          'production' !== 'production' ? warning(false, 'Failed Context Types: %s%s', error.message, addendum) : undefined;
         }
       }
     }
-  },
+  }
+}
 
-  receiveComponent: function (nextElement, transaction, nextContext) {
-    var prevElement = this._currentElement;
-    var prevContext = this._context;
+function bVNp(nextElement, transaction, nextContext) {
+  var prevElement = this._currentElement;
+  var prevContext = this._context;
 
-    this._pendingElement = null;
+  this._pendingElement = null;
 
-    this.updateComponent(transaction, prevElement, nextElement, prevContext, nextContext);
-  },
+  this.updateComponent(transaction, prevElement, nextElement, prevContext, nextContext);
+}
 
-  performUpdateIfNecessary: function (transaction) {
-    if (this._pendingElement != null) {
-      ReactReconciler.receiveComponent(this, this._pendingElement || this._currentElement, transaction, this._context);
+function bgqR(transaction) {
+  if (this._pendingElement != null) {
+    ReactReconciler.receiveComponent(this, this._pendingElement || this._currentElement, transaction, this._context);
+  }
+
+  if (this._pendingStateQueue !== null || this._pendingForceUpdate) {
+    this.updateComponent(transaction, this._currentElement, this._currentElement, this._context, this._context);
+  }
+}
+
+function bMNX(transaction, prevParentElement, nextParentElement, prevUnmaskedContext, nextUnmaskedContext) {
+  var inst = this._instance;
+
+  var nextContext = this._context === nextUnmaskedContext ? inst.context : this._processContext(nextUnmaskedContext);
+  var nextProps;
+
+  if (prevParentElement === nextParentElement) {
+    nextProps = nextParentElement.props;
+  } else {
+    nextProps = this._processProps(nextParentElement.props);
+
+
+    if (inst.componentWillReceiveProps) {
+      inst.componentWillReceiveProps(nextProps, nextContext);
     }
+  }
 
-    if (this._pendingStateQueue !== null || this._pendingForceUpdate) {
-      this.updateComponent(transaction, this._currentElement, this._currentElement, this._context, this._context);
-    }
-  },
+  var nextState = this._processPendingState(nextProps, nextContext);
 
-  updateComponent: function (transaction, prevParentElement, nextParentElement, prevUnmaskedContext, nextUnmaskedContext) {
-    var inst = this._instance;
+  var shouldUpdate = this._pendingForceUpdate || !inst.shouldComponentUpdate || inst.shouldComponentUpdate(nextProps, nextState, nextContext);
 
-    var nextContext = this._context === nextUnmaskedContext ? inst.context : this._processContext(nextUnmaskedContext);
-    var nextProps;
+  if (shouldUpdate) {
+    this._pendingForceUpdate = false;
 
-    if (prevParentElement === nextParentElement) {
-      nextProps = nextParentElement.props;
-    } else {
-      nextProps = this._processProps(nextParentElement.props);
-
-
-      if (inst.componentWillReceiveProps) {
-        inst.componentWillReceiveProps(nextProps, nextContext);
-      }
-    }
-
-    var nextState = this._processPendingState(nextProps, nextContext);
-
-    var shouldUpdate = this._pendingForceUpdate || !inst.shouldComponentUpdate || inst.shouldComponentUpdate(nextProps, nextState, nextContext);
-
-    if (shouldUpdate) {
-      this._pendingForceUpdate = false;
-
-      this._performComponentUpdate(nextParentElement, nextProps, nextState, nextContext, transaction, nextUnmaskedContext);
-    } else {
-      this._currentElement = nextParentElement;
-      this._context = nextUnmaskedContext;
-      inst.props = nextProps;
-      inst.state = nextState;
-      inst.context = nextContext;
-    }
-  },
-
-  _processPendingState: function (props, context) {
-    var inst = this._instance;
-    var queue = this._pendingStateQueue;
-    var replace = this._pendingReplaceState;
-    this._pendingReplaceState = false;
-    this._pendingStateQueue = null;
-
-    if (!queue) {
-      return inst.state;
-    }
-
-    if (replace && queue.length === 1) {
-      return queue[0];
-    }
-
-    var nextState = assign({}, replace ? queue[0] : inst.state);
-    for (var i = replace ? 1 : 0; i < queue.length; i++) {
-      var partial = queue[i];
-      assign(nextState, typeof partial === 'function' ? partial.call(inst, nextState, props, context) : partial);
-    }
-
-    return nextState;
-  },
-
-  _performComponentUpdate: function (nextElement, nextProps, nextState, nextContext, transaction, unmaskedContext) {
-    var inst = this._instance;
-
-    var hasComponentDidUpdate = Boolean(inst.componentDidUpdate);
-    var prevProps;
-    var prevState;
-    var prevContext;
-    if (hasComponentDidUpdate) {
-      prevProps = inst.props;
-      prevState = inst.state;
-      prevContext = inst.context;
-    }
-
-    if (inst.componentWillUpdate) {
-      inst.componentWillUpdate(nextProps, nextState, nextContext);
-    }
-
-    this._currentElement = nextElement;
-    this._context = unmaskedContext;
+    this._performComponentUpdate(nextParentElement, nextProps, nextState, nextContext, transaction, nextUnmaskedContext);
+  } else {
+    this._currentElement = nextParentElement;
+    this._context = nextUnmaskedContext;
     inst.props = nextProps;
     inst.state = nextState;
     inst.context = nextContext;
+  }
+}
 
-    this._updateRenderedComponent(transaction, unmaskedContext);
+function b65z(props, context) {
+  var inst = this._instance;
+  var queue = this._pendingStateQueue;
+  var replace = this._pendingReplaceState;
+  this._pendingReplaceState = false;
+  this._pendingStateQueue = null;
 
-    if (hasComponentDidUpdate) {
-      transaction.getReactMountReady().enqueue(inst.componentDidUpdate.bind(inst, prevProps, prevState, prevContext), inst);
-    }
-  },
+  if (!queue) {
+    return inst.state;
+  }
 
-  _updateRenderedComponent: function (transaction, context) {
-    var prevComponentInstance = this._renderedComponent;
-    var prevRenderedElement = prevComponentInstance._currentElement;
-    var nextRenderedElement = this._renderValidatedComponent();
-    if (shouldUpdateReactComponent(prevRenderedElement, nextRenderedElement)) {
-      ReactReconciler.receiveComponent(prevComponentInstance, nextRenderedElement, transaction, this._processChildContext(context));
-    } else {
-      var thisID = this._rootNodeID;
-      var prevComponentID = prevComponentInstance._rootNodeID;
-      ReactReconciler.unmountComponent(prevComponentInstance);
+  if (replace && queue.length === 1) {
+    return queue[0];
+  }
 
-      this._renderedComponent = this._instantiateReactComponent(nextRenderedElement);
-      var nextMarkup = ReactReconciler.mountComponent(this._renderedComponent, thisID, transaction, this._processChildContext(context));
-      this._replaceNodeWithMarkupByID(prevComponentID, nextMarkup);
-    }
-  },
+  var nextState = assign({}, replace ? queue[0] : inst.state);
+  for (var i = replace ? 1 : 0; i < queue.length; i++) {
+    var partial = queue[i];
+    assign(nextState, typeof partial === 'function' ? partial.call(inst, nextState, props, context) : partial);
+  }
 
-  _replaceNodeWithMarkupByID: function (prevComponentID, nextMarkup) {
-    ReactComponentEnvironment.replaceNodeWithMarkupByID(prevComponentID, nextMarkup);
-  },
+  return nextState;
+}
 
-  _renderValidatedComponentWithoutOwnerOrContext: function () {
-    var inst = this._instance;
-    var renderedComponent = inst.render();
+function bZNA(nextElement, nextProps, nextState, nextContext, transaction, unmaskedContext) {
+  var inst = this._instance;
+
+  var hasComponentDidUpdate = Boolean(inst.componentDidUpdate);
+  var prevProps;
+  var prevState;
+  var prevContext;
+  if (hasComponentDidUpdate) {
+    prevProps = inst.props;
+    prevState = inst.state;
+    prevContext = inst.context;
+  }
+
+  if (inst.componentWillUpdate) {
+    inst.componentWillUpdate(nextProps, nextState, nextContext);
+  }
+
+  this._currentElement = nextElement;
+  this._context = unmaskedContext;
+  inst.props = nextProps;
+  inst.state = nextState;
+  inst.context = nextContext;
+
+  this._updateRenderedComponent(transaction, unmaskedContext);
+
+  if (hasComponentDidUpdate) {
+    transaction.getReactMountReady().enqueue(inst.componentDidUpdate.bind(inst, prevProps, prevState, prevContext), inst);
+  }
+}
+
+function bA5P(transaction, context) {
+  var prevComponentInstance = this._renderedComponent;
+  var prevRenderedElement = prevComponentInstance._currentElement;
+  var nextRenderedElement = this._renderValidatedComponent();
+  if (shouldUpdateReactComponent(prevRenderedElement, nextRenderedElement)) {
+    ReactReconciler.receiveComponent(prevComponentInstance, nextRenderedElement, transaction, this._processChildContext(context));
+  } else {
+    var thisID = this._rootNodeID;
+    var prevComponentID = prevComponentInstance._rootNodeID;
+    ReactReconciler.unmountComponent(prevComponentInstance);
+
+    this._renderedComponent = this._instantiateReactComponent(nextRenderedElement);
+    var nextMarkup = ReactReconciler.mountComponent(this._renderedComponent, thisID, transaction, this._processChildContext(context));
+    this._replaceNodeWithMarkupByID(prevComponentID, nextMarkup);
+  }
+}
+
+function b32l(prevComponentID, nextMarkup) {
+  ReactComponentEnvironment.replaceNodeWithMarkupByID(prevComponentID, nextMarkup);
+}
+
+function bp2k() {
+  var inst = this._instance;
+  var renderedComponent = inst.render();
 
 
-    return renderedComponent;
-  },
+  return renderedComponent;
+}
 
-  _renderValidatedComponent: function () {
-    var renderedComponent;
-    ReactCurrentOwner.current = this;
-    try {
-      renderedComponent = this._renderValidatedComponentWithoutOwnerOrContext();
-    } finally {
-      ReactCurrentOwner.current = null;
-    }
-    !(renderedComponent === null || renderedComponent === false || ReactElement.isValidElement(renderedComponent)) ? 'production' !== 'production' ? invariant(false, '%s.render(): A valid ReactComponent must be returned. You may have ' + 'returned undefined, an array or some other invalid object.', this.getName() || 'ReactCompositeComponent') : invariant(false) : undefined;
-    return renderedComponent;
-  },
+function bmqr() {
+  var renderedComponent;
+  ReactCurrentOwner.current = this;
+  try {
+    renderedComponent = this._renderValidatedComponentWithoutOwnerOrContext();
+  } finally {
+    ReactCurrentOwner.current = null;
+  }
+  !(renderedComponent === null || renderedComponent === false || ReactElement.isValidElement(renderedComponent)) ? 'production' !== 'production' ? invariant(false, '%s.render(): A valid ReactComponent must be returned. You may have ' + 'returned undefined, an array or some other invalid object.', this.getName() || 'ReactCompositeComponent') : invariant(false) : undefined;
+  return renderedComponent;
+}
 
-  attachRef: function (ref, component) {
-    var inst = this.getPublicInstance();
-    !(inst != null) ? 'production' !== 'production' ? invariant(false, 'Stateless function components cannot have refs.') : invariant(false) : undefined;
-    var publicComponentInstance = component.getPublicInstance();
+function bnq1(ref, component) {
+  var inst = this.getPublicInstance();
+  !(inst != null) ? 'production' !== 'production' ? invariant(false, 'Stateless function components cannot have refs.') : invariant(false) : undefined;
+  var publicComponentInstance = component.getPublicInstance();
 
-    var refs = inst.refs === emptyObject ? inst.refs = {} : inst.refs;
-    refs[ref] = publicComponentInstance;
-  },
+  var refs = inst.refs === emptyObject ? inst.refs = {} : inst.refs;
+  refs[ref] = publicComponentInstance;
+}
 
-  detachRef: function (ref) {
-    var refs = this.getPublicInstance().refs;
-    delete refs[ref];
-  },
+function bz2K(ref) {
+  var refs = this.getPublicInstance().refs;
+  delete refs[ref];
+}
 
-  getName: function () {
-    var type = this._currentElement.type;
-    var constructor = this._instance && this._instance.constructor;
-    return type.displayName || constructor && constructor.displayName || type.name || constructor && constructor.name || null;
-  },
+function bv2M() {
+  var type = this._currentElement.type;
+  var constructor = this._instance && this._instance.constructor;
+  return type.displayName || constructor && constructor.displayName || type.name || constructor && constructor.name || null;
+}
 
-  getPublicInstance: function () {
-    var inst = this._instance;
-    if (inst instanceof bBAL) {
-      return null;
-    }
-    return inst;
-  },
+function baq0() {
+  var inst = this._instance;
+  if (inst instanceof bQqz) {
+    return null;
+  }
+  return inst;
+}
+
+var b292 = {
+  construct: bxBG,
+  mountComponent: bX9J,
+  unmountComponent: bRwa,
+  _maskContext: bKNK,
+  _processContext: b40e,
+  _processChildContext: bGLz,
+  _processProps: bbqb,
+  _checkPropTypes: blqq,
+  receiveComponent: bVNp,
+  performUpdateIfNecessary: bgqR,
+  updateComponent: bMNX,
+  _processPendingState: b65z,
+  _performComponentUpdate: bZNA,
+  _updateRenderedComponent: bA5P,
+  _replaceNodeWithMarkupByID: b32l,
+  _renderValidatedComponentWithoutOwnerOrContext: bp2k,
+  _renderValidatedComponent: bmqr,
+  attachRef: bnq1,
+  detachRef: bz2K,
+  getName: bv2M,
+  getPublicInstance: baq0,
 
   _instantiateReactComponent: null
 
 };
 
-ReactPerf.measureMethods(bOnk, 'ReactCompositeComponent', {
+ReactPerf.measureMethods(b292, 'ReactCompositeComponent', {
   mountComponent: 'mountComponent',
   updateComponent: 'updateComponent',
   _renderValidatedComponent: '_renderValidatedComponent'
@@ -2645,17 +2779,17 @@ ReactPerf.measureMethods(bOnk, 'ReactCompositeComponent', {
 
 var ReactCompositeComponent = {
 
-  Mixin: bOnk
+  Mixin: b292
 
 };
 /**bandol> resource: node_modules/react/lib/instantiateReactComponent.js */
 
-var bvNp = function () {};
-assign(bvNp.prototype, ReactCompositeComponent.Mixin, {
+var bbqk = function () {};
+assign(bbqk.prototype, ReactCompositeComponent.Mixin, {
   _instantiateReactComponent: instantiateReactComponent
 });
 
-function bagV(owner) {
+function blqr(owner) {
   if (owner) {
     var name = owner.getName();
     if (name) {
@@ -2665,7 +2799,7 @@ function bagV(owner) {
   return '';
 }
 
-function b2ly(type) {
+function bVNQ(type) {
   return typeof type === 'function' && typeof type.prototype !== 'undefined' && typeof type.prototype.mountComponent === 'function' && typeof type.prototype.receiveComponent === 'function';
 }
 
@@ -2676,14 +2810,14 @@ function instantiateReactComponent(node) {
     instance = new ReactEmptyComponent(instantiateReactComponent);
   } else if (typeof node === 'object') {
     var element = node;
-    !(element && (typeof element.type === 'function' || typeof element.type === 'string')) ? 'production' !== 'production' ? invariant(false, 'Element type is invalid: expected a string (for built-in components) ' + 'or a class/function (for composite components) but got: %s.%s', element.type == null ? element.type : typeof element.type, bagV(element._owner)) : invariant(false) : undefined;
+    !(element && (typeof element.type === 'function' || typeof element.type === 'string')) ? 'production' !== 'production' ? invariant(false, 'Element type is invalid: expected a string (for built-in components) ' + 'or a class/function (for composite components) but got: %s.%s', element.type == null ? element.type : typeof element.type, blqr(element._owner)) : invariant(false) : undefined;
 
     if (typeof element.type === 'string') {
       instance = ReactNativeComponent.createInternalComponent(element);
-    } else if (b2ly(element.type)) {
+    } else if (bVNQ(element.type)) {
       instance = new element.type(element);
     } else {
-      instance = new bvNp();
+      instance = new bbqk();
     }
   } else if (typeof node === 'string' || typeof node === 'number') {
     instance = ReactNativeComponent.createInstanceForText(node);
@@ -2699,16 +2833,18 @@ function instantiateReactComponent(node) {
   return instance;
 }
 /**bandol> resource: node_modules/react/lib/ReactServerRenderingTransaction.js */
+function bPG8() {
+  this.reactMountReady.reset();
+}
 
-var bmLz = {
-  initialize: function () {
-    this.reactMountReady.reset();
-  },
+var bxme = {
+  initialize: bPG8,
+
 
   close: emptyFunction
 };
 
-var bnLK = [bmLz];
+var bX9n = [bxme];
 
 function ReactServerRenderingTransaction(renderToStaticMarkup) {
   this.reinitializeTransaction();
@@ -2717,35 +2853,39 @@ function ReactServerRenderingTransaction(renderToStaticMarkup) {
   this.useCreateElement = false;
 }
 
-var bz6b = {
-  getTransactionWrappers: function () {
-    return bnLK;
-  },
+function bRwy() {
+  return bX9n;
+}
 
-  getReactMountReady: function () {
-    return this.reactMountReady;
-  },
+function bKNk() {
+  return this.reactMountReady;
+}
 
-  destructor: function () {
-    CallbackQueue.release(this.reactMountReady);
-    this.reactMountReady = null;
-  }
+function b40g() {
+  CallbackQueue.release(this.reactMountReady);
+  this.reactMountReady = null;
+}
+
+var bGLa = {
+  getTransactionWrappers: bRwy,
+  getReactMountReady: bKNk,
+  destructor: b40g
 };
 
-assign(ReactServerRenderingTransaction.prototype, Transaction.Mixin, bz6b);
+assign(ReactServerRenderingTransaction.prototype, Transaction.Mixin, bGLa);
 
 PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 /**bandol> resource: node_modules/react/lib/ReactServerBatchingStrategy.js */
-
+function bQbQ(callback) {}
 
 var ReactServerBatchingStrategy = {
   isBatchingUpdates: false,
-  batchedUpdates: function (callback) {}
+  batchedUpdates: bQbQ
 };
 /**bandol> resource: node_modules/react/lib/adler32.js */
 
 
-var bp3E = 65521;
+var brmX = 65521;
 
 function adler32(data) {
   var a = 1;
@@ -2757,84 +2897,91 @@ function adler32(data) {
     for (; i < Math.min(i + 4096, m); i += 4) {
       b += (a += data.charCodeAt(i)) + (a += data.charCodeAt(i + 1)) + (a += data.charCodeAt(i + 2)) + (a += data.charCodeAt(i + 3));
     }
-    a %= bp3E;
-    b %= bp3E;
+    a %= brmX;
+    b %= brmX;
   }
   for (; i < l; i++) {
     b += a += data.charCodeAt(i);
   }
-  a %= bp3E;
-  b %= bp3E;
+  a %= brmX;
+  b %= brmX;
   return a | b << 16;
 }
 /**bandol> resource: node_modules/react/lib/ReactMarkupChecksum.js */
 
 
-var b36V = /\/?>/;
+var bJPg = /\/?>/;
+
+function bqka(markup) {
+  var checksum = adler32(markup);
+
+  return markup.replace(bJPg, ' ' + ReactMarkupChecksum.CHECKSUM_ATTR_NAME + '="' + checksum + '"$&');
+}
+
+function bymX(markup, element) {
+  var existingChecksum = element.getAttribute(ReactMarkupChecksum.CHECKSUM_ATTR_NAME);
+  existingChecksum = existingChecksum && parseInt(existingChecksum, 10);
+  var markupChecksum = adler32(markup);
+  return markupChecksum === existingChecksum;
+}
 
 var ReactMarkupChecksum = {
   CHECKSUM_ATTR_NAME: 'data-react-checksum',
 
-  addChecksumToMarkup: function (markup) {
-    var checksum = adler32(markup);
-
-    return markup.replace(b36V, ' ' + ReactMarkupChecksum.CHECKSUM_ATTR_NAME + '="' + checksum + '"$&');
-  },
-
-  canReuseMarkup: function (markup, element) {
-    var existingChecksum = element.getAttribute(ReactMarkupChecksum.CHECKSUM_ATTR_NAME);
-    existingChecksum = existingChecksum && parseInt(existingChecksum, 10);
-    var markupChecksum = adler32(markup);
-    return markupChecksum === existingChecksum;
-  }
+  addChecksumToMarkup: bqka,
+  canReuseMarkup: bymX
 };
 /**bandol> resource: node_modules/react/lib/ReactDefaultBatchingStrategy.js */
+function bEv9() {
+  ReactDefaultBatchingStrategy.isBatchingUpdates = false;
+}
 
-
-var bgv3 = {
+var b7vl = {
   initialize: emptyFunction,
-  close: function () {
-    ReactDefaultBatchingStrategy.isBatchingUpdates = false;
-  }
+  close: bEv9
 };
 
-var bM2k = {
+var bLXl = {
   initialize: emptyFunction,
   close: ReactUpdates.flushBatchedUpdates.bind(ReactUpdates)
 };
 
-var b6gr = [bM2k, bgv3];
+var b00v = [bLXl, b7vl];
 
-function bZRR() {
+function b18R() {
   this.reinitializeTransaction();
 }
 
-assign(bZRR.prototype, Transaction.Mixin, {
-  getTransactionWrappers: function () {
-    return b6gr;
-  }
+function bwmy() {
+  return b00v;
+}
+
+assign(b18R.prototype, Transaction.Mixin, {
+  getTransactionWrappers: bwmy
 });
 
-var bAge = new bZRR();
+var bkmZ = new b18R();
+
+function b5v1(callback, a, b, c, d, e) {
+  var alreadyBatchingUpdates = ReactDefaultBatchingStrategy.isBatchingUpdates;
+
+  ReactDefaultBatchingStrategy.isBatchingUpdates = true;
+
+  if (alreadyBatchingUpdates) {
+    callback(a, b, c, d, e);
+  } else {
+    bkmZ.perform(callback, null, a, b, c, d, e);
+  }
+}
 
 var ReactDefaultBatchingStrategy = {
   isBatchingUpdates: false,
 
-  batchedUpdates: function (callback, a, b, c, d, e) {
-    var alreadyBatchingUpdates = ReactDefaultBatchingStrategy.isBatchingUpdates;
-
-    ReactDefaultBatchingStrategy.isBatchingUpdates = true;
-
-    if (alreadyBatchingUpdates) {
-      callback(a, b, c, d, e);
-    } else {
-      bAge.perform(callback, null, a, b, c, d, e);
-    }
-  }
+  batchedUpdates: b5v1
 };
 /**bandol> resource: node_modules/react/lib/ReactServerRendering.js */
 
-function blev(element) {
+function bdVp(element) {
   !ReactElement.isValidElement(element) ? 'production' !== 'production' ? invariant(false, 'renderToString(): You must pass a valid ReactElement.') : invariant(false) : undefined;
 
   var transaction;
@@ -2856,7 +3003,7 @@ function blev(element) {
   }
 }
 
-function bVQv(element) {
+function b906(element) {
   !ReactElement.isValidElement(element) ? 'production' !== 'production' ? invariant(false, 'renderToStaticMarkup(): You must pass a valid ReactElement.') : invariant(false) : undefined;
 
   var transaction;
@@ -2877,18 +3024,76 @@ function bVQv(element) {
   }
 }
 
-var bPq = {
-  renderToString: blev,
-  renderToStaticMarkup: bVQv
+var b9d = {
+  renderToString: bdVp,
+  renderToStaticMarkup: b906
 };
 /**bandol> resource: node_modules/react/lib/DOMProperty.js */
 
 
-function b4yp(value, bitmask) {
+function beg4(value, bitmask) {
   return (value & bitmask) === bitmask;
 }
 
-var bG2p = {
+function bBBk(domPropertyConfig) {
+  var Injection = bYrZ;
+  var Properties = domPropertyConfig.Properties || {};
+  var DOMAttributeNamespaces = domPropertyConfig.DOMAttributeNamespaces || {};
+  var DOMAttributeNames = domPropertyConfig.DOMAttributeNames || {};
+  var DOMPropertyNames = domPropertyConfig.DOMPropertyNames || {};
+  var DOMMutationMethods = domPropertyConfig.DOMMutationMethods || {};
+
+  if (domPropertyConfig.isCustomAttribute) {
+    DOMProperty._isCustomAttributeFunctions.push(domPropertyConfig.isCustomAttribute);
+  }
+
+  for (var propName in Properties) {
+    !!DOMProperty.properties.hasOwnProperty(propName) ? 'production' !== 'production' ? invariant(false, 'injectDOMPropertyConfig(...): You\'re trying to inject DOM property ' + '\'%s\' which has already been injected. You may be accidentally ' + 'injecting the same DOM property config twice, or you may be ' + 'injecting two configs that have conflicting property names.', propName) : invariant(false) : undefined;
+
+    var lowerCased = propName.toLowerCase();
+    var propConfig = Properties[propName];
+
+    var propertyInfo = {
+      attributeName: lowerCased,
+      attributeNamespace: null,
+      propertyName: propName,
+      mutationMethod: null,
+
+      mustUseAttribute: beg4(propConfig, Injection.MUST_USE_ATTRIBUTE),
+      mustUseProperty: beg4(propConfig, Injection.MUST_USE_PROPERTY),
+      hasSideEffects: beg4(propConfig, Injection.HAS_SIDE_EFFECTS),
+      hasBooleanValue: beg4(propConfig, Injection.HAS_BOOLEAN_VALUE),
+      hasNumericValue: beg4(propConfig, Injection.HAS_NUMERIC_VALUE),
+      hasPositiveNumericValue: beg4(propConfig, Injection.HAS_POSITIVE_NUMERIC_VALUE),
+      hasOverloadedBooleanValue: beg4(propConfig, Injection.HAS_OVERLOADED_BOOLEAN_VALUE)
+    };
+
+    !(!propertyInfo.mustUseAttribute || !propertyInfo.mustUseProperty) ? 'production' !== 'production' ? invariant(false, 'DOMProperty: Cannot require using both attribute and property: %s', propName) : invariant(false) : undefined;
+    !(propertyInfo.mustUseProperty || !propertyInfo.hasSideEffects) ? 'production' !== 'production' ? invariant(false, 'DOMProperty: Properties that have side effects must use property: %s', propName) : invariant(false) : undefined;
+    !(propertyInfo.hasBooleanValue + propertyInfo.hasNumericValue + propertyInfo.hasOverloadedBooleanValue <= 1) ? 'production' !== 'production' ? invariant(false, 'DOMProperty: Value can be one of boolean, overloaded boolean, or ' + 'numeric value, but not a combination: %s', propName) : invariant(false) : undefined;
+
+    if (DOMAttributeNames.hasOwnProperty(propName)) {
+      var attributeName = DOMAttributeNames[propName];
+      propertyInfo.attributeName = attributeName;
+    }
+
+    if (DOMAttributeNamespaces.hasOwnProperty(propName)) {
+      propertyInfo.attributeNamespace = DOMAttributeNamespaces[propName];
+    }
+
+    if (DOMPropertyNames.hasOwnProperty(propName)) {
+      propertyInfo.propertyName = DOMPropertyNames[propName];
+    }
+
+    if (DOMMutationMethods.hasOwnProperty(propName)) {
+      propertyInfo.mutationMethod = DOMMutationMethods[propName];
+    }
+
+    DOMProperty.properties[propName] = propertyInfo;
+  }
+}
+
+var bYrZ = {
   MUST_USE_ATTRIBUTE: 0x1,
   MUST_USE_PROPERTY: 0x2,
   HAS_SIDE_EFFECTS: 0x4,
@@ -2897,65 +3102,32 @@ var bG2p = {
   HAS_POSITIVE_NUMERIC_VALUE: 0x20 | 0x10,
   HAS_OVERLOADED_BOOLEAN_VALUE: 0x40,
 
-  injectDOMPropertyConfig: function (domPropertyConfig) {
-    var Injection = bG2p;
-    var Properties = domPropertyConfig.Properties || {};
-    var DOMAttributeNamespaces = domPropertyConfig.DOMAttributeNamespaces || {};
-    var DOMAttributeNames = domPropertyConfig.DOMAttributeNames || {};
-    var DOMPropertyNames = domPropertyConfig.DOMPropertyNames || {};
-    var DOMMutationMethods = domPropertyConfig.DOMMutationMethods || {};
+  injectDOMPropertyConfig: bBBk
+};
+var bO4A = {};
 
-    if (domPropertyConfig.isCustomAttribute) {
-      DOMProperty._isCustomAttributeFunctions.push(domPropertyConfig.isCustomAttribute);
-    }
-
-    for (var propName in Properties) {
-      !!DOMProperty.properties.hasOwnProperty(propName) ? 'production' !== 'production' ? invariant(false, 'injectDOMPropertyConfig(...): You\'re trying to inject DOM property ' + '\'%s\' which has already been injected. You may be accidentally ' + 'injecting the same DOM property config twice, or you may be ' + 'injecting two configs that have conflicting property names.', propName) : invariant(false) : undefined;
-
-      var lowerCased = propName.toLowerCase();
-      var propConfig = Properties[propName];
-
-      var propertyInfo = {
-        attributeName: lowerCased,
-        attributeNamespace: null,
-        propertyName: propName,
-        mutationMethod: null,
-
-        mustUseAttribute: b4yp(propConfig, Injection.MUST_USE_ATTRIBUTE),
-        mustUseProperty: b4yp(propConfig, Injection.MUST_USE_PROPERTY),
-        hasSideEffects: b4yp(propConfig, Injection.HAS_SIDE_EFFECTS),
-        hasBooleanValue: b4yp(propConfig, Injection.HAS_BOOLEAN_VALUE),
-        hasNumericValue: b4yp(propConfig, Injection.HAS_NUMERIC_VALUE),
-        hasPositiveNumericValue: b4yp(propConfig, Injection.HAS_POSITIVE_NUMERIC_VALUE),
-        hasOverloadedBooleanValue: b4yp(propConfig, Injection.HAS_OVERLOADED_BOOLEAN_VALUE)
-      };
-
-      !(!propertyInfo.mustUseAttribute || !propertyInfo.mustUseProperty) ? 'production' !== 'production' ? invariant(false, 'DOMProperty: Cannot require using both attribute and property: %s', propName) : invariant(false) : undefined;
-      !(propertyInfo.mustUseProperty || !propertyInfo.hasSideEffects) ? 'production' !== 'production' ? invariant(false, 'DOMProperty: Properties that have side effects must use property: %s', propName) : invariant(false) : undefined;
-      !(propertyInfo.hasBooleanValue + propertyInfo.hasNumericValue + propertyInfo.hasOverloadedBooleanValue <= 1) ? 'production' !== 'production' ? invariant(false, 'DOMProperty: Value can be one of boolean, overloaded boolean, or ' + 'numeric value, but not a combination: %s', propName) : invariant(false) : undefined;
-
-      if (DOMAttributeNames.hasOwnProperty(propName)) {
-        var attributeName = DOMAttributeNames[propName];
-        propertyInfo.attributeName = attributeName;
-      }
-
-      if (DOMAttributeNamespaces.hasOwnProperty(propName)) {
-        propertyInfo.attributeNamespace = DOMAttributeNamespaces[propName];
-      }
-
-      if (DOMPropertyNames.hasOwnProperty(propName)) {
-        propertyInfo.propertyName = DOMPropertyNames[propName];
-      }
-
-      if (DOMMutationMethods.hasOwnProperty(propName)) {
-        propertyInfo.mutationMethod = DOMMutationMethods[propName];
-      }
-
-      DOMProperty.properties[propName] = propertyInfo;
+function b8vZ(attributeName) {
+  for (var i = 0; i < DOMProperty._isCustomAttributeFunctions.length; i++) {
+    var isCustomAttributeFn = DOMProperty._isCustomAttributeFunctions[i];
+    if (isCustomAttributeFn(attributeName)) {
+      return true;
     }
   }
-};
-var bbZ3 = {};
+  return false;
+}
+
+function bNK5(nodeName, prop) {
+  var nodeDefaults = bO4A[nodeName];
+  var testElement;
+  if (!nodeDefaults) {
+    bO4A[nodeName] = nodeDefaults = {};
+  }
+  if (!(prop in nodeDefaults)) {
+    testElement = document.createElement(nodeName);
+    nodeDefaults[prop] = testElement[prop];
+  }
+  return nodeDefaults[prop];
+}
 
 var DOMProperty = {
 
@@ -2967,109 +3139,90 @@ var DOMProperty = {
 
   _isCustomAttributeFunctions: [],
 
-  isCustomAttribute: function (attributeName) {
-    for (var i = 0; i < DOMProperty._isCustomAttributeFunctions.length; i++) {
-      var isCustomAttributeFn = DOMProperty._isCustomAttributeFunctions[i];
-      if (isCustomAttributeFn(attributeName)) {
-        return true;
-      }
-    }
-    return false;
-  },
+  isCustomAttribute: b8vZ,
+  getDefaultValueForProperty: bNK5,
 
-  getDefaultValueForProperty: function (nodeName, prop) {
-    var nodeDefaults = bbZ3[nodeName];
-    var testElement;
-    if (!nodeDefaults) {
-      bbZ3[nodeName] = nodeDefaults = {};
-    }
-    if (!(prop in nodeDefaults)) {
-      testElement = document.createElement(nodeName);
-      nodeDefaults[prop] = testElement[prop];
-    }
-    return nodeDefaults[prop];
-  },
 
-  injection: bG2p
+  injection: bYrZ
 };
 /**bandol> resource: node_modules/react/lib/SVGDOMPropertyConfig.js */
 
 
-var bRpP = DOMProperty.injection.MUST_USE_ATTRIBUTE;
+var baG2 = DOMProperty.injection.MUST_USE_ATTRIBUTE;
 
-var bKv2 = {
+var b25g = {
   xlink: 'http://www.w3.org/1999/xlink',
   xml: 'http://www.w3.org/XML/1998/namespace'
 };
 
 var SVGDOMPropertyConfig = {
   Properties: {
-    clipPath: bRpP,
-    cx: bRpP,
-    cy: bRpP,
-    d: bRpP,
-    dx: bRpP,
-    dy: bRpP,
-    fill: bRpP,
-    fillOpacity: bRpP,
-    fontFamily: bRpP,
-    fontSize: bRpP,
-    fx: bRpP,
-    fy: bRpP,
-    gradientTransform: bRpP,
-    gradientUnits: bRpP,
-    markerEnd: bRpP,
-    markerMid: bRpP,
-    markerStart: bRpP,
-    offset: bRpP,
-    opacity: bRpP,
-    patternContentUnits: bRpP,
-    patternUnits: bRpP,
-    points: bRpP,
-    preserveAspectRatio: bRpP,
-    r: bRpP,
-    rx: bRpP,
-    ry: bRpP,
-    spreadMethod: bRpP,
-    stopColor: bRpP,
-    stopOpacity: bRpP,
-    stroke: bRpP,
-    strokeDasharray: bRpP,
-    strokeLinecap: bRpP,
-    strokeOpacity: bRpP,
-    strokeWidth: bRpP,
-    textAnchor: bRpP,
-    transform: bRpP,
-    version: bRpP,
-    viewBox: bRpP,
-    x1: bRpP,
-    x2: bRpP,
-    x: bRpP,
-    xlinkActuate: bRpP,
-    xlinkArcrole: bRpP,
-    xlinkHref: bRpP,
-    xlinkRole: bRpP,
-    xlinkShow: bRpP,
-    xlinkTitle: bRpP,
-    xlinkType: bRpP,
-    xmlBase: bRpP,
-    xmlLang: bRpP,
-    xmlSpace: bRpP,
-    y1: bRpP,
-    y2: bRpP,
-    y: bRpP
+    clipPath: baG2,
+    cx: baG2,
+    cy: baG2,
+    d: baG2,
+    dx: baG2,
+    dy: baG2,
+    fill: baG2,
+    fillOpacity: baG2,
+    fontFamily: baG2,
+    fontSize: baG2,
+    fx: baG2,
+    fy: baG2,
+    gradientTransform: baG2,
+    gradientUnits: baG2,
+    markerEnd: baG2,
+    markerMid: baG2,
+    markerStart: baG2,
+    offset: baG2,
+    opacity: baG2,
+    patternContentUnits: baG2,
+    patternUnits: baG2,
+    points: baG2,
+    preserveAspectRatio: baG2,
+    r: baG2,
+    rx: baG2,
+    ry: baG2,
+    spreadMethod: baG2,
+    stopColor: baG2,
+    stopOpacity: baG2,
+    stroke: baG2,
+    strokeDasharray: baG2,
+    strokeLinecap: baG2,
+    strokeOpacity: baG2,
+    strokeWidth: baG2,
+    textAnchor: baG2,
+    transform: baG2,
+    version: baG2,
+    viewBox: baG2,
+    x1: baG2,
+    x2: baG2,
+    x: baG2,
+    xlinkActuate: baG2,
+    xlinkArcrole: baG2,
+    xlinkHref: baG2,
+    xlinkRole: baG2,
+    xlinkShow: baG2,
+    xlinkTitle: baG2,
+    xlinkType: baG2,
+    xmlBase: baG2,
+    xmlLang: baG2,
+    xmlSpace: baG2,
+    y1: baG2,
+    y2: baG2,
+    y: baG2
   },
   DOMAttributeNamespaces: {
-    xlinkActuate: bKv2.xlink,
-    xlinkArcrole: bKv2.xlink,
-    xlinkHref: bKv2.xlink,
-    xlinkRole: bKv2.xlink,
-    xlinkShow: bKv2.xlink,
-    xlinkTitle: bKv2.xlink,
-    xlinkType: bKv2.xlink,
-    xmlBase: bKv2.xml,
-    xmlLang: bKv2.xml,
-    xmlSpace: bKv2.xml
+    xlinkActuate: b25g.xlink,
+    xlinkArcrole: b25g.xlink,
+    xlinkHref: b25g.xlink,
+    xlinkRole: b25g.xlink,
+    xlinkShow: b25g.xlink,
+    xlinkTitle: b25g.xlink,
+    xlinkType: b25g.xlink,
+    xmlBase: b25g.xml,
+    xmlLang: b25g.xml,
+    xmlSpace: b25g.xml
   },
   DOMAttributeNames: {
     clipPath: 'clip-path',
@@ -3130,28 +3283,31 @@ function getEventCharCode(nativeEvent) {
 /**bandol> resource: node_modules/react/lib/getEventModifierState.js */
 
 
-var bxMx = {
+var bzmm = {
   'Alt': 'altKey',
   'Control': 'ctrlKey',
   'Meta': 'metaKey',
   'Shift': 'shiftKey'
 };
 
-function bXOp(keyArg) {
+function bvL2(keyArg) {
   var syntheticEvent = this;
   var nativeEvent = syntheticEvent.nativeEvent;
   if (nativeEvent.getModifierState) {
     return nativeEvent.getModifierState(keyArg);
   }
-  var keyProp = bxMx[keyArg];
+  var keyProp = bzmm[keyArg];
   return keyProp ? !!nativeEvent[keyProp] : false;
 }
 
 function getEventModifierState(nativeEvent) {
-  return bXOp;
+  return bvL2;
 }
 /**bandol> resource: node_modules/react/lib/ViewportMetrics.js */
-
+function bnel(scrollPosition) {
+  ViewportMetrics.currentScrollLeft = scrollPosition.x;
+  ViewportMetrics.currentScrollTop = scrollPosition.y;
+}
 
 var ViewportMetrics = {
 
@@ -3159,11 +3315,7 @@ var ViewportMetrics = {
 
   currentScrollTop: 0,
 
-  refreshScrollValues: function (scrollPosition) {
-    ViewportMetrics.currentScrollLeft = scrollPosition.x;
-    ViewportMetrics.currentScrollTop = scrollPosition.y;
-  }
-
+  refreshScrollValues: bnel
 };
 /**bandol> resource: node_modules/react/lib/getEventTarget.js */
 
@@ -3173,8 +3325,11 @@ function getEventTarget(nativeEvent) {
   return target.nodeType === 3 ? target.parentNode : target;
 }
 /**bandol> resource: node_modules/react/lib/SyntheticEvent.js */
+function b6nX(event) {
+  return event.timeStamp || Date.now();
+}
 
-var bPZO = {
+var bZQ9 = {
   type: null,
   target: null,
 
@@ -3182,9 +3337,8 @@ var bPZO = {
   eventPhase: null,
   bubbles: null,
   cancelable: null,
-  timeStamp: function (event) {
-    return event.timeStamp || Date.now();
-  },
+  timeStamp: b6nX,
+
   defaultPrevented: null,
   isTrusted: null
 };
@@ -3220,58 +3374,62 @@ function SyntheticEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEvent
   this.isPropagationStopped = emptyFunction.thatReturnsFalse;
 }
 
+function bAOZ() {
+  this.defaultPrevented = true;
+  var event = this.nativeEvent;
+
+  if (!event) {
+    return;
+  }
+
+  if (event.preventDefault) {
+    event.preventDefault();
+  } else {
+    event.returnValue = false;
+  }
+  this.isDefaultPrevented = emptyFunction.thatReturnsTrue;
+}
+
+function b35x() {
+  var event = this.nativeEvent;
+
+  if (!event) {
+    return;
+  }
+
+  if (event.stopPropagation) {
+    event.stopPropagation();
+  } else {
+    event.cancelBubble = true;
+  }
+  this.isPropagationStopped = emptyFunction.thatReturnsTrue;
+}
+
+function bpq8() {
+  this.isPersistent = emptyFunction.thatReturnsTrue;
+}
+
+function bmEG() {
+  var Interface = this.constructor.Interface;
+  for (var propName in Interface) {
+    this[propName] = null;
+  }
+  this.dispatchConfig = null;
+  this.dispatchMarker = null;
+  this.nativeEvent = null;
+}
+
 assign(SyntheticEvent.prototype, {
-
-  preventDefault: function () {
-    this.defaultPrevented = true;
-    var event = this.nativeEvent;
-
-    if (!event) {
-      return;
-    }
-
-    if (event.preventDefault) {
-      event.preventDefault();
-    } else {
-      event.returnValue = false;
-    }
-    this.isDefaultPrevented = emptyFunction.thatReturnsTrue;
-  },
-
-  stopPropagation: function () {
-    var event = this.nativeEvent;
-
-    if (!event) {
-      return;
-    }
-
-    if (event.stopPropagation) {
-      event.stopPropagation();
-    } else {
-      event.cancelBubble = true;
-    }
-    this.isPropagationStopped = emptyFunction.thatReturnsTrue;
-  },
-
-  persist: function () {
-    this.isPersistent = emptyFunction.thatReturnsTrue;
-  },
+  preventDefault: bAOZ,
+  stopPropagation: b35x,
+  persist: bpq8,
 
   isPersistent: emptyFunction.thatReturnsFalse,
 
-  destructor: function () {
-    var Interface = this.constructor.Interface;
-    for (var propName in Interface) {
-      this[propName] = null;
-    }
-    this.dispatchConfig = null;
-    this.dispatchMarker = null;
-    this.nativeEvent = null;
-  }
-
+  destructor: bmEG
 });
 
-SyntheticEvent.Interface = bPZO;
+SyntheticEvent.Interface = bZQ9;
 
 SyntheticEvent.augmentClass = function (Class, Interface) {
   var Super = this;
@@ -3289,39 +3447,62 @@ SyntheticEvent.augmentClass = function (Class, Interface) {
 
 PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
 /**bandol> resource: node_modules/react/lib/SyntheticUIEvent.js */
-
-var bQAm = {
-  view: function (event) {
-    if (event.view) {
-      return event.view;
-    }
-
-    var target = getEventTarget(event);
-    if (target != null && target.window === target) {
-      return target;
-    }
-
-    var doc = target.ownerDocument;
-
-    if (doc) {
-      return doc.defaultView || doc.parentWindow;
-    } else {
-      return window;
-    }
-  },
-  detail: function (event) {
-    return event.detail || 0;
+function bV6Q(event) {
+  if (event.view) {
+    return event.view;
   }
+
+  var target = getEventTarget(event);
+  if (target != null && target.window === target) {
+    return target;
+  }
+
+  var doc = target.ownerDocument;
+
+  if (doc) {
+    return doc.defaultView || doc.parentWindow;
+  } else {
+    return window;
+  }
+}
+
+function bg6r(event) {
+  return event.detail || 0;
+}
+
+var bMRz = {
+  view: bV6Q,
+  detail: bg6r
 };
 
 function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget) {
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticUIEvent, bQAm);
+SyntheticEvent.augmentClass(SyntheticUIEvent, bMRz);
 /**bandol> resource: node_modules/react/lib/SyntheticMouseEvent.js */
+function bKxk(event) {
+  var button = event.button;
+  if ('which' in event) {
+    return button;
+  }
 
-var brr3 = {
+  return button === 2 ? 2 : button === 4 ? 1 : 0;
+}
+
+function b4ng(event) {
+  return event.relatedTarget || (event.fromElement === event.srcElement ? event.toElement : event.fromElement);
+}
+
+function bGva(event) {
+  return 'pageX' in event ? event.pageX : event.clientX + ViewportMetrics.currentScrollLeft;
+}
+
+function bbbk(event) {
+  return 'pageY' in event ? event.pageY : event.clientY + ViewportMetrics.currentScrollTop;
+}
+
+var blmr = {
   screenX: null,
   screenY: null,
   clientX: null,
@@ -3331,41 +3512,32 @@ var brr3 = {
   altKey: null,
   metaKey: null,
   getModifierState: getEventModifierState,
-  button: function (event) {
-    var button = event.button;
-    if ('which' in event) {
-      return button;
-    }
+  button: bKxk,
 
-    return button === 2 ? 2 : button === 4 ? 1 : 0;
-  },
   buttons: null,
-  relatedTarget: function (event) {
-    return event.relatedTarget || (event.fromElement === event.srcElement ? event.toElement : event.fromElement);
-  },
-
-  pageX: function (event) {
-    return 'pageX' in event ? event.pageX : event.clientX + ViewportMetrics.currentScrollLeft;
-  },
-  pageY: function (event) {
-    return 'pageY' in event ? event.pageY : event.clientY + ViewportMetrics.currentScrollTop;
-  }
+  relatedTarget: b4ng,
+  pageX: bGva,
+  pageY: bbbk
 };
 
 function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget) {
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticMouseEvent, brr3);
+SyntheticUIEvent.augmentClass(SyntheticMouseEvent, blmr);
 /**bandol> resource: node_modules/react/lib/SyntheticWheelEvent.js */
+function bxye(event) {
+  return 'deltaX' in event ? event.deltaX : 'wheelDeltaX' in event ? -event.wheelDeltaX : 0;
+}
 
-var bVB8 = {
-  deltaX: function (event) {
-    return 'deltaX' in event ? event.deltaX : 'wheelDeltaX' in event ? -event.wheelDeltaX : 0;
-  },
-  deltaY: function (event) {
-    return 'deltaY' in event ? event.deltaY : 'wheelDeltaY' in event ? -event.wheelDeltaY : 'wheelDelta' in event ? -event.wheelDelta : 0;
-  },
+function bXAn(event) {
+  return 'deltaY' in event ? event.deltaY : 'wheelDeltaY' in event ? -event.wheelDeltaY : 'wheelDelta' in event ? -event.wheelDelta : 0;
+}
+
+var bRly = {
+  deltaX: bxye,
+  deltaY: bXAn,
+
   deltaZ: null,
 
   deltaMode: null
@@ -3375,10 +3547,10 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, bVB8);
+SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, bRly);
 /**bandol> resource: node_modules/react/lib/SyntheticTouchEvent.js */
 
-var blrg = {
+var bP08 = {
   touches: null,
   targetTouches: null,
   changedTouches: null,
@@ -3393,10 +3565,10 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticTouchEvent, blrg);
+SyntheticUIEvent.augmentClass(SyntheticTouchEvent, bP08);
 /**bandol> resource: node_modules/react/lib/SyntheticDragEvent.js */
 
-var bbBz = {
+var bQ7Q = {
   dataTransfer: null
 };
 
@@ -3404,10 +3576,10 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
   SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticMouseEvent.augmentClass(SyntheticDragEvent, bbBz);
+SyntheticMouseEvent.augmentClass(SyntheticDragEvent, bQ7Q);
 /**bandol> resource: node_modules/react/lib/getEventKey.js */
 
-var b4y3 = {
+var byBX = {
   'Esc': 'Escape',
   'Spacebar': ' ',
   'Left': 'ArrowLeft',
@@ -3422,7 +3594,7 @@ var b4y3 = {
   'MozPrintableKey': 'Unidentified'
 };
 
-var bGey = {
+var br6X = {
   8: 'Backspace',
   9: 'Tab',
   12: 'Clear',
@@ -3453,7 +3625,7 @@ var bGey = {
 
 function getEventKey(nativeEvent) {
   if (nativeEvent.key) {
-    var key = b4y3[nativeEvent.key] || nativeEvent.key;
+    var key = byBX[nativeEvent.key] || nativeEvent.key;
     if (key !== 'Unidentified') {
       return key;
     }
@@ -3465,13 +3637,36 @@ function getEventKey(nativeEvent) {
     return charCode === 13 ? 'Enter' : String.fromCharCode(charCode);
   }
   if (nativeEvent.type === 'keydown' || nativeEvent.type === 'keyup') {
-    return bGey[nativeEvent.keyCode] || 'Unidentified';
+    return br6X[nativeEvent.keyCode] || 'Unidentified';
   }
   return '';
 }
 /**bandol> resource: node_modules/react/lib/SyntheticKeyboardEvent.js */
+function bk4Z(event) {
+  if (event.type === 'keypress') {
+    return getEventCharCode(event);
+  }
+  return 0;
+}
 
-var bKvr = {
+function b5z1(event) {
+  if (event.type === 'keydown' || event.type === 'keyup') {
+    return event.keyCode;
+  }
+  return 0;
+}
+
+function bJwg(event) {
+  if (event.type === 'keypress') {
+    return getEventCharCode(event);
+  }
+  if (event.type === 'keydown' || event.type === 'keyup') {
+    return event.keyCode;
+  }
+  return 0;
+}
+
+var bqMa = {
   key: getEventKey,
   location: null,
   ctrlKey: null,
@@ -3481,38 +3676,19 @@ var bKvr = {
   repeat: null,
   locale: null,
   getModifierState: getEventModifierState,
-
-  charCode: function (event) {
-    if (event.type === 'keypress') {
-      return getEventCharCode(event);
-    }
-    return 0;
-  },
-  keyCode: function (event) {
-    if (event.type === 'keydown' || event.type === 'keyup') {
-      return event.keyCode;
-    }
-    return 0;
-  },
-  which: function (event) {
-    if (event.type === 'keypress') {
-      return getEventCharCode(event);
-    }
-    if (event.type === 'keydown' || event.type === 'keyup') {
-      return event.keyCode;
-    }
-    return 0;
-  }
+  charCode: bk4Z,
+  keyCode: b5z1,
+  which: bJwg
 };
 
 function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget) {
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, bKvr);
+SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, bqMa);
 /**bandol> resource: node_modules/react/lib/SyntheticFocusEvent.js */
 
-var bRp9 = {
+var bwey = {
   relatedTarget: null
 };
 
@@ -3520,41 +3696,42 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticUIEvent.augmentClass(SyntheticFocusEvent, bRp9);
+SyntheticUIEvent.augmentClass(SyntheticFocusEvent, bwey);
 /**bandol> resource: node_modules/react/lib/SyntheticClipboardEvent.js */
+function b0gv(event) {
+  return 'clipboardData' in event ? event.clipboardData : window.clipboardData;
+}
 
-var bXO3 = {
-  clipboardData: function (event) {
-    return 'clipboardData' in event ? event.clipboardData : window.clipboardData;
-  }
+var b1MR = {
+  clipboardData: b0gv
 };
 
 function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget) {
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticClipboardEvent, bXO3);
+SyntheticEvent.augmentClass(SyntheticClipboardEvent, b1MR);
 /**bandol> resource: node_modules/fbjs/lib/ExecutionEnvironment.js */
 
 
-var bxMV = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+var bLLl = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 var ExecutionEnvironment = {
 
-  canUseDOM: bxMV,
+  canUseDOM: bLLl,
 
   canUseWorkers: typeof Worker !== 'undefined',
 
-  canUseEventListeners: bxMV && !!(window.addEventListener || window.attachEvent),
+  canUseEventListeners: bLLl && !!(window.addEventListener || window.attachEvent),
 
-  canUseViewport: bxMV && !!window.screen,
+  canUseViewport: bLLl && !!window.screen,
 
-  isInWorker: !bxMV };
+  isInWorker: !bLLl };
 /**bandol> resource: node_modules/react/lib/setInnerHTML.js */
 
 
-var brrx = /^[ \r\n\t\f]/;
-var bQAd = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
+var b9z6 = /^[ \r\n\t\f]/;
+var bEm9 = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
 var setInnerHTML = function (node, html) {
   node.innerHTML = html;
@@ -3569,15 +3746,15 @@ if (typeof MSApp !== 'undefined' && MSApp.execUnsafeLocalFunction) {
 }
 
 if (ExecutionEnvironment.canUseDOM) {
-  var bPZ5 = document.createElement('div');
-  bPZ5.innerHTML = ' ';
-  if (bPZ5.innerHTML === '') {
+  var b7zl = document.createElement('div');
+  b7zl.innerHTML = ' ';
+  if (b7zl.innerHTML === '') {
     setInnerHTML = function (node, html) {
       if (node.parentNode) {
         node.parentNode.replaceChild(node, node);
       }
 
-      if (brrx.test(html) || html[0] === '<' && bQAd.test(html)) {
+      if (b9z6.test(html) || html[0] === '<' && bEm9.test(html)) {
         node.innerHTML = String.fromCharCode(0xFEFF) + html;
 
         var textNode = node.firstChild;
@@ -3642,9 +3819,9 @@ var ReactDOMFeatureFlags = {
 /**bandol> resource: node_modules/react/lib/isEventSupported.js */
 
 
-var by4Q;
+var bdrp;
 if (ExecutionEnvironment.canUseDOM) {
-  by4Q = document.implementation && document.implementation.hasFeature && document.implementation.hasFeature('', '') !== true;
+  bdrp = document.implementation && document.implementation.hasFeature && document.implementation.hasFeature('', '') !== true;
 }
 
 /**
@@ -3675,7 +3852,7 @@ function isEventSupported(eventNameSuffix, capture) {
     isSupported = typeof element[eventName] === 'function';
   }
 
-  if (!isSupported && by4Q && eventNameSuffix === 'wheel') {
+  if (!isSupported && bdrp && eventNameSuffix === 'wheel') {
     isSupported = document.implementation.hasFeature('Events.wheel', '3.0');
   }
 
@@ -3721,38 +3898,40 @@ function accumulateInto(current, next) {
 /**bandol> resource: node_modules/react/lib/ReactErrorUtils.js */
 
 
-var bJpQ = null;
+var bOmA = null;
 
-function bqRO(name, func, a, b) {
+function b80Z(name, func, a, b) {
   try {
     return func(a, b);
   } catch (x) {
-    if (bJpQ === null) {
-      bJpQ = x;
+    if (bOmA === null) {
+      bOmA = x;
     }
     return undefined;
   }
 }
 
-var ReactErrorUtils = {
-  invokeGuardedCallback: bqRO,
-
-  invokeGuardedCallbackWithCatch: bqRO,
-
-  rethrowCaughtError: function () {
-    if (bJpQ) {
-      var error = bJpQ;
-      bJpQ = null;
-      throw error;
-    }
+function bNm5() {
+  if (bOmA) {
+    var error = bOmA;
+    bOmA = null;
+    throw error;
   }
+}
+
+var ReactErrorUtils = {
+  invokeGuardedCallback: b80Z,
+
+  invokeGuardedCallbackWithCatch: b80Z,
+
+  rethrowCaughtError: bNm5
 };
 /**bandol> resource: node_modules/react/lib/EventConstants.js */
 
 
-var bkRQ = keyMirror({ bubbled: null, captured: null });
+var bBNk = keyMirror({ bubbled: null, captured: null });
 
-var b5MZ = keyMirror({
+var bYRZ = keyMirror({
   topAbort: null,
   topBlur: null,
   topCanPlay: null,
@@ -3819,34 +3998,35 @@ var b5MZ = keyMirror({
 });
 
 var EventConstants = {
-  topLevelTypes: b5MZ,
-  PropagationPhases: bkRQ
+  topLevelTypes: bYRZ,
+  PropagationPhases: bBNk
 };
 /**bandol> resource: node_modules/react/lib/EventPluginUtils.js */
+function bgxr(InjectedMount) {
+  bMLz.Mount = InjectedMount;
+}
 
-var bO7g = {
+var bMLz = {
   Mount: null,
-  injectMount: function (InjectedMount) {
-    bO7g.Mount = InjectedMount;
-  }
+  injectMount: bgxr
 };
 
-var b8P6 = EventConstants.topLevelTypes;
+var b6yX = EventConstants.topLevelTypes;
 
-function bNVw(topLevelType) {
-  return topLevelType === b8P6.topMouseUp || topLevelType === b8P6.topTouchEnd || topLevelType === b8P6.topTouchCancel;
+function bZK9(topLevelType) {
+  return topLevelType === b6yX.topMouseUp || topLevelType === b6yX.topTouchEnd || topLevelType === b6yX.topTouchCancel;
 }
 
-function bdB9(topLevelType) {
-  return topLevelType === b8P6.topMouseMove || topLevelType === b8P6.topTouchMove;
+function bAkZ(topLevelType) {
+  return topLevelType === b6yX.topMouseMove || topLevelType === b6yX.topTouchMove;
 }
-function b9xZ(topLevelType) {
-  return topLevelType === b8P6.topMouseDown || topLevelType === b8P6.topTouchStart;
+function b3Zx(topLevelType) {
+  return topLevelType === b6yX.topMouseDown || topLevelType === b6yX.topTouchStart;
 }
 
-function bEO0(event, simulated, listener, domID) {
+function bpg8(event, simulated, listener, domID) {
   var type = event.type || 'unknown-event';
-  event.currentTarget = bO7g.Mount.getNode(domID);
+  event.currentTarget = bMLz.Mount.getNode(domID);
   if (simulated) {
     ReactErrorUtils.invokeGuardedCallbackWithCatch(type, listener, event, domID);
   } else {
@@ -3855,7 +4035,7 @@ function bEO0(event, simulated, listener, domID) {
   event.currentTarget = null;
 }
 
-function b7Qd(event, simulated) {
+function bmbG(event, simulated) {
   var dispatchListeners = event._dispatchListeners;
   var dispatchIDs = event._dispatchIDs;
 
@@ -3865,16 +4045,16 @@ function b7Qd(event, simulated) {
         break;
       }
 
-      bEO0(event, simulated, dispatchListeners[i], dispatchIDs[i]);
+      bpg8(event, simulated, dispatchListeners[i], dispatchIDs[i]);
     }
   } else if (dispatchListeners) {
-    bEO0(event, simulated, dispatchListeners, dispatchIDs);
+    bpg8(event, simulated, dispatchListeners, dispatchIDs);
   }
   event._dispatchListeners = null;
   event._dispatchIDs = null;
 }
 
-function bL3O(event) {
+function bnll(event) {
   var dispatchListeners = event._dispatchListeners;
   var dispatchIDs = event._dispatchIDs;
 
@@ -3896,14 +4076,14 @@ function bL3O(event) {
   return null;
 }
 
-function b0dg(event) {
-  var ret = bL3O(event);
+function bzdm(event) {
+  var ret = bnll(event);
   event._dispatchIDs = null;
   event._dispatchListeners = null;
   return ret;
 }
 
-function b1v8(event) {
+function bvq2(event) {
   var dispatchListener = event._dispatchListeners;
   var dispatchID = event._dispatchIDs;
   !!Array.isArray(dispatchListener) ? 'production' !== 'production' ? invariant(false, 'executeDirectDispatch(...): Invalid `event`.') : invariant(false) : undefined;
@@ -3913,42 +4093,47 @@ function b1v8(event) {
   return res;
 }
 
-function bwR2(event) {
+function baM2(event) {
   return !!event._dispatchListeners;
 }
 
+function b2yg(id) {
+  return bMLz.Mount.getNode(id);
+}
+
+function beQ4(node) {
+  return bMLz.Mount.getID(node);
+}
+
 var EventPluginUtils = {
-  isEndish: bNVw,
-  isMoveish: bdB9,
-  isStartish: b9xZ,
+  isEndish: bZK9,
+  isMoveish: bAkZ,
+  isStartish: b3Zx,
 
-  executeDirectDispatch: b1v8,
-  executeDispatchesInOrder: b7Qd,
-  executeDispatchesInOrderStopAtTrue: b0dg,
-  hasDispatches: bwR2,
+  executeDirectDispatch: bvq2,
+  executeDispatchesInOrder: bmbG,
+  executeDispatchesInOrderStopAtTrue: bzdm,
+  hasDispatches: baM2,
 
-  getNode: function (id) {
-    return bO7g.Mount.getNode(id);
-  },
-  getID: function (node) {
-    return bO7g.Mount.getID(node);
-  },
+  getNode: b2yg,
+  getID: beQ4,
 
-  injection: bO7g
+
+  injection: bMLz
 };
 /**bandol> resource: node_modules/react/lib/EventPluginRegistry.js */
 
-var baOJ = null;
+var bxAe = null;
 
-var b2ML = {};
+var bXyn = {};
 
-function beyn() {
-  if (!baOJ) {
+function bR8y() {
+  if (!bxAe) {
     return;
   }
-  for (var pluginName in b2ML) {
-    var PluginModule = b2ML[pluginName];
-    var pluginIndex = baOJ.indexOf(pluginName);
+  for (var pluginName in bXyn) {
+    var PluginModule = bXyn[pluginName];
+    var pluginIndex = bxAe.indexOf(pluginName);
     !(pluginIndex > -1) ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject event plugins that do not exist in ' + 'the plugin ordering, `%s`.', pluginName) : invariant(false) : undefined;
     if (EventPluginRegistry.plugins[pluginIndex]) {
       continue;
@@ -3957,12 +4142,12 @@ function beyn() {
     EventPluginRegistry.plugins[pluginIndex] = PluginModule;
     var publishedEvents = PluginModule.eventTypes;
     for (var eventName in publishedEvents) {
-      !bBee(publishedEvents[eventName], PluginModule, eventName) ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Failed to publish event `%s` for plugin `%s`.', eventName, pluginName) : invariant(false) : undefined;
+      !bKmk(publishedEvents[eventName], PluginModule, eventName) ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Failed to publish event `%s` for plugin `%s`.', eventName, pluginName) : invariant(false) : undefined;
     }
   }
 }
 
-function bBee(dispatchConfig, PluginModule, eventName) {
+function bKmk(dispatchConfig, PluginModule, eventName) {
   !!EventPluginRegistry.eventNameDispatchConfigs.hasOwnProperty(eventName) ? 'production' !== 'production' ? invariant(false, 'EventPluginHub: More than one plugin attempted to publish the same ' + 'event name, `%s`.', eventName) : invariant(false) : undefined;
   EventPluginRegistry.eventNameDispatchConfigs[eventName] = dispatchConfig;
 
@@ -3971,21 +4156,87 @@ function bBee(dispatchConfig, PluginModule, eventName) {
     for (var phaseName in phasedRegistrationNames) {
       if (phasedRegistrationNames.hasOwnProperty(phaseName)) {
         var phasedRegistrationName = phasedRegistrationNames[phaseName];
-        bYzX(phasedRegistrationName, PluginModule, eventName);
+        b4zg(phasedRegistrationName, PluginModule, eventName);
       }
     }
     return true;
   } else if (dispatchConfig.registrationName) {
-    bYzX(dispatchConfig.registrationName, PluginModule, eventName);
+    b4zg(dispatchConfig.registrationName, PluginModule, eventName);
     return true;
   }
   return false;
 }
 
-function bYzX(registrationName, PluginModule, eventName) {
+function b4zg(registrationName, PluginModule, eventName) {
   !!EventPluginRegistry.registrationNameModules[registrationName] ? 'production' !== 'production' ? invariant(false, 'EventPluginHub: More than one plugin attempted to publish the same ' + 'registration name, `%s`.', registrationName) : invariant(false) : undefined;
   EventPluginRegistry.registrationNameModules[registrationName] = PluginModule;
   EventPluginRegistry.registrationNameDependencies[registrationName] = PluginModule.eventTypes[eventName].dependencies;
+}
+
+function bGza(InjectedEventPluginOrder) {
+  !!bxAe ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject event plugin ordering more than ' + 'once. You are likely trying to load more than one copy of React.') : invariant(false) : undefined;
+
+  bxAe = Array.prototype.slice.call(InjectedEventPluginOrder);
+  bR8y();
+}
+
+function bb6k(injectedNamesToPlugins) {
+  var isOrderingDirty = false;
+  for (var pluginName in injectedNamesToPlugins) {
+    if (!injectedNamesToPlugins.hasOwnProperty(pluginName)) {
+      continue;
+    }
+    var PluginModule = injectedNamesToPlugins[pluginName];
+    if (!bXyn.hasOwnProperty(pluginName) || bXyn[pluginName] !== PluginModule) {
+      !!bXyn[pluginName] ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject two different event plugins ' + 'using the same name, `%s`.', pluginName) : invariant(false) : undefined;
+      bXyn[pluginName] = PluginModule;
+      isOrderingDirty = true;
+    }
+  }
+  if (isOrderingDirty) {
+    bR8y();
+  }
+}
+
+function blGr(event) {
+  var dispatchConfig = event.dispatchConfig;
+  if (dispatchConfig.registrationName) {
+    return EventPluginRegistry.registrationNameModules[dispatchConfig.registrationName] || null;
+  }
+  for (var phase in dispatchConfig.phasedRegistrationNames) {
+    if (!dispatchConfig.phasedRegistrationNames.hasOwnProperty(phase)) {
+      continue;
+    }
+    var PluginModule = EventPluginRegistry.registrationNameModules[dispatchConfig.phasedRegistrationNames[phase]];
+    if (PluginModule) {
+      return PluginModule;
+    }
+  }
+  return null;
+}
+
+function bVPQ() {
+  bxAe = null;
+  for (var pluginName in bXyn) {
+    if (bXyn.hasOwnProperty(pluginName)) {
+      delete bXyn[pluginName];
+    }
+  }
+  EventPluginRegistry.plugins.length = 0;
+
+  var eventNameDispatchConfigs = EventPluginRegistry.eventNameDispatchConfigs;
+  for (var eventName in eventNameDispatchConfigs) {
+    if (eventNameDispatchConfigs.hasOwnProperty(eventName)) {
+      delete eventNameDispatchConfigs[eventName];
+    }
+  }
+
+  var registrationNameModules = EventPluginRegistry.registrationNameModules;
+  for (var registrationName in registrationNameModules) {
+    if (registrationNameModules.hasOwnProperty(registrationName)) {
+      delete registrationNameModules[registrationName];
+    }
+  }
 }
 
 var EventPluginRegistry = {
@@ -3997,80 +4248,18 @@ var EventPluginRegistry = {
 
   registrationNameDependencies: {},
 
-  injectEventPluginOrder: function (InjectedEventPluginOrder) {
-    !!baOJ ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject event plugin ordering more than ' + 'once. You are likely trying to load more than one copy of React.') : invariant(false) : undefined;
-
-    baOJ = Array.prototype.slice.call(InjectedEventPluginOrder);
-    beyn();
-  },
-
-  injectEventPluginsByName: function (injectedNamesToPlugins) {
-    var isOrderingDirty = false;
-    for (var pluginName in injectedNamesToPlugins) {
-      if (!injectedNamesToPlugins.hasOwnProperty(pluginName)) {
-        continue;
-      }
-      var PluginModule = injectedNamesToPlugins[pluginName];
-      if (!b2ML.hasOwnProperty(pluginName) || b2ML[pluginName] !== PluginModule) {
-        !!b2ML[pluginName] ? 'production' !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject two different event plugins ' + 'using the same name, `%s`.', pluginName) : invariant(false) : undefined;
-        b2ML[pluginName] = PluginModule;
-        isOrderingDirty = true;
-      }
-    }
-    if (isOrderingDirty) {
-      beyn();
-    }
-  },
-
-  getPluginModuleForEvent: function (event) {
-    var dispatchConfig = event.dispatchConfig;
-    if (dispatchConfig.registrationName) {
-      return EventPluginRegistry.registrationNameModules[dispatchConfig.registrationName] || null;
-    }
-    for (var phase in dispatchConfig.phasedRegistrationNames) {
-      if (!dispatchConfig.phasedRegistrationNames.hasOwnProperty(phase)) {
-        continue;
-      }
-      var PluginModule = EventPluginRegistry.registrationNameModules[dispatchConfig.phasedRegistrationNames[phase]];
-      if (PluginModule) {
-        return PluginModule;
-      }
-    }
-    return null;
-  },
-
-  _resetEventPlugins: function () {
-    baOJ = null;
-    for (var pluginName in b2ML) {
-      if (b2ML.hasOwnProperty(pluginName)) {
-        delete b2ML[pluginName];
-      }
-    }
-    EventPluginRegistry.plugins.length = 0;
-
-    var eventNameDispatchConfigs = EventPluginRegistry.eventNameDispatchConfigs;
-    for (var eventName in eventNameDispatchConfigs) {
-      if (eventNameDispatchConfigs.hasOwnProperty(eventName)) {
-        delete eventNameDispatchConfigs[eventName];
-      }
-    }
-
-    var registrationNameModules = EventPluginRegistry.registrationNameModules;
-    for (var registrationName in registrationNameModules) {
-      if (registrationNameModules.hasOwnProperty(registrationName)) {
-        delete registrationNameModules[registrationName];
-      }
-    }
-  }
-
+  injectEventPluginOrder: bGza,
+  injectEventPluginsByName: bb6k,
+  getPluginModuleForEvent: blGr,
+  _resetEventPlugins: bVPQ
 };
 /**bandol> resource: node_modules/react/lib/EventPluginHub.js */
 
-var b3Ng = {};
+var bqg7 = {};
 
-var bpNm = null;
+var byNg = null;
 
-var bmnx = function (event, simulated) {
+var bry1 = function (event, simulated) {
   if (event) {
     EventPluginUtils.executeDispatchesInOrder(event, simulated);
 
@@ -4079,26 +4268,116 @@ var bmnx = function (event, simulated) {
     }
   }
 };
-var bnPv = function (e) {
-  return bmnx(e, true);
+var bQO9 = function (e) {
+  return bry1(e, true);
 };
-var bzzE = function (e) {
-  return bmnx(e, false);
+var bPwR = function (e) {
+  return bry1(e, false);
 };
 
-var bvXV = null;
+var bxA0 = null;
+
+function bXPN(id, registrationName, listener) {
+  !(typeof listener === 'function') ? 'production' !== 'production' ? invariant(false, 'Expected %s listener to be a function, instead got type %s', registrationName, typeof listener) : invariant(false) : undefined;
+
+  var bankForRegistrationName = bqg7[registrationName] || (bqg7[registrationName] = {});
+  bankForRegistrationName[id] = listener;
+
+  var PluginModule = EventPluginRegistry.registrationNameModules[registrationName];
+  if (PluginModule && PluginModule.didPutListener) {
+    PluginModule.didPutListener(id, registrationName, listener);
+  }
+}
+
+function bROR(id, registrationName) {
+  var bankForRegistrationName = bqg7[registrationName];
+  return bankForRegistrationName && bankForRegistrationName[id];
+}
+
+function bKO1(id, registrationName) {
+  var PluginModule = EventPluginRegistry.registrationNameModules[registrationName];
+  if (PluginModule && PluginModule.willDeleteListener) {
+    PluginModule.willDeleteListener(id, registrationName);
+  }
+
+  var bankForRegistrationName = bqg7[registrationName];
+
+  if (bankForRegistrationName) {
+    delete bankForRegistrationName[id];
+  }
+}
+
+function b4eN(id) {
+  for (var registrationName in bqg7) {
+    if (!bqg7[registrationName][id]) {
+      continue;
+    }
+
+    var PluginModule = EventPluginRegistry.registrationNameModules[registrationName];
+    if (PluginModule && PluginModule.willDeleteListener) {
+      PluginModule.willDeleteListener(id, registrationName);
+    }
+
+    delete bqg7[registrationName][id];
+  }
+}
+
+function bGOl(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+  var events;
+  var plugins = EventPluginRegistry.plugins;
+  for (var i = 0; i < plugins.length; i++) {
+    var possiblePlugin = plugins[i];
+    if (possiblePlugin) {
+      var extractedEvents = possiblePlugin.extractEvents(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget);
+      if (extractedEvents) {
+        events = accumulateInto(events, extractedEvents);
+      }
+    }
+  }
+  return events;
+}
+
+function bbg0(events) {
+  if (events) {
+    byNg = accumulateInto(byNg, events);
+  }
+}
+
+function bl4p(simulated) {
+  var processingEventQueue = byNg;
+  byNg = null;
+  if (simulated) {
+    forEachAccumulated(processingEventQueue, bQO9);
+  } else {
+    forEachAccumulated(processingEventQueue, bPwR);
+  }
+  !!byNg ? 'production' !== 'production' ? invariant(false, 'processEventQueue(): Additional events were enqueued while processing ' + 'an event queue. Support for this has not yet been implemented.') : invariant(false) : undefined;
+
+  ReactErrorUtils.rethrowCaughtError();
+}
+
+function bVyG() {
+  bqg7 = {};
+}
+
+function bryX() {
+  return bqg7;
+}
+
+function bQOQ(InjectedInstanceHandle) {
+  bxA0 = InjectedInstanceHandle;
+}
+
+function bPw8() {
+  return bxA0;
+}
 
 var EventPluginHub = {
   injection: {
     injectMount: EventPluginUtils.injection.injectMount,
 
-    injectInstanceHandle: function (InjectedInstanceHandle) {
-      bvXV = InjectedInstanceHandle;
-    },
-
-    getInstanceHandle: function () {
-      return bvXV;
-    },
+    injectInstanceHandle: bQOQ,
+    getInstanceHandle: bPw8,
 
     injectEventPluginOrder: EventPluginRegistry.injectEventPluginOrder,
 
@@ -4110,116 +4389,40 @@ var EventPluginHub = {
 
   registrationNameModules: EventPluginRegistry.registrationNameModules,
 
-  putListener: function (id, registrationName, listener) {
-    !(typeof listener === 'function') ? 'production' !== 'production' ? invariant(false, 'Expected %s listener to be a function, instead got type %s', registrationName, typeof listener) : invariant(false) : undefined;
-
-    var bankForRegistrationName = b3Ng[registrationName] || (b3Ng[registrationName] = {});
-    bankForRegistrationName[id] = listener;
-
-    var PluginModule = EventPluginRegistry.registrationNameModules[registrationName];
-    if (PluginModule && PluginModule.didPutListener) {
-      PluginModule.didPutListener(id, registrationName, listener);
-    }
-  },
-
-  getListener: function (id, registrationName) {
-    var bankForRegistrationName = b3Ng[registrationName];
-    return bankForRegistrationName && bankForRegistrationName[id];
-  },
-
-  deleteListener: function (id, registrationName) {
-    var PluginModule = EventPluginRegistry.registrationNameModules[registrationName];
-    if (PluginModule && PluginModule.willDeleteListener) {
-      PluginModule.willDeleteListener(id, registrationName);
-    }
-
-    var bankForRegistrationName = b3Ng[registrationName];
-
-    if (bankForRegistrationName) {
-      delete bankForRegistrationName[id];
-    }
-  },
-
-  deleteAllListeners: function (id) {
-    for (var registrationName in b3Ng) {
-      if (!b3Ng[registrationName][id]) {
-        continue;
-      }
-
-      var PluginModule = EventPluginRegistry.registrationNameModules[registrationName];
-      if (PluginModule && PluginModule.willDeleteListener) {
-        PluginModule.willDeleteListener(id, registrationName);
-      }
-
-      delete b3Ng[registrationName][id];
-    }
-  },
-
-  extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-    var events;
-    var plugins = EventPluginRegistry.plugins;
-    for (var i = 0; i < plugins.length; i++) {
-      var possiblePlugin = plugins[i];
-      if (possiblePlugin) {
-        var extractedEvents = possiblePlugin.extractEvents(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget);
-        if (extractedEvents) {
-          events = accumulateInto(events, extractedEvents);
-        }
-      }
-    }
-    return events;
-  },
-
-  enqueueEvents: function (events) {
-    if (events) {
-      bpNm = accumulateInto(bpNm, events);
-    }
-  },
-
-  processEventQueue: function (simulated) {
-    var processingEventQueue = bpNm;
-    bpNm = null;
-    if (simulated) {
-      forEachAccumulated(processingEventQueue, bnPv);
-    } else {
-      forEachAccumulated(processingEventQueue, bzzE);
-    }
-    !!bpNm ? 'production' !== 'production' ? invariant(false, 'processEventQueue(): Additional events were enqueued while processing ' + 'an event queue. Support for this has not yet been implemented.') : invariant(false) : undefined;
-
-    ReactErrorUtils.rethrowCaughtError();
-  },
-
-  __purge: function () {
-    b3Ng = {};
-  },
-
-  __getListenerBank: function () {
-    return b3Ng;
-  }
-
+  putListener: bXPN,
+  getListener: bROR,
+  deleteListener: bKO1,
+  deleteAllListeners: b4eN,
+  extractEvents: bGOl,
+  enqueueEvents: bbg0,
+  processEventQueue: bl4p,
+  __purge: bVyG,
+  __getListenerBank: bryX
 };
 /**bandol> resource: node_modules/react/lib/ReactEventEmitterMixin.js */
 
 
-function bAVL(events) {
+function b59k(events) {
   EventPluginHub.enqueueEvents(events);
   EventPluginHub.processEventQueue(false);
 }
 
+function bJOd(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+  var events = EventPluginHub.extractEvents(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget);
+  b59k(events);
+}
+
 var ReactEventEmitterMixin = {
-  handleTopLevel: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-    var events = EventPluginHub.extractEvents(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget);
-    bAVL(events);
-  }
+  handleTopLevel: bJOd
 };
 /**bandol> resource: node_modules/react/lib/ReactBrowserEventEmitter.js */
 
 
-var blKg = {};
-var bV38 = false;
-var bgGK = 0;
+var bYxl = {};
+var bOqw = false;
+var b8rG = 0;
 
-var bMkZ = {
+var bNOb = {
   topAbort: 'abort',
   topBlur: 'blur',
   topCanPlay: 'canplay',
@@ -4282,96 +4485,106 @@ var bMkZ = {
   topWheel: 'wheel'
 };
 
-var b6QP = '_reactListenersID' + String(Math.random()).slice(2);
+var bd66 = '_reactListenersID' + String(Math.random()).slice(2);
 
-function bZPg(mountAt) {
-  if (!Object.prototype.hasOwnProperty.call(mountAt, b6QP)) {
-    mountAt[b6QP] = bgGK++;
-    blKg[mountAt[b6QP]] = {};
+function b9Qz(mountAt) {
+  if (!Object.prototype.hasOwnProperty.call(mountAt, bd66)) {
+    mountAt[bd66] = b8rG++;
+    bYxl[mountAt[bd66]] = {};
   }
-  return blKg[mountAt[b6QP]];
+  return bYxl[mountAt[bd66]];
+}
+
+function bEMv(enabled) {
+  if (ReactBrowserEventEmitter.ReactEventListener) {
+    ReactBrowserEventEmitter.ReactEventListener.setEnabled(enabled);
+  }
+}
+
+function b75y() {
+  return !!(ReactBrowserEventEmitter.ReactEventListener && ReactBrowserEventEmitter.ReactEventListener.isEnabled());
+}
+
+function bLOG(registrationName, contentDocumentHandle) {
+  var mountAt = contentDocumentHandle;
+  var isListening = b9Qz(mountAt);
+  var dependencies = EventPluginRegistry.registrationNameDependencies[registrationName];
+
+  var topLevelTypes = EventConstants.topLevelTypes;
+  for (var i = 0; i < dependencies.length; i++) {
+    var dependency = dependencies[i];
+    if (!(isListening.hasOwnProperty(dependency) && isListening[dependency])) {
+      if (dependency === topLevelTypes.topWheel) {
+        if (isEventSupported('wheel')) {
+          ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topWheel, 'wheel', mountAt);
+        } else if (isEventSupported('mousewheel')) {
+          ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topWheel, 'mousewheel', mountAt);
+        } else {
+          ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topWheel, 'DOMMouseScroll', mountAt);
+        }
+      } else if (dependency === topLevelTypes.topScroll) {
+
+        if (isEventSupported('scroll', true)) {
+          ReactBrowserEventEmitter.ReactEventListener.trapCapturedEvent(topLevelTypes.topScroll, 'scroll', mountAt);
+        } else {
+          ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topScroll, 'scroll', ReactBrowserEventEmitter.ReactEventListener.WINDOW_HANDLE);
+        }
+      } else if (dependency === topLevelTypes.topFocus || dependency === topLevelTypes.topBlur) {
+
+        if (isEventSupported('focus', true)) {
+          ReactBrowserEventEmitter.ReactEventListener.trapCapturedEvent(topLevelTypes.topFocus, 'focus', mountAt);
+          ReactBrowserEventEmitter.ReactEventListener.trapCapturedEvent(topLevelTypes.topBlur, 'blur', mountAt);
+        } else if (isEventSupported('focusin')) {
+          ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topFocus, 'focusin', mountAt);
+          ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topBlur, 'focusout', mountAt);
+        }
+
+        isListening[topLevelTypes.topBlur] = true;
+        isListening[topLevelTypes.topFocus] = true;
+      } else if (bNOb.hasOwnProperty(dependency)) {
+        ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(dependency, bNOb[dependency], mountAt);
+      }
+
+      isListening[dependency] = true;
+    }
+  }
+}
+
+function b0ey(topLevelType, handlerBaseName, handle) {
+  return ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelType, handlerBaseName, handle);
+}
+
+function b1ep(topLevelType, handlerBaseName, handle) {
+  return ReactBrowserEventEmitter.ReactEventListener.trapCapturedEvent(topLevelType, handlerBaseName, handle);
+}
+
+function bwAO() {
+  if (!bOqw) {
+    var refresh = ViewportMetrics.refreshScrollValues;
+    ReactBrowserEventEmitter.ReactEventListener.monitorScrollValue(refresh);
+    bOqw = true;
+  }
+}
+
+function bkKd(ReactEventListener) {
+  ReactEventListener.setHandleTopLevel(ReactBrowserEventEmitter.handleTopLevel);
+  ReactBrowserEventEmitter.ReactEventListener = ReactEventListener;
 }
 
 var ReactBrowserEventEmitter = assign({}, ReactEventEmitterMixin, {
   ReactEventListener: null,
 
   injection: {
-    injectReactEventListener: function (ReactEventListener) {
-      ReactEventListener.setHandleTopLevel(ReactBrowserEventEmitter.handleTopLevel);
-      ReactBrowserEventEmitter.ReactEventListener = ReactEventListener;
-    }
+    injectReactEventListener: bkKd
   },
 
-  setEnabled: function (enabled) {
-    if (ReactBrowserEventEmitter.ReactEventListener) {
-      ReactBrowserEventEmitter.ReactEventListener.setEnabled(enabled);
-    }
-  },
+  setEnabled: bEMv,
+  isEnabled: b75y,
+  listenTo: bLOG,
+  trapBubbledEvent: b0ey,
+  trapCapturedEvent: b1ep,
+  ensureScrollValueMonitoring: bwAO,
 
-  isEnabled: function () {
-    return !!(ReactBrowserEventEmitter.ReactEventListener && ReactBrowserEventEmitter.ReactEventListener.isEnabled());
-  },
-
-  listenTo: function (registrationName, contentDocumentHandle) {
-    var mountAt = contentDocumentHandle;
-    var isListening = bZPg(mountAt);
-    var dependencies = EventPluginRegistry.registrationNameDependencies[registrationName];
-
-    var topLevelTypes = EventConstants.topLevelTypes;
-    for (var i = 0; i < dependencies.length; i++) {
-      var dependency = dependencies[i];
-      if (!(isListening.hasOwnProperty(dependency) && isListening[dependency])) {
-        if (dependency === topLevelTypes.topWheel) {
-          if (isEventSupported('wheel')) {
-            ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topWheel, 'wheel', mountAt);
-          } else if (isEventSupported('mousewheel')) {
-            ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topWheel, 'mousewheel', mountAt);
-          } else {
-            ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topWheel, 'DOMMouseScroll', mountAt);
-          }
-        } else if (dependency === topLevelTypes.topScroll) {
-
-          if (isEventSupported('scroll', true)) {
-            ReactBrowserEventEmitter.ReactEventListener.trapCapturedEvent(topLevelTypes.topScroll, 'scroll', mountAt);
-          } else {
-            ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topScroll, 'scroll', ReactBrowserEventEmitter.ReactEventListener.WINDOW_HANDLE);
-          }
-        } else if (dependency === topLevelTypes.topFocus || dependency === topLevelTypes.topBlur) {
-
-          if (isEventSupported('focus', true)) {
-            ReactBrowserEventEmitter.ReactEventListener.trapCapturedEvent(topLevelTypes.topFocus, 'focus', mountAt);
-            ReactBrowserEventEmitter.ReactEventListener.trapCapturedEvent(topLevelTypes.topBlur, 'blur', mountAt);
-          } else if (isEventSupported('focusin')) {
-            ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topFocus, 'focusin', mountAt);
-            ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelTypes.topBlur, 'focusout', mountAt);
-          }
-
-          isListening[topLevelTypes.topBlur] = true;
-          isListening[topLevelTypes.topFocus] = true;
-        } else if (bMkZ.hasOwnProperty(dependency)) {
-          ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(dependency, bMkZ[dependency], mountAt);
-        }
-
-        isListening[dependency] = true;
-      }
-    }
-  },
-
-  trapBubbledEvent: function (topLevelType, handlerBaseName, handle) {
-    return ReactBrowserEventEmitter.ReactEventListener.trapBubbledEvent(topLevelType, handlerBaseName, handle);
-  },
-
-  trapCapturedEvent: function (topLevelType, handlerBaseName, handle) {
-    return ReactBrowserEventEmitter.ReactEventListener.trapCapturedEvent(topLevelType, handlerBaseName, handle);
-  },
-
-  ensureScrollValueMonitoring: function () {
-    if (!bV38) {
-      var refresh = ViewportMetrics.refreshScrollValues;
-      ReactBrowserEventEmitter.ReactEventListener.monitorScrollValue(refresh);
-      bV38 = true;
-    }
-  },
 
   eventNameDispatchConfigs: EventPluginHub.eventNameDispatchConfigs,
 
@@ -4394,22 +4607,22 @@ ReactPerf.measureMethods(ReactBrowserEventEmitter, 'ReactBrowserEventEmitter', {
 /**bandol> resource: node_modules/react/lib/ReactMount.js */
 
 
-var bBne = DOMProperty.ID_ATTRIBUTE_NAME;
-var bYQX = {};
+var b8nG = DOMProperty.ID_ATTRIBUTE_NAME;
+var bNbb = {};
 
-var bO6g = 1;
-var b8x6 = 9;
-var bN0w = 11;
+var bdE6 = 1;
+var b93z = 9;
+var bErv = 11;
 
-var bdJ9 = '__ReactMount_ownerDocument$' + Math.random().toString(36).slice(2);
+var b7dy = '__ReactMount_ownerDocument$' + Math.random().toString(36).slice(2);
 
-var b9XZ = {};
+var bL4G = {};
 
-var bEn0 = {};
+var b09y = {};
 
-var b7Pd = [];
+var b1Zp = [];
 
-function bLbO(string1, string2) {
+function bwpO(string1, string2) {
   var minLen = Math.min(string1.length, string2.length);
   for (var i = 0; i < minLen; i++) {
     if (string1.charAt(i) !== string2.charAt(i)) {
@@ -4419,75 +4632,75 @@ function bLbO(string1, string2) {
   return string1.length === string2.length ? -1 : minLen;
 }
 
-function b0Kg(container) {
+function bkad(container) {
   if (!container) {
     return null;
   }
 
-  if (container.nodeType === b8x6) {
+  if (container.nodeType === b93z) {
     return container.documentElement;
   } else {
     return container.firstChild;
   }
 }
 
-function b148(container) {
-  var rootElement = b0Kg(container);
+function b53k(container) {
+  var rootElement = bkad(container);
   return rootElement && ReactMount.getID(rootElement);
 }
 
-function bwL2(node) {
-  var id = bkvQ(node);
+function bJRd(node) {
+  var id = bqp7(node);
   if (id) {
-    if (bYQX.hasOwnProperty(id)) {
-      var cached = bYQX[id];
+    if (bNbb.hasOwnProperty(id)) {
+      var cached = bNbb[id];
       if (cached !== node) {
-        !!byEQ(cached, id) ? 'production' !== 'production' ? invariant(false, 'ReactMount: Two valid but unequal nodes with the same `%s`: %s', bBne, id) : invariant(false) : undefined;
+        !!bPVR(cached, id) ? 'production' !== 'production' ? invariant(false, 'ReactMount: Two valid but unequal nodes with the same `%s`: %s', b8nG, id) : invariant(false) : undefined;
 
-        bYQX[id] = node;
+        bNbb[id] = node;
       }
     } else {
-      bYQX[id] = node;
+      bNbb[id] = node;
     }
   }
 
   return id;
 }
 
-function bkvQ(node) {
-  return node && node.getAttribute && node.getAttribute(bBne) || '';
+function bqp7(node) {
+  return node && node.getAttribute && node.getAttribute(b8nG) || '';
 }
 
-function b5rZ(node, id) {
-  var oldID = bkvQ(node);
+function bypg(node, id) {
+  var oldID = bqp7(node);
   if (oldID !== id) {
-    delete bYQX[oldID];
+    delete bNbb[oldID];
   }
-  node.setAttribute(bBne, id);
-  bYQX[id] = node;
+  node.setAttribute(b8nG, id);
+  bNbb[id] = node;
 }
 
-function bJbQ(id) {
-  if (!bYQX.hasOwnProperty(id) || !byEQ(bYQX[id], id)) {
-    bYQX[id] = ReactMount.findReactNodeByID(id);
+function brB1(id) {
+  if (!bNbb.hasOwnProperty(id) || !bPVR(bNbb[id], id)) {
+    bNbb[id] = ReactMount.findReactNodeByID(id);
   }
-  return bYQX[id];
+  return bNbb[id];
 }
 
-function bq8O(instance) {
+function bQg9(instance) {
   var id = ReactInstanceMap.get(instance)._rootNodeID;
   if (ReactEmptyComponentRegistry.isNullComponentID(id)) {
     return null;
   }
-  if (!bYQX.hasOwnProperty(id) || !byEQ(bYQX[id], id)) {
-    bYQX[id] = ReactMount.findReactNodeByID(id);
+  if (!bNbb.hasOwnProperty(id) || !bPVR(bNbb[id], id)) {
+    bNbb[id] = ReactMount.findReactNodeByID(id);
   }
-  return bYQX[id];
+  return bNbb[id];
 }
 
-function byEQ(node, id) {
+function bPVR(node, id) {
   if (node) {
-    !(bkvQ(node) === id) ? 'production' !== 'production' ? invariant(false, 'ReactMount: Unexpected modification of `%s`', bBne) : invariant(false) : undefined;
+    !(bqp7(node) === id) ? 'production' !== 'production' ? invariant(false, 'ReactMount: Unexpected modification of `%s`', b8nG) : invariant(false) : undefined;
 
     var container = ReactMount.findReactContainerForID(id);
     if (container && containsNode(container, node)) {
@@ -4498,36 +4711,36 @@ function byEQ(node, id) {
   return false;
 }
 
-function br4x(id) {
-  delete bYQX[id];
+function bxp0(id) {
+  delete bNbb[id];
 }
 
-var bQLd = null;
-function bPM5(ancestorID) {
-  var ancestor = bYQX[ancestorID];
-  if (ancestor && byEQ(ancestor, ancestorID)) {
-    bQLd = ancestor;
+var bXRN = null;
+function bRMR(ancestorID) {
+  var ancestor = bNbb[ancestorID];
+  if (ancestor && bPVR(ancestor, ancestorID)) {
+    bXRN = ancestor;
   } else {
     return false;
   }
 }
 
-function bx3V(targetID) {
-  bQLd = null;
-  ReactInstanceHandles.traverseAncestors(targetID, bPM5);
+function bKK1(targetID) {
+  bXRN = null;
+  ReactInstanceHandles.traverseAncestors(targetID, bRMR);
 
-  var foundNode = bQLd;
-  bQLd = null;
+  var foundNode = bXRN;
+  bXRN = null;
   return foundNode;
 }
 
-function bXr3(componentInstance, rootID, container, transaction, shouldReuseMarkup, context) {
+function b4ZN(componentInstance, rootID, container, transaction, shouldReuseMarkup, context) {
   if (ReactDOMFeatureFlags.useCreateElement) {
     context = assign({}, context);
-    if (container.nodeType === b8x6) {
-      context[bdJ9] = container;
+    if (container.nodeType === b93z) {
+      context[b7dy] = container;
     } else {
-      context[bdJ9] = container.ownerDocument;
+      context[b7dy] = container.ownerDocument;
     }
   }
 
@@ -4536,16 +4749,16 @@ function bXr3(componentInstance, rootID, container, transaction, shouldReuseMark
   ReactMount._mountImageIntoNode(markup, container, shouldReuseMarkup, transaction);
 }
 
-function bRK9(componentInstance, rootID, container, shouldReuseMarkup, context) {
+function bGPl(componentInstance, rootID, container, shouldReuseMarkup, context) {
   var transaction = ReactUpdates.ReactReconcileTransaction.getPooled(shouldReuseMarkup);
-  transaction.perform(bXr3, null, componentInstance, rootID, container, transaction, shouldReuseMarkup, context);
+  transaction.perform(b4ZN, null, componentInstance, rootID, container, transaction, shouldReuseMarkup, context);
   ReactUpdates.ReactReconcileTransaction.release(transaction);
 }
 
-function bKer(instance, container) {
+function bbN0(instance, container) {
   ReactReconciler.unmountComponent(instance);
 
-  if (container.nodeType === b8x6) {
+  if (container.nodeType === b93z) {
     container = container.documentElement;
   }
 
@@ -4554,17 +4767,17 @@ function bKer(instance, container) {
   }
 }
 
-function b4O3(node) {
-  var reactRootID = b148(node);
+function blap(node) {
+  var reactRootID = b53k(node);
   return reactRootID ? reactRootID !== ReactInstanceHandles.getReactRootIDFromNodeID(reactRootID) : false;
 }
 
-function bGVy(node) {
+function bVxG(node) {
   for (; node && node.parentNode !== node; node = node.parentNode) {
     if (node.nodeType !== 1) {
       continue;
     }
-    var nodeID = bkvQ(node);
+    var nodeID = bqp7(node);
     if (!nodeID) {
       continue;
     }
@@ -4573,257 +4786,273 @@ function bGVy(node) {
     var current = node;
     var lastID;
     do {
-      lastID = bkvQ(current);
+      lastID = bqp7(current);
       current = current.parentNode;
       if (current == null) {
         return null;
       }
     } while (lastID !== reactRootID);
 
-    if (current === bEn0[reactRootID]) {
+    if (current === b09y[reactRootID]) {
       return node;
     }
   }
   return null;
 }
 
-var bbkz = function () {};
-bbkz.prototype.isReactComponent = {};
+var bgJE = function () {};
+bgJE.prototype.isReactComponent = {};
 
-bbkz.prototype.render = function () {
+bgJE.prototype.render = function () {
   return this.props;
 };
 
-var ReactMount = {
+function bMGw(container, renderCallback) {
+  renderCallback();
+}
 
-  TopLevelWrapper: bbkz,
-
-  _instancesByReactRootID: b9XZ,
-
-  scrollMonitor: function (container, renderCallback) {
-    renderCallback();
-  },
-
-  _updateRootComponent: function (prevComponent, nextElement, container, callback) {
-    ReactMount.scrollMonitor(container, function () {
-      ReactUpdateQueue.enqueueElementInternal(prevComponent, nextElement);
-      if (callback) {
-        ReactUpdateQueue.enqueueCallbackInternal(prevComponent, callback);
-      }
-    });
-
-    return prevComponent;
-  },
-
-  _registerComponent: function (nextComponent, container) {
-    !(container && (container.nodeType === bO6g || container.nodeType === b8x6 || container.nodeType === bN0w)) ? 'production' !== 'production' ? invariant(false, '_registerComponent(...): Target container is not a DOM element.') : invariant(false) : undefined;
-
-    ReactBrowserEventEmitter.ensureScrollValueMonitoring();
-
-    var reactRootID = ReactMount.registerContainer(container);
-    b9XZ[reactRootID] = nextComponent;
-    return reactRootID;
-  },
-
-  _renderNewRootComponent: function (nextElement, container, shouldReuseMarkup, context) {
-    'production' !== 'production' ? warning(ReactCurrentOwner.current == null, '_renderNewRootComponent(): Render methods should be a pure function ' + 'of props and state; triggering nested component updates from ' + 'render is not allowed. If necessary, trigger nested updates in ' + 'componentDidUpdate. Check the render method of %s.', ReactCurrentOwner.current && ReactCurrentOwner.current.getName() || 'ReactCompositeComponent') : undefined;
-
-    var componentInstance = instantiateReactComponent(nextElement, null);
-    var reactRootID = ReactMount._registerComponent(componentInstance, container);
-
-    ReactUpdates.batchedUpdates(bRK9, componentInstance, reactRootID, container, shouldReuseMarkup, context);
-
-    return componentInstance;
-  },
-
-  renderSubtreeIntoContainer: function (parentComponent, nextElement, container, callback) {
-    !(parentComponent != null && parentComponent._reactInternalInstance != null) ? 'production' !== 'production' ? invariant(false, 'parentComponent must be a valid React Component') : invariant(false) : undefined;
-    return ReactMount._renderSubtreeIntoContainer(parentComponent, nextElement, container, callback);
-  },
-
-  _renderSubtreeIntoContainer: function (parentComponent, nextElement, container, callback) {
-    !ReactElement.isValidElement(nextElement) ? 'production' !== 'production' ? invariant(false, 'ReactDOM.render(): Invalid component element.%s', typeof nextElement === 'string' ? ' Instead of passing an element string, make sure to instantiate ' + 'it by passing it to React.createElement.' : typeof nextElement === 'function' ? ' Instead of passing a component class, make sure to instantiate ' + 'it by passing it to React.createElement.' : nextElement != null && nextElement.props !== undefined ? ' This may be caused by unintentionally loading two independent ' + 'copies of React.' : '') : invariant(false) : undefined;
-
-    'production' !== 'production' ? warning(!container || !container.tagName || container.tagName.toUpperCase() !== 'BODY', 'render(): Rendering components directly into document.body is ' + 'discouraged, since its children are often manipulated by third-party ' + 'scripts and browser extensions. This may lead to subtle ' + 'reconciliation issues. Try rendering into a container element created ' + 'for your app.') : undefined;
-
-    var nextWrappedElement = new ReactElement(bbkz, null, null, null, null, null, nextElement);
-
-    var prevComponent = b9XZ[b148(container)];
-
-    if (prevComponent) {
-      var prevWrappedElement = prevComponent._currentElement;
-      var prevElement = prevWrappedElement.props;
-      if (shouldUpdateReactComponent(prevElement, nextElement)) {
-        var publicInst = prevComponent._renderedComponent.getPublicInstance();
-        var updatedCallback = callback && function () {
-          callback.call(publicInst);
-        };
-        ReactMount._updateRootComponent(prevComponent, nextWrappedElement, container, updatedCallback);
-        return publicInst;
-      } else {
-        ReactMount.unmountComponentAtNode(container);
-      }
-    }
-
-    var reactRootElement = b0Kg(container);
-    var containerHasReactMarkup = reactRootElement && !!bkvQ(reactRootElement);
-    var containerHasNonRootReactChild = b4O3(container);
-
-    var shouldReuseMarkup = containerHasReactMarkup && !prevComponent && !containerHasNonRootReactChild;
-    var component = ReactMount._renderNewRootComponent(nextWrappedElement, container, shouldReuseMarkup, parentComponent != null ? parentComponent._reactInternalInstance._processChildContext(parentComponent._reactInternalInstance._context) : emptyObject)._renderedComponent.getPublicInstance();
+function b6px(prevComponent, nextElement, container, callback) {
+  ReactMount.scrollMonitor(container, function () {
+    ReactUpdateQueue.enqueueElementInternal(prevComponent, nextElement);
     if (callback) {
-      callback.call(component);
+      ReactUpdateQueue.enqueueCallbackInternal(prevComponent, callback);
     }
-    return component;
-  },
+  });
 
-  render: function (nextElement, container, callback) {
-    return ReactMount._renderSubtreeIntoContainer(null, nextElement, container, callback);
-  },
+  return prevComponent;
+}
 
-  registerContainer: function (container) {
-    var reactRootID = b148(container);
-    if (reactRootID) {
-      reactRootID = ReactInstanceHandles.getReactRootIDFromNodeID(reactRootID);
+function bZ4G(nextComponent, container) {
+  !(container && (container.nodeType === bdE6 || container.nodeType === b93z || container.nodeType === bErv)) ? 'production' !== 'production' ? invariant(false, '_registerComponent(...): Target container is not a DOM element.') : invariant(false) : undefined;
+
+  ReactBrowserEventEmitter.ensureScrollValueMonitoring();
+
+  var reactRootID = ReactMount.registerContainer(container);
+  bL4G[reactRootID] = nextComponent;
+  return reactRootID;
+}
+
+function bAbK(nextElement, container, shouldReuseMarkup, context) {
+  'production' !== 'production' ? warning(ReactCurrentOwner.current == null, '_renderNewRootComponent(): Render methods should be a pure function ' + 'of props and state; triggering nested component updates from ' + 'render is not allowed. If necessary, trigger nested updates in ' + 'componentDidUpdate. Check the render method of %s.', ReactCurrentOwner.current && ReactCurrentOwner.current.getName() || 'ReactCompositeComponent') : undefined;
+
+  var componentInstance = instantiateReactComponent(nextElement, null);
+  var reactRootID = ReactMount._registerComponent(componentInstance, container);
+
+  ReactUpdates.batchedUpdates(bGPl, componentInstance, reactRootID, container, shouldReuseMarkup, context);
+
+  return componentInstance;
+}
+
+function b39Y(parentComponent, nextElement, container, callback) {
+  !(parentComponent != null && parentComponent._reactInternalInstance != null) ? 'production' !== 'production' ? invariant(false, 'parentComponent must be a valid React Component') : invariant(false) : undefined;
+  return ReactMount._renderSubtreeIntoContainer(parentComponent, nextElement, container, callback);
+}
+
+function bpVa(parentComponent, nextElement, container, callback) {
+  !ReactElement.isValidElement(nextElement) ? 'production' !== 'production' ? invariant(false, 'ReactDOM.render(): Invalid component element.%s', typeof nextElement === 'string' ? ' Instead of passing an element string, make sure to instantiate ' + 'it by passing it to React.createElement.' : typeof nextElement === 'function' ? ' Instead of passing a component class, make sure to instantiate ' + 'it by passing it to React.createElement.' : nextElement != null && nextElement.props !== undefined ? ' This may be caused by unintentionally loading two independent ' + 'copies of React.' : '') : invariant(false) : undefined;
+
+  'production' !== 'production' ? warning(!container || !container.tagName || container.tagName.toUpperCase() !== 'BODY', 'render(): Rendering components directly into document.body is ' + 'discouraged, since its children are often manipulated by third-party ' + 'scripts and browser extensions. This may lead to subtle ' + 'reconciliation issues. Try rendering into a container element created ' + 'for your app.') : undefined;
+
+  var nextWrappedElement = new ReactElement(bgJE, null, null, null, null, null, nextElement);
+
+  var prevComponent = bL4G[b53k(container)];
+
+  if (prevComponent) {
+    var prevWrappedElement = prevComponent._currentElement;
+    var prevElement = prevWrappedElement.props;
+    if (shouldUpdateReactComponent(prevElement, nextElement)) {
+      var publicInst = prevComponent._renderedComponent.getPublicInstance();
+      var updatedCallback = callback && function () {
+        callback.call(publicInst);
+      };
+      ReactMount._updateRootComponent(prevComponent, nextWrappedElement, container, updatedCallback);
+      return publicInst;
+    } else {
+      ReactMount.unmountComponentAtNode(container);
     }
-    if (!reactRootID) {
-      reactRootID = ReactInstanceHandles.createReactRootID();
-    }
-    bEn0[reactRootID] = container;
-    return reactRootID;
-  },
+  }
 
-  unmountComponentAtNode: function (container) {
-    'production' !== 'production' ? warning(ReactCurrentOwner.current == null, 'unmountComponentAtNode(): Render methods should be a pure function ' + 'of props and state; triggering nested component updates from render ' + 'is not allowed. If necessary, trigger nested updates in ' + 'componentDidUpdate. Check the render method of %s.', ReactCurrentOwner.current && ReactCurrentOwner.current.getName() || 'ReactCompositeComponent') : undefined;
+  var reactRootElement = bkad(container);
+  var containerHasReactMarkup = reactRootElement && !!bqp7(reactRootElement);
+  var containerHasNonRootReactChild = blap(container);
 
-    !(container && (container.nodeType === bO6g || container.nodeType === b8x6 || container.nodeType === bN0w)) ? 'production' !== 'production' ? invariant(false, 'unmountComponentAtNode(...): Target container is not a DOM element.') : invariant(false) : undefined;
+  var shouldReuseMarkup = containerHasReactMarkup && !prevComponent && !containerHasNonRootReactChild;
+  var component = ReactMount._renderNewRootComponent(nextWrappedElement, container, shouldReuseMarkup, parentComponent != null ? parentComponent._reactInternalInstance._processChildContext(parentComponent._reactInternalInstance._context) : emptyObject)._renderedComponent.getPublicInstance();
+  if (callback) {
+    callback.call(component);
+  }
+  return component;
+}
 
-    var reactRootID = b148(container);
-    var component = b9XZ[reactRootID];
-    if (!component) {
-      var containerHasNonRootReactChild = b4O3(container);
+function bmGP(nextElement, container, callback) {
+  return ReactMount._renderSubtreeIntoContainer(null, nextElement, container, callback);
+}
 
-      var containerID = bkvQ(container);
-      var isContainerReactRoot = containerID && containerID === ReactInstanceHandles.getReactRootIDFromNodeID(containerID);
+function bnbB(container) {
+  var reactRootID = b53k(container);
+  if (reactRootID) {
+    reactRootID = ReactInstanceHandles.getReactRootIDFromNodeID(reactRootID);
+  }
+  if (!reactRootID) {
+    reactRootID = ReactInstanceHandles.createReactRootID();
+  }
+  b09y[reactRootID] = container;
+  return reactRootID;
+}
 
-      return false;
-    }
-    ReactUpdates.batchedUpdates(bKer, component, container);
-    delete b9XZ[reactRootID];
-    delete bEn0[reactRootID];
+function bzLY(container) {
+  'production' !== 'production' ? warning(ReactCurrentOwner.current == null, 'unmountComponentAtNode(): Render methods should be a pure function ' + 'of props and state; triggering nested component updates from render ' + 'is not allowed. If necessary, trigger nested updates in ' + 'componentDidUpdate. Check the render method of %s.', ReactCurrentOwner.current && ReactCurrentOwner.current.getName() || 'ReactCompositeComponent') : undefined;
 
-    return true;
-  },
+  !(container && (container.nodeType === bdE6 || container.nodeType === b93z || container.nodeType === bErv)) ? 'production' !== 'production' ? invariant(false, 'unmountComponentAtNode(...): Target container is not a DOM element.') : invariant(false) : undefined;
 
-  findReactContainerForID: function (id) {
-    var reactRootID = ReactInstanceHandles.getReactRootIDFromNodeID(id);
-    var container = bEn0[reactRootID];
+  var reactRootID = b53k(container);
+  var component = bL4G[reactRootID];
+  if (!component) {
+    var containerHasNonRootReactChild = blap(container);
 
-    return container;
-  },
+    var containerID = bqp7(container);
+    var isContainerReactRoot = containerID && containerID === ReactInstanceHandles.getReactRootIDFromNodeID(containerID);
 
-  findReactNodeByID: function (id) {
-    var reactRoot = ReactMount.findReactContainerForID(id);
-    return ReactMount.findComponentRoot(reactRoot, id);
-  },
+    return false;
+  }
+  ReactUpdates.batchedUpdates(bbN0, component, container);
+  delete bL4G[reactRootID];
+  delete b09y[reactRootID];
 
-  getFirstReactDOM: function (node) {
-    return bGVy(node);
-  },
+  return true;
+}
 
-  findComponentRoot: function (ancestorNode, targetID) {
-    var firstChildren = b7Pd;
-    var childIndex = 0;
+function bvAX(id) {
+  var reactRootID = ReactInstanceHandles.getReactRootIDFromNodeID(id);
+  var container = b09y[reactRootID];
 
-    var deepestAncestor = bx3V(targetID) || ancestorNode;
+  return container;
+}
 
-    firstChildren[0] = deepestAncestor.firstChild;
-    firstChildren.length = 1;
+function baVg(id) {
+  var reactRoot = ReactMount.findReactContainerForID(id);
+  return ReactMount.findComponentRoot(reactRoot, id);
+}
 
-    while (childIndex < firstChildren.length) {
-      var child = firstChildren[childIndex++];
-      var targetChild;
+function b2wx(node) {
+  return bVxG(node);
+}
 
-      while (child) {
-        var childID = ReactMount.getID(child);
-        if (childID) {
+function bere(ancestorNode, targetID) {
+  var firstChildren = b1Zp;
+  var childIndex = 0;
 
-          if (targetID === childID) {
-            targetChild = child;
-          } else if (ReactInstanceHandles.isAncestorIDOf(childID, targetID)) {
-            firstChildren.length = childIndex = 0;
-            firstChildren.push(child.firstChild);
-          }
-        } else {
+  var deepestAncestor = bKK1(targetID) || ancestorNode;
+
+  firstChildren[0] = deepestAncestor.firstChild;
+  firstChildren.length = 1;
+
+  while (childIndex < firstChildren.length) {
+    var child = firstChildren[childIndex++];
+    var targetChild;
+
+    while (child) {
+      var childID = ReactMount.getID(child);
+      if (childID) {
+
+        if (targetID === childID) {
+          targetChild = child;
+        } else if (ReactInstanceHandles.isAncestorIDOf(childID, targetID)) {
+          firstChildren.length = childIndex = 0;
           firstChildren.push(child.firstChild);
         }
-
-        child = child.nextSibling;
-      }
-
-      if (targetChild) {
-        firstChildren.length = 0;
-
-        return targetChild;
-      }
-    }
-
-    firstChildren.length = 0;
-
-    !false ? 'production' !== 'production' ? invariant(false, 'findComponentRoot(..., %s): Unable to find element. This probably ' + 'means the DOM was unexpectedly mutated (e.g., by the browser), ' + 'usually due to forgetting a <tbody> when using tables, nesting tags ' + 'like <form>, <p>, or <a>, or using non-SVG elements in an <svg> ' + 'parent. ' + 'Try inspecting the child nodes of the element with React ID `%s`.', targetID, ReactMount.getID(ancestorNode)) : invariant(false) : undefined;
-  },
-
-  _mountImageIntoNode: function (markup, container, shouldReuseMarkup, transaction) {
-    !(container && (container.nodeType === bO6g || container.nodeType === b8x6 || container.nodeType === bN0w)) ? 'production' !== 'production' ? invariant(false, 'mountComponentIntoNode(...): Target container is not valid.') : invariant(false) : undefined;
-
-    if (shouldReuseMarkup) {
-      var rootElement = b0Kg(container);
-      if (ReactMarkupChecksum.canReuseMarkup(markup, rootElement)) {
-        return;
       } else {
-        var checksum = rootElement.getAttribute(ReactMarkupChecksum.CHECKSUM_ATTR_NAME);
-        rootElement.removeAttribute(ReactMarkupChecksum.CHECKSUM_ATTR_NAME);
-
-        var rootMarkup = rootElement.outerHTML;
-        rootElement.setAttribute(ReactMarkupChecksum.CHECKSUM_ATTR_NAME, checksum);
-
-        var normalizedMarkup = markup;
-
-
-        var diffIndex = bLbO(normalizedMarkup, rootMarkup);
-        var difference = ' (client) ' + normalizedMarkup.substring(diffIndex - 20, diffIndex + 20) + '\n (server) ' + rootMarkup.substring(diffIndex - 20, diffIndex + 20);
-
-        !(container.nodeType !== b8x6) ? 'production' !== 'production' ? invariant(false, 'You\'re trying to render a component to the document using ' + 'server rendering but the checksum was invalid. This usually ' + 'means you rendered a different component type or props on ' + 'the client from the one on the server, or your render() ' + 'methods are impure. React cannot handle this case due to ' + 'cross-browser quirks by rendering at the document root. You ' + 'should look for environment dependent code in your components ' + 'and ensure the props are the same client and server side:\n%s', difference) : invariant(false) : undefined;
+        firstChildren.push(child.firstChild);
       }
+
+      child = child.nextSibling;
     }
 
-    !(container.nodeType !== b8x6) ? 'production' !== 'production' ? invariant(false, 'You\'re trying to render a component to the document but ' + 'you didn\'t use server rendering. We can\'t do this ' + 'without using server rendering due to cross-browser quirks. ' + 'See ReactDOMServer.renderToString() for server rendering.') : invariant(false) : undefined;
+    if (targetChild) {
+      firstChildren.length = 0;
 
-    if (transaction.useCreateElement) {
-      while (container.lastChild) {
-        container.removeChild(container.lastChild);
-      }
-      container.appendChild(markup);
+      return targetChild;
+    }
+  }
+
+  firstChildren.length = 0;
+
+  !false ? 'production' !== 'production' ? invariant(false, 'findComponentRoot(..., %s): Unable to find element. This probably ' + 'means the DOM was unexpectedly mutated (e.g., by the browser), ' + 'usually due to forgetting a <tbody> when using tables, nesting tags ' + 'like <form>, <p>, or <a>, or using non-SVG elements in an <svg> ' + 'parent. ' + 'Try inspecting the child nodes of the element with React ID `%s`.', targetID, ReactMount.getID(ancestorNode)) : invariant(false) : undefined;
+}
+
+function bBlK(markup, container, shouldReuseMarkup, transaction) {
+  !(container && (container.nodeType === bdE6 || container.nodeType === b93z || container.nodeType === bErv)) ? 'production' !== 'production' ? invariant(false, 'mountComponentIntoNode(...): Target container is not valid.') : invariant(false) : undefined;
+
+  if (shouldReuseMarkup) {
+    var rootElement = bkad(container);
+    if (ReactMarkupChecksum.canReuseMarkup(markup, rootElement)) {
+      return;
     } else {
-      setInnerHTML(container, markup);
+      var checksum = rootElement.getAttribute(ReactMarkupChecksum.CHECKSUM_ATTR_NAME);
+      rootElement.removeAttribute(ReactMarkupChecksum.CHECKSUM_ATTR_NAME);
+
+      var rootMarkup = rootElement.outerHTML;
+      rootElement.setAttribute(ReactMarkupChecksum.CHECKSUM_ATTR_NAME, checksum);
+
+      var normalizedMarkup = markup;
+
+
+      var diffIndex = bwpO(normalizedMarkup, rootMarkup);
+      var difference = ' (client) ' + normalizedMarkup.substring(diffIndex - 20, diffIndex + 20) + '\n (server) ' + rootMarkup.substring(diffIndex - 20, diffIndex + 20);
+
+      !(container.nodeType !== b93z) ? 'production' !== 'production' ? invariant(false, 'You\'re trying to render a component to the document using ' + 'server rendering but the checksum was invalid. This usually ' + 'means you rendered a different component type or props on ' + 'the client from the one on the server, or your render() ' + 'methods are impure. React cannot handle this case due to ' + 'cross-browser quirks by rendering at the document root. You ' + 'should look for environment dependent code in your components ' + 'and ensure the props are the same client and server side:\n%s', difference) : invariant(false) : undefined;
     }
-  },
+  }
 
-  ownerDocumentContextKey: bdJ9,
+  !(container.nodeType !== b93z) ? 'production' !== 'production' ? invariant(false, 'You\'re trying to render a component to the document but ' + 'you didn\'t use server rendering. We can\'t do this ' + 'without using server rendering due to cross-browser quirks. ' + 'See ReactDOMServer.renderToString() for server rendering.') : invariant(false) : undefined;
 
-  getReactRootID: b148,
+  if (transaction.useCreateElement) {
+    while (container.lastChild) {
+      container.removeChild(container.lastChild);
+    }
+    container.appendChild(markup);
+  } else {
+    setInnerHTML(container, markup);
+  }
+}
 
-  getID: bwL2,
+var ReactMount = {
 
-  setID: b5rZ,
+  TopLevelWrapper: bgJE,
 
-  getNode: bJbQ,
+  _instancesByReactRootID: bL4G,
 
-  getNodeFromInstance: bq8O,
+  scrollMonitor: bMGw,
+  _updateRootComponent: b6px,
+  _registerComponent: bZ4G,
+  _renderNewRootComponent: bAbK,
+  renderSubtreeIntoContainer: b39Y,
+  _renderSubtreeIntoContainer: bpVa,
+  render: bmGP,
+  registerContainer: bnbB,
+  unmountComponentAtNode: bzLY,
+  findReactContainerForID: bvAX,
+  findReactNodeByID: baVg,
+  getFirstReactDOM: b2wx,
+  findComponentRoot: bere,
+  _mountImageIntoNode: bBlK,
 
-  isValid: byEQ,
 
-  purgeID: br4x
+  ownerDocumentContextKey: b7dy,
+
+  getReactRootID: b53k,
+
+  getID: bJRd,
+
+  setID: bypg,
+
+  getNode: brB1,
+
+  getNodeFromInstance: bQg9,
+
+  isValid: bPVR,
+
+  purgeID: bxp0
 };
 
 ReactPerf.measureMethods(ReactMount, 'ReactMount', {
@@ -4833,39 +5062,39 @@ ReactPerf.measureMethods(ReactMount, 'ReactMount', {
 /**bandol> resource: node_modules/react/lib/EventPropagators.js */
 
 
-var b66P = EventConstants.PropagationPhases;
-var bZag = EventPluginHub.getListener;
+var b3dY = EventConstants.PropagationPhases;
+var bp8a = EventPluginHub.getListener;
 
-function bA7L(id, event, propagationPhase) {
+function bmaP(id, event, propagationPhase) {
   var registrationName = event.dispatchConfig.phasedRegistrationNames[propagationPhase];
-  return bZag(id, registrationName);
+  return bp8a(id, registrationName);
 }
 
-function b3Lg(domID, upwards, event) {
-  var phase = upwards ? b66P.bubbled : b66P.captured;
-  var listener = bA7L(domID, event, phase);
+function bn2B(domID, upwards, event) {
+  var phase = upwards ? b3dY.bubbled : b3dY.captured;
+  var listener = bmaP(domID, event, phase);
   if (listener) {
     event._dispatchListeners = accumulateInto(event._dispatchListeners, listener);
     event._dispatchIDs = accumulateInto(event._dispatchIDs, domID);
   }
 }
 
-function bplm(event) {
+function bzpY(event) {
   if (event && event.dispatchConfig.phasedRegistrationNames) {
-    EventPluginHub.injection.getInstanceHandle().traverseTwoPhase(event.dispatchMarker, b3Lg, event);
+    EventPluginHub.injection.getInstanceHandle().traverseTwoPhase(event.dispatchMarker, bn2B, event);
   }
 }
 
-function bm4x(event) {
+function bvpX(event) {
   if (event && event.dispatchConfig.phasedRegistrationNames) {
-    EventPluginHub.injection.getInstanceHandle().traverseTwoPhaseSkipTarget(event.dispatchMarker, b3Lg, event);
+    EventPluginHub.injection.getInstanceHandle().traverseTwoPhaseSkipTarget(event.dispatchMarker, bn2B, event);
   }
 }
 
-function bnkv(id, ignoredDirection, event) {
+function baag(id, ignoredDirection, event) {
   if (event && event.dispatchConfig.registrationName) {
     var registrationName = event.dispatchConfig.registrationName;
-    var listener = bZag(id, registrationName);
+    var listener = bp8a(id, registrationName);
     if (listener) {
       event._dispatchListeners = accumulateInto(event._dispatchListeners, listener);
       event._dispatchIDs = accumulateInto(event._dispatchIDs, id);
@@ -4873,78 +5102,87 @@ function bnkv(id, ignoredDirection, event) {
   }
 }
 
-function bzYE(event) {
+function b2dx(event) {
   if (event && event.dispatchConfig.registrationName) {
-    bnkv(event.dispatchMarker, null, event);
+    baag(event.dispatchMarker, null, event);
   }
 }
 
-function bvYV(events) {
-  forEachAccumulated(events, bplm);
+function beke(events) {
+  forEachAccumulated(events, bzpY);
 }
 
-function bapJ(events) {
-  forEachAccumulated(events, bm4x);
+function bBmK(events) {
+  forEachAccumulated(events, bvpX);
 }
 
-function b2aL(leave, enter, fromID, toID) {
-  EventPluginHub.injection.getInstanceHandle().traverseEnterLeave(fromID, toID, bnkv, leave, enter);
+function bYyl(leave, enter, fromID, toID) {
+  EventPluginHub.injection.getInstanceHandle().traverseEnterLeave(fromID, toID, baag, leave, enter);
 }
 
-function benn(events) {
-  forEachAccumulated(events, bzYE);
+function bOlw(events) {
+  forEachAccumulated(events, b2dx);
 }
 
 var EventPropagators = {
-  accumulateTwoPhaseDispatches: bvYV,
-  accumulateTwoPhaseDispatchesSkipTarget: bapJ,
-  accumulateDirectDispatches: benn,
-  accumulateEnterLeaveDispatches: b2aL
+  accumulateTwoPhaseDispatches: beke,
+  accumulateTwoPhaseDispatchesSkipTarget: bBmK,
+  accumulateDirectDispatches: bOlw,
+  accumulateEnterLeaveDispatches: bYyl
 };
 /**bandol> resource: node_modules/fbjs/lib/EventListener.js */
+function bVwG() {
+  target.removeEventListener(eventType, callback, false);
+}
+
+function bgmE() {
+  target.detachEvent('on' + eventType, callback);
+}
+
+function bMaw(target, eventType, callback) {
+  if (target.addEventListener) {
+    target.addEventListener(eventType, callback, false);
+    return {
+      remove: bVwG
+    };
+  } else if (target.attachEvent) {
+    target.attachEvent('on' + eventType, callback);
+    return {
+      remove: bgmE
+    };
+  }
+}
+
+function b6Kx() {
+  target.removeEventListener(eventType, callback, true);
+}
+
+function bZ7G(target, eventType, callback) {
+  if (target.addEventListener) {
+    target.addEventListener(eventType, callback, true);
+    return {
+      remove: b6Kx
+    };
+  } else {
+    return {
+      remove: emptyFunction
+    };
+  }
+}
+
+function bA3K() {}
 
 var EventListener = {
-  listen: function (target, eventType, callback) {
-    if (target.addEventListener) {
-      target.addEventListener(eventType, callback, false);
-      return {
-        remove: function () {
-          target.removeEventListener(eventType, callback, false);
-        }
-      };
-    } else if (target.attachEvent) {
-      target.attachEvent('on' + eventType, callback);
-      return {
-        remove: function () {
-          target.detachEvent('on' + eventType, callback);
-        }
-      };
-    }
-  },
-
-  capture: function (target, eventType, callback) {
-    if (target.addEventListener) {
-      target.addEventListener(eventType, callback, true);
-      return {
-        remove: function () {
-          target.removeEventListener(eventType, callback, true);
-        }
-      };
-    } else {
-      return {
-        remove: emptyFunction
-      };
-    }
-  },
-
-  registerDefault: function () {}
+  listen: bMaw,
+  capture: bZ7G,
+  registerDefault: bA3K
 };
 /**bandol> resource: node_modules/react/lib/SimpleEventPlugin.js */
 
 
-var bGay = EventConstants.topLevelTypes;
+var bPLR = EventConstants.topLevelTypes;
 
-var bbJz = {
+var bx40 = {
   abort: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onAbort: true }),
@@ -5290,204 +5528,209 @@ var bbJz = {
   }
 };
 
-var bl2g = {
-  topAbort: bbJz.abort,
-  topBlur: bbJz.blur,
-  topCanPlay: bbJz.canPlay,
-  topCanPlayThrough: bbJz.canPlayThrough,
-  topClick: bbJz.click,
-  topContextMenu: bbJz.contextMenu,
-  topCopy: bbJz.copy,
-  topCut: bbJz.cut,
-  topDoubleClick: bbJz.doubleClick,
-  topDrag: bbJz.drag,
-  topDragEnd: bbJz.dragEnd,
-  topDragEnter: bbJz.dragEnter,
-  topDragExit: bbJz.dragExit,
-  topDragLeave: bbJz.dragLeave,
-  topDragOver: bbJz.dragOver,
-  topDragStart: bbJz.dragStart,
-  topDrop: bbJz.drop,
-  topDurationChange: bbJz.durationChange,
-  topEmptied: bbJz.emptied,
-  topEncrypted: bbJz.encrypted,
-  topEnded: bbJz.ended,
-  topError: bbJz.error,
-  topFocus: bbJz.focus,
-  topInput: bbJz.input,
-  topKeyDown: bbJz.keyDown,
-  topKeyPress: bbJz.keyPress,
-  topKeyUp: bbJz.keyUp,
-  topLoad: bbJz.load,
-  topLoadedData: bbJz.loadedData,
-  topLoadedMetadata: bbJz.loadedMetadata,
-  topLoadStart: bbJz.loadStart,
-  topMouseDown: bbJz.mouseDown,
-  topMouseMove: bbJz.mouseMove,
-  topMouseOut: bbJz.mouseOut,
-  topMouseOver: bbJz.mouseOver,
-  topMouseUp: bbJz.mouseUp,
-  topPaste: bbJz.paste,
-  topPause: bbJz.pause,
-  topPlay: bbJz.play,
-  topPlaying: bbJz.playing,
-  topProgress: bbJz.progress,
-  topRateChange: bbJz.rateChange,
-  topReset: bbJz.reset,
-  topScroll: bbJz.scroll,
-  topSeeked: bbJz.seeked,
-  topSeeking: bbJz.seeking,
-  topStalled: bbJz.stalled,
-  topSubmit: bbJz.submit,
-  topSuspend: bbJz.suspend,
-  topTimeUpdate: bbJz.timeUpdate,
-  topTouchCancel: bbJz.touchCancel,
-  topTouchEnd: bbJz.touchEnd,
-  topTouchMove: bbJz.touchMove,
-  topTouchStart: bbJz.touchStart,
-  topVolumeChange: bbJz.volumeChange,
-  topWaiting: bbJz.waiting,
-  topWheel: bbJz.wheel
+var bXmN = {
+  topAbort: bx40.abort,
+  topBlur: bx40.blur,
+  topCanPlay: bx40.canPlay,
+  topCanPlayThrough: bx40.canPlayThrough,
+  topClick: bx40.click,
+  topContextMenu: bx40.contextMenu,
+  topCopy: bx40.copy,
+  topCut: bx40.cut,
+  topDoubleClick: bx40.doubleClick,
+  topDrag: bx40.drag,
+  topDragEnd: bx40.dragEnd,
+  topDragEnter: bx40.dragEnter,
+  topDragExit: bx40.dragExit,
+  topDragLeave: bx40.dragLeave,
+  topDragOver: bx40.dragOver,
+  topDragStart: bx40.dragStart,
+  topDrop: bx40.drop,
+  topDurationChange: bx40.durationChange,
+  topEmptied: bx40.emptied,
+  topEncrypted: bx40.encrypted,
+  topEnded: bx40.ended,
+  topError: bx40.error,
+  topFocus: bx40.focus,
+  topInput: bx40.input,
+  topKeyDown: bx40.keyDown,
+  topKeyPress: bx40.keyPress,
+  topKeyUp: bx40.keyUp,
+  topLoad: bx40.load,
+  topLoadedData: bx40.loadedData,
+  topLoadedMetadata: bx40.loadedMetadata,
+  topLoadStart: bx40.loadStart,
+  topMouseDown: bx40.mouseDown,
+  topMouseMove: bx40.mouseMove,
+  topMouseOut: bx40.mouseOut,
+  topMouseOver: bx40.mouseOver,
+  topMouseUp: bx40.mouseUp,
+  topPaste: bx40.paste,
+  topPause: bx40.pause,
+  topPlay: bx40.play,
+  topPlaying: bx40.playing,
+  topProgress: bx40.progress,
+  topRateChange: bx40.rateChange,
+  topReset: bx40.reset,
+  topScroll: bx40.scroll,
+  topSeeked: bx40.seeked,
+  topSeeking: bx40.seeking,
+  topStalled: bx40.stalled,
+  topSubmit: bx40.submit,
+  topSuspend: bx40.suspend,
+  topTimeUpdate: bx40.timeUpdate,
+  topTouchCancel: bx40.touchCancel,
+  topTouchEnd: bx40.touchEnd,
+  topTouchMove: bx40.touchMove,
+  topTouchStart: bx40.touchStart,
+  topVolumeChange: bx40.volumeChange,
+  topWaiting: bx40.waiting,
+  topWheel: bx40.wheel
 };
 
-for (var bVq8 in bl2g) {
-  bl2g[bVq8].dependencies = [bVq8];
+for (var bRaR in bXmN) {
+  bXmN[bRaR].dependencies = [bRaR];
 }
 
-var bg3K = keyOf({ onClick: null });
-var bMMZ = {};
+var bKw1 = keyOf({ onClick: null });
+var b4XN = {};
+
+function bG0l(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+  var dispatchConfig = bXmN[topLevelType];
+  if (!dispatchConfig) {
+    return null;
+  }
+  var EventConstructor;
+  switch (topLevelType) {
+    case bPLR.topAbort:
+    case bPLR.topCanPlay:
+    case bPLR.topCanPlayThrough:
+    case bPLR.topDurationChange:
+    case bPLR.topEmptied:
+    case bPLR.topEncrypted:
+    case bPLR.topEnded:
+    case bPLR.topError:
+    case bPLR.topInput:
+    case bPLR.topLoad:
+    case bPLR.topLoadedData:
+    case bPLR.topLoadedMetadata:
+    case bPLR.topLoadStart:
+    case bPLR.topPause:
+    case bPLR.topPlay:
+    case bPLR.topPlaying:
+    case bPLR.topProgress:
+    case bPLR.topRateChange:
+    case bPLR.topReset:
+    case bPLR.topSeeked:
+    case bPLR.topSeeking:
+    case bPLR.topStalled:
+    case bPLR.topSubmit:
+    case bPLR.topSuspend:
+    case bPLR.topTimeUpdate:
+    case bPLR.topVolumeChange:
+    case bPLR.topWaiting:
+      EventConstructor = SyntheticEvent;
+      break;
+    case bPLR.topKeyPress:
+      if (getEventCharCode(nativeEvent) === 0) {
+        return null;
+      }
+
+    case bPLR.topKeyDown:
+    case bPLR.topKeyUp:
+      EventConstructor = SyntheticKeyboardEvent;
+      break;
+    case bPLR.topBlur:
+    case bPLR.topFocus:
+      EventConstructor = SyntheticFocusEvent;
+      break;
+    case bPLR.topClick:
+      if (nativeEvent.button === 2) {
+        return null;
+      }
+
+    case bPLR.topContextMenu:
+    case bPLR.topDoubleClick:
+    case bPLR.topMouseDown:
+    case bPLR.topMouseMove:
+    case bPLR.topMouseOut:
+    case bPLR.topMouseOver:
+    case bPLR.topMouseUp:
+      EventConstructor = SyntheticMouseEvent;
+      break;
+    case bPLR.topDrag:
+    case bPLR.topDragEnd:
+    case bPLR.topDragEnter:
+    case bPLR.topDragExit:
+    case bPLR.topDragLeave:
+    case bPLR.topDragOver:
+    case bPLR.topDragStart:
+    case bPLR.topDrop:
+      EventConstructor = SyntheticDragEvent;
+      break;
+    case bPLR.topTouchCancel:
+    case bPLR.topTouchEnd:
+    case bPLR.topTouchMove:
+    case bPLR.topTouchStart:
+      EventConstructor = SyntheticTouchEvent;
+      break;
+    case bPLR.topScroll:
+      EventConstructor = SyntheticUIEvent;
+      break;
+    case bPLR.topWheel:
+      EventConstructor = SyntheticWheelEvent;
+      break;
+    case bPLR.topCopy:
+    case bPLR.topCut:
+    case bPLR.topPaste:
+      EventConstructor = SyntheticClipboardEvent;
+      break;
+  }
+  !EventConstructor ? 'production' !== 'production' ? invariant(false, 'SimpleEventPlugin: Unhandled event type, `%s`.', topLevelType) : invariant(false) : undefined;
+  var event = EventConstructor.getPooled(dispatchConfig, topLevelTargetID, nativeEvent, nativeEventTarget);
+  EventPropagators.accumulateTwoPhaseDispatches(event);
+  return event;
+}
+
+function bbm0(id, registrationName, listener) {
+  if (registrationName === bKw1) {
+    var node = ReactMount.getNode(id);
+    if (!b4XN[id]) {
+      b4XN[id] = EventListener.listen(node, 'click', emptyFunction);
+    }
+  }
+}
+
+function blLp(id, registrationName) {
+  if (registrationName === bKw1) {
+    b4XN[id].remove();
+    delete b4XN[id];
+  }
+}
 
 var SimpleEventPlugin = {
 
-  eventTypes: bbJz,
+  eventTypes: bx40,
 
-  extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-    var dispatchConfig = bl2g[topLevelType];
-    if (!dispatchConfig) {
-      return null;
-    }
-    var EventConstructor;
-    switch (topLevelType) {
-      case bGay.topAbort:
-      case bGay.topCanPlay:
-      case bGay.topCanPlayThrough:
-      case bGay.topDurationChange:
-      case bGay.topEmptied:
-      case bGay.topEncrypted:
-      case bGay.topEnded:
-      case bGay.topError:
-      case bGay.topInput:
-      case bGay.topLoad:
-      case bGay.topLoadedData:
-      case bGay.topLoadedMetadata:
-      case bGay.topLoadStart:
-      case bGay.topPause:
-      case bGay.topPlay:
-      case bGay.topPlaying:
-      case bGay.topProgress:
-      case bGay.topRateChange:
-      case bGay.topReset:
-      case bGay.topSeeked:
-      case bGay.topSeeking:
-      case bGay.topStalled:
-      case bGay.topSubmit:
-      case bGay.topSuspend:
-      case bGay.topTimeUpdate:
-      case bGay.topVolumeChange:
-      case bGay.topWaiting:
-        EventConstructor = SyntheticEvent;
-        break;
-      case bGay.topKeyPress:
-        if (getEventCharCode(nativeEvent) === 0) {
-          return null;
-        }
-
-      case bGay.topKeyDown:
-      case bGay.topKeyUp:
-        EventConstructor = SyntheticKeyboardEvent;
-        break;
-      case bGay.topBlur:
-      case bGay.topFocus:
-        EventConstructor = SyntheticFocusEvent;
-        break;
-      case bGay.topClick:
-        if (nativeEvent.button === 2) {
-          return null;
-        }
-
-      case bGay.topContextMenu:
-      case bGay.topDoubleClick:
-      case bGay.topMouseDown:
-      case bGay.topMouseMove:
-      case bGay.topMouseOut:
-      case bGay.topMouseOver:
-      case bGay.topMouseUp:
-        EventConstructor = SyntheticMouseEvent;
-        break;
-      case bGay.topDrag:
-      case bGay.topDragEnd:
-      case bGay.topDragEnter:
-      case bGay.topDragExit:
-      case bGay.topDragLeave:
-      case bGay.topDragOver:
-      case bGay.topDragStart:
-      case bGay.topDrop:
-        EventConstructor = SyntheticDragEvent;
-        break;
-      case bGay.topTouchCancel:
-      case bGay.topTouchEnd:
-      case bGay.topTouchMove:
-      case bGay.topTouchStart:
-        EventConstructor = SyntheticTouchEvent;
-        break;
-      case bGay.topScroll:
-        EventConstructor = SyntheticUIEvent;
-        break;
-      case bGay.topWheel:
-        EventConstructor = SyntheticWheelEvent;
-        break;
-      case bGay.topCopy:
-      case bGay.topCut:
-      case bGay.topPaste:
-        EventConstructor = SyntheticClipboardEvent;
-        break;
-    }
-    !EventConstructor ? 'production' !== 'production' ? invariant(false, 'SimpleEventPlugin: Unhandled event type, `%s`.', topLevelType) : invariant(false) : undefined;
-    var event = EventConstructor.getPooled(dispatchConfig, topLevelTargetID, nativeEvent, nativeEventTarget);
-    EventPropagators.accumulateTwoPhaseDispatches(event);
-    return event;
-  },
-
-  didPutListener: function (id, registrationName, listener) {
-    if (registrationName === bg3K) {
-      var node = ReactMount.getNode(id);
-      if (!bMMZ[id]) {
-        bMMZ[id] = EventListener.listen(node, 'click', emptyFunction);
-      }
-    }
-  },
-
-  willDeleteListener: function (id, registrationName) {
-    if (registrationName === bg3K) {
-      bMMZ[id].remove();
-      delete bMMZ[id];
-    }
-  }
-
+  extractEvents: bG0l,
+  didPutListener: bbm0,
+  willDeleteListener: blLp
 };
 /**bandol> resource: node_modules/react/lib/ServerReactRootIndex.js */
 
-var b4L3 = Math.pow(2, 53);
+var brQ1 = Math.pow(2, 53);
+
+function bQw9() {
+  return Math.ceil(Math.random() * brQ1);
+}
 
 var ServerReactRootIndex = {
-  createReactRootIndex: function () {
-    return Math.ceil(Math.random() * b4L3);
-  }
+  createReactRootIndex: bQw9
 };
 /**bandol> resource: node_modules/fbjs/lib/shallowEqual.js */
 
 
-var bK7r = Object.prototype.hasOwnProperty;
+var bVwX = Object.prototype.hasOwnProperty;
 
 function shallowEqual(objA, objB) {
   if (objA === objB) {
@@ -5505,7 +5748,7 @@ function shallowEqual(objA, objB) {
     return false;
   }
 
-  var bHasOwnProperty = bK7r.bind(objB);
+  var bHasOwnProperty = bVwX.bind(objB);
   for (var i = 0; i < keysA.length; i++) {
     if (!bHasOwnProperty(keysA[i]) || objA[keysA[i]] !== objB[keysA[i]]) {
       return false;
@@ -5516,7 +5759,7 @@ function shallowEqual(objA, objB) {
 }
 /**bandol> resource: node_modules/react/lib/isTextInputElement.js */
 
-var bR09 = {
+var blL7 = {
   'color': true,
   'date': true,
   'datetime': true,
@@ -5536,7 +5779,7 @@ var bR09 = {
 
 function isTextInputElement(elem) {
   var nodeName = elem && elem.nodeName && elem.nodeName.toLowerCase();
-  return nodeName && (nodeName === 'input' && bR09[elem.type] || nodeName === 'textarea');
+  return nodeName && (nodeName === 'input' && blL7[elem.type] || nodeName === 'textarea');
 }
 /**bandol> resource: node_modules/fbjs/lib/getActiveElement.js */
 
@@ -5561,24 +5804,24 @@ function focusNode(node) {
 /**bandol> resource: node_modules/react/lib/getTextContentAccessor.js */
 
 
-var bXz3 = null;
+var bbm4 = null;
 
 function getTextContentAccessor() {
-  if (!bXz3 && ExecutionEnvironment.canUseDOM) {
-    bXz3 = 'textContent' in document.documentElement ? 'textContent' : 'innerText';
+  if (!bbm4 && ExecutionEnvironment.canUseDOM) {
+    bbm4 = 'textContent' in document.documentElement ? 'textContent' : 'innerText';
   }
-  return bXz3;
+  return bbm4;
 }
 /**bandol> resource: node_modules/react/lib/getNodeForCharacterOffset.js */
 
-function bP75(node) {
+function b4Xq(node) {
   while (node && node.firstChild) {
     node = node.firstChild;
   }
   return node;
 }
 
-function bxvV(node) {
+function bG0G(node) {
   while (node) {
     if (node.nextSibling) {
       return node.nextSibling;
@@ -5588,7 +5831,7 @@ function bxvV(node) {
 }
 
 function getNodeForCharacterOffset(root, offset) {
-  var node = bP75(root);
+  var node = b4Xq(root);
   var nodeStart = 0;
   var nodeEnd = 0;
 
@@ -5606,16 +5849,16 @@ function getNodeForCharacterOffset(root, offset) {
       nodeStart = nodeEnd;
     }
 
-    node = bP75(bxvV(node));
+    node = b4Xq(bG0G(node));
   }
 }
 /**bandol> resource: node_modules/react/lib/ReactDOMSelection.js */
 
-function bGa8(anchorNode, anchorOffset, focusNode, focusOffset) {
+function bQwb(anchorNode, anchorOffset, focusNode, focusOffset) {
   return anchorNode === focusNode && anchorOffset === focusOffset;
 }
 
-function bbJX(node) {
+function bPLN(node) {
   var selection = document.selection;
   var selectedRange = selection.createRange();
   var selectedLength = selectedRange.text.length;
@@ -5633,7 +5876,7 @@ function bbJX(node) {
   };
 }
 
-function bl2J(node) {
+function bx46(node) {
   var selection = window.getSelection && window.getSelection();
 
   if (!selection || selection.rangeCount === 0) {
@@ -5654,7 +5897,7 @@ function bl2J(node) {
     return null;
   }
 
-  var isSelectionCollapsed = bGa8(selection.anchorNode, selection.anchorOffset, selection.focusNode, selection.focusOffset);
+  var isSelectionCollapsed = bQwb(selection.anchorNode, selection.anchorOffset, selection.focusNode, selection.focusOffset);
 
   var rangeLength = isSelectionCollapsed ? 0 : currentRange.toString().length;
 
@@ -5662,7 +5905,7 @@ function bl2J(node) {
   tempRange.selectNodeContents(node);
   tempRange.setEnd(currentRange.startContainer, currentRange.startOffset);
 
-  var isTempRangeCollapsed = bGa8(tempRange.startContainer, tempRange.startOffset, tempRange.endContainer, tempRange.endOffset);
+  var isTempRangeCollapsed = bQwb(tempRange.startContainer, tempRange.startOffset, tempRange.endContainer, tempRange.endOffset);
 
   var start = isTempRangeCollapsed ? 0 : tempRange.toString().length;
   var end = start + rangeLength;
@@ -5678,7 +5921,7 @@ function bl2J(node) {
   };
 }
 
-function bVqg(node, offsets) {
+function bXmk(node, offsets) {
   var range = document.selection.createRange().duplicate();
   var start, end;
 
@@ -5700,7 +5943,7 @@ function bVqg(node, offsets) {
   range.select();
 }
 
-function brKx(node, offsets) {
+function bRab(node, offsets) {
   if (!window.getSelection) {
     return;
   }
@@ -5734,118 +5977,123 @@ function brKx(node, offsets) {
   }
 }
 
-var bQRd = ExecutionEnvironment.canUseDOM && 'selection' in document && !('getSelection' in window);
+var bKwY = ExecutionEnvironment.canUseDOM && 'selection' in document && !('getSelection' in window);
 
 var ReactDOMSelection = {
-  getOffsets: bQRd ? bbJX : bl2J,
+  getOffsets: bKwY ? bPLN : bx46,
 
-  setOffsets: bQRd ? bVqg : brKx
+  setOffsets: bKwY ? bXmk : bRab
 };
 /**bandol> resource: node_modules/react/lib/ReactInputSelection.js */
 
 
-function b4Lx(node) {
+function bkJL(node) {
   return containsNode(document.documentElement, node);
 }
 
-var ReactInputSelection = {
+function b5RB(elem) {
+  var nodeName = elem && elem.nodeName && elem.nodeName.toLowerCase();
+  return nodeName && (nodeName === 'input' && elem.type === 'text' || nodeName === 'textarea' || elem.contentEditable === 'true');
+}
 
-  hasSelectionCapabilities: function (elem) {
-    var nodeName = elem && elem.nodeName && elem.nodeName.toLowerCase();
-    return nodeName && (nodeName === 'input' && elem.type === 'text' || nodeName === 'textarea' || elem.contentEditable === 'true');
-  },
+function bJqq() {
+  var focusedElem = getActiveElement();
+  return {
+    focusedElem: focusedElem,
+    selectionRange: ReactInputSelection.hasSelectionCapabilities(focusedElem) ? ReactInputSelection.getSelection(focusedElem) : null
+  };
+}
 
-  getSelectionInformation: function () {
-    var focusedElem = getActiveElement();
-    return {
-      focusedElem: focusedElem,
-      selectionRange: ReactInputSelection.hasSelectionCapabilities(focusedElem) ? ReactInputSelection.getSelection(focusedElem) : null
-    };
-  },
-
-  restoreSelection: function (priorSelectionInformation) {
-    var curFocusedElem = getActiveElement();
-    var priorFocusedElem = priorSelectionInformation.focusedElem;
-    var priorSelectionRange = priorSelectionInformation.selectionRange;
-    if (curFocusedElem !== priorFocusedElem && b4Lx(priorFocusedElem)) {
-      if (ReactInputSelection.hasSelectionCapabilities(priorFocusedElem)) {
-        ReactInputSelection.setSelection(priorFocusedElem, priorSelectionRange);
-      }
-      focusNode(priorFocusedElem);
+function bqrp(priorSelectionInformation) {
+  var curFocusedElem = getActiveElement();
+  var priorFocusedElem = priorSelectionInformation.focusedElem;
+  var priorSelectionRange = priorSelectionInformation.selectionRange;
+  if (curFocusedElem !== priorFocusedElem && bkJL(priorFocusedElem)) {
+    if (ReactInputSelection.hasSelectionCapabilities(priorFocusedElem)) {
+      ReactInputSelection.setSelection(priorFocusedElem, priorSelectionRange);
     }
-  },
-
-  getSelection: function (input) {
-    var selection;
-
-    if ('selectionStart' in input) {
-      selection = {
-        start: input.selectionStart,
-        end: input.selectionEnd
-      };
-    } else if (document.selection && input.nodeName && input.nodeName.toLowerCase() === 'input') {
-      var range = document.selection.createRange();
-
-      if (range.parentElement() === input) {
-        selection = {
-          start: -range.moveStart('character', -input.value.length),
-          end: -range.moveEnd('character', -input.value.length)
-        };
-      }
-    } else {
-      selection = ReactDOMSelection.getOffsets(input);
-    }
-
-    return selection || { start: 0, end: 0 };
-  },
-
-  setSelection: function (input, offsets) {
-    var start = offsets.start;
-    var end = offsets.end;
-    if (typeof end === 'undefined') {
-      end = start;
-    }
-
-    if ('selectionStart' in input) {
-      input.selectionStart = start;
-      input.selectionEnd = Math.min(end, input.value.length);
-    } else if (document.selection && input.nodeName && input.nodeName.toLowerCase() === 'input') {
-      var range = input.createTextRange();
-      range.collapse(true);
-      range.moveStart('character', start);
-      range.moveEnd('character', end - start);
-      range.select();
-    } else {
-      ReactDOMSelection.setOffsets(input, offsets);
-    }
+    focusNode(priorFocusedElem);
   }
+}
+
+function byGN(input) {
+  var selection;
+
+  if ('selectionStart' in input) {
+    selection = {
+      start: input.selectionStart,
+      end: input.selectionEnd
+    };
+  } else if (document.selection && input.nodeName && input.nodeName.toLowerCase() === 'input') {
+    var range = document.selection.createRange();
+
+    if (range.parentElement() === input) {
+      selection = {
+        start: -range.moveStart('character', -input.value.length),
+        end: -range.moveEnd('character', -input.value.length)
+      };
+    }
+  } else {
+    selection = ReactDOMSelection.getOffsets(input);
+  }
+
+  return selection || { start: 0, end: 0 };
+}
+
+function brQ6(input, offsets) {
+  var start = offsets.start;
+  var end = offsets.end;
+  if (typeof end === 'undefined') {
+    end = start;
+  }
+
+  if ('selectionStart' in input) {
+    input.selectionStart = start;
+    input.selectionEnd = Math.min(end, input.value.length);
+  } else if (document.selection && input.nodeName && input.nodeName.toLowerCase() === 'input') {
+    var range = input.createTextRange();
+    range.collapse(true);
+    range.moveStart('character', start);
+    range.moveEnd('character', end - start);
+    range.select();
+  } else {
+    ReactDOMSelection.setOffsets(input, offsets);
+  }
+}
+
+var ReactInputSelection = {
+  hasSelectionCapabilities: b5RB,
+  getSelectionInformation: bJqq,
+  restoreSelection: bqrp,
+  getSelection: byGN,
+  setSelection: brQ6
 };
 /**bandol> resource: node_modules/react/lib/SelectEventPlugin.js */
 
 
-var b5LK = EventConstants.topLevelTypes;
+var bBOZ = EventConstants.topLevelTypes;
 
-var bJ0z = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
+var bYJK = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
-var bqlJ = {
+var bOax = {
   select: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onSelect: null }),
       captured: keyOf({ onSelectCapture: null })
     },
-    dependencies: [b5LK.topBlur, b5LK.topContextMenu, b5LK.topFocus, b5LK.topKeyDown, b5LK.topMouseDown, b5LK.topMouseUp, b5LK.topSelectionChange]
+    dependencies: [bBOZ.topBlur, bBOZ.topContextMenu, bBOZ.topFocus, bBOZ.topKeyDown, bBOZ.topMouseDown, bBOZ.topMouseUp, bBOZ.topSelectionChange]
   }
 };
 
-var byyb = null;
-var brKl = null;
-var bQRw = null;
-var bP7V = false;
+var b8GA = null;
+var bNqM = null;
+var bdAz = null;
+var b9ba = false;
 
-var bxvA = false;
-var bXzy = keyOf({ onSelect: null });
+var bE0n = false;
+var b74Q = keyOf({ onSelect: null });
 
-function bR0l(node) {
+function bLyV(node) {
   if ('selectionStart' in node && ReactInputSelection.hasSelectionCapabilities(node)) {
     return {
       start: node.selectionStart,
@@ -5870,19 +6118,19 @@ function bR0l(node) {
   }
 }
 
-function bK7N(nativeEvent, nativeEventTarget) {
-  if (bP7V || byyb == null || byyb !== getActiveElement()) {
+function b0rQ(nativeEvent, nativeEventTarget) {
+  if (b9ba || b8GA == null || b8GA !== getActiveElement()) {
     return null;
   }
 
-  var currentSelection = bR0l(byyb);
-  if (!bQRw || !shallowEqual(bQRw, currentSelection)) {
-    bQRw = currentSelection;
+  var currentSelection = bLyV(b8GA);
+  if (!bdAz || !shallowEqual(bdAz, currentSelection)) {
+    bdAz = currentSelection;
 
-    var syntheticEvent = SyntheticEvent.getPooled(bqlJ.select, brKl, nativeEvent, nativeEventTarget);
+    var syntheticEvent = SyntheticEvent.getPooled(bOax.select, bNqM, nativeEvent, nativeEventTarget);
 
     syntheticEvent.type = 'select';
-    syntheticEvent.target = byyb;
+    syntheticEvent.target = b8GA;
 
     EventPropagators.accumulateTwoPhaseDispatches(syntheticEvent);
 
@@ -5892,87 +6140,96 @@ function bK7N(nativeEvent, nativeEventTarget) {
   return null;
 }
 
+function b1Q3(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+  if (!bE0n) {
+    return null;
+  }
+
+  switch (topLevelType) {
+    case bBOZ.topFocus:
+      if (isTextInputElement(topLevelTarget) || topLevelTarget.contentEditable === 'true') {
+        b8GA = topLevelTarget;
+        bNqM = topLevelTargetID;
+        bdAz = null;
+      }
+      break;
+    case bBOZ.topBlur:
+      b8GA = null;
+      bNqM = null;
+      bdAz = null;
+      break;
+
+    case bBOZ.topMouseDown:
+      b9ba = true;
+      break;
+    case bBOZ.topContextMenu:
+    case bBOZ.topMouseUp:
+      b9ba = false;
+      return b0rQ(nativeEvent, nativeEventTarget);
+
+    case bBOZ.topSelectionChange:
+      if (bYJK) {
+        break;
+      }
+
+    case bBOZ.topKeyDown:
+    case bBOZ.topKeyUp:
+      return b0rQ(nativeEvent, nativeEventTarget);
+  }
+
+  return null;
+}
+
+function bwKE(id, registrationName, listener) {
+  if (registrationName === b74Q) {
+    bE0n = true;
+  }
+}
+
 var SelectEventPlugin = {
 
-  eventTypes: bqlJ,
+  eventTypes: bOax,
 
-  extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-    if (!bxvA) {
-      return null;
-    }
-
-    switch (topLevelType) {
-      case b5LK.topFocus:
-        if (isTextInputElement(topLevelTarget) || topLevelTarget.contentEditable === 'true') {
-          byyb = topLevelTarget;
-          brKl = topLevelTargetID;
-          bQRw = null;
-        }
-        break;
-      case b5LK.topBlur:
-        byyb = null;
-        brKl = null;
-        bQRw = null;
-        break;
-
-      case b5LK.topMouseDown:
-        bP7V = true;
-        break;
-      case b5LK.topContextMenu:
-      case b5LK.topMouseUp:
-        bP7V = false;
-        return bK7N(nativeEvent, nativeEventTarget);
-
-      case b5LK.topSelectionChange:
-        if (bJ0z) {
-          break;
-        }
-
-      case b5LK.topKeyDown:
-      case b5LK.topKeyUp:
-        return bK7N(nativeEvent, nativeEventTarget);
-    }
-
-    return null;
-  },
-
-  didPutListener: function (id, registrationName, listener) {
-    if (registrationName === bXzy) {
-      bxvA = true;
-    }
-  }
+  extractEvents: b1Q3,
+  didPutListener: bwKE
 };
 /**bandol> resource: node_modules/react/lib/ReactReconcileTransaction.js */
 
-var bLwq = {
+var b6Yb = {
   initialize: ReactInputSelection.getSelectionInformation,
 
   close: ReactInputSelection.restoreSelection
 };
 
-var b088 = {
-  initialize: function () {
-    var currentlyEnabled = ReactBrowserEventEmitter.isEnabled();
-    ReactBrowserEventEmitter.setEnabled(false);
-    return currentlyEnabled;
-  },
+function bZJ2() {
+  var currentlyEnabled = ReactBrowserEventEmitter.isEnabled();
+  ReactBrowserEventEmitter.setEnabled(false);
+  return currentlyEnabled;
+}
 
-  close: function (previouslyEnabled) {
-    ReactBrowserEventEmitter.setEnabled(previouslyEnabled);
-  }
+function bAZ4(previouslyEnabled) {
+  ReactBrowserEventEmitter.setEnabled(previouslyEnabled);
+}
+
+var b304 = {
+  initialize: bZJ2,
+  close: bAZ4
 };
 
-var b194 = {
-  initialize: function () {
-    this.reactMountReady.reset();
-  },
+function bpGA() {
+  this.reactMountReady.reset();
+}
 
-  close: function () {
-    this.reactMountReady.notifyAll();
-  }
+function bmR3() {
+  this.reactMountReady.notifyAll();
+}
+
+var bnKM = {
+  initialize: bpGA,
+  close: bmR3
 };
 
-var bwVR = [bLwq, b088, b194];
+var bzZa = [b6Yb, b304, bnKM];
 
 function ReactReconcileTransaction(forceHTML) {
   this.reinitializeTransaction();
@@ -5982,22 +6239,26 @@ function ReactReconcileTransaction(forceHTML) {
   this.useCreateElement = !forceHTML && ReactDOMFeatureFlags.useCreateElement;
 }
 
-var bk29 = {
-  getTransactionWrappers: function () {
-    return bwVR;
-  },
+function bvZO() {
+  return bzZa;
+}
 
-  getReactMountReady: function () {
-    return this.reactMountReady;
-  },
+function ba1m() {
+  return this.reactMountReady;
+}
 
-  destructor: function () {
-    CallbackQueue.release(this.reactMountReady);
-    this.reactMountReady = null;
-  }
+function b2Bn() {
+  CallbackQueue.release(this.reactMountReady);
+  this.reactMountReady = null;
+}
+
+var beLz = {
+  getTransactionWrappers: bvZO,
+  getReactMountReady: ba1m,
+  destructor: b2Bn
 };
 
-assign(ReactReconcileTransaction.prototype, Transaction.Mixin, bk29);
+assign(ReactReconcileTransaction.prototype, Transaction.Mixin, beLz);
 
 PooledClass.addPoolingTo(ReactReconcileTransaction);
 /**bandol> resource: node_modules/react/lib/ReactInjection.js */
@@ -6032,9 +6293,9 @@ function getUnboundedScrollPosition(scrollable) {
 /**bandol> resource: node_modules/react/lib/ReactEventListener.js */
 
 
-var bOLb = 11;
+var by3N = 11;
 
-function b853(node) {
+function brl6(node) {
   var nodeID = ReactMount.getID(node);
   var rootID = ReactInstanceHandles.getReactRootIDFromNodeID(nodeID);
   var container = ReactMount.findReactContainerForID(rootID);
@@ -6042,33 +6303,36 @@ function b853(node) {
   return parent;
 }
 
-function bNvy(topLevelType, nativeEvent) {
+function bQJb(topLevelType, nativeEvent) {
   this.topLevelType = topLevelType;
   this.nativeEvent = nativeEvent;
   this.ancestors = [];
 }
-assign(bNvy.prototype, {
-  destructor: function () {
-    this.topLevelType = null;
-    this.nativeEvent = null;
-    this.ancestors.length = 0;
-  }
-});
-PooledClass.addPoolingTo(bNvy, PooledClass.twoArgumentPooler);
 
-function bdzO(bookKeeping) {
-
-  void bEZz;
-  b9an(bookKeeping);
+function bPJN() {
+  this.topLevelType = null;
+  this.nativeEvent = null;
+  this.ancestors.length = 0;
 }
 
-function b9an(bookKeeping) {
+assign(bQJb.prototype, {
+  destructor: bPJN
+});
+PooledClass.addPoolingTo(bQJb, PooledClass.twoArgumentPooler);
+
+function bx96(bookKeeping) {
+
+  void bRJb;
+  bXJk(bookKeeping);
+}
+
+function bXJk(bookKeeping) {
   var topLevelTarget = ReactMount.getFirstReactDOM(getEventTarget(bookKeeping.nativeEvent)) || window;
 
   var ancestor = topLevelTarget;
   while (ancestor) {
     bookKeeping.ancestors.push(ancestor);
-    ancestor = b853(ancestor);
+    ancestor = brl6(ancestor);
   }
 
   for (var i = 0; i < bookKeeping.ancestors.length; i++) {
@@ -6078,13 +6342,13 @@ function b9an(bookKeeping) {
   }
 }
 
-function bEZz(bookKeeping) {
+function bRJb(bookKeeping) {
   var path = bookKeeping.nativeEvent.path;
   var currentNativeTarget = path[0];
   var eventsFired = 0;
   for (var i = 0; i < path.length; i++) {
     var currentPathElement = path[i];
-    if (currentPathElement.nodeType === bOLb) {
+    if (currentPathElement.nodeType === by3N) {
       currentNativeTarget = path[i + 1];
     }
 
@@ -6110,9 +6374,55 @@ function bEZz(bookKeeping) {
   }
 }
 
-function b7ma(cb) {
+function bKAY(cb) {
   var scrollPosition = getUnboundedScrollPosition(window);
   cb(scrollPosition);
+}
+
+function b49q(handleTopLevel) {
+  ReactEventListener._handleTopLevel = handleTopLevel;
+}
+
+function bG3G(enabled) {
+  ReactEventListener._enabled = !!enabled;
+}
+
+function bbL4() {
+  return ReactEventListener._enabled;
+}
+
+function blX7(topLevelType, handlerBaseName, handle) {
+  var element = handle;
+  if (!element) {
+    return null;
+  }
+  return EventListener.listen(element, handlerBaseName, ReactEventListener.dispatchEvent.bind(null, topLevelType));
+}
+
+function bVJX(topLevelType, handlerBaseName, handle) {
+  var element = handle;
+  if (!element) {
+    return null;
+  }
+  return EventListener.capture(element, handlerBaseName, ReactEventListener.dispatchEvent.bind(null, topLevelType));
+}
+
+function bgL1(refresh) {
+  var callback = bKAY.bind(null, refresh);
+  EventListener.listen(window, 'scroll', callback);
+}
+
+function bM09(topLevelType, nativeEvent) {
+  if (!ReactEventListener._enabled) {
+    return;
+  }
+
+  var bookKeeping = bQJb.getPooled(topLevelType, nativeEvent);
+  try {
+    ReactUpdates.batchedUpdates(bx96, bookKeeping);
+  } finally {
+    bQJb.release(bookKeeping);
+  }
 }
 
 var ReactEventListener = {
@@ -6121,56 +6431,18 @@ var ReactEventListener = {
 
   WINDOW_HANDLE: ExecutionEnvironment.canUseDOM ? window : null,
 
-  setHandleTopLevel: function (handleTopLevel) {
-    ReactEventListener._handleTopLevel = handleTopLevel;
-  },
-
-  setEnabled: function (enabled) {
-    ReactEventListener._enabled = !!enabled;
-  },
-
-  isEnabled: function () {
-    return ReactEventListener._enabled;
-  },
-
-  trapBubbledEvent: function (topLevelType, handlerBaseName, handle) {
-    var element = handle;
-    if (!element) {
-      return null;
-    }
-    return EventListener.listen(element, handlerBaseName, ReactEventListener.dispatchEvent.bind(null, topLevelType));
-  },
-
-  trapCapturedEvent: function (topLevelType, handlerBaseName, handle) {
-    var element = handle;
-    if (!element) {
-      return null;
-    }
-    return EventListener.capture(element, handlerBaseName, ReactEventListener.dispatchEvent.bind(null, topLevelType));
-  },
-
-  monitorScrollValue: function (refresh) {
-    var callback = b7ma.bind(null, refresh);
-    EventListener.listen(window, 'scroll', callback);
-  },
-
-  dispatchEvent: function (topLevelType, nativeEvent) {
-    if (!ReactEventListener._enabled) {
-      return;
-    }
-
-    var bookKeeping = bNvy.getPooled(topLevelType, nativeEvent);
-    try {
-      ReactUpdates.batchedUpdates(bdzO, bookKeeping);
-    } finally {
-      bNvy.release(bookKeeping);
-    }
-  }
+  setHandleTopLevel: b49q,
+  setEnabled: bG3G,
+  isEnabled: bbL4,
+  trapBubbledEvent: blX7,
+  trapCapturedEvent: bVJX,
+  monitorScrollValue: bgL1,
+  dispatchEvent: bM09
 };
 /**bandol> resource: node_modules/react/lib/escapeTextContentForBrowser.js */
 
 
-var be9P = {
+var b5BB = {
   '&': '&amp;',
   '>': '&gt;',
   '<': '&lt;',
@@ -6178,14 +6450,14 @@ var be9P = {
   '\'': '&#x27;'
 };
 
-var bBQ6 = /[&><"']/g;
+var bJnq = /[&><"']/g;
 
-function bY3V(match) {
-  return be9P[match];
+function bqbp(match) {
+  return b5BB[match];
 }
 
 function escapeTextContentForBrowser(text) {
-  return ('' + text).replace(bBQ6, bY3V);
+  return ('' + text).replace(bJnq, bqbp);
 }
 /**bandol> resource: node_modules/react/lib/setTextContent.js */
 
@@ -6207,128 +6479,135 @@ function quoteAttributeValueForBrowser(value) {
 }
 /**bandol> resource: node_modules/react/lib/DOMPropertyOperations.js */
 
-var bnGw = /^[a-zA-Z_][\w\.\-]*$/;
-var bzk5 = {};
-var bv3v = {};
+var bOwx = /^[a-zA-Z_][\w\.\-]*$/;
+var b8eA = {};
+var bN7M = {};
 
-function baJR(attributeName) {
-  if (bv3v.hasOwnProperty(attributeName)) {
+function bdLz(attributeName) {
+  if (bN7M.hasOwnProperty(attributeName)) {
     return true;
   }
-  if (bzk5.hasOwnProperty(attributeName)) {
+  if (b8eA.hasOwnProperty(attributeName)) {
     return false;
   }
-  if (bnGw.test(attributeName)) {
-    bv3v[attributeName] = true;
+  if (bOwx.test(attributeName)) {
+    bN7M[attributeName] = true;
     return true;
   }
-  bzk5[attributeName] = true;
+  b8eA[attributeName] = true;
   'production' !== 'production' ? warning(false, 'Invalid attribute name: `%s`', attributeName) : undefined;
   return false;
 }
 
-function b2A1(propertyInfo, value) {
+function b9Za(propertyInfo, value) {
   return value == null || propertyInfo.hasBooleanValue && !value || propertyInfo.hasNumericValue && isNaN(value) || propertyInfo.hasPositiveNumericValue && value < 1 || propertyInfo.hasOverloadedBooleanValue && value === false;
 }
 
-var DOMPropertyOperations = {
-  createMarkupForID: function (id) {
-    return DOMProperty.ID_ATTRIBUTE_NAME + '=' + quoteAttributeValueForBrowser(id);
-  },
+function bEAn(id) {
+  return DOMProperty.ID_ATTRIBUTE_NAME + '=' + quoteAttributeValueForBrowser(id);
+}
 
-  setAttributeForID: function (node, id) {
-    node.setAttribute(DOMProperty.ID_ATTRIBUTE_NAME, id);
-  },
+function b79Q(node, id) {
+  node.setAttribute(DOMProperty.ID_ATTRIBUTE_NAME, id);
+}
 
-  createMarkupForProperty: function (name, value) {
-    var propertyInfo = DOMProperty.properties.hasOwnProperty(name) ? DOMProperty.properties[name] : null;
-    if (propertyInfo) {
-      if (b2A1(propertyInfo, value)) {
-        return '';
-      }
-      var attributeName = propertyInfo.attributeName;
-      if (propertyInfo.hasBooleanValue || propertyInfo.hasOverloadedBooleanValue && value === true) {
-        return attributeName + '=""';
-      }
-      return attributeName + '=' + quoteAttributeValueForBrowser(value);
-    } else if (DOMProperty.isCustomAttribute(name)) {
-      if (value == null) {
-        return '';
-      }
-      return name + '=' + quoteAttributeValueForBrowser(value);
+function bLAV(name, value) {
+  var propertyInfo = DOMProperty.properties.hasOwnProperty(name) ? DOMProperty.properties[name] : null;
+  if (propertyInfo) {
+    if (b9Za(propertyInfo, value)) {
+      return '';
     }
-    return null;
-  },
-
-  createMarkupForCustomAttribute: function (name, value) {
-    if (!baJR(name) || value == null) {
+    var attributeName = propertyInfo.attributeName;
+    if (propertyInfo.hasBooleanValue || propertyInfo.hasOverloadedBooleanValue && value === true) {
+      return attributeName + '=""';
+    }
+    return attributeName + '=' + quoteAttributeValueForBrowser(value);
+  } else if (DOMProperty.isCustomAttribute(name)) {
+    if (value == null) {
       return '';
     }
     return name + '=' + quoteAttributeValueForBrowser(value);
-  },
-
-  setValueForProperty: function (node, name, value) {
-    var propertyInfo = DOMProperty.properties.hasOwnProperty(name) ? DOMProperty.properties[name] : null;
-    if (propertyInfo) {
-      var mutationMethod = propertyInfo.mutationMethod;
-      if (mutationMethod) {
-        mutationMethod(node, value);
-      } else if (b2A1(propertyInfo, value)) {
-        this.deleteValueForProperty(node, name);
-      } else if (propertyInfo.mustUseAttribute) {
-        var attributeName = propertyInfo.attributeName;
-        var namespace = propertyInfo.attributeNamespace;
-
-        if (namespace) {
-          node.setAttributeNS(namespace, attributeName, '' + value);
-        } else if (propertyInfo.hasBooleanValue || propertyInfo.hasOverloadedBooleanValue && value === true) {
-          node.setAttribute(attributeName, '');
-        } else {
-          node.setAttribute(attributeName, '' + value);
-        }
-      } else {
-        var propName = propertyInfo.propertyName;
-
-        if (!propertyInfo.hasSideEffects || '' + node[propName] !== '' + value) {
-          node[propName] = value;
-        }
-      }
-    } else if (DOMProperty.isCustomAttribute(name)) {
-      DOMPropertyOperations.setValueForAttribute(node, name, value);
-    }
-  },
-
-  setValueForAttribute: function (node, name, value) {
-    if (!baJR(name)) {
-      return;
-    }
-    if (value == null) {
-      node.removeAttribute(name);
-    } else {
-      node.setAttribute(name, '' + value);
-    }
-  },
-
-  deleteValueForProperty: function (node, name) {
-    var propertyInfo = DOMProperty.properties.hasOwnProperty(name) ? DOMProperty.properties[name] : null;
-    if (propertyInfo) {
-      var mutationMethod = propertyInfo.mutationMethod;
-      if (mutationMethod) {
-        mutationMethod(node, undefined);
-      } else if (propertyInfo.mustUseAttribute) {
-        node.removeAttribute(propertyInfo.attributeName);
-      } else {
-        var propName = propertyInfo.propertyName;
-        var defaultValue = DOMProperty.getDefaultValueForProperty(node.nodeName, propName);
-        if (!propertyInfo.hasSideEffects || '' + node[propName] !== defaultValue) {
-          node[propName] = defaultValue;
-        }
-      }
-    } else if (DOMProperty.isCustomAttribute(name)) {
-      node.removeAttribute(name);
-    }
   }
+  return null;
+}
 
+function b0LQ(name, value) {
+  if (!bdLz(name) || value == null) {
+    return '';
+  }
+  return name + '=' + quoteAttributeValueForBrowser(value);
+}
+
+function b1B3(node, name, value) {
+  var propertyInfo = DOMProperty.properties.hasOwnProperty(name) ? DOMProperty.properties[name] : null;
+  if (propertyInfo) {
+    var mutationMethod = propertyInfo.mutationMethod;
+    if (mutationMethod) {
+      mutationMethod(node, value);
+    } else if (b9Za(propertyInfo, value)) {
+      this.deleteValueForProperty(node, name);
+    } else if (propertyInfo.mustUseAttribute) {
+      var attributeName = propertyInfo.attributeName;
+      var namespace = propertyInfo.attributeNamespace;
+
+      if (namespace) {
+        node.setAttributeNS(namespace, attributeName, '' + value);
+      } else if (propertyInfo.hasBooleanValue || propertyInfo.hasOverloadedBooleanValue && value === true) {
+        node.setAttribute(attributeName, '');
+      } else {
+        node.setAttribute(attributeName, '' + value);
+      }
+    } else {
+      var propName = propertyInfo.propertyName;
+
+      if (!propertyInfo.hasSideEffects || '' + node[propName] !== '' + value) {
+        node[propName] = value;
+      }
+    }
+  } else if (DOMProperty.isCustomAttribute(name)) {
+    DOMPropertyOperations.setValueForAttribute(node, name, value);
+  }
+}
+
+function bwZE(node, name, value) {
+  if (!bdLz(name)) {
+    return;
+  }
+  if (value == null) {
+    node.removeAttribute(name);
+  } else {
+    node.setAttribute(name, '' + value);
+  }
+}
+
+function bkxL(node, name) {
+  var propertyInfo = DOMProperty.properties.hasOwnProperty(name) ? DOMProperty.properties[name] : null;
+  if (propertyInfo) {
+    var mutationMethod = propertyInfo.mutationMethod;
+    if (mutationMethod) {
+      mutationMethod(node, undefined);
+    } else if (propertyInfo.mustUseAttribute) {
+      node.removeAttribute(propertyInfo.attributeName);
+    } else {
+      var propName = propertyInfo.propertyName;
+      var defaultValue = DOMProperty.getDefaultValueForProperty(node.nodeName, propName);
+      if (!propertyInfo.hasSideEffects || '' + node[propName] !== defaultValue) {
+        node[propName] = defaultValue;
+      }
+    }
+  } else if (DOMProperty.isCustomAttribute(name)) {
+    node.removeAttribute(name);
+  }
+}
+
+var DOMPropertyOperations = {
+  createMarkupForID: bEAn,
+  setAttributeForID: b79Q,
+  createMarkupForProperty: bLAV,
+  createMarkupForCustomAttribute: b0LQ,
+  setValueForProperty: b1B3,
+  setValueForAttribute: bwZE,
+  deleteValueForProperty: bkxL
 };
 
 ReactPerf.measureMethods(DOMPropertyOperations, 'DOMPropertyOperations', {
@@ -6347,17 +6626,17 @@ var ReactMultiChildUpdateTypes = keyMirror({
 });
 /**bandol> resource: node_modules/fbjs/lib/getMarkupWrap.js */
 
-var bgk8 = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
+var bnZM = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
 
-var bMYd = {};
+var bzla = {};
 
-var b6dE = [1, '<select multiple="true">', '</select>'];
-var bZzy = [1, '<table>', '</table>'];
-var bArv = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
+var bvKO = [1, '<select multiple="true">', '</select>'];
+var ba9m = [1, '<table>', '</table>'];
+var b2Xn = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
 
-var b3Ov = [1, '<svg xmlns="http://www.w3.org/2000/svg">', '</svg>'];
+var beZz = [1, '<svg xmlns="http://www.w3.org/2000/svg">', '</svg>'];
 
-var bpR4 = {
+var bBpZ = {
   '*': [1, '?<div>', '</div>'],
 
   'area': [1, '<map>', '</map>'],
@@ -6366,39 +6645,39 @@ var bpR4 = {
   'param': [1, '<object>', '</object>'],
   'tr': [2, '<table><tbody>', '</tbody></table>'],
 
-  'optgroup': b6dE,
-  'option': b6dE,
+  'optgroup': bvKO,
+  'option': bvKO,
 
-  'caption': bZzy,
-  'colgroup': bZzy,
-  'tbody': bZzy,
-  'tfoot': bZzy,
-  'thead': bZzy,
+  'caption': ba9m,
+  'colgroup': ba9m,
+  'tbody': ba9m,
+  'tfoot': ba9m,
+  'thead': ba9m,
 
-  'td': bArv,
-  'th': bArv
+  'td': b2Xn,
+  'th': b2Xn
 };
 
-var bmP0 = ['circle', 'clipPath', 'defs', 'ellipse', 'g', 'image', 'line', 'linearGradient', 'mask', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'stop', 'text', 'tspan'];
-bmP0.forEach(function (nodeName) {
-  bpR4[nodeName] = b3Ov;
-  bMYd[nodeName] = true;
+var bYlK = ['circle', 'clipPath', 'defs', 'ellipse', 'g', 'image', 'line', 'linearGradient', 'mask', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'stop', 'text', 'tspan'];
+bYlK.forEach(function (nodeName) {
+  bBpZ[nodeName] = beZz;
+  bzla[nodeName] = true;
 });
 
 function getMarkupWrap(nodeName) {
-  !!!bgk8 ? 'production' !== 'production' ? invariant(false, 'Markup wrapping node not initialized') : invariant(false) : undefined;
-  if (!bpR4.hasOwnProperty(nodeName)) {
+  !!!bnZM ? 'production' !== 'production' ? invariant(false, 'Markup wrapping node not initialized') : invariant(false) : undefined;
+  if (!bBpZ.hasOwnProperty(nodeName)) {
     nodeName = '*';
   }
-  if (!bMYd.hasOwnProperty(nodeName)) {
+  if (!bzla.hasOwnProperty(nodeName)) {
     if (nodeName === '*') {
-      bgk8.innerHTML = '<link />';
+      bnZM.innerHTML = '<link />';
     } else {
-      bgk8.innerHTML = '<' + nodeName + '></' + nodeName + '>';
+      bnZM.innerHTML = '<' + nodeName + '></' + nodeName + '>';
     }
-    bMYd[nodeName] = !bgk8.firstChild;
+    bzla[nodeName] = !bnZM.firstChild;
   }
-  return bMYd[nodeName] ? bpR4[nodeName] : null;
+  return bzla[nodeName] ? bBpZ[nodeName] : null;
 }
 /**bandol> resource: node_modules/fbjs/lib/toArray.js */
 
@@ -6425,12 +6704,12 @@ function toArray(obj) {
 }
 /**bandol> resource: node_modules/fbjs/lib/createArrayFromMixed.js */
 
-function bVvg(obj) {
+function bmz3(obj) {
   return !!obj && (typeof obj == 'object' || typeof obj == 'function') && 'length' in obj && !('setInterval' in obj) && typeof obj.nodeType != 'number' && (Array.isArray(obj) || 'callee' in obj || 'item' in obj);
 }
 
 function createArrayFromMixed(obj) {
-  if (!bVvg(obj)) {
+  if (!bmz3(obj)) {
     return [obj];
   } else if (Array.isArray(obj)) {
     return obj.slice();
@@ -6440,19 +6719,19 @@ function createArrayFromMixed(obj) {
 }
 /**bandol> resource: node_modules/fbjs/lib/createNodesFromMarkup.js */
 
-var bG78 = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
+var bAp4 = ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
 
-var bbvX = /^\s*<(\w+)/;
+var b3R4 = /^\s*<(\w+)/;
 
-function blyJ(markup) {
-  var nodeNameMatch = markup.match(bbvX);
+function bprA(markup) {
+  var nodeNameMatch = markup.match(b3R4);
   return nodeNameMatch && nodeNameMatch[1].toLowerCase();
 }
 
 function createNodesFromMarkup(markup, handleScript) {
-  var node = bG78;
-  !!!bG78 ? 'production' !== 'production' ? invariant(false, 'createNodesFromMarkup dummy not initialized') : invariant(false) : undefined;
-  var nodeName = blyJ(markup);
+  var node = bAp4;
+  !!!bAp4 ? 'production' !== 'production' ? invariant(false, 'createNodesFromMarkup dummy not initialized') : invariant(false) : undefined;
+  var nodeName = bprA(markup);
 
   var wrap = nodeName && getMarkupWrap(nodeName);
   if (wrap) {
@@ -6481,89 +6760,151 @@ function createNodesFromMarkup(markup, handleScript) {
 /**bandol> resource: node_modules/react/lib/Danger.js */
 
 
-var bR3l = /^(<[^ \/>]+)/;
-var bKVN = 'data-danger-index';
+var bV4X = /^(<[^ \/>]+)/;
+var bgZ1 = 'data-danger-index';
 
-function b4gx(markup) {
+function bMg9(markup) {
   return markup.substring(1, markup.indexOf(' '));
 }
 
-var Danger = {
-  dangerouslyRenderMarkup: function (markupList) {
-    !ExecutionEnvironment.canUseDOM ? 'production' !== 'production' ? invariant(false, 'dangerouslyRenderMarkup(...): Cannot render markup in a worker ' + 'thread. Make sure `window` and `document` are available globally ' + 'before requiring React when unit testing or use ' + 'ReactDOMServer.renderToString for server rendering.') : invariant(false) : undefined;
-    var nodeName;
-    var markupByNodeName = {};
+function b6Gb(markupList) {
+  !ExecutionEnvironment.canUseDOM ? 'production' !== 'production' ? invariant(false, 'dangerouslyRenderMarkup(...): Cannot render markup in a worker ' + 'thread. Make sure `window` and `document` are available globally ' + 'before requiring React when unit testing or use ' + 'ReactDOMServer.renderToString for server rendering.') : invariant(false) : undefined;
+  var nodeName;
+  var markupByNodeName = {};
 
-    for (var i = 0; i < markupList.length; i++) {
-      !markupList[i] ? 'production' !== 'production' ? invariant(false, 'dangerouslyRenderMarkup(...): Missing markup.') : invariant(false) : undefined;
-      nodeName = b4gx(markupList[i]);
-      nodeName = getMarkupWrap(nodeName) ? nodeName : '*';
-      markupByNodeName[nodeName] = markupByNodeName[nodeName] || [];
-      markupByNodeName[nodeName][i] = markupList[i];
+  for (var i = 0; i < markupList.length; i++) {
+    !markupList[i] ? 'production' !== 'production' ? invariant(false, 'dangerouslyRenderMarkup(...): Missing markup.') : invariant(false) : undefined;
+    nodeName = bMg9(markupList[i]);
+    nodeName = getMarkupWrap(nodeName) ? nodeName : '*';
+    markupByNodeName[nodeName] = markupByNodeName[nodeName] || [];
+    markupByNodeName[nodeName][i] = markupList[i];
+  }
+  var resultList = [];
+  var resultListAssignmentCount = 0;
+  for (nodeName in markupByNodeName) {
+    if (!markupByNodeName.hasOwnProperty(nodeName)) {
+      continue;
     }
-    var resultList = [];
-    var resultListAssignmentCount = 0;
-    for (nodeName in markupByNodeName) {
-      if (!markupByNodeName.hasOwnProperty(nodeName)) {
-        continue;
-      }
-      var markupListByNodeName = markupByNodeName[nodeName];
+    var markupListByNodeName = markupByNodeName[nodeName];
 
-      var resultIndex;
-      for (resultIndex in markupListByNodeName) {
-        if (markupListByNodeName.hasOwnProperty(resultIndex)) {
-          var markup = markupListByNodeName[resultIndex];
+    var resultIndex;
+    for (resultIndex in markupListByNodeName) {
+      if (markupListByNodeName.hasOwnProperty(resultIndex)) {
+        var markup = markupListByNodeName[resultIndex];
 
-          markupListByNodeName[resultIndex] = markup.replace(bR3l, '$1 ' + bKVN + '="' + resultIndex + '" ');
-        }
-      }
-
-      var renderNodes = createNodesFromMarkup(markupListByNodeName.join(''), emptyFunction);
-
-      for (var j = 0; j < renderNodes.length; ++j) {
-        var renderNode = renderNodes[j];
-        if (renderNode.hasAttribute && renderNode.hasAttribute(bKVN)) {
-
-          resultIndex = +renderNode.getAttribute(bKVN);
-          renderNode.removeAttribute(bKVN);
-
-          !!resultList.hasOwnProperty(resultIndex) ? 'production' !== 'production' ? invariant(false, 'Danger: Assigning to an already-occupied result index.') : invariant(false) : undefined;
-
-          resultList[resultIndex] = renderNode;
-
-          resultListAssignmentCount += 1;
-        }
+        markupListByNodeName[resultIndex] = markup.replace(bV4X, '$1 ' + bgZ1 + '="' + resultIndex + '" ');
       }
     }
 
-    !(resultListAssignmentCount === resultList.length) ? 'production' !== 'production' ? invariant(false, 'Danger: Did not assign to every index of resultList.') : invariant(false) : undefined;
+    var renderNodes = createNodesFromMarkup(markupListByNodeName.join(''), emptyFunction);
 
-    !(resultList.length === markupList.length) ? 'production' !== 'production' ? invariant(false, 'Danger: Expected markup to render %s nodes, but rendered %s.', markupList.length, resultList.length) : invariant(false) : undefined;
+    for (var j = 0; j < renderNodes.length; ++j) {
+      var renderNode = renderNodes[j];
+      if (renderNode.hasAttribute && renderNode.hasAttribute(bgZ1)) {
 
-    return resultList;
-  },
+        resultIndex = +renderNode.getAttribute(bgZ1);
+        renderNode.removeAttribute(bgZ1);
 
-  dangerouslyReplaceNodeWithMarkup: function (oldChild, markup) {
-    !ExecutionEnvironment.canUseDOM ? 'production' !== 'production' ? invariant(false, 'dangerouslyReplaceNodeWithMarkup(...): Cannot render markup in a ' + 'worker thread. Make sure `window` and `document` are available ' + 'globally before requiring React when unit testing or use ' + 'ReactDOMServer.renderToString() for server rendering.') : invariant(false) : undefined;
-    !markup ? 'production' !== 'production' ? invariant(false, 'dangerouslyReplaceNodeWithMarkup(...): Missing markup.') : invariant(false) : undefined;
-    !(oldChild.tagName.toLowerCase() !== 'html') ? 'production' !== 'production' ? invariant(false, 'dangerouslyReplaceNodeWithMarkup(...): Cannot replace markup of the ' + '<html> node. This is because browser quirks make this unreliable ' + 'and/or slow. If you want to render to the root you must use ' + 'server rendering. See ReactDOMServer.renderToString().') : invariant(false) : undefined;
+        !!resultList.hasOwnProperty(resultIndex) ? 'production' !== 'production' ? invariant(false, 'Danger: Assigning to an already-occupied result index.') : invariant(false) : undefined;
 
-    var newChild;
-    if (typeof markup === 'string') {
-      newChild = createNodesFromMarkup(markup, emptyFunction)[0];
-    } else {
-      newChild = markup;
+        resultList[resultIndex] = renderNode;
+
+        resultListAssignmentCount += 1;
+      }
     }
-    oldChild.parentNode.replaceChild(newChild, oldChild);
   }
 
+  !(resultListAssignmentCount === resultList.length) ? 'production' !== 'production' ? invariant(false, 'Danger: Did not assign to every index of resultList.') : invariant(false) : undefined;
+
+  !(resultList.length === markupList.length) ? 'production' !== 'production' ? invariant(false, 'Danger: Expected markup to render %s nodes, but rendered %s.', markupList.length, resultList.length) : invariant(false) : undefined;
+
+  return resultList;
+}
+
+function bZ92(oldChild, markup) {
+  !ExecutionEnvironment.canUseDOM ? 'production' !== 'production' ? invariant(false, 'dangerouslyReplaceNodeWithMarkup(...): Cannot render markup in a ' + 'worker thread. Make sure `window` and `document` are available ' + 'globally before requiring React when unit testing or use ' + 'ReactDOMServer.renderToString() for server rendering.') : invariant(false) : undefined;
+  !markup ? 'production' !== 'production' ? invariant(false, 'dangerouslyReplaceNodeWithMarkup(...): Missing markup.') : invariant(false) : undefined;
+  !(oldChild.tagName.toLowerCase() !== 'html') ? 'production' !== 'production' ? invariant(false, 'dangerouslyReplaceNodeWithMarkup(...): Cannot replace markup of the ' + '<html> node. This is because browser quirks make this unreliable ' + 'and/or slow. If you want to render to the root you must use ' + 'server rendering. See ReactDOMServer.renderToString().') : invariant(false) : undefined;
+
+  var newChild;
+  if (typeof markup === 'string') {
+    newChild = createNodesFromMarkup(markup, emptyFunction)[0];
+  } else {
+    newChild = markup;
+  }
+  oldChild.parentNode.replaceChild(newChild, oldChild);
+}
+
+var Danger = {
+  dangerouslyRenderMarkup: b6Gb,
+  dangerouslyReplaceNodeWithMarkup: bZ92
 };
 /**bandol> resource: node_modules/react/lib/DOMChildrenOperations.js */
 
-function bXey(parentNode, childNode, index) {
+function bb94(parentNode, childNode, index) {
   var beforeChild = index >= parentNode.childNodes.length ? null : parentNode.childNodes.item(index);
 
   parentNode.insertBefore(childNode, beforeChild);
+}
+
+function bl97(updates, markupList) {
+  var update;
+
+  var initialChildren = null;
+
+  var updatedChildren = null;
+
+  for (var i = 0; i < updates.length; i++) {
+    update = updates[i];
+    if (update.type === ReactMultiChildUpdateTypes.MOVE_EXISTING || update.type === ReactMultiChildUpdateTypes.REMOVE_NODE) {
+      var updatedIndex = update.fromIndex;
+      var updatedChild = update.parentNode.childNodes[updatedIndex];
+      var parentID = update.parentID;
+
+      !updatedChild ? 'production' !== 'production' ? invariant(false, 'processUpdates(): Unable to find child %s of element. This ' + 'probably means the DOM was unexpectedly mutated (e.g., by the ' + 'browser), usually due to forgetting a <tbody> when using tables, ' + 'nesting tags like <form>, <p>, or <a>, or using non-SVG elements ' + 'in an <svg> parent. Try inspecting the child nodes of the element ' + 'with React ID `%s`.', updatedIndex, parentID) : invariant(false) : undefined;
+
+      initialChildren = initialChildren || {};
+      initialChildren[parentID] = initialChildren[parentID] || [];
+      initialChildren[parentID][updatedIndex] = updatedChild;
+
+      updatedChildren = updatedChildren || [];
+      updatedChildren.push(updatedChild);
+    }
+  }
+
+  var renderedMarkup;
+
+  if (markupList.length && typeof markupList[0] === 'string') {
+    renderedMarkup = Danger.dangerouslyRenderMarkup(markupList);
+  } else {
+    renderedMarkup = markupList;
+  }
+
+  if (updatedChildren) {
+    for (var j = 0; j < updatedChildren.length; j++) {
+      updatedChildren[j].parentNode.removeChild(updatedChildren[j]);
+    }
+  }
+
+  for (var k = 0; k < updates.length; k++) {
+    update = updates[k];
+    switch (update.type) {
+      case ReactMultiChildUpdateTypes.INSERT_MARKUP:
+        bb94(update.parentNode, renderedMarkup[update.markupIndex], update.toIndex);
+        break;
+      case ReactMultiChildUpdateTypes.MOVE_EXISTING:
+        bb94(update.parentNode, initialChildren[update.parentID][update.fromIndex], update.toIndex);
+        break;
+      case ReactMultiChildUpdateTypes.SET_MARKUP:
+        setInnerHTML(update.parentNode, update.content);
+        break;
+      case ReactMultiChildUpdateTypes.TEXT_CONTENT:
+        setTextContent(update.parentNode, update.content);
+        break;
+      case ReactMultiChildUpdateTypes.REMOVE_NODE:
+        break;
+    }
+  }
 }
 
 var DOMChildrenOperations = {
@@ -6572,66 +6913,7 @@ var DOMChildrenOperations = {
 
   updateTextContent: setTextContent,
 
-  processUpdates: function (updates, markupList) {
-    var update;
-
-    var initialChildren = null;
-
-    var updatedChildren = null;
-
-    for (var i = 0; i < updates.length; i++) {
-      update = updates[i];
-      if (update.type === ReactMultiChildUpdateTypes.MOVE_EXISTING || update.type === ReactMultiChildUpdateTypes.REMOVE_NODE) {
-        var updatedIndex = update.fromIndex;
-        var updatedChild = update.parentNode.childNodes[updatedIndex];
-        var parentID = update.parentID;
-
-        !updatedChild ? 'production' !== 'production' ? invariant(false, 'processUpdates(): Unable to find child %s of element. This ' + 'probably means the DOM was unexpectedly mutated (e.g., by the ' + 'browser), usually due to forgetting a <tbody> when using tables, ' + 'nesting tags like <form>, <p>, or <a>, or using non-SVG elements ' + 'in an <svg> parent. Try inspecting the child nodes of the element ' + 'with React ID `%s`.', updatedIndex, parentID) : invariant(false) : undefined;
-
-        initialChildren = initialChildren || {};
-        initialChildren[parentID] = initialChildren[parentID] || [];
-        initialChildren[parentID][updatedIndex] = updatedChild;
-
-        updatedChildren = updatedChildren || [];
-        updatedChildren.push(updatedChild);
-      }
-    }
-
-    var renderedMarkup;
-
-    if (markupList.length && typeof markupList[0] === 'string') {
-      renderedMarkup = Danger.dangerouslyRenderMarkup(markupList);
-    } else {
-      renderedMarkup = markupList;
-    }
-
-    if (updatedChildren) {
-      for (var j = 0; j < updatedChildren.length; j++) {
-        updatedChildren[j].parentNode.removeChild(updatedChildren[j]);
-      }
-    }
-
-    for (var k = 0; k < updates.length; k++) {
-      update = updates[k];
-      switch (update.type) {
-        case ReactMultiChildUpdateTypes.INSERT_MARKUP:
-          bXey(update.parentNode, renderedMarkup[update.markupIndex], update.toIndex);
-          break;
-        case ReactMultiChildUpdateTypes.MOVE_EXISTING:
-          bXey(update.parentNode, initialChildren[update.parentID][update.fromIndex], update.toIndex);
-          break;
-        case ReactMultiChildUpdateTypes.SET_MARKUP:
-          setInnerHTML(update.parentNode, update.content);
-          break;
-        case ReactMultiChildUpdateTypes.TEXT_CONTENT:
-          setTextContent(update.parentNode, update.content);
-          break;
-        case ReactMultiChildUpdateTypes.REMOVE_NODE:
-          break;
-      }
-    }
-  }
-
+  processUpdates: bl97
 };
 
 ReactPerf.measureMethods(DOMChildrenOperations, 'DOMChildrenOperations', {
@@ -6639,34 +6921,38 @@ ReactPerf.measureMethods(DOMChildrenOperations, 'DOMChildrenOperations', {
 });
 /**bandol> resource: node_modules/react/lib/ReactDOMIDOperations.js */
 
-var bxqA = {
+var bRxb = {
   dangerouslySetInnerHTML: '`dangerouslySetInnerHTML` must be set using `updateInnerHTMLByID()`.',
   style: '`style` must be set using `updateStylesByID()`.'
 };
 
-var ReactDOMIDOperations = {
-  updatePropertyByID: function (id, name, value) {
-    var node = ReactMount.getNode(id);
-    !!bxqA.hasOwnProperty(name) ? 'production' !== 'production' ? invariant(false, 'updatePropertyByID(...): %s', bxqA[name]) : invariant(false) : undefined;
+function bKqY(id, name, value) {
+  var node = ReactMount.getNode(id);
+  !!bRxb.hasOwnProperty(name) ? 'production' !== 'production' ? invariant(false, 'updatePropertyByID(...): %s', bRxb[name]) : invariant(false) : undefined;
 
-    if (value != null) {
-      DOMPropertyOperations.setValueForProperty(node, name, value);
-    } else {
-      DOMPropertyOperations.deleteValueForProperty(node, name);
-    }
-  },
-
-  dangerouslyReplaceNodeWithMarkupByID: function (id, markup) {
-    var node = ReactMount.getNode(id);
-    DOMChildrenOperations.dangerouslyReplaceNodeWithMarkup(node, markup);
-  },
-
-  dangerouslyProcessChildrenUpdates: function (updates, markup) {
-    for (var i = 0; i < updates.length; i++) {
-      updates[i].parentNode = ReactMount.getNode(updates[i].parentID);
-    }
-    DOMChildrenOperations.processUpdates(updates, markup);
+  if (value != null) {
+    DOMPropertyOperations.setValueForProperty(node, name, value);
+  } else {
+    DOMPropertyOperations.deleteValueForProperty(node, name);
   }
+}
+
+function b4Kq(id, markup) {
+  var node = ReactMount.getNode(id);
+  DOMChildrenOperations.dangerouslyReplaceNodeWithMarkup(node, markup);
+}
+
+function bGgG(updates, markup) {
+  for (var i = 0; i < updates.length; i++) {
+    updates[i].parentNode = ReactMount.getNode(updates[i].parentID);
+  }
+  DOMChildrenOperations.processUpdates(updates, markup);
+}
+
+var ReactDOMIDOperations = {
+  updatePropertyByID: bKqY,
+  dangerouslyReplaceNodeWithMarkupByID: b4Kq,
+  dangerouslyProcessChildrenUpdates: bGgG
 };
 
 ReactPerf.measureMethods(ReactDOMIDOperations, 'ReactDOMIDOperations', {
@@ -6674,6 +6960,9 @@ ReactPerf.measureMethods(ReactDOMIDOperations, 'ReactDOMIDOperations', {
   dangerouslyProcessChildrenUpdates: 'dangerouslyProcessChildrenUpdates'
 });
 /**bandol> resource: node_modules/react/lib/ReactComponentBrowserEnvironment.js */
+function bXbk(rootNodeID) {
+  ReactMount.purgeID(rootNodeID);
+}
 
 var ReactComponentBrowserEnvironment = {
 
@@ -6681,62 +6970,63 @@ var ReactComponentBrowserEnvironment = {
 
   replaceNodeWithMarkupByID: ReactDOMIDOperations.dangerouslyReplaceNodeWithMarkupByID,
 
-  unmountIDFromEnvironment: function (rootNodeID) {
-    ReactMount.purgeID(rootNodeID);
-  }
-
+  unmountIDFromEnvironment: bXbk
 };
 /**bandol> resource: node_modules/react/lib/ReactDOMTextComponent.js */
 
 var ReactDOMTextComponent = function (props) {};
 
-assign(ReactDOMTextComponent.prototype, {
-  construct: function (text) {
-    this._currentElement = text;
-    this._stringText = '' + text;
+function brP6(text) {
+  this._currentElement = text;
+  this._stringText = '' + text;
 
-    this._rootNodeID = null;
-    this._mountIndex = 0;
-  },
+  this._rootNodeID = null;
+  this._mountIndex = 0;
+}
 
-  mountComponent: function (rootID, transaction, context) {
+function bQPb(rootID, transaction, context) {
 
-    this._rootNodeID = rootID;
-    if (transaction.useCreateElement) {
-      var ownerDocument = context[ReactMount.ownerDocumentContextKey];
-      var el = ownerDocument.createElement('span');
-      DOMPropertyOperations.setAttributeForID(el, rootID);
+  this._rootNodeID = rootID;
+  if (transaction.useCreateElement) {
+    var ownerDocument = context[ReactMount.ownerDocumentContextKey];
+    var el = ownerDocument.createElement('span');
+    DOMPropertyOperations.setAttributeForID(el, rootID);
 
-      ReactMount.getID(el);
-      setTextContent(el, this._stringText);
-      return el;
-    } else {
-      var escapedText = escapeTextContentForBrowser(this._stringText);
+    ReactMount.getID(el);
+    setTextContent(el, this._stringText);
+    return el;
+  } else {
+    var escapedText = escapeTextContentForBrowser(this._stringText);
 
-      if (transaction.renderToStaticMarkup) {
-        return escapedText;
-      }
-
-      return '<span ' + DOMPropertyOperations.createMarkupForID(rootID) + '>' + escapedText + '</span>';
+    if (transaction.renderToStaticMarkup) {
+      return escapedText;
     }
-  },
 
-  receiveComponent: function (nextText, transaction) {
-    if (nextText !== this._currentElement) {
-      this._currentElement = nextText;
-      var nextStringText = '' + nextText;
-      if (nextStringText !== this._stringText) {
-        this._stringText = nextStringText;
-        var node = ReactMount.getNode(this._rootNodeID);
-        DOMChildrenOperations.updateTextContent(node, nextStringText);
-      }
-    }
-  },
-
-  unmountComponent: function () {
-    ReactComponentBrowserEnvironment.unmountIDFromEnvironment(this._rootNodeID);
+    return '<span ' + DOMPropertyOperations.createMarkupForID(rootID) + '>' + escapedText + '</span>';
   }
+}
 
+function bPQN(nextText, transaction) {
+  if (nextText !== this._currentElement) {
+    this._currentElement = nextText;
+    var nextStringText = '' + nextText;
+    if (nextStringText !== this._stringText) {
+      this._stringText = nextStringText;
+      var node = ReactMount.getNode(this._rootNodeID);
+      DOMChildrenOperations.updateTextContent(node, nextStringText);
+    }
+  }
+}
+
+function bxG6() {
+  ReactComponentBrowserEnvironment.unmountIDFromEnvironment(this._rootNodeID);
+}
+
+assign(ReactDOMTextComponent.prototype, {
+  construct: brP6,
+  mountComponent: bQPb,
+  receiveComponent: bPQN,
+  unmountComponent: bxG6
 });
 /**bandol> resource: node_modules/react/lib/validateDOMNesting.js */
 
@@ -6748,7 +7038,7 @@ var validateDOMNesting = emptyFunction;
 var canDefineProperty = false;
 /**bandol> resource: node_modules/react/lib/flattenChildren.js */
 
-function bPBV(traverseContext, child, name) {
+function bV4y(traverseContext, child, name) {
   var result = traverseContext;
   var keyUnique = result[name] === undefined;
 
@@ -6762,13 +7052,13 @@ function flattenChildren(children) {
     return children;
   }
   var result = {};
-  traverseAllChildren(children, bPBV, result);
+  traverseAllChildren(children, bV4y, result);
   return result;
 }
 /**bandol> resource: node_modules/react/lib/ReactChildReconciler.js */
 
 
-function bQew(childInstances, child, name) {
+function b4KK(childInstances, child, name) {
   var keyUnique = childInstances[name] === undefined;
 
   if (child != null && keyUnique) {
@@ -6776,81 +7066,84 @@ function bQew(childInstances, child, name) {
   }
 }
 
-var ReactChildReconciler = {
-  instantiateChildren: function (nestedChildNodes, transaction, context) {
-    if (nestedChildNodes == null) {
-      return null;
-    }
-    var childInstances = {};
-    traverseAllChildren(nestedChildNodes, bQew, childInstances);
-    return childInstances;
-  },
+function bGg3(nestedChildNodes, transaction, context) {
+  if (nestedChildNodes == null) {
+    return null;
+  }
+  var childInstances = {};
+  traverseAllChildren(nestedChildNodes, b4KK, childInstances);
+  return childInstances;
+}
 
-  updateChildren: function (prevChildren, nextChildren, transaction, context) {
-    if (!nextChildren && !prevChildren) {
-      return null;
+function bb9m(prevChildren, nextChildren, transaction, context) {
+  if (!nextChildren && !prevChildren) {
+    return null;
+  }
+  var name;
+  for (name in nextChildren) {
+    if (!nextChildren.hasOwnProperty(name)) {
+      continue;
     }
-    var name;
-    for (name in nextChildren) {
-      if (!nextChildren.hasOwnProperty(name)) {
-        continue;
+    var prevChild = prevChildren && prevChildren[name];
+    var prevElement = prevChild && prevChild._currentElement;
+    var nextElement = nextChildren[name];
+    if (prevChild != null && shouldUpdateReactComponent(prevElement, nextElement)) {
+      ReactReconciler.receiveComponent(prevChild, nextElement, transaction, context);
+      nextChildren[name] = prevChild;
+    } else {
+      if (prevChild) {
+        ReactReconciler.unmountComponent(prevChild, name);
       }
-      var prevChild = prevChildren && prevChildren[name];
-      var prevElement = prevChild && prevChild._currentElement;
-      var nextElement = nextChildren[name];
-      if (prevChild != null && shouldUpdateReactComponent(prevElement, nextElement)) {
-        ReactReconciler.receiveComponent(prevChild, nextElement, transaction, context);
-        nextChildren[name] = prevChild;
-      } else {
-        if (prevChild) {
-          ReactReconciler.unmountComponent(prevChild, name);
-        }
 
-        var nextChildInstance = instantiateReactComponent(nextElement, null);
-        nextChildren[name] = nextChildInstance;
-      }
-    }
-
-    for (name in prevChildren) {
-      if (prevChildren.hasOwnProperty(name) && !(nextChildren && nextChildren.hasOwnProperty(name))) {
-        ReactReconciler.unmountComponent(prevChildren[name]);
-      }
-    }
-    return nextChildren;
-  },
-
-  unmountChildren: function (renderedChildren) {
-    for (var name in renderedChildren) {
-      if (renderedChildren.hasOwnProperty(name)) {
-        var renderedChild = renderedChildren[name];
-        ReactReconciler.unmountComponent(renderedChild);
-      }
+      var nextChildInstance = instantiateReactComponent(nextElement, null);
+      nextChildren[name] = nextChildInstance;
     }
   }
 
+  for (name in prevChildren) {
+    if (prevChildren.hasOwnProperty(name) && !(nextChildren && nextChildren.hasOwnProperty(name))) {
+      ReactReconciler.unmountComponent(prevChildren[name]);
+    }
+  }
+  return nextChildren;
+}
+
+function bl9a(renderedChildren) {
+  for (var name in renderedChildren) {
+    if (renderedChildren.hasOwnProperty(name)) {
+      var renderedChild = renderedChildren[name];
+      ReactReconciler.unmountComponent(renderedChild);
+    }
+  }
+}
+
+var ReactChildReconciler = {
+  instantiateChildren: bGg3,
+  updateChildren: bb9m,
+  unmountChildren: bl9a
 };
 /**bandol> resource: node_modules/react/lib/ReactMultiChild.js */
 
-var bLqq = 0;
+var bBKz = 0;
 
-var b0z8 = [];
+var bYva = [];
 
-var b1d4 = [];
+var bOBz = [];
 
-function bwNR(parentID, markup, toIndex) {
-  b0z8.push({
+function b8Kg(parentID, markup, toIndex) {
+  bYva.push({
     parentID: parentID,
     parentNode: null,
     type: ReactMultiChildUpdateTypes.INSERT_MARKUP,
-    markupIndex: b1d4.push(markup) - 1,
+    markupIndex: bOBz.push(markup) - 1,
     content: null,
     fromIndex: null,
     toIndex: toIndex
   });
 }
 
-function bkr9(parentID, fromIndex, toIndex) {
-  b0z8.push({
+function bNw1(parentID, fromIndex, toIndex) {
+  bYva.push({
     parentID: parentID,
     parentNode: null,
     type: ReactMultiChildUpdateTypes.MOVE_EXISTING,
@@ -6861,8 +7154,8 @@ function bkr9(parentID, fromIndex, toIndex) {
   });
 }
 
-function b5NK(parentID, fromIndex) {
-  b0z8.push({
+function bdmG(parentID, fromIndex) {
+  bYva.push({
     parentID: parentID,
     parentNode: null,
     type: ReactMultiChildUpdateTypes.REMOVE_NODE,
@@ -6873,8 +7166,8 @@ function b5NK(parentID, fromIndex) {
   });
 }
 
-function bJlz(parentID, markup) {
-  b0z8.push({
+function b941(parentID, markup) {
+  bYva.push({
     parentID: parentID,
     parentNode: null,
     type: ReactMultiChildUpdateTypes.SET_MARKUP,
@@ -6885,8 +7178,8 @@ function bJlz(parentID, markup) {
   });
 }
 
-function bqKJ(parentID, textContent) {
-  b0z8.push({
+function bEy4(parentID, textContent) {
+  bYva.push({
     parentID: parentID,
     parentNode: null,
     type: ReactMultiChildUpdateTypes.TEXT_CONTENT,
@@ -6897,208 +7190,222 @@ function bqKJ(parentID, textContent) {
   });
 }
 
-function byMb() {
-  if (b0z8.length) {
-    ReactComponentEnvironment.processChildrenUpdates(b0z8, b1d4);
-    brNl();
+function b7Rx() {
+  if (bYva.length) {
+    ReactComponentEnvironment.processChildrenUpdates(bYva, bOBz);
+    bLBJ();
   }
 }
 
-function brNl() {
-  b0z8.length = 0;
-  b1d4.length = 0;
+function bLBJ() {
+  bYva.length = 0;
+  bOBz.length = 0;
+}
+
+function b0Gp(nestedChildren, transaction, context) {
+  return ReactChildReconciler.instantiateChildren(nestedChildren, transaction, context);
+}
+
+function b1bl(prevChildren, nextNestedChildrenElements, transaction, context) {
+  var nextChildren;
+
+  nextChildren = flattenChildren(nextNestedChildrenElements);
+  return ReactChildReconciler.updateChildren(prevChildren, nextChildren, transaction, context);
+}
+
+function bwEB(nestedChildren, transaction, context) {
+  var children = this._reconcilerInstantiateChildren(nestedChildren, transaction, context);
+  this._renderedChildren = children;
+  var mountImages = [];
+  var index = 0;
+  for (var name in children) {
+    if (children.hasOwnProperty(name)) {
+      var child = children[name];
+
+      var rootID = this._rootNodeID + name;
+      var mountImage = ReactReconciler.mountComponent(child, rootID, transaction, context);
+      child._mountIndex = index++;
+      mountImages.push(mountImage);
+    }
+  }
+  return mountImages;
+}
+
+function bkzq(nextContent) {
+  bBKz++;
+  var errorThrown = true;
+  try {
+    var prevChildren = this._renderedChildren;
+
+    ReactChildReconciler.unmountChildren(prevChildren);
+
+    for (var name in prevChildren) {
+      if (prevChildren.hasOwnProperty(name)) {
+        this._unmountChild(prevChildren[name]);
+      }
+    }
+
+    this.setTextContent(nextContent);
+    errorThrown = false;
+  } finally {
+    bBKz--;
+    if (!bBKz) {
+      if (errorThrown) {
+        bLBJ();
+      } else {
+        b7Rx();
+      }
+    }
+  }
+}
+
+function b545(nextMarkup) {
+  bBKz++;
+  var errorThrown = true;
+  try {
+    var prevChildren = this._renderedChildren;
+
+    ReactChildReconciler.unmountChildren(prevChildren);
+    for (var name in prevChildren) {
+      if (prevChildren.hasOwnProperty(name)) {
+        this._unmountChildByName(prevChildren[name], name);
+      }
+    }
+    this.setMarkup(nextMarkup);
+    errorThrown = false;
+  } finally {
+    bBKz--;
+    if (!bBKz) {
+      if (errorThrown) {
+        bLBJ();
+      } else {
+        b7Rx();
+      }
+    }
+  }
+}
+
+function bJ72(nextNestedChildrenElements, transaction, context) {
+  bBKz++;
+  var errorThrown = true;
+  try {
+    this._updateChildren(nextNestedChildrenElements, transaction, context);
+    errorThrown = false;
+  } finally {
+    bBKz--;
+    if (!bBKz) {
+      if (errorThrown) {
+        bLBJ();
+      } else {
+        b7Rx();
+      }
+    }
+  }
+}
+
+function bqQy(nextNestedChildrenElements, transaction, context) {
+  var prevChildren = this._renderedChildren;
+  var nextChildren = this._reconcilerUpdateChildren(prevChildren, nextNestedChildrenElements, transaction, context);
+  this._renderedChildren = nextChildren;
+  if (!nextChildren && !prevChildren) {
+    return;
+  }
+  var name;
+
+  var lastIndex = 0;
+  var nextIndex = 0;
+  for (name in nextChildren) {
+    if (!nextChildren.hasOwnProperty(name)) {
+      continue;
+    }
+    var prevChild = prevChildren && prevChildren[name];
+    var nextChild = nextChildren[name];
+    if (prevChild === nextChild) {
+      this.moveChild(prevChild, nextIndex, lastIndex);
+      lastIndex = Math.max(prevChild._mountIndex, lastIndex);
+      prevChild._mountIndex = nextIndex;
+    } else {
+      if (prevChild) {
+        lastIndex = Math.max(prevChild._mountIndex, lastIndex);
+        this._unmountChild(prevChild);
+      }
+
+      this._mountChildByNameAtIndex(nextChild, name, nextIndex, transaction, context);
+    }
+    nextIndex++;
+  }
+
+  for (name in prevChildren) {
+    if (prevChildren.hasOwnProperty(name) && !(nextChildren && nextChildren.hasOwnProperty(name))) {
+      this._unmountChild(prevChildren[name]);
+    }
+  }
+}
+
+function bybM() {
+  var renderedChildren = this._renderedChildren;
+  ReactChildReconciler.unmountChildren(renderedChildren);
+  this._renderedChildren = null;
+}
+
+function brPK(child, toIndex, lastIndex) {
+  if (child._mountIndex < lastIndex) {
+    bNw1(this._rootNodeID, child._mountIndex, toIndex);
+  }
+}
+
+function bQPL(child, mountImage) {
+  b8Kg(this._rootNodeID, mountImage, child._mountIndex);
+}
+
+function bPQZ(child) {
+  bdmG(this._rootNodeID, child._mountIndex);
+}
+
+function bxGE(textContent) {
+  bEy4(this._rootNodeID, textContent);
+}
+
+function bXb7(markup) {
+  b941(this._rootNodeID, markup);
+}
+
+function bRxY(child, name, index, transaction, context) {
+  var rootID = this._rootNodeID + name;
+  var mountImage = ReactReconciler.mountComponent(child, rootID, transaction, context);
+  child._mountIndex = index;
+  this.createChild(child, mountImage);
+}
+
+function bKqB(child) {
+  this.removeChild(child);
+  child._mountIndex = null;
 }
 
 var ReactMultiChild = {
   Mixin: {
-
-    _reconcilerInstantiateChildren: function (nestedChildren, transaction, context) {
-      return ReactChildReconciler.instantiateChildren(nestedChildren, transaction, context);
-    },
-
-    _reconcilerUpdateChildren: function (prevChildren, nextNestedChildrenElements, transaction, context) {
-      var nextChildren;
-
-      nextChildren = flattenChildren(nextNestedChildrenElements);
-      return ReactChildReconciler.updateChildren(prevChildren, nextChildren, transaction, context);
-    },
-
-    mountChildren: function (nestedChildren, transaction, context) {
-      var children = this._reconcilerInstantiateChildren(nestedChildren, transaction, context);
-      this._renderedChildren = children;
-      var mountImages = [];
-      var index = 0;
-      for (var name in children) {
-        if (children.hasOwnProperty(name)) {
-          var child = children[name];
-
-          var rootID = this._rootNodeID + name;
-          var mountImage = ReactReconciler.mountComponent(child, rootID, transaction, context);
-          child._mountIndex = index++;
-          mountImages.push(mountImage);
-        }
-      }
-      return mountImages;
-    },
-
-    updateTextContent: function (nextContent) {
-      bLqq++;
-      var errorThrown = true;
-      try {
-        var prevChildren = this._renderedChildren;
-
-        ReactChildReconciler.unmountChildren(prevChildren);
-
-        for (var name in prevChildren) {
-          if (prevChildren.hasOwnProperty(name)) {
-            this._unmountChild(prevChildren[name]);
-          }
-        }
-
-        this.setTextContent(nextContent);
-        errorThrown = false;
-      } finally {
-        bLqq--;
-        if (!bLqq) {
-          if (errorThrown) {
-            brNl();
-          } else {
-            byMb();
-          }
-        }
-      }
-    },
-
-    updateMarkup: function (nextMarkup) {
-      bLqq++;
-      var errorThrown = true;
-      try {
-        var prevChildren = this._renderedChildren;
-
-        ReactChildReconciler.unmountChildren(prevChildren);
-        for (var name in prevChildren) {
-          if (prevChildren.hasOwnProperty(name)) {
-            this._unmountChildByName(prevChildren[name], name);
-          }
-        }
-        this.setMarkup(nextMarkup);
-        errorThrown = false;
-      } finally {
-        bLqq--;
-        if (!bLqq) {
-          if (errorThrown) {
-            brNl();
-          } else {
-            byMb();
-          }
-        }
-      }
-    },
-
-    updateChildren: function (nextNestedChildrenElements, transaction, context) {
-      bLqq++;
-      var errorThrown = true;
-      try {
-        this._updateChildren(nextNestedChildrenElements, transaction, context);
-        errorThrown = false;
-      } finally {
-        bLqq--;
-        if (!bLqq) {
-          if (errorThrown) {
-            brNl();
-          } else {
-            byMb();
-          }
-        }
-      }
-    },
-
-    _updateChildren: function (nextNestedChildrenElements, transaction, context) {
-      var prevChildren = this._renderedChildren;
-      var nextChildren = this._reconcilerUpdateChildren(prevChildren, nextNestedChildrenElements, transaction, context);
-      this._renderedChildren = nextChildren;
-      if (!nextChildren && !prevChildren) {
-        return;
-      }
-      var name;
-
-      var lastIndex = 0;
-      var nextIndex = 0;
-      for (name in nextChildren) {
-        if (!nextChildren.hasOwnProperty(name)) {
-          continue;
-        }
-        var prevChild = prevChildren && prevChildren[name];
-        var nextChild = nextChildren[name];
-        if (prevChild === nextChild) {
-          this.moveChild(prevChild, nextIndex, lastIndex);
-          lastIndex = Math.max(prevChild._mountIndex, lastIndex);
-          prevChild._mountIndex = nextIndex;
-        } else {
-          if (prevChild) {
-            lastIndex = Math.max(prevChild._mountIndex, lastIndex);
-            this._unmountChild(prevChild);
-          }
-
-          this._mountChildByNameAtIndex(nextChild, name, nextIndex, transaction, context);
-        }
-        nextIndex++;
-      }
-
-      for (name in prevChildren) {
-        if (prevChildren.hasOwnProperty(name) && !(nextChildren && nextChildren.hasOwnProperty(name))) {
-          this._unmountChild(prevChildren[name]);
-        }
-      }
-    },
-
-    unmountChildren: function () {
-      var renderedChildren = this._renderedChildren;
-      ReactChildReconciler.unmountChildren(renderedChildren);
-      this._renderedChildren = null;
-    },
-
-    moveChild: function (child, toIndex, lastIndex) {
-      if (child._mountIndex < lastIndex) {
-        bkr9(this._rootNodeID, child._mountIndex, toIndex);
-      }
-    },
-
-    createChild: function (child, mountImage) {
-      bwNR(this._rootNodeID, mountImage, child._mountIndex);
-    },
-
-    removeChild: function (child) {
-      b5NK(this._rootNodeID, child._mountIndex);
-    },
-
-    setTextContent: function (textContent) {
-      bqKJ(this._rootNodeID, textContent);
-    },
-
-    setMarkup: function (markup) {
-      bJlz(this._rootNodeID, markup);
-    },
-
-    _mountChildByNameAtIndex: function (child, name, index, transaction, context) {
-      var rootID = this._rootNodeID + name;
-      var mountImage = ReactReconciler.mountComponent(child, rootID, transaction, context);
-      child._mountIndex = index;
-      this.createChild(child, mountImage);
-    },
-
-    _unmountChild: function (child) {
-      this.removeChild(child);
-      child._mountIndex = null;
-    }
-
+    _reconcilerInstantiateChildren: b0Gp,
+    _reconcilerUpdateChildren: b1bl,
+    mountChildren: bwEB,
+    updateTextContent: bkzq,
+    updateMarkup: b545,
+    updateChildren: bJ72,
+    _updateChildren: bqQy,
+    unmountChildren: bybM,
+    moveChild: brPK,
+    createChild: bQPL,
+    removeChild: bPQZ,
+    setTextContent: bxGE,
+    setMarkup: bXb7,
+    _mountChildByNameAtIndex: bRxY,
+    _unmountChild: bKqB
   }
 
 };
 /**bandol> resource: node_modules/react/lib/LinkedValueUtils.js */
 
 
-var bO0b = {
+var bMqR = {
   'button': true,
   'checkbox': true,
   'image': true,
@@ -7108,37 +7415,42 @@ var bO0b = {
   'submit': true
 };
 
-function b8a3(inputProps) {
+function b6X5(inputProps) {
   !(inputProps.checkedLink == null || inputProps.valueLink == null) ? 'production' !== 'production' ? invariant(false, 'Cannot provide a checkedLink and a valueLink. If you want to use ' + 'checkedLink, you probably don\'t want to use valueLink and vice versa.') : invariant(false) : undefined;
 }
-function bNMy(inputProps) {
-  b8a3(inputProps);
+function bZVe(inputProps) {
+  b6X5(inputProps);
   !(inputProps.value == null && inputProps.onChange == null) ? 'production' !== 'production' ? invariant(false, 'Cannot provide a valueLink and a value or onChange event. If you want ' + 'to use value or onChange, you probably don\'t want to use valueLink.') : invariant(false) : undefined;
 }
 
-function bd5O(inputProps) {
-  b8a3(inputProps);
+function bAR8(inputProps) {
+  b6X5(inputProps);
   !(inputProps.checked == null && inputProps.onChange == null) ? 'production' !== 'production' ? invariant(false, 'Cannot provide a checkedLink and a checked property or onChange event. ' + 'If you want to use checked or onChange, you probably don\'t want to ' + 'use checkedLink') : invariant(false) : undefined;
 }
 
-var b9Nn = {
-  value: function (props, propName, componentName) {
-    if (!props[propName] || bO0b[props.type] || props.onChange || props.readOnly || props.disabled) {
-      return null;
-    }
-    return new Error('You provided a `value` prop to a form field without an ' + '`onChange` handler. This will render a read-only field. If ' + 'the field should be mutable use `defaultValue`. Otherwise, ' + 'set either `onChange` or `readOnly`.');
-  },
-  checked: function (props, propName, componentName) {
-    if (!props[propName] || props.onChange || props.readOnly || props.disabled) {
-      return null;
-    }
-    return new Error('You provided a `checked` prop to a form field without an ' + '`onChange` handler. This will render a read-only field. If ' + 'the field should be mutable use `defaultChecked`. Otherwise, ' + 'set either `onChange` or `readOnly`.');
-  },
+function b3Qn(props, propName, componentName) {
+  if (!props[propName] || bMqR[props.type] || props.onChange || props.readOnly || props.disabled) {
+    return null;
+  }
+  return new Error('You provided a `value` prop to a form field without an ' + '`onChange` handler. This will render a read-only field. If ' + 'the field should be mutable use `defaultValue`. Otherwise, ' + 'set either `onChange` or `readOnly`.');
+}
+
+function bpEO(props, propName, componentName) {
+  if (!props[propName] || props.onChange || props.readOnly || props.disabled) {
+    return null;
+  }
+  return new Error('You provided a `checked` prop to a form field without an ' + '`onChange` handler. This will render a read-only field. If ' + 'the field should be mutable use `defaultChecked`. Otherwise, ' + 'set either `onChange` or `readOnly`.');
+}
+
+var bmB5 = {
+  value: b3Qn,
+  checked: bpEO,
+
   onChange: ReactPropTypes.func
 };
 
-var bE7z = {};
-function b7Ma(owner) {
+var bnE8 = {};
+function bzOq(owner) {
   if (owner) {
     var name = owner.getName();
     if (name) {
@@ -7148,118 +7460,127 @@ function b7Ma(owner) {
   return '';
 }
 
-var LinkedValueUtils = {
-  checkPropTypes: function (tagName, props, owner) {
-    for (var propName in b9Nn) {
-      if (b9Nn.hasOwnProperty(propName)) {
-        var error = b9Nn[propName](props, propName, tagName, ReactPropTypeLocations.prop);
-      }
-      if (error instanceof Error && !(error.message in bE7z)) {
-        bE7z[error.message] = true;
-
-        var addendum = b7Ma(owner);
-        'production' !== 'production' ? warning(false, 'Failed form propType: %s%s', error.message, addendum) : undefined;
-      }
+function bvE7(tagName, props, owner) {
+  for (var propName in bmB5) {
+    if (bmB5.hasOwnProperty(propName)) {
+      var error = bmB5[propName](props, propName, tagName, ReactPropTypeLocations.prop);
     }
-  },
+    if (error instanceof Error && !(error.message in bnE8)) {
+      bnE8[error.message] = true;
 
-  getValue: function (inputProps) {
-    if (inputProps.valueLink) {
-      bNMy(inputProps);
-      return inputProps.valueLink.value;
-    }
-    return inputProps.value;
-  },
-
-  getChecked: function (inputProps) {
-    if (inputProps.checkedLink) {
-      bd5O(inputProps);
-      return inputProps.checkedLink.value;
-    }
-    return inputProps.checked;
-  },
-
-  executeOnChange: function (inputProps, event) {
-    if (inputProps.valueLink) {
-      bNMy(inputProps);
-      return inputProps.valueLink.requestChange(event.target.value);
-    } else if (inputProps.checkedLink) {
-      bd5O(inputProps);
-      return inputProps.checkedLink.requestChange(event.target.checked);
-    } else if (inputProps.onChange) {
-      return inputProps.onChange.call(undefined, event);
+      var addendum = bzOq(owner);
+      'production' !== 'production' ? warning(false, 'Failed form propType: %s%s', error.message, addendum) : undefined;
     }
   }
+}
+
+function ba5Z(inputProps) {
+  if (inputProps.valueLink) {
+    bZVe(inputProps);
+    return inputProps.valueLink.value;
+  }
+  return inputProps.value;
+}
+
+function b2r4(inputProps) {
+  if (inputProps.checkedLink) {
+    bAR8(inputProps);
+    return inputProps.checkedLink.value;
+  }
+  return inputProps.checked;
+}
+
+function beM6(inputProps, event) {
+  if (inputProps.valueLink) {
+    bZVe(inputProps);
+    return inputProps.valueLink.requestChange(event.target.value);
+  } else if (inputProps.checkedLink) {
+    bAR8(inputProps);
+    return inputProps.checkedLink.requestChange(event.target.checked);
+  } else if (inputProps.onChange) {
+    return inputProps.onChange.call(undefined, event);
+  }
+}
+
+var LinkedValueUtils = {
+  checkPropTypes: bvE7,
+  getValue: ba5Z,
+  getChecked: b2r4,
+  executeOnChange: beM6
 };
 /**bandol> resource: node_modules/react/lib/ReactDOMTextarea.js */
 
 
-function bB76() {
+function bGN3() {
   if (this._rootNodeID) {
     ReactDOMTextarea.updateWrapper(this);
   }
 }
 
-var ReactDOMTextarea = {
-  getNativeProps: function (inst, props, context) {
-    !(props.dangerouslySetInnerHTML == null) ? 'production' !== 'production' ? invariant(false, '`dangerouslySetInnerHTML` does not make sense on <textarea>.') : invariant(false) : undefined;
+function bbMm(inst, props, context) {
+  !(props.dangerouslySetInnerHTML == null) ? 'production' !== 'production' ? invariant(false, '`dangerouslySetInnerHTML` does not make sense on <textarea>.') : invariant(false) : undefined;
 
-    var nativeProps = assign({}, props, {
-      defaultValue: undefined,
-      value: undefined,
-      children: inst._wrapperState.initialValue,
-      onChange: inst._wrapperState.onChange
-    });
+  var nativeProps = assign({}, props, {
+    defaultValue: undefined,
+    value: undefined,
+    children: inst._wrapperState.initialValue,
+    onChange: inst._wrapperState.onChange
+  });
 
-    return nativeProps;
-  },
+  return nativeProps;
+}
 
-  mountWrapper: function (inst, props) {
+function blMa(inst, props) {
 
-    var defaultValue = props.defaultValue;
+  var defaultValue = props.defaultValue;
 
-    var children = props.children;
-    if (children != null) {
-      !(defaultValue == null) ? 'production' !== 'production' ? invariant(false, 'If you supply `defaultValue` on a <textarea>, do not pass children.') : invariant(false) : undefined;
-      if (Array.isArray(children)) {
-        !(children.length <= 1) ? 'production' !== 'production' ? invariant(false, '<textarea> can only have at most one child.') : invariant(false) : undefined;
-        children = children[0];
-      }
-
-      defaultValue = '' + children;
+  var children = props.children;
+  if (children != null) {
+    !(defaultValue == null) ? 'production' !== 'production' ? invariant(false, 'If you supply `defaultValue` on a <textarea>, do not pass children.') : invariant(false) : undefined;
+    if (Array.isArray(children)) {
+      !(children.length <= 1) ? 'production' !== 'production' ? invariant(false, '<textarea> can only have at most one child.') : invariant(false) : undefined;
+      children = children[0];
     }
-    if (defaultValue == null) {
-      defaultValue = '';
-    }
-    var value = LinkedValueUtils.getValue(props);
 
-    inst._wrapperState = {
-      initialValue: '' + (value != null ? value : defaultValue),
-      onChange: bY0V.bind(inst)
-    };
-  },
-
-  updateWrapper: function (inst) {
-    var props = inst._currentElement.props;
-    var value = LinkedValueUtils.getValue(props);
-    if (value != null) {
-      ReactDOMIDOperations.updatePropertyByID(inst._rootNodeID, 'value', '' + value);
-    }
+    defaultValue = '' + children;
   }
+  if (defaultValue == null) {
+    defaultValue = '';
+  }
+  var value = LinkedValueUtils.getValue(props);
+
+  inst._wrapperState = {
+    initialValue: '' + (value != null ? value : defaultValue),
+    onChange: bg9x.bind(inst)
+  };
+}
+
+function bVzy(inst) {
+  var props = inst._currentElement.props;
+  var value = LinkedValueUtils.getValue(props);
+  if (value != null) {
+    ReactDOMIDOperations.updatePropertyByID(inst._rootNodeID, 'value', '' + value);
+  }
+}
+
+var ReactDOMTextarea = {
+  getNativeProps: bbMm,
+  mountWrapper: blMa,
+  updateWrapper: bVzy
 };
 
-function bY0V(event) {
+function bg9x(event) {
   var props = this._currentElement.props;
   var returnValue = LinkedValueUtils.executeOnChange(props, event);
-  ReactUpdates.asap(bB76, this);
+  ReactUpdates.asap(bGN3, this);
   return returnValue;
 }
 /**bandol> resource: node_modules/react/lib/ReactDOMSelect.js */
 
 
-var bnxw = '__ReactDOMSelect_value$' + Math.random().toString(36).slice(2);
+var bqJy = '__ReactDOMSelect_value$' + Math.random().toString(36).slice(2);
 
-function bzG5() {
+function byaM() {
   if (this._rootNodeID && this._wrapperState.pendingUpdate) {
     this._wrapperState.pendingUpdate = false;
 
@@ -7267,12 +7588,12 @@ function bzG5() {
     var value = LinkedValueUtils.getValue(props);
 
     if (value != null) {
-      b2G1(this, Boolean(props.multiple), value);
+      bPAZ(this, Boolean(props.multiple), value);
     }
   }
 }
 
-function b2G1(inst, multiple, propValue) {
+function bPAZ(inst, multiple, propValue) {
   var selectedValue, i;
   var options = ReactMount.getNode(inst._rootNodeID).options;
 
@@ -7301,184 +7622,197 @@ function b2G1(inst, multiple, propValue) {
   }
 }
 
-var ReactDOMSelect = {
-  valueContextKey: bnxw,
+function bxdE(inst, props, context) {
+  return assign({}, props, {
+    onChange: inst._wrapperState.onChange,
+    value: undefined
+  });
+}
 
-  getNativeProps: function (inst, props, context) {
-    return assign({}, props, {
-      onChange: inst._wrapperState.onChange,
-      value: undefined
-    });
-  },
+function bXg7(inst, props) {
 
-  mountWrapper: function (inst, props) {
+  var value = LinkedValueUtils.getValue(props);
+  inst._wrapperState = {
+    pendingUpdate: false,
+    initialValue: value != null ? value : props.defaultValue,
+    onChange: b4PK.bind(inst),
+    wasMultiple: Boolean(props.multiple)
+  };
+}
 
-    var value = LinkedValueUtils.getValue(props);
-    inst._wrapperState = {
-      pendingUpdate: false,
-      initialValue: value != null ? value : props.defaultValue,
-      onChange: be3P.bind(inst),
-      wasMultiple: Boolean(props.multiple)
-    };
-  },
+function bRBY(inst, props, context) {
+  var childContext = assign({}, context);
+  childContext[bqJy] = inst._wrapperState.initialValue;
+  return childContext;
+}
 
-  processChildContext: function (inst, props, context) {
-    var childContext = assign({}, context);
-    childContext[bnxw] = inst._wrapperState.initialValue;
-    return childContext;
-  },
+function bKBB(inst) {
+  var props = inst._currentElement.props;
 
-  postUpdateWrapper: function (inst) {
-    var props = inst._currentElement.props;
+  inst._wrapperState.initialValue = undefined;
 
-    inst._wrapperState.initialValue = undefined;
+  var wasMultiple = inst._wrapperState.wasMultiple;
+  inst._wrapperState.wasMultiple = Boolean(props.multiple);
 
-    var wasMultiple = inst._wrapperState.wasMultiple;
-    inst._wrapperState.wasMultiple = Boolean(props.multiple);
-
-    var value = LinkedValueUtils.getValue(props);
-    if (value != null) {
-      inst._wrapperState.pendingUpdate = false;
-      b2G1(inst, Boolean(props.multiple), value);
-    } else if (wasMultiple !== Boolean(props.multiple)) {
-      if (props.defaultValue != null) {
-        b2G1(inst, Boolean(props.multiple), props.defaultValue);
-      } else {
-        b2G1(inst, Boolean(props.multiple), props.multiple ? [] : '');
-      }
+  var value = LinkedValueUtils.getValue(props);
+  if (value != null) {
+    inst._wrapperState.pendingUpdate = false;
+    bPAZ(inst, Boolean(props.multiple), value);
+  } else if (wasMultiple !== Boolean(props.multiple)) {
+    if (props.defaultValue != null) {
+      bPAZ(inst, Boolean(props.multiple), props.defaultValue);
+    } else {
+      bPAZ(inst, Boolean(props.multiple), props.multiple ? [] : '');
     }
   }
+}
+
+var ReactDOMSelect = {
+  valueContextKey: bqJy,
+
+  getNativeProps: bxdE,
+  mountWrapper: bXg7,
+  processChildContext: bRBY,
+  postUpdateWrapper: bKBB
 };
 
-function be3P(event) {
+function b4PK(event) {
   var props = this._currentElement.props;
   var returnValue = LinkedValueUtils.executeOnChange(props, event);
 
   this._wrapperState.pendingUpdate = true;
-  ReactUpdates.asap(bzG5, this);
+  ReactUpdates.asap(byaM, this);
   return returnValue;
 }
 /**bandol> resource: node_modules/react/lib/ReactDOMOption.js */
 
 
-var bm60 = ReactDOMSelect.valueContextKey;
+var bkpq = ReactDOMSelect.valueContextKey;
 
-var ReactDOMOption = {
-  mountWrapper: function (inst, props, context) {
-    var selectValue = context[bm60];
+function b5x5(inst, props, context) {
+  var selectValue = context[bkpq];
 
-    var selected = null;
-    if (selectValue != null) {
-      selected = false;
-      if (Array.isArray(selectValue)) {
-        for (var i = 0; i < selectValue.length; i++) {
-          if ('' + selectValue[i] === '' + props.value) {
-            selected = true;
-            break;
-          }
+  var selected = null;
+  if (selectValue != null) {
+    selected = false;
+    if (Array.isArray(selectValue)) {
+      for (var i = 0; i < selectValue.length; i++) {
+        if ('' + selectValue[i] === '' + props.value) {
+          selected = true;
+          break;
         }
-      } else {
-        selected = '' + selectValue === '' + props.value;
       }
+    } else {
+      selected = '' + selectValue === '' + props.value;
     }
-
-    inst._wrapperState = { selected: selected };
-  },
-
-  getNativeProps: function (inst, props, context) {
-    var nativeProps = assign({ selected: undefined, children: undefined }, props);
-
-    if (inst._wrapperState.selected != null) {
-      nativeProps.selected = inst._wrapperState.selected;
-    }
-
-    var content = '';
-
-    ReactChildren.forEach(props.children, function (child) {
-      if (child == null) {
-        return;
-      }
-      if (typeof child === 'string' || typeof child === 'number') {
-        content += child;
-      } else {
-        'production' !== 'production' ? warning(false, 'Only strings and numbers are supported as <option> children.') : undefined;
-      }
-    });
-
-    if (content) {
-      nativeProps.children = content;
-    }
-
-    return nativeProps;
   }
 
+  inst._wrapperState = { selected: selected };
+}
+
+function bJB2(inst, props, context) {
+  var nativeProps = assign({ selected: undefined, children: undefined }, props);
+
+  if (inst._wrapperState.selected != null) {
+    nativeProps.selected = inst._wrapperState.selected;
+  }
+
+  var content = '';
+
+  ReactChildren.forEach(props.children, function (child) {
+    if (child == null) {
+      return;
+    }
+    if (typeof child === 'string' || typeof child === 'number') {
+      content += child;
+    } else {
+      'production' !== 'production' ? warning(false, 'Only strings and numbers are supported as <option> children.') : undefined;
+    }
+  });
+
+  if (content) {
+    nativeProps.children = content;
+  }
+
+  return nativeProps;
+}
+
+var ReactDOMOption = {
+  mountWrapper: b5x5,
+  getNativeProps: bJB2
 };
 /**bandol> resource: node_modules/react/lib/ReactDOMInput.js */
 
 
-var bAdv = {};
+var bd3G = {};
 
-function b3bv() {
+function b971() {
   if (this._rootNodeID) {
     ReactDOMInput.updateWrapper(this);
   }
 }
 
-var ReactDOMInput = {
-  getNativeProps: function (inst, props, context) {
-    var value = LinkedValueUtils.getValue(props);
-    var checked = LinkedValueUtils.getChecked(props);
+function bER4(inst, props, context) {
+  var value = LinkedValueUtils.getValue(props);
+  var checked = LinkedValueUtils.getChecked(props);
 
-    var nativeProps = assign({}, props, {
-      defaultChecked: undefined,
-      defaultValue: undefined,
-      value: value != null ? value : inst._wrapperState.initialValue,
-      checked: checked != null ? checked : inst._wrapperState.initialChecked,
-      onChange: inst._wrapperState.onChange
-    });
+  var nativeProps = assign({}, props, {
+    defaultChecked: undefined,
+    defaultValue: undefined,
+    value: value != null ? value : inst._wrapperState.initialValue,
+    checked: checked != null ? checked : inst._wrapperState.initialChecked,
+    onChange: inst._wrapperState.onChange
+  });
 
-    return nativeProps;
-  },
+  return nativeProps;
+}
 
-  mountWrapper: function (inst, props) {
+function b7Zx(inst, props) {
 
-    var defaultValue = props.defaultValue;
-    inst._wrapperState = {
-      initialChecked: props.defaultChecked || false,
-      initialValue: defaultValue != null ? defaultValue : null,
-      onChange: bpa4.bind(inst)
-    };
-  },
+  var defaultValue = props.defaultValue;
+  inst._wrapperState = {
+    initialChecked: props.defaultChecked || false,
+    initialValue: defaultValue != null ? defaultValue : null,
+    onChange: bwqB.bind(inst)
+  };
+}
 
-  mountReadyWrapper: function (inst) {
-    bAdv[inst._rootNodeID] = inst;
-  },
+function bLvJ(inst) {
+  bd3G[inst._rootNodeID] = inst;
+}
 
-  unmountWrapper: function (inst) {
-    delete bAdv[inst._rootNodeID];
-  },
+function b0Vp(inst) {
+  delete bd3G[inst._rootNodeID];
+}
 
-  updateWrapper: function (inst) {
-    var props = inst._currentElement.props;
+function b13l(inst) {
+  var props = inst._currentElement.props;
 
-    var checked = props.checked;
-    if (checked != null) {
-      ReactDOMIDOperations.updatePropertyByID(inst._rootNodeID, 'checked', checked || false);
-    }
-
-    var value = LinkedValueUtils.getValue(props);
-    if (value != null) {
-      ReactDOMIDOperations.updatePropertyByID(inst._rootNodeID, 'value', '' + value);
-    }
+  var checked = props.checked;
+  if (checked != null) {
+    ReactDOMIDOperations.updatePropertyByID(inst._rootNodeID, 'checked', checked || false);
   }
+
+  var value = LinkedValueUtils.getValue(props);
+  if (value != null) {
+    ReactDOMIDOperations.updatePropertyByID(inst._rootNodeID, 'value', '' + value);
+  }
+}
+
+var ReactDOMInput = {
+  getNativeProps: bER4,
+  mountWrapper: b7Zx,
+  mountReadyWrapper: bLvJ,
+  unmountWrapper: b0Vp,
+  updateWrapper: b13l
 };
 
-function bpa4(event) {
+function bwqB(event) {
   var props = this._currentElement.props;
 
   var returnValue = LinkedValueUtils.executeOnChange(props, event);
 
-  ReactUpdates.asap(b3bv, this);
+  ReactUpdates.asap(b971, this);
 
   var name = props.name;
   if (props.type === 'radio' && name != null) {
@@ -7499,10 +7833,10 @@ function bpa4(event) {
 
       var otherID = ReactMount.getID(otherNode);
       !otherID ? 'production' !== 'production' ? invariant(false, 'ReactDOMInput: Mixing React and non-React radio inputs with the ' + 'same `name` is not supported.') : invariant(false) : undefined;
-      var otherInstance = bAdv[otherID];
+      var otherInstance = bd3G[otherID];
       !otherInstance ? 'production' !== 'production' ? invariant(false, 'ReactDOMInput: Unknown radio button ID %s.', otherID) : invariant(false) : undefined;
 
-      ReactUpdates.asap(b3bv, otherInstance);
+      ReactUpdates.asap(b971, otherInstance);
     }
   }
 
@@ -7511,7 +7845,7 @@ function bpa4(event) {
 /**bandol> resource: node_modules/react/lib/ReactDOMButton.js */
 
 
-var bZpy = {
+var b86g = {
   onClick: true,
   onDoubleClick: true,
   onMouseDown: true,
@@ -7525,21 +7859,23 @@ var bZpy = {
   onMouseUpCapture: true
 };
 
-var ReactDOMButton = {
-  getNativeProps: function (inst, props, context) {
-    if (!props.disabled) {
-      return props;
-    }
-
-    var nativeProps = {};
-    for (var key in props) {
-      if (props.hasOwnProperty(key) && !bZpy[key]) {
-        nativeProps[key] = props[key];
-      }
-    }
-
-    return nativeProps;
+function bNL1(inst, props, context) {
+  if (!props.disabled) {
+    return props;
   }
+
+  var nativeProps = {};
+  for (var key in props) {
+    if (props.hasOwnProperty(key) && !b86g[key]) {
+      nativeProps[key] = props[key];
+    }
+  }
+
+  return nativeProps;
+}
+
+var ReactDOMButton = {
+  getNativeProps: bNL1
 };
 /**bandol> resource: node_modules/fbjs/lib/memoizeStringOnly.js */
 
@@ -7555,22 +7891,22 @@ function memoizeStringOnly(callback) {
 /**bandol> resource: node_modules/fbjs/lib/hyphenate.js */
 
 
-var b6NE = /([A-Z])/g;
+var bOyz = /([A-Z])/g;
 
 function hyphenate(string) {
-  return string.replace(b6NE, '-$1').toLowerCase();
+  return string.replace(bOyz, '-$1').toLowerCase();
 }
 /**bandol> resource: node_modules/fbjs/lib/hyphenateStyleName.js */
 
 
-var bMQd = /^ms-/;
+var bY7a = /^ms-/;
 
 function hyphenateStyleName(string) {
-  return hyphenate(string).replace(bMQd, '-ms-');
+  return hyphenate(string).replace(bY7a, '-ms-');
 }
 /**bandol> resource: node_modules/react/lib/CSSProperty.js */
 
-var bblX = {
+var baeZ = {
   animationIterationCount: true,
   boxFlex: true,
   boxFlexGroup: true,
@@ -7600,19 +7936,19 @@ var bblX = {
   strokeWidth: true
 };
 
-function blvJ(prefix, key) {
+function b2p4(prefix, key) {
   return prefix + key.charAt(0).toUpperCase() + key.substring(1);
 }
 
-var bVRg = ['Webkit', 'ms', 'Moz', 'O'];
+var bee6 = ['Webkit', 'ms', 'Moz', 'O'];
 
-Object.keys(bblX).forEach(function (prop) {
-  bVRg.forEach(function (prefix) {
-    bblX[blvJ(prefix, prop)] = bblX[prop];
+Object.keys(baeZ).forEach(function (prop) {
+  bee6.forEach(function (prefix) {
+    baeZ[b2p4(prefix, prop)] = baeZ[prop];
   });
 });
 
-var bg58 = {
+var bBPz = {
   background: {
     backgroundAttachment: true,
     backgroundColor: true,
@@ -7666,13 +8002,13 @@ var bg58 = {
 };
 
 var CSSProperty = {
-  isUnitlessNumber: bblX,
-  shorthandPropertyExpansions: bg58
+  isUnitlessNumber: baeZ,
+  shorthandPropertyExpansions: bBPz
 };
 /**bandol> resource: node_modules/react/lib/dangerousStyleValue.js */
 
 
-var bGX8 = CSSProperty.isUnitlessNumber;
+var bvn7 = CSSProperty.isUnitlessNumber;
 
 function dangerousStyleValue(name, value) {
 
@@ -7682,7 +8018,7 @@ function dangerousStyleValue(name, value) {
   }
 
   var isNonNumeric = isNaN(value);
-  if (isNonNumeric || value === 0 || bGX8.hasOwnProperty(name) && bGX8[name]) {
+  if (isNonNumeric || value === 0 || bvn7.hasOwnProperty(name) && bvn7[name]) {
     return '' + value;
   }
 
@@ -7694,68 +8030,70 @@ function dangerousStyleValue(name, value) {
 /**bandol> resource: node_modules/react/lib/CSSPropertyOperations.js */
 
 
-var bXay = memoizeStringOnly(function (styleName) {
+var bAy8 = memoizeStringOnly(function (styleName) {
   return hyphenateStyleName(styleName);
 });
 
-var bRvl = false;
-var bKkN = 'cssFloat';
+var b3Vn = false;
+var bpYO = 'cssFloat';
 if (ExecutionEnvironment.canUseDOM) {
-  var b4Ax = document.createElement('div').style;
+  var bmY5 = document.createElement('div').style;
   try {
-    b4Ax.font = '';
+    bmY5.font = '';
   } catch (e) {
-    bRvl = true;
+    b3Vn = true;
   }
 
   if (document.documentElement.style.cssFloat === undefined) {
-    bKkN = 'styleFloat';
+    bpYO = 'styleFloat';
+  }
+}
+
+function bnY8(styles) {
+  var serialized = '';
+  for (var styleName in styles) {
+    if (!styles.hasOwnProperty(styleName)) {
+      continue;
+    }
+    var styleValue = styles[styleName];
+
+    if (styleValue != null) {
+      serialized += bAy8(styleName) + ':';
+      serialized += dangerousStyleValue(styleName, styleValue) + ';';
+    }
+  }
+  return serialized || null;
+}
+
+function bznq(node, styles) {
+  var style = node.style;
+  for (var styleName in styles) {
+    if (!styles.hasOwnProperty(styleName)) {
+      continue;
+    }
+
+    var styleValue = dangerousStyleValue(styleName, styles[styleName]);
+    if (styleName === 'float') {
+      styleName = bpYO;
+    }
+    if (styleValue) {
+      style[styleName] = styleValue;
+    } else {
+      var expansion = b3Vn && CSSProperty.shorthandPropertyExpansions[styleName];
+      if (expansion) {
+        for (var individualStyleName in expansion) {
+          style[individualStyleName] = '';
+        }
+      } else {
+        style[styleName] = '';
+      }
+    }
   }
 }
 
 var CSSPropertyOperations = {
-  createMarkupForStyles: function (styles) {
-    var serialized = '';
-    for (var styleName in styles) {
-      if (!styles.hasOwnProperty(styleName)) {
-        continue;
-      }
-      var styleValue = styles[styleName];
-
-      if (styleValue != null) {
-        serialized += bXay(styleName) + ':';
-        serialized += dangerousStyleValue(styleName, styleValue) + ';';
-      }
-    }
-    return serialized || null;
-  },
-
-  setValueForStyles: function (node, styles) {
-    var style = node.style;
-    for (var styleName in styles) {
-      if (!styles.hasOwnProperty(styleName)) {
-        continue;
-      }
-
-      var styleValue = dangerousStyleValue(styleName, styles[styleName]);
-      if (styleName === 'float') {
-        styleName = bKkN;
-      }
-      if (styleValue) {
-        style[styleName] = styleValue;
-      } else {
-        var expansion = bRvl && CSSProperty.shorthandPropertyExpansions[styleName];
-        if (expansion) {
-          for (var individualStyleName in expansion) {
-            style[individualStyleName] = '';
-          }
-        } else {
-          style[styleName] = '';
-        }
-      }
-    }
-  }
-
+  createMarkupForStyles: bnY8,
+  setValueForStyles: bznq
 };
 
 ReactPerf.measureMethods(CSSPropertyOperations, 'CSSPropertyOperations', {
@@ -7777,39 +8115,41 @@ function findDOMNode(componentOrElement) {
   !false ? 'production' !== 'production' ? invariant(false, 'Element appears to be neither ReactComponent nor DOMNode (keys: %s)', Object.keys(componentOrElement)) : invariant(false) : undefined;
 }
 /**bandol> resource: node_modules/react/lib/AutoFocusUtils.js */
-
-
-var bxKA = {
-  componentDidMount: function () {
-    if (this.props.autoFocus) {
-      focusNode(findDOMNode(this));
-    }
+function bMzR() {
+  if (this.props.autoFocus) {
+    focusNode(findDOMNode(this));
   }
+}
+
+var b6L5 = {
+  componentDidMount: bMzR
 };
 
-var AutoFocusUtils = {
-  Mixin: bxKA,
+function bZYe() {
+  focusNode(ReactMount.getNode(this._rootNodeID));
+}
 
-  focusDOMComponent: function () {
-    focusNode(ReactMount.getNode(this._rootNodeID));
-  }
+var AutoFocusUtils = {
+  Mixin: b6L5,
+
+  focusDOMComponent: bZYe
 };
 /**bandol> resource: node_modules/react/lib/ReactDOMComponent.js */
 
 
-var b8AY = ReactBrowserEventEmitter.deleteListener;
-var bNPx = ReactBrowserEventEmitter.listenTo;
-var bdZ0 = ReactBrowserEventEmitter.registrationNameModules;
+var bOgk = ReactBrowserEventEmitter.deleteListener;
+var b8bw = ReactBrowserEventEmitter.listenTo;
+var bN2E = ReactBrowserEventEmitter.registrationNameModules;
 
-var b9ld = { 'string': true, 'number': true };
+var bdRd = { 'string': true, 'number': true };
 
-var bEze = keyOf({ children: null });
-var b7GY = keyOf({ style: null });
-var bL7m = keyOf({ __html: null });
+var b9Bk = keyOf({ children: null });
+var bE5d = keyOf({ style: null });
+var b7OL = keyOf({ __html: null });
 
-var b0A1 = 1;
+var bL0z = 1;
 
-function b1q2(internalInstance) {
+function b0QR(internalInstance) {
   if (internalInstance) {
     var owner = internalInstance._currentElement._owner || null;
     if (owner) {
@@ -7822,19 +8162,19 @@ function b1q2(internalInstance) {
   return '';
 }
 
-function bwg8() {
+function b1Pn() {
   return this;
 }
 
-function bkg8() {
+function bwr6() {
   var component = this._reactInternalComponent;
 
   return !!component;
 }
 
-function b5ma() {}
+function bkX0() {}
 
-function bJ2L(partialProps, callback) {
+function b5KY(partialProps, callback) {
   var component = this._reactInternalComponent;
 
   if (!component) {
@@ -7846,7 +8186,7 @@ function bJ2L(partialProps, callback) {
   }
 }
 
-function bqqn(partialProps, callback) {
+function bJZN(partialProps, callback) {
   var component = this._reactInternalComponent;
 
   if (!component) {
@@ -7858,16 +8198,16 @@ function bqqn(partialProps, callback) {
   }
 }
 
-function byqY(obj) {
+function bqe3(obj) {
   if (typeof obj === 'object') {
     if (Array.isArray(obj)) {
-      return '[' + obj.map(byqY).join(', ') + ']';
+      return '[' + obj.map(bqe3).join(', ') + ']';
     } else {
       var pairs = [];
       for (var key in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, key)) {
           var keyEscaped = /^[a-z$_][\w$_]*$/i.test(key) ? key : JSON.stringify(key);
-          pairs.push(keyEscaped + ': ' + byqY(obj[key]));
+          pairs.push(keyEscaped + ': ' + bqe3(obj[key]));
         }
       }
       return '{' + pairs.join(', ') + '}';
@@ -7881,38 +8221,38 @@ function byqY(obj) {
   return String(obj);
 }
 
-function bQvr(component, props) {
+function brq3(component, props) {
   if (!props) {
     return;
   }
 
   if (props.dangerouslySetInnerHTML != null) {
     !(props.children == null) ? 'production' !== 'production' ? invariant(false, 'Can only set one of `children` or `props.dangerouslySetInnerHTML`.') : invariant(false) : undefined;
-    !(typeof props.dangerouslySetInnerHTML === 'object' && bL7m in props.dangerouslySetInnerHTML) ? 'production' !== 'production' ? invariant(false, '`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. ' + 'Please visit https://fb.me/react-invariant-dangerously-set-inner-html ' + 'for more information.') : invariant(false) : undefined;
+    !(typeof props.dangerouslySetInnerHTML === 'object' && b7OL in props.dangerouslySetInnerHTML) ? 'production' !== 'production' ? invariant(false, '`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. ' + 'Please visit https://fb.me/react-invariant-dangerously-set-inner-html ' + 'for more information.') : invariant(false) : undefined;
   }
 
-  !(props.style == null || typeof props.style === 'object') ? 'production' !== 'production' ? invariant(false, 'The `style` prop expects a mapping from style properties to values, ' + 'not a string. For example, style={{marginRight: spacing + \'em\'}} when ' + 'using JSX.%s', b1q2(component)) : invariant(false) : undefined;
+  !(props.style == null || typeof props.style === 'object') ? 'production' !== 'production' ? invariant(false, 'The `style` prop expects a mapping from style properties to values, ' + 'not a string. For example, style={{marginRight: spacing + \'em\'}} when ' + 'using JSX.%s', b0QR(component)) : invariant(false) : undefined;
 }
 
-function bPqq(id, registrationName, listener, transaction) {
+function bQYm(id, registrationName, listener, transaction) {
   var container = ReactMount.findReactContainerForID(id);
   if (container) {
-    var doc = container.nodeType === b0A1 ? container.ownerDocument : container;
-    bNPx(registrationName, doc);
+    var doc = container.nodeType === bL0z ? container.ownerDocument : container;
+    b8bw(registrationName, doc);
   }
-  transaction.getReactMountReady().enqueue(bxKq, {
+  transaction.getReactMountReady().enqueue(bPYO, {
     id: id,
     registrationName: registrationName,
     listener: listener
   });
 }
 
-function bxKq() {
+function bPYO() {
   var listenerToPut = this;
   ReactBrowserEventEmitter.putListener(listenerToPut.id, listenerToPut.registrationName, listenerToPut.listener);
 }
 
-var bXaz = {
+var bxQx = {
   topAbort: 'abort',
   topCanPlay: 'canplay',
   topCanPlayThrough: 'canplaythrough',
@@ -7938,7 +8278,7 @@ var bXaz = {
   topWaiting: 'waiting'
 };
 
-function bRvK() {
+function bX7p() {
   var inst = this;
 
   !inst._rootNodeID ? 'production' !== 'production' ? invariant(false, 'Must be mounted to trap events') : invariant(false) : undefined;
@@ -7954,9 +8294,9 @@ function bRvK() {
 
       inst._wrapperState.listeners = [];
 
-      for (var event in bXaz) {
-        if (bXaz.hasOwnProperty(event)) {
-          inst._wrapperState.listeners.push(ReactBrowserEventEmitter.trapBubbledEvent(EventConstants.topLevelTypes[event], bXaz[event], node));
+      for (var event in bxQx) {
+        if (bxQx.hasOwnProperty(event)) {
+          inst._wrapperState.listeners.push(ReactBrowserEventEmitter.trapBubbledEvent(EventConstants.topLevelTypes[event], bxQx[event], node));
         }
       }
 
@@ -7970,15 +8310,15 @@ function bRvK() {
   }
 }
 
-function bKkv() {
+function bRZP() {
   ReactDOMInput.mountReadyWrapper(this);
 }
 
-function b4Al() {
+function bKZ2() {
   ReactDOMSelect.postUpdateWrapper(this);
 }
 
-var bGXZ = {
+var b4Rp = {
   'area': true,
   'base': true,
   'br': true,
@@ -7996,29 +8336,29 @@ var bGXZ = {
   'wbr': true
 };
 
-var bble = {
+var bG4p = {
   'listing': true,
   'pre': true,
   'textarea': true
 };
 
-var blvM = /^[a-zA-Z][a-zA-Z:_\.\-\d]*$/;
-var bVR4 = {};
-var brgl = {}.hasOwnProperty;
+var bbe3 = /^[a-zA-Z][a-zA-Z:_\.\-\d]*$/;
+var blnv = {};
+var bVYv = {}.hasOwnProperty;
 
-function bQvw(tag) {
-  if (!brgl.call(bVR4, tag)) {
-    !blvM.test(tag) ? 'production' !== 'production' ? invariant(false, 'Invalid tag: %s', tag) : invariant(false) : undefined;
-    bVR4[tag] = true;
+function br8K(tag) {
+  if (!bVYv.call(blnv, tag)) {
+    !bbe3.test(tag) ? 'production' !== 'production' ? invariant(false, 'Invalid tag: %s', tag) : invariant(false) : undefined;
+    blnv[tag] = true;
   }
 }
 
-function bPqV(tagName, props) {
+function bQzL(tagName, props) {
   return tagName.indexOf('-') >= 0 || props.is != null;
 }
 
 function ReactDOMComponent(tag) {
-  bQvw(tag);
+  br8K(tag);
   this._tag = tag.toLowerCase();
   this._renderedChildren = null;
   this._previousStyle = null;
@@ -8031,405 +8371,415 @@ function ReactDOMComponent(tag) {
 
 ReactDOMComponent.displayName = 'ReactDOMComponent';
 
-ReactDOMComponent.Mixin = {
+function bPzZ(element) {
+  this._currentElement = element;
+}
 
-  construct: function (element) {
-    this._currentElement = element;
-  },
+function bxnE(rootID, transaction, context) {
+  this._rootNodeID = rootID;
 
-  mountComponent: function (rootID, transaction, context) {
-    this._rootNodeID = rootID;
+  var props = this._currentElement.props;
 
-    var props = this._currentElement.props;
+  switch (this._tag) {
+    case 'iframe':
+    case 'img':
+    case 'form':
+    case 'video':
+    case 'audio':
+      this._wrapperState = {
+        listeners: null
+      };
+      transaction.getReactMountReady().enqueue(bX7p, this);
+      break;
+    case 'button':
+      props = ReactDOMButton.getNativeProps(this, props, context);
+      break;
+    case 'input':
+      ReactDOMInput.mountWrapper(this, props, context);
+      props = ReactDOMInput.getNativeProps(this, props, context);
+      break;
+    case 'option':
+      ReactDOMOption.mountWrapper(this, props, context);
+      props = ReactDOMOption.getNativeProps(this, props, context);
+      break;
+    case 'select':
+      ReactDOMSelect.mountWrapper(this, props, context);
+      props = ReactDOMSelect.getNativeProps(this, props, context);
+      context = ReactDOMSelect.processChildContext(this, props, context);
+      break;
+    case 'textarea':
+      ReactDOMTextarea.mountWrapper(this, props, context);
+      props = ReactDOMTextarea.getNativeProps(this, props, context);
+      break;
+  }
 
-    switch (this._tag) {
-      case 'iframe':
-      case 'img':
-      case 'form':
-      case 'video':
-      case 'audio':
-        this._wrapperState = {
-          listeners: null
-        };
-        transaction.getReactMountReady().enqueue(bRvK, this);
-        break;
-      case 'button':
-        props = ReactDOMButton.getNativeProps(this, props, context);
-        break;
-      case 'input':
-        ReactDOMInput.mountWrapper(this, props, context);
-        props = ReactDOMInput.getNativeProps(this, props, context);
-        break;
-      case 'option':
-        ReactDOMOption.mountWrapper(this, props, context);
-        props = ReactDOMOption.getNativeProps(this, props, context);
-        break;
-      case 'select':
-        ReactDOMSelect.mountWrapper(this, props, context);
-        props = ReactDOMSelect.getNativeProps(this, props, context);
-        context = ReactDOMSelect.processChildContext(this, props, context);
-        break;
-      case 'textarea':
-        ReactDOMTextarea.mountWrapper(this, props, context);
-        props = ReactDOMTextarea.getNativeProps(this, props, context);
-        break;
-    }
-
-    bQvr(this, props);
+  brq3(this, props);
 
 
-    var mountImage;
-    if (transaction.useCreateElement) {
-      var ownerDocument = context[ReactMount.ownerDocumentContextKey];
-      var el = ownerDocument.createElement(this._currentElement.type);
-      DOMPropertyOperations.setAttributeForID(el, this._rootNodeID);
+  var mountImage;
+  if (transaction.useCreateElement) {
+    var ownerDocument = context[ReactMount.ownerDocumentContextKey];
+    var el = ownerDocument.createElement(this._currentElement.type);
+    DOMPropertyOperations.setAttributeForID(el, this._rootNodeID);
 
-      ReactMount.getID(el);
-      this._updateDOMProperties({}, props, transaction, el);
-      this._createInitialChildren(transaction, props, context, el);
-      mountImage = el;
+    ReactMount.getID(el);
+    this._updateDOMProperties({}, props, transaction, el);
+    this._createInitialChildren(transaction, props, context, el);
+    mountImage = el;
+  } else {
+    var tagOpen = this._createOpenTagMarkupAndPutListeners(transaction, props);
+    var tagContent = this._createContentMarkup(transaction, props, context);
+    if (!tagContent && b4Rp[this._tag]) {
+      mountImage = tagOpen + '/>';
     } else {
-      var tagOpen = this._createOpenTagMarkupAndPutListeners(transaction, props);
-      var tagContent = this._createContentMarkup(transaction, props, context);
-      if (!tagContent && bGXZ[this._tag]) {
-        mountImage = tagOpen + '/>';
-      } else {
-        mountImage = tagOpen + '>' + tagContent + '</' + this._currentElement.type + '>';
-      }
+      mountImage = tagOpen + '>' + tagContent + '</' + this._currentElement.type + '>';
     }
+  }
 
-    switch (this._tag) {
-      case 'input':
-        transaction.getReactMountReady().enqueue(bKkv, this);
+  switch (this._tag) {
+    case 'input':
+      transaction.getReactMountReady().enqueue(bRZP, this);
 
-      case 'button':
-      case 'select':
-      case 'textarea':
-        if (props.autoFocus) {
-          transaction.getReactMountReady().enqueue(AutoFocusUtils.focusDOMComponent, this);
-        }
-        break;
+    case 'button':
+    case 'select':
+    case 'textarea':
+      if (props.autoFocus) {
+        transaction.getReactMountReady().enqueue(AutoFocusUtils.focusDOMComponent, this);
+      }
+      break;
+  }
+
+  return mountImage;
+}
+
+function bXw7(transaction, props) {
+  var ret = '<' + this._currentElement.type;
+
+  for (var propKey in props) {
+    if (!props.hasOwnProperty(propKey)) {
+      continue;
     }
-
-    return mountImage;
-  },
-
-  _createOpenTagMarkupAndPutListeners: function (transaction, props) {
-    var ret = '<' + this._currentElement.type;
-
-    for (var propKey in props) {
-      if (!props.hasOwnProperty(propKey)) {
-        continue;
+    var propValue = props[propKey];
+    if (propValue == null) {
+      continue;
+    }
+    if (bN2E.hasOwnProperty(propKey)) {
+      if (propValue) {
+        bQYm(this._rootNodeID, propKey, propValue, transaction);
       }
-      var propValue = props[propKey];
-      if (propValue == null) {
-        continue;
-      }
-      if (bdZ0.hasOwnProperty(propKey)) {
+    } else {
+      if (propKey === bE5d) {
         if (propValue) {
-          bPqq(this._rootNodeID, propKey, propValue, transaction);
+          propValue = this._previousStyleCopy = assign({}, props.style);
+        }
+        propValue = CSSPropertyOperations.createMarkupForStyles(propValue);
+      }
+      var markup = null;
+      if (this._tag != null && bQzL(this._tag, props)) {
+        if (propKey !== b9Bk) {
+          markup = DOMPropertyOperations.createMarkupForCustomAttribute(propKey, propValue);
         }
       } else {
-        if (propKey === b7GY) {
-          if (propValue) {
-            propValue = this._previousStyleCopy = assign({}, props.style);
-          }
-          propValue = CSSPropertyOperations.createMarkupForStyles(propValue);
+        markup = DOMPropertyOperations.createMarkupForProperty(propKey, propValue);
+      }
+      if (markup) {
+        ret += ' ' + markup;
+      }
+    }
+  }
+
+  if (transaction.renderToStaticMarkup) {
+    return ret;
+  }
+
+  var markupForID = DOMPropertyOperations.createMarkupForID(this._rootNodeID);
+  return ret + ' ' + markupForID;
+}
+
+function bRYY(transaction, props, context) {
+  var ret = '';
+
+  var innerHTML = props.dangerouslySetInnerHTML;
+  if (innerHTML != null) {
+    if (innerHTML.__html != null) {
+      ret = innerHTML.__html;
+    }
+  } else {
+    var contentToUse = bdRd[typeof props.children] ? props.children : null;
+    var childrenToUse = contentToUse != null ? null : props.children;
+    if (contentToUse != null) {
+      ret = escapeTextContentForBrowser(contentToUse);
+    } else if (childrenToUse != null) {
+      var mountImages = this.mountChildren(childrenToUse, transaction, context);
+      ret = mountImages.join('');
+    }
+  }
+  if (bG4p[this._tag] && ret.charAt(0) === '\n') {
+    return '\n' + ret;
+  } else {
+    return ret;
+  }
+}
+
+function bKyB(transaction, props, context, el) {
+  var innerHTML = props.dangerouslySetInnerHTML;
+  if (innerHTML != null) {
+    if (innerHTML.__html != null) {
+      setInnerHTML(el, innerHTML.__html);
+    }
+  } else {
+    var contentToUse = bdRd[typeof props.children] ? props.children : null;
+    var childrenToUse = contentToUse != null ? null : props.children;
+    if (contentToUse != null) {
+      setTextContent(el, contentToUse);
+    } else if (childrenToUse != null) {
+      var mountImages = this.mountChildren(childrenToUse, transaction, context);
+      for (var i = 0; i < mountImages.length; i++) {
+        el.appendChild(mountImages[i]);
+      }
+    }
+  }
+}
+
+function b4dK(nextElement, transaction, context) {
+  var prevElement = this._currentElement;
+  this._currentElement = nextElement;
+  this.updateComponent(transaction, prevElement, nextElement, context);
+}
+
+function bG43(transaction, prevElement, nextElement, context) {
+  var lastProps = prevElement.props;
+  var nextProps = this._currentElement.props;
+
+  switch (this._tag) {
+    case 'button':
+      lastProps = ReactDOMButton.getNativeProps(this, lastProps);
+      nextProps = ReactDOMButton.getNativeProps(this, nextProps);
+      break;
+    case 'input':
+      ReactDOMInput.updateWrapper(this);
+      lastProps = ReactDOMInput.getNativeProps(this, lastProps);
+      nextProps = ReactDOMInput.getNativeProps(this, nextProps);
+      break;
+    case 'option':
+      lastProps = ReactDOMOption.getNativeProps(this, lastProps);
+      nextProps = ReactDOMOption.getNativeProps(this, nextProps);
+      break;
+    case 'select':
+      lastProps = ReactDOMSelect.getNativeProps(this, lastProps);
+      nextProps = ReactDOMSelect.getNativeProps(this, nextProps);
+      break;
+    case 'textarea':
+      ReactDOMTextarea.updateWrapper(this);
+      lastProps = ReactDOMTextarea.getNativeProps(this, lastProps);
+      nextProps = ReactDOMTextarea.getNativeProps(this, nextProps);
+      break;
+  }
+
+  brq3(this, nextProps);
+  this._updateDOMProperties(lastProps, nextProps, transaction, null);
+  this._updateDOMChildren(lastProps, nextProps, transaction, context);
+
+  if (!canDefineProperty && this._nodeWithLegacyProperties) {
+    this._nodeWithLegacyProperties.props = nextProps;
+  }
+
+  if (this._tag === 'select') {
+    transaction.getReactMountReady().enqueue(bKZ2, this);
+  }
+}
+
+function bbem(lastProps, nextProps, transaction, node) {
+  var propKey;
+  var styleName;
+  var styleUpdates;
+  for (propKey in lastProps) {
+    if (nextProps.hasOwnProperty(propKey) || !lastProps.hasOwnProperty(propKey)) {
+      continue;
+    }
+    if (propKey === bE5d) {
+      var lastStyle = this._previousStyleCopy;
+      for (styleName in lastStyle) {
+        if (lastStyle.hasOwnProperty(styleName)) {
+          styleUpdates = styleUpdates || {};
+          styleUpdates[styleName] = '';
         }
-        var markup = null;
-        if (this._tag != null && bPqV(this._tag, props)) {
-          if (propKey !== bEze) {
-            markup = DOMPropertyOperations.createMarkupForCustomAttribute(propKey, propValue);
-          }
-        } else {
-          markup = DOMPropertyOperations.createMarkupForProperty(propKey, propValue);
-        }
-        if (markup) {
-          ret += ' ' + markup;
-        }
       }
-    }
-
-    if (transaction.renderToStaticMarkup) {
-      return ret;
-    }
-
-    var markupForID = DOMPropertyOperations.createMarkupForID(this._rootNodeID);
-    return ret + ' ' + markupForID;
-  },
-
-  _createContentMarkup: function (transaction, props, context) {
-    var ret = '';
-
-    var innerHTML = props.dangerouslySetInnerHTML;
-    if (innerHTML != null) {
-      if (innerHTML.__html != null) {
-        ret = innerHTML.__html;
+      this._previousStyleCopy = null;
+    } else if (bN2E.hasOwnProperty(propKey)) {
+      if (lastProps[propKey]) {
+        bOgk(this._rootNodeID, propKey);
       }
-    } else {
-      var contentToUse = b9ld[typeof props.children] ? props.children : null;
-      var childrenToUse = contentToUse != null ? null : props.children;
-      if (contentToUse != null) {
-        ret = escapeTextContentForBrowser(contentToUse);
-      } else if (childrenToUse != null) {
-        var mountImages = this.mountChildren(childrenToUse, transaction, context);
-        ret = mountImages.join('');
+    } else if (DOMProperty.properties[propKey] || DOMProperty.isCustomAttribute(propKey)) {
+      if (!node) {
+        node = ReactMount.getNode(this._rootNodeID);
       }
+      DOMPropertyOperations.deleteValueForProperty(node, propKey);
     }
-    if (bble[this._tag] && ret.charAt(0) === '\n') {
-      return '\n' + ret;
-    } else {
-      return ret;
+  }
+  for (propKey in nextProps) {
+    var nextProp = nextProps[propKey];
+    var lastProp = propKey === bE5d ? this._previousStyleCopy : lastProps[propKey];
+    if (!nextProps.hasOwnProperty(propKey) || nextProp === lastProp) {
+      continue;
     }
-  },
-
-  _createInitialChildren: function (transaction, props, context, el) {
-    var innerHTML = props.dangerouslySetInnerHTML;
-    if (innerHTML != null) {
-      if (innerHTML.__html != null) {
-        setInnerHTML(el, innerHTML.__html);
+    if (propKey === bE5d) {
+      if (nextProp) {
+        nextProp = this._previousStyleCopy = assign({}, nextProp);
+      } else {
+        this._previousStyleCopy = null;
       }
-    } else {
-      var contentToUse = b9ld[typeof props.children] ? props.children : null;
-      var childrenToUse = contentToUse != null ? null : props.children;
-      if (contentToUse != null) {
-        setTextContent(el, contentToUse);
-      } else if (childrenToUse != null) {
-        var mountImages = this.mountChildren(childrenToUse, transaction, context);
-        for (var i = 0; i < mountImages.length; i++) {
-          el.appendChild(mountImages[i]);
-        }
-      }
-    }
-  },
-
-  receiveComponent: function (nextElement, transaction, context) {
-    var prevElement = this._currentElement;
-    this._currentElement = nextElement;
-    this.updateComponent(transaction, prevElement, nextElement, context);
-  },
-
-  updateComponent: function (transaction, prevElement, nextElement, context) {
-    var lastProps = prevElement.props;
-    var nextProps = this._currentElement.props;
-
-    switch (this._tag) {
-      case 'button':
-        lastProps = ReactDOMButton.getNativeProps(this, lastProps);
-        nextProps = ReactDOMButton.getNativeProps(this, nextProps);
-        break;
-      case 'input':
-        ReactDOMInput.updateWrapper(this);
-        lastProps = ReactDOMInput.getNativeProps(this, lastProps);
-        nextProps = ReactDOMInput.getNativeProps(this, nextProps);
-        break;
-      case 'option':
-        lastProps = ReactDOMOption.getNativeProps(this, lastProps);
-        nextProps = ReactDOMOption.getNativeProps(this, nextProps);
-        break;
-      case 'select':
-        lastProps = ReactDOMSelect.getNativeProps(this, lastProps);
-        nextProps = ReactDOMSelect.getNativeProps(this, nextProps);
-        break;
-      case 'textarea':
-        ReactDOMTextarea.updateWrapper(this);
-        lastProps = ReactDOMTextarea.getNativeProps(this, lastProps);
-        nextProps = ReactDOMTextarea.getNativeProps(this, nextProps);
-        break;
-    }
-
-    bQvr(this, nextProps);
-    this._updateDOMProperties(lastProps, nextProps, transaction, null);
-    this._updateDOMChildren(lastProps, nextProps, transaction, context);
-
-    if (!canDefineProperty && this._nodeWithLegacyProperties) {
-      this._nodeWithLegacyProperties.props = nextProps;
-    }
-
-    if (this._tag === 'select') {
-      transaction.getReactMountReady().enqueue(b4Al, this);
-    }
-  },
-
-  _updateDOMProperties: function (lastProps, nextProps, transaction, node) {
-    var propKey;
-    var styleName;
-    var styleUpdates;
-    for (propKey in lastProps) {
-      if (nextProps.hasOwnProperty(propKey) || !lastProps.hasOwnProperty(propKey)) {
-        continue;
-      }
-      if (propKey === b7GY) {
-        var lastStyle = this._previousStyleCopy;
-        for (styleName in lastStyle) {
-          if (lastStyle.hasOwnProperty(styleName)) {
+      if (lastProp) {
+        for (styleName in lastProp) {
+          if (lastProp.hasOwnProperty(styleName) && (!nextProp || !nextProp.hasOwnProperty(styleName))) {
             styleUpdates = styleUpdates || {};
             styleUpdates[styleName] = '';
           }
         }
-        this._previousStyleCopy = null;
-      } else if (bdZ0.hasOwnProperty(propKey)) {
-        if (lastProps[propKey]) {
-          b8AY(this._rootNodeID, propKey);
-        }
-      } else if (DOMProperty.properties[propKey] || DOMProperty.isCustomAttribute(propKey)) {
-        if (!node) {
-          node = ReactMount.getNode(this._rootNodeID);
-        }
-        DOMPropertyOperations.deleteValueForProperty(node, propKey);
-      }
-    }
-    for (propKey in nextProps) {
-      var nextProp = nextProps[propKey];
-      var lastProp = propKey === b7GY ? this._previousStyleCopy : lastProps[propKey];
-      if (!nextProps.hasOwnProperty(propKey) || nextProp === lastProp) {
-        continue;
-      }
-      if (propKey === b7GY) {
-        if (nextProp) {
-          nextProp = this._previousStyleCopy = assign({}, nextProp);
-        } else {
-          this._previousStyleCopy = null;
-        }
-        if (lastProp) {
-          for (styleName in lastProp) {
-            if (lastProp.hasOwnProperty(styleName) && (!nextProp || !nextProp.hasOwnProperty(styleName))) {
-              styleUpdates = styleUpdates || {};
-              styleUpdates[styleName] = '';
-            }
-          }
 
-          for (styleName in nextProp) {
-            if (nextProp.hasOwnProperty(styleName) && lastProp[styleName] !== nextProp[styleName]) {
-              styleUpdates = styleUpdates || {};
-              styleUpdates[styleName] = nextProp[styleName];
-            }
+        for (styleName in nextProp) {
+          if (nextProp.hasOwnProperty(styleName) && lastProp[styleName] !== nextProp[styleName]) {
+            styleUpdates = styleUpdates || {};
+            styleUpdates[styleName] = nextProp[styleName];
           }
-        } else {
-          styleUpdates = nextProp;
         }
-      } else if (bdZ0.hasOwnProperty(propKey)) {
-        if (nextProp) {
-          bPqq(this._rootNodeID, propKey, nextProp, transaction);
-        } else if (lastProp) {
-          b8AY(this._rootNodeID, propKey);
-        }
-      } else if (bPqV(this._tag, nextProps)) {
-        if (!node) {
-          node = ReactMount.getNode(this._rootNodeID);
-        }
-        if (propKey === bEze) {
-          nextProp = null;
-        }
-        DOMPropertyOperations.setValueForAttribute(node, propKey, nextProp);
-      } else if (DOMProperty.properties[propKey] || DOMProperty.isCustomAttribute(propKey)) {
-        if (!node) {
-          node = ReactMount.getNode(this._rootNodeID);
-        }
-
-        if (nextProp != null) {
-          DOMPropertyOperations.setValueForProperty(node, propKey, nextProp);
-        } else {
-          DOMPropertyOperations.deleteValueForProperty(node, propKey);
-        }
+      } else {
+        styleUpdates = nextProp;
       }
-    }
-    if (styleUpdates) {
+    } else if (bN2E.hasOwnProperty(propKey)) {
+      if (nextProp) {
+        bQYm(this._rootNodeID, propKey, nextProp, transaction);
+      } else if (lastProp) {
+        bOgk(this._rootNodeID, propKey);
+      }
+    } else if (bQzL(this._tag, nextProps)) {
       if (!node) {
         node = ReactMount.getNode(this._rootNodeID);
       }
-      CSSPropertyOperations.setValueForStyles(node, styleUpdates);
-    }
-  },
-
-  _updateDOMChildren: function (lastProps, nextProps, transaction, context) {
-    var lastContent = b9ld[typeof lastProps.children] ? lastProps.children : null;
-    var nextContent = b9ld[typeof nextProps.children] ? nextProps.children : null;
-
-    var lastHtml = lastProps.dangerouslySetInnerHTML && lastProps.dangerouslySetInnerHTML.__html;
-    var nextHtml = nextProps.dangerouslySetInnerHTML && nextProps.dangerouslySetInnerHTML.__html;
-
-    var lastChildren = lastContent != null ? null : lastProps.children;
-    var nextChildren = nextContent != null ? null : nextProps.children;
-
-    var lastHasContentOrHtml = lastContent != null || lastHtml != null;
-    var nextHasContentOrHtml = nextContent != null || nextHtml != null;
-    if (lastChildren != null && nextChildren == null) {
-      this.updateChildren(null, transaction, context);
-    } else if (lastHasContentOrHtml && !nextHasContentOrHtml) {
-      this.updateTextContent('');
-    }
-
-    if (nextContent != null) {
-      if (lastContent !== nextContent) {
-        this.updateTextContent('' + nextContent);
+      if (propKey === b9Bk) {
+        nextProp = null;
       }
-    } else if (nextHtml != null) {
-      if (lastHtml !== nextHtml) {
-        this.updateMarkup('' + nextHtml);
+      DOMPropertyOperations.setValueForAttribute(node, propKey, nextProp);
+    } else if (DOMProperty.properties[propKey] || DOMProperty.isCustomAttribute(propKey)) {
+      if (!node) {
+        node = ReactMount.getNode(this._rootNodeID);
       }
-    } else if (nextChildren != null) {
-      this.updateChildren(nextChildren, transaction, context);
+
+      if (nextProp != null) {
+        DOMPropertyOperations.setValueForProperty(node, propKey, nextProp);
+      } else {
+        DOMPropertyOperations.deleteValueForProperty(node, propKey);
+      }
     }
-  },
-
-  unmountComponent: function () {
-    switch (this._tag) {
-      case 'iframe':
-      case 'img':
-      case 'form':
-      case 'video':
-      case 'audio':
-        var listeners = this._wrapperState.listeners;
-        if (listeners) {
-          for (var i = 0; i < listeners.length; i++) {
-            listeners[i].remove();
-          }
-        }
-        break;
-      case 'input':
-        ReactDOMInput.unmountWrapper(this);
-        break;
-      case 'html':
-      case 'head':
-      case 'body':
-        !false ? 'production' !== 'production' ? invariant(false, '<%s> tried to unmount. Because of cross-browser quirks it is ' + 'impossible to unmount some top-level components (eg <html>, ' + '<head>, and <body>) reliably and efficiently. To fix this, have a ' + 'single top-level component that never unmounts render these ' + 'elements.', this._tag) : invariant(false) : undefined;
-        break;
+  }
+  if (styleUpdates) {
+    if (!node) {
+      node = ReactMount.getNode(this._rootNodeID);
     }
+    CSSPropertyOperations.setValueForStyles(node, styleUpdates);
+  }
+}
 
-    this.unmountChildren();
-    ReactBrowserEventEmitter.deleteAllListeners(this._rootNodeID);
-    ReactComponentBrowserEnvironment.unmountIDFromEnvironment(this._rootNodeID);
-    this._rootNodeID = null;
-    this._wrapperState = null;
-    if (this._nodeWithLegacyProperties) {
-      var node = this._nodeWithLegacyProperties;
-      node._reactInternalComponent = null;
-      this._nodeWithLegacyProperties = null;
-    }
-  },
+function blna(lastProps, nextProps, transaction, context) {
+  var lastContent = bdRd[typeof lastProps.children] ? lastProps.children : null;
+  var nextContent = bdRd[typeof nextProps.children] ? nextProps.children : null;
 
-  getPublicInstance: function () {
-    if (!this._nodeWithLegacyProperties) {
-      var node = ReactMount.getNode(this._rootNodeID);
+  var lastHtml = lastProps.dangerouslySetInnerHTML && lastProps.dangerouslySetInnerHTML.__html;
+  var nextHtml = nextProps.dangerouslySetInnerHTML && nextProps.dangerouslySetInnerHTML.__html;
 
-      node._reactInternalComponent = this;
-      node.getDOMNode = bwg8;
-      node.isMounted = bkg8;
-      node.setState = b5ma;
-      node.replaceState = b5ma;
-      node.forceUpdate = b5ma;
-      node.setProps = bJ2L;
-      node.replaceProps = bqqn;
+  var lastChildren = lastContent != null ? null : lastProps.children;
+  var nextChildren = nextContent != null ? null : nextProps.children;
 
-      node.props = this._currentElement.props;
-
-
-      this._nodeWithLegacyProperties = node;
-    }
-    return this._nodeWithLegacyProperties;
+  var lastHasContentOrHtml = lastContent != null || lastHtml != null;
+  var nextHasContentOrHtml = nextContent != null || nextHtml != null;
+  if (lastChildren != null && nextChildren == null) {
+    this.updateChildren(null, transaction, context);
+  } else if (lastHasContentOrHtml && !nextHasContentOrHtml) {
+    this.updateTextContent('');
   }
 
+  if (nextContent != null) {
+    if (lastContent !== nextContent) {
+      this.updateTextContent('' + nextContent);
+    }
+  } else if (nextHtml != null) {
+    if (lastHtml !== nextHtml) {
+      this.updateMarkup('' + nextHtml);
+    }
+  } else if (nextChildren != null) {
+    this.updateChildren(nextChildren, transaction, context);
+  }
+}
+
+function bVYy() {
+  switch (this._tag) {
+    case 'iframe':
+    case 'img':
+    case 'form':
+    case 'video':
+    case 'audio':
+      var listeners = this._wrapperState.listeners;
+      if (listeners) {
+        for (var i = 0; i < listeners.length; i++) {
+          listeners[i].remove();
+        }
+      }
+      break;
+    case 'input':
+      ReactDOMInput.unmountWrapper(this);
+      break;
+    case 'html':
+    case 'head':
+    case 'body':
+      !false ? 'production' !== 'production' ? invariant(false, '<%s> tried to unmount. Because of cross-browser quirks it is ' + 'impossible to unmount some top-level components (eg <html>, ' + '<head>, and <body>) reliably and efficiently. To fix this, have a ' + 'single top-level component that never unmounts render these ' + 'elements.', this._tag) : invariant(false) : undefined;
+      break;
+  }
+
+  this.unmountChildren();
+  ReactBrowserEventEmitter.deleteAllListeners(this._rootNodeID);
+  ReactComponentBrowserEnvironment.unmountIDFromEnvironment(this._rootNodeID);
+  this._rootNodeID = null;
+  this._wrapperState = null;
+  if (this._nodeWithLegacyProperties) {
+    var node = this._nodeWithLegacyProperties;
+    node._reactInternalComponent = null;
+    this._nodeWithLegacyProperties = null;
+  }
+}
+
+function bgpx() {
+  if (!this._nodeWithLegacyProperties) {
+    var node = ReactMount.getNode(this._rootNodeID);
+
+    node._reactInternalComponent = this;
+    node.getDOMNode = b1Pn;
+    node.isMounted = bwr6;
+    node.setState = bkX0;
+    node.replaceState = bkX0;
+    node.forceUpdate = bkX0;
+    node.setProps = b5KY;
+    node.replaceProps = bJZN;
+
+    node.props = this._currentElement.props;
+
+
+    this._nodeWithLegacyProperties = node;
+  }
+  return this._nodeWithLegacyProperties;
+}
+
+ReactDOMComponent.Mixin = {
+  construct: bPzZ,
+  mountComponent: bxnE,
+  _createOpenTagMarkupAndPutListeners: bXw7,
+  _createContentMarkup: bRYY,
+  _createInitialChildren: bKyB,
+  receiveComponent: b4dK,
+  updateComponent: bG43,
+  _updateDOMProperties: bbem,
+  _updateDOMChildren: blna,
+  unmountComponent: bVYy,
+  getPublicInstance: bgpx
 };
 
 ReactPerf.measureMethods(ReactDOMComponent, 'ReactDOMComponent', {
@@ -8441,30 +8791,32 @@ assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mix
 /**bandol> resource: node_modules/react/lib/ReactBrowserComponentMixin.js */
 
 
-var bOZG = '_getDOMNodeDidWarn';
+var bB2L = '_getDOMNodeDidWarn';
+
+function bYM2() {
+  'production' !== 'production' ? warning(this.constructor[bB2L], '%s.getDOMNode(...) is deprecated. Please use ' + 'ReactDOM.findDOMNode(instance) instead.', ReactInstanceMap.get(this).getName() || this.tagName || 'Unknown') : undefined;
+  this.constructor[bB2L] = true;
+  return findDOMNode(this);
+}
 
 var ReactBrowserComponentMixin = {
-  getDOMNode: function () {
-    'production' !== 'production' ? warning(this.constructor[bOZG], '%s.getDOMNode(...) is deprecated. Please use ' + 'ReactDOM.findDOMNode(instance) instead.', ReactInstanceMap.get(this).getName() || this.tagName || 'Unknown') : undefined;
-    this.constructor[bOZG] = true;
-    return findDOMNode(this);
-  }
+  getDOMNode: bYM2
 };
 /**bandol> resource: node_modules/react/lib/HTMLDOMPropertyConfig.js */
 
 
-var bm2y = DOMProperty.injection.MUST_USE_ATTRIBUTE;
-var bnJg = DOMProperty.injection.MUST_USE_PROPERTY;
-var bzE4 = DOMProperty.injection.HAS_BOOLEAN_VALUE;
-var bva9 = DOMProperty.injection.HAS_SIDE_EFFECTS;
-var ba6d = DOMProperty.injection.HAS_NUMERIC_VALUE;
-var b2Nk = DOMProperty.injection.HAS_POSITIVE_NUMERIC_VALUE;
-var beYl = DOMProperty.injection.HAS_OVERLOADED_BOOLEAN_VALUE;
+var b3XV = DOMProperty.injection.MUST_USE_ATTRIBUTE;
+var bpLE = DOMProperty.injection.MUST_USE_PROPERTY;
+var bmKz = DOMProperty.injection.HAS_BOOLEAN_VALUE;
+var bn4K = DOMProperty.injection.HAS_SIDE_EFFECTS;
+var bzxb = DOMProperty.injection.HAS_NUMERIC_VALUE;
+var bv6p = DOMProperty.injection.HAS_POSITIVE_NUMERIC_VALUE;
+var baPV = DOMProperty.injection.HAS_OVERLOADED_BOOLEAN_VALUE;
 
-var bB4E;
+var b2xy;
 if (ExecutionEnvironment.canUseDOM) {
-  var bYn4 = document.implementation;
-  bB4E = bYn4 && bYn4.hasFeature && bYn4.hasFeature('http://www.w3.org/TR/SVG11/feature#BasicStructure', '1.1');
+  var beKg = document.implementation;
+  b2xy = beKg && beKg.hasFeature && beKg.hasFeature('http://www.w3.org/TR/SVG11/feature#BasicStructure', '1.1');
 }
 
 var HTMLDOMPropertyConfig = {
@@ -8474,112 +8826,112 @@ var HTMLDOMPropertyConfig = {
     acceptCharset: null,
     accessKey: null,
     action: null,
-    allowFullScreen: bm2y | bzE4,
-    allowTransparency: bm2y,
+    allowFullScreen: b3XV | bmKz,
+    allowTransparency: b3XV,
     alt: null,
-    async: bzE4,
+    async: bmKz,
     autoComplete: null,
 
-    autoPlay: bzE4,
-    capture: bm2y | bzE4,
+    autoPlay: bmKz,
+    capture: b3XV | bmKz,
     cellPadding: null,
     cellSpacing: null,
-    charSet: bm2y,
-    challenge: bm2y,
-    checked: bnJg | bzE4,
-    classID: bm2y,
+    charSet: b3XV,
+    challenge: b3XV,
+    checked: bpLE | bmKz,
+    classID: b3XV,
 
-    className: bB4E ? bm2y : bnJg,
-    cols: bm2y | b2Nk,
+    className: b2xy ? b3XV : bpLE,
+    cols: b3XV | bv6p,
     colSpan: null,
     content: null,
     contentEditable: null,
-    contextMenu: bm2y,
-    controls: bnJg | bzE4,
+    contextMenu: b3XV,
+    controls: bpLE | bmKz,
     coords: null,
     crossOrigin: null,
     data: null,
-    dateTime: bm2y,
-    'default': bzE4,
-    defer: bzE4,
+    dateTime: b3XV,
+    'default': bmKz,
+    defer: bmKz,
     dir: null,
-    disabled: bm2y | bzE4,
-    download: beYl,
+    disabled: b3XV | bmKz,
+    download: baPV,
     draggable: null,
     encType: null,
-    form: bm2y,
-    formAction: bm2y,
-    formEncType: bm2y,
-    formMethod: bm2y,
-    formNoValidate: bzE4,
-    formTarget: bm2y,
-    frameBorder: bm2y,
+    form: b3XV,
+    formAction: b3XV,
+    formEncType: b3XV,
+    formMethod: b3XV,
+    formNoValidate: bmKz,
+    formTarget: b3XV,
+    frameBorder: b3XV,
     headers: null,
-    height: bm2y,
-    hidden: bm2y | bzE4,
+    height: b3XV,
+    hidden: b3XV | bmKz,
     high: null,
     href: null,
     hrefLang: null,
     htmlFor: null,
     httpEquiv: null,
     icon: null,
-    id: bnJg,
-    inputMode: bm2y,
+    id: bpLE,
+    inputMode: b3XV,
     integrity: null,
-    is: bm2y,
-    keyParams: bm2y,
-    keyType: bm2y,
+    is: b3XV,
+    keyParams: b3XV,
+    keyType: b3XV,
     kind: null,
     label: null,
     lang: null,
-    list: bm2y,
-    loop: bnJg | bzE4,
+    list: b3XV,
+    loop: bpLE | bmKz,
     low: null,
-    manifest: bm2y,
+    manifest: b3XV,
     marginHeight: null,
     marginWidth: null,
     max: null,
-    maxLength: bm2y,
-    media: bm2y,
+    maxLength: b3XV,
+    media: b3XV,
     mediaGroup: null,
     method: null,
     min: null,
-    minLength: bm2y,
-    multiple: bnJg | bzE4,
-    muted: bnJg | bzE4,
+    minLength: b3XV,
+    multiple: bpLE | bmKz,
+    muted: bpLE | bmKz,
     name: null,
-    nonce: bm2y,
-    noValidate: bzE4,
-    open: bzE4,
+    nonce: b3XV,
+    noValidate: bmKz,
+    open: bmKz,
     optimum: null,
     pattern: null,
     placeholder: null,
     poster: null,
     preload: null,
     radioGroup: null,
-    readOnly: bnJg | bzE4,
+    readOnly: bpLE | bmKz,
     rel: null,
-    required: bzE4,
-    reversed: bzE4,
-    role: bm2y,
-    rows: bm2y | b2Nk,
+    required: bmKz,
+    reversed: bmKz,
+    role: b3XV,
+    rows: b3XV | bv6p,
     rowSpan: null,
     sandbox: null,
     scope: null,
-    scoped: bzE4,
+    scoped: bmKz,
     scrolling: null,
-    seamless: bm2y | bzE4,
-    selected: bnJg | bzE4,
+    seamless: b3XV | bmKz,
+    selected: bpLE | bmKz,
     shape: null,
-    size: bm2y | b2Nk,
-    sizes: bm2y,
-    span: b2Nk,
+    size: b3XV | bv6p,
+    sizes: b3XV,
+    span: bv6p,
     spellCheck: null,
     src: null,
-    srcDoc: bnJg,
+    srcDoc: bpLE,
     srcLang: null,
-    srcSet: bm2y,
-    start: ba6d,
+    srcSet: b3XV,
+    start: bzxb,
     step: null,
     style: null,
     summary: null,
@@ -8588,40 +8940,40 @@ var HTMLDOMPropertyConfig = {
     title: null,
     type: null,
     useMap: null,
-    value: bnJg | bva9,
-    width: bm2y,
-    wmode: bm2y,
+    value: bpLE | bn4K,
+    width: b3XV,
+    wmode: b3XV,
     wrap: null,
 
-    about: bm2y,
-    datatype: bm2y,
-    inlist: bm2y,
-    prefix: bm2y,
+    about: b3XV,
+    datatype: b3XV,
+    inlist: b3XV,
+    prefix: b3XV,
 
-    property: bm2y,
-    resource: bm2y,
-    'typeof': bm2y,
-    vocab: bm2y,
+    property: b3XV,
+    resource: b3XV,
+    'typeof': b3XV,
+    vocab: b3XV,
 
-    autoCapitalize: bm2y,
-    autoCorrect: bm2y,
+    autoCapitalize: b3XV,
+    autoCorrect: b3XV,
 
     autoSave: null,
 
     color: null,
 
-    itemProp: bm2y,
-    itemScope: bm2y | bzE4,
-    itemType: bm2y,
+    itemProp: b3XV,
+    itemScope: b3XV | bmKz,
+    itemType: b3XV,
 
-    itemID: bm2y,
-    itemRef: bm2y,
+    itemID: b3XV,
+    itemRef: b3XV,
 
     results: null,
 
-    security: bm2y,
+    security: b3XV,
 
-    unselectable: bm2y
+    unselectable: b3XV
   },
   DOMAttributeNames: {
     acceptCharset: 'accept-charset',
@@ -8646,88 +8998,89 @@ var HTMLDOMPropertyConfig = {
 /**bandol> resource: node_modules/react/lib/EnterLeaveEventPlugin.js */
 
 
-var bZ6X = EventConstants.topLevelTypes;
-var bAmk = ReactMount.getFirstReactDOM;
+var bgr3 = EventConstants.topLevelTypes;
+var bM7k = ReactMount.getFirstReactDOM;
 
-var b3Y5 = {
+var b64r = {
   mouseEnter: {
     registrationName: keyOf({ onMouseEnter: null }),
-    dependencies: [bZ6X.topMouseOut, bZ6X.topMouseOver]
+    dependencies: [bgr3.topMouseOut, bgr3.topMouseOver]
   },
   mouseLeave: {
     registrationName: keyOf({ onMouseLeave: null }),
-    dependencies: [bZ6X.topMouseOut, bZ6X.topMouseOver]
+    dependencies: [bgr3.topMouseOut, bgr3.topMouseOver]
   }
 };
 
-var bpy2 = [null, null];
+var bZvR = [null, null];
+
+function bAee(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+  if (topLevelType === bgr3.topMouseOver && (nativeEvent.relatedTarget || nativeEvent.fromElement)) {
+    return null;
+  }
+  if (topLevelType !== bgr3.topMouseOut && topLevelType !== bgr3.topMouseOver) {
+    return null;
+  }
+
+  var win;
+  if (topLevelTarget.window === topLevelTarget) {
+    win = topLevelTarget;
+  } else {
+    var doc = topLevelTarget.ownerDocument;
+    if (doc) {
+      win = doc.defaultView || doc.parentWindow;
+    } else {
+      win = window;
+    }
+  }
+
+  var from;
+  var to;
+  var fromID = '';
+  var toID = '';
+  if (topLevelType === bgr3.topMouseOut) {
+    from = topLevelTarget;
+    fromID = topLevelTargetID;
+    to = bM7k(nativeEvent.relatedTarget || nativeEvent.toElement);
+    if (to) {
+      toID = ReactMount.getID(to);
+    } else {
+      to = win;
+    }
+    to = to || win;
+  } else {
+    from = win;
+    to = topLevelTarget;
+    toID = topLevelTargetID;
+  }
+
+  if (from === to) {
+    return null;
+  }
+
+  var leave = SyntheticMouseEvent.getPooled(b64r.mouseLeave, fromID, nativeEvent, nativeEventTarget);
+  leave.type = 'mouseleave';
+  leave.target = from;
+  leave.relatedTarget = to;
+
+  var enter = SyntheticMouseEvent.getPooled(b64r.mouseEnter, toID, nativeEvent, nativeEventTarget);
+  enter.type = 'mouseenter';
+  enter.target = to;
+  enter.relatedTarget = from;
+
+  EventPropagators.accumulateEnterLeaveDispatches(leave, enter, fromID, toID);
+
+  bZvR[0] = leave;
+  bZvR[1] = enter;
+
+  return bZvR;
+}
 
 var EnterLeaveEventPlugin = {
 
-  eventTypes: b3Y5,
+  eventTypes: b64r,
 
-  extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-    if (topLevelType === bZ6X.topMouseOver && (nativeEvent.relatedTarget || nativeEvent.fromElement)) {
-      return null;
-    }
-    if (topLevelType !== bZ6X.topMouseOut && topLevelType !== bZ6X.topMouseOver) {
-      return null;
-    }
-
-    var win;
-    if (topLevelTarget.window === topLevelTarget) {
-      win = topLevelTarget;
-    } else {
-      var doc = topLevelTarget.ownerDocument;
-      if (doc) {
-        win = doc.defaultView || doc.parentWindow;
-      } else {
-        win = window;
-      }
-    }
-
-    var from;
-    var to;
-    var fromID = '';
-    var toID = '';
-    if (topLevelType === bZ6X.topMouseOut) {
-      from = topLevelTarget;
-      fromID = topLevelTargetID;
-      to = bAmk(nativeEvent.relatedTarget || nativeEvent.toElement);
-      if (to) {
-        toID = ReactMount.getID(to);
-      } else {
-        to = win;
-      }
-      to = to || win;
-    } else {
-      from = win;
-      to = topLevelTarget;
-      toID = topLevelTargetID;
-    }
-
-    if (from === to) {
-      return null;
-    }
-
-    var leave = SyntheticMouseEvent.getPooled(b3Y5.mouseLeave, fromID, nativeEvent, nativeEventTarget);
-    leave.type = 'mouseleave';
-    leave.target = from;
-    leave.relatedTarget = to;
-
-    var enter = SyntheticMouseEvent.getPooled(b3Y5.mouseEnter, toID, nativeEvent, nativeEventTarget);
-    enter.type = 'mouseenter';
-    enter.target = to;
-    enter.relatedTarget = from;
-
-    EventPropagators.accumulateEnterLeaveDispatches(leave, enter, fromID, toID);
-
-    bpy2[0] = leave;
-    bpy2[1] = enter;
-
-    return bpy2;
-  }
-
+  extractEvents: bAee
 };
 /**bandol> resource: node_modules/react/lib/DefaultEventPluginOrder.js */
 
@@ -8735,213 +9088,220 @@ var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ Si
 /**bandol> resource: node_modules/react/lib/ClientReactRootIndex.js */
 
 
-var b63p = 0;
+var blRv = 0;
+
+function bVmv() {
+  return blRv++;
+}
 
 var ClientReactRootIndex = {
-  createReactRootIndex: function () {
-    return b63p++;
-  }
+  createReactRootIndex: bVmv
 };
 /**bandol> resource: node_modules/react/lib/ChangeEventPlugin.js */
 
 
-var b7Y = EventConstants.topLevelTypes;
+var bYX2 = EventConstants.topLevelTypes;
 
-var bLm = {
+var bOnk = {
   change: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onChange: null }),
       captured: keyOf({ onChangeCapture: null })
     },
-    dependencies: [b7Y.topBlur, b7Y.topChange, b7Y.topClick, b7Y.topFocus, b7Y.topInput, b7Y.topKeyDown, b7Y.topKeyUp, b7Y.topSelectionChange]
+    dependencies: [bYX2.topBlur, bYX2.topChange, bYX2.topClick, bYX2.topFocus, bYX2.topInput, bYX2.topKeyDown, bYX2.topKeyUp, bYX2.topSelectionChange]
   }
 };
 
-var b01 = null;
-var b12 = null;
-var bw8 = null;
-var bk8 = null;
+var b89w = null;
+var bN8E = null;
+var bdkd = null;
+var b9Vk = null;
 
-function b5a(elem) {
+function bEld(elem) {
   var nodeName = elem.nodeName && elem.nodeName.toLowerCase();
   return nodeName === 'select' || nodeName === 'input' && elem.type === 'file';
 }
 
-var bJL = false;
+var b70L = false;
 if (ExecutionEnvironment.canUseDOM) {
-  bJL = isEventSupported('change') && (!('documentMode' in document) || document.documentMode > 8);
+  b70L = isEventSupported('change') && (!('documentMode' in document) || document.documentMode > 8);
 }
 
-function bqn(nativeEvent) {
-  var event = SyntheticEvent.getPooled(bLm.change, b12, nativeEvent, getEventTarget(nativeEvent));
+function bLVz(nativeEvent) {
+  var event = SyntheticEvent.getPooled(bOnk.change, bN8E, nativeEvent, getEventTarget(nativeEvent));
   EventPropagators.accumulateTwoPhaseDispatches(event);
 
-  ReactUpdates.batchedUpdates(byY, event);
+  ReactUpdates.batchedUpdates(b0OR, event);
 }
 
-function byY(event) {
+function b0OR(event) {
   EventPluginHub.enqueueEvents(event);
   EventPluginHub.processEventQueue(false);
 }
 
-function brVe(target, targetID) {
-  b01 = target;
-  b12 = targetID;
-  b01.attachEvent('onchange', bqn);
+function b1On(target, targetID) {
+  b89w = target;
+  bN8E = targetID;
+  b89w.attachEvent('onchange', bLVz);
 }
 
-function bQrr() {
-  if (!b01) {
+function bw36() {
+  if (!b89w) {
     return;
   }
-  b01.detachEvent('onchange', bqn);
-  b01 = null;
-  b12 = null;
+  b89w.detachEvent('onchange', bLVz);
+  b89w = null;
+  bN8E = null;
 }
 
-function bPXq(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === b7Y.topChange) {
+function bk90(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === bYX2.topChange) {
     return topLevelTargetID;
   }
 }
-function bxgq(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === b7Y.topFocus) {
-    bQrr();
-    brVe(topLevelTarget, topLevelTargetID);
-  } else if (topLevelType === b7Y.topBlur) {
-    bQrr();
+function b50Y(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === bYX2.topFocus) {
+    bw36();
+    b1On(topLevelTarget, topLevelTargetID);
+  } else if (topLevelType === bYX2.topBlur) {
+    bw36();
   }
 }
 
-var bX4z = false;
+var bJeN = false;
 if (ExecutionEnvironment.canUseDOM) {
-  bX4z = isEventSupported('input') && (!('documentMode' in document) || document.documentMode > 9);
+  bJeN = isEventSupported('input') && (!('documentMode' in document) || document.documentMode > 9);
 }
 
-var bRyK = {
-  get: function () {
-    return bk8.get.call(this);
-  },
-  set: function (val) {
-    bw8 = '' + val;
-    bk8.set.call(this, val);
-  }
+function bq93() {
+  return b9Vk.get.call(this);
+}
+
+function by68(val) {
+  bdkd = '' + val;
+  b9Vk.set.call(this, val);
+}
+
+var brL3 = {
+  get: bq93,
+  set: by68
 };
 
-function bKLv(target, targetID) {
-  b01 = target;
-  b12 = targetID;
-  bw8 = target.value;
-  bk8 = Object.getOwnPropertyDescriptor(target.constructor.prototype, 'value');
+function bQ0m(target, targetID) {
+  b89w = target;
+  bN8E = targetID;
+  bdkd = target.value;
+  b9Vk = Object.getOwnPropertyDescriptor(target.constructor.prototype, 'value');
 
-  Object.defineProperty(b01, 'value', bRyK);
-  b01.attachEvent('onpropertychange', bGKZ);
+  Object.defineProperty(b89w, 'value', brL3);
+  b89w.attachEvent('onpropertychange', bxEx);
 }
 
-function b45l() {
-  if (!b01) {
+function bPnO() {
+  if (!b89w) {
     return;
   }
 
-  delete b01.value;
-  b01.detachEvent('onpropertychange', bGKZ);
+  delete b89w.value;
+  b89w.detachEvent('onpropertychange', bxEx);
 
-  b01 = null;
-  b12 = null;
-  bw8 = null;
-  bk8 = null;
+  b89w = null;
+  bN8E = null;
+  bdkd = null;
+  b9Vk = null;
 }
 
-function bGKZ(nativeEvent) {
+function bxEx(nativeEvent) {
   if (nativeEvent.propertyName !== 'value') {
     return;
   }
   var value = nativeEvent.srcElement.value;
-  if (value === bw8) {
+  if (value === bdkd) {
     return;
   }
-  bw8 = value;
+  bdkd = value;
 
-  bqn(nativeEvent);
+  bLVz(nativeEvent);
 }
 
-function bb3e(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === b7Y.topInput) {
+function bXxp(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === bYX2.topInput) {
     return topLevelTargetID;
   }
 }
 
-function blYM(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === b7Y.topFocus) {
-    b45l();
-    bKLv(topLevelTarget, topLevelTargetID);
-  } else if (topLevelType === b7Y.topBlur) {
-    b45l();
+function bR7P(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === bYX2.topFocus) {
+    bPnO();
+    bQ0m(topLevelTarget, topLevelTargetID);
+  } else if (topLevelType === bYX2.topBlur) {
+    bPnO();
   }
 }
 
-function bVl4(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === b7Y.topSelectionChange || topLevelType === b7Y.topKeyUp || topLevelType === b7Y.topKeyDown) {
-    if (b01 && b01.value !== bw8) {
-      bw8 = b01.value;
-      return b12;
+function bKG2(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === bYX2.topSelectionChange || topLevelType === bYX2.topKeyUp || topLevelType === bYX2.topKeyDown) {
+    if (b89w && b89w.value !== bdkd) {
+      bdkd = b89w.value;
+      return bN8E;
     }
   }
 }
 
-function bgnL(elem) {
+function b4lp(elem) {
   return elem.nodeName && elem.nodeName.toLowerCase() === 'input' && (elem.type === 'checkbox' || elem.type === 'radio');
 }
 
-function bMla(topLevelType, topLevelTarget, topLevelTargetID) {
-  if (topLevelType === b7Y.topClick) {
+function bGZp(topLevelType, topLevelTarget, topLevelTargetID) {
+  if (topLevelType === bYX2.topClick) {
     return topLevelTargetID;
+  }
+}
+
+function bbx3(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+
+  var getTargetIDFunc, handleEventFunc;
+  if (bEld(topLevelTarget)) {
+    if (b70L) {
+      getTargetIDFunc = bk90;
+    } else {
+      handleEventFunc = b50Y;
+    }
+  } else if (isTextInputElement(topLevelTarget)) {
+    if (bJeN) {
+      getTargetIDFunc = bXxp;
+    } else {
+      getTargetIDFunc = bKG2;
+      handleEventFunc = bR7P;
+    }
+  } else if (b4lp(topLevelTarget)) {
+    getTargetIDFunc = bGZp;
+  }
+
+  if (getTargetIDFunc) {
+    var targetID = getTargetIDFunc(topLevelType, topLevelTarget, topLevelTargetID);
+    if (targetID) {
+      var event = SyntheticEvent.getPooled(bOnk.change, targetID, nativeEvent, nativeEventTarget);
+      event.type = 'change';
+      EventPropagators.accumulateTwoPhaseDispatches(event);
+      return event;
+    }
+  }
+
+  if (handleEventFunc) {
+    handleEventFunc(topLevelType, topLevelTarget, topLevelTargetID);
   }
 }
 
 var ChangeEventPlugin = {
 
-  eventTypes: bLm,
+  eventTypes: bOnk,
 
-  extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-
-    var getTargetIDFunc, handleEventFunc;
-    if (b5a(topLevelTarget)) {
-      if (bJL) {
-        getTargetIDFunc = bPXq;
-      } else {
-        handleEventFunc = bxgq;
-      }
-    } else if (isTextInputElement(topLevelTarget)) {
-      if (bX4z) {
-        getTargetIDFunc = bb3e;
-      } else {
-        getTargetIDFunc = bVl4;
-        handleEventFunc = blYM;
-      }
-    } else if (bgnL(topLevelTarget)) {
-      getTargetIDFunc = bMla;
-    }
-
-    if (getTargetIDFunc) {
-      var targetID = getTargetIDFunc(topLevelType, topLevelTarget, topLevelTargetID);
-      if (targetID) {
-        var event = SyntheticEvent.getPooled(bLm.change, targetID, nativeEvent, nativeEventTarget);
-        event.type = 'change';
-        EventPropagators.accumulateTwoPhaseDispatches(event);
-        return event;
-      }
-    }
-
-    if (handleEventFunc) {
-      handleEventFunc(topLevelType, topLevelTarget, topLevelTargetID);
-    }
-  }
-
+  extractEvents: bbx3
 };
 /**bandol> resource: node_modules/react/lib/SyntheticInputEvent.js */
 
-var bEe = {
+var bBAL = {
   data: null
 };
 
@@ -8949,10 +9309,10 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticInputEvent, bEe);
+SyntheticEvent.augmentClass(SyntheticInputEvent, bBAL);
 /**bandol> resource: node_modules/react/lib/SyntheticCompositionEvent.js */
 
-var b9d = {
+var bevg = {
   data: null
 };
 
@@ -8960,7 +9320,7 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
   SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
 }
 
-SyntheticEvent.augmentClass(SyntheticCompositionEvent, b9d);
+SyntheticEvent.augmentClass(SyntheticCompositionEvent, bevg);
 /**bandol> resource: node_modules/react/lib/FallbackCompositionState.js */
 
 function FallbackCompositionState(root) {
@@ -8969,147 +9329,151 @@ function FallbackCompositionState(root) {
   this._fallbackText = null;
 }
 
-assign(FallbackCompositionState.prototype, {
-  destructor: function () {
-    this._root = null;
-    this._startText = null;
-    this._fallbackText = null;
-  },
+function bvNp() {
+  this._root = null;
+  this._startText = null;
+  this._fallbackText = null;
+}
 
-  getText: function () {
-    if ('value' in this._root) {
-      return this._root.value;
-    }
-    return this._root[getTextContentAccessor()];
-  },
+function bagV() {
+  if ('value' in this._root) {
+    return this._root.value;
+  }
+  return this._root[getTextContentAccessor()];
+}
 
-  getData: function () {
-    if (this._fallbackText) {
-      return this._fallbackText;
-    }
-
-    var start;
-    var startValue = this._startText;
-    var startLength = startValue.length;
-    var end;
-    var endValue = this.getText();
-    var endLength = endValue.length;
-
-    for (start = 0; start < startLength; start++) {
-      if (startValue[start] !== endValue[start]) {
-        break;
-      }
-    }
-
-    var minEnd = startLength - start;
-    for (end = 1; end <= minEnd; end++) {
-      if (startValue[startLength - end] !== endValue[endLength - end]) {
-        break;
-      }
-    }
-
-    var sliceTail = end > 1 ? 1 - end : undefined;
-    this._fallbackText = endValue.slice(start, sliceTail);
+function b2ly() {
+  if (this._fallbackText) {
     return this._fallbackText;
   }
+
+  var start;
+  var startValue = this._startText;
+  var startLength = startValue.length;
+  var end;
+  var endValue = this.getText();
+  var endLength = endValue.length;
+
+  for (start = 0; start < startLength; start++) {
+    if (startValue[start] !== endValue[start]) {
+      break;
+    }
+  }
+
+  var minEnd = startLength - start;
+  for (end = 1; end <= minEnd; end++) {
+    if (startValue[startLength - end] !== endValue[endLength - end]) {
+      break;
+    }
+  }
+
+  var sliceTail = end > 1 ? 1 - end : undefined;
+  this._fallbackText = endValue.slice(start, sliceTail);
+  return this._fallbackText;
+}
+
+assign(FallbackCompositionState.prototype, {
+  destructor: bvNp,
+  getText: bagV,
+  getData: b2ly
 });
 
 PooledClass.addPoolingTo(FallbackCompositionState);
 /**bandol> resource: node_modules/react/lib/BeforeInputEventPlugin.js */
 
 
-var blM = [9, 13, 27, 32];
-var bV4 = 229;
+var bVB8 = [9, 13, 27, 32];
+var brr3 = 229;
 
-var bgL = ExecutionEnvironment.canUseDOM && 'CompositionEvent' in window;
+var bQAm = ExecutionEnvironment.canUseDOM && 'CompositionEvent' in window;
 
-var bMa = null;
+var bPZO = null;
 if (ExecutionEnvironment.canUseDOM && 'documentMode' in document) {
-  bMa = document.documentMode;
+  bPZO = document.documentMode;
 }
 
-var b6p = ExecutionEnvironment.canUseDOM && 'TextEvent' in window && !bMa && !bAk();
+var bxMx = ExecutionEnvironment.canUseDOM && 'TextEvent' in window && !bPZO && !bRpP();
 
-var bZX = ExecutionEnvironment.canUseDOM && (!bgL || bMa && bMa > 8 && bMa <= 11);
+var bXOp = ExecutionEnvironment.canUseDOM && (!bQAm || bPZO && bPZO > 8 && bPZO <= 11);
 
-function bAk() {
+function bRpP() {
   var opera = window.opera;
   return typeof opera === 'object' && typeof opera.version === 'function' && parseInt(opera.version(), 10) <= 12;
 }
 
-var b35 = 32;
-var bp2 = String.fromCharCode(b35);
+var bKv2 = 32;
+var b4yp = String.fromCharCode(bKv2);
 
-var bmy = EventConstants.topLevelTypes;
+var bG2p = EventConstants.topLevelTypes;
 
-var bng = {
+var bbZ3 = {
   beforeInput: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onBeforeInput: null }),
       captured: keyOf({ onBeforeInputCapture: null })
     },
-    dependencies: [bmy.topCompositionEnd, bmy.topKeyPress, bmy.topTextInput, bmy.topPaste]
+    dependencies: [bG2p.topCompositionEnd, bG2p.topKeyPress, bG2p.topTextInput, bG2p.topPaste]
   },
   compositionEnd: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onCompositionEnd: null }),
       captured: keyOf({ onCompositionEndCapture: null })
     },
-    dependencies: [bmy.topBlur, bmy.topCompositionEnd, bmy.topKeyDown, bmy.topKeyPress, bmy.topKeyUp, bmy.topMouseDown]
+    dependencies: [bG2p.topBlur, bG2p.topCompositionEnd, bG2p.topKeyDown, bG2p.topKeyPress, bG2p.topKeyUp, bG2p.topMouseDown]
   },
   compositionStart: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onCompositionStart: null }),
       captured: keyOf({ onCompositionStartCapture: null })
     },
-    dependencies: [bmy.topBlur, bmy.topCompositionStart, bmy.topKeyDown, bmy.topKeyPress, bmy.topKeyUp, bmy.topMouseDown]
+    dependencies: [bG2p.topBlur, bG2p.topCompositionStart, bG2p.topKeyDown, bG2p.topKeyPress, bG2p.topKeyUp, bG2p.topMouseDown]
   },
   compositionUpdate: {
     phasedRegistrationNames: {
       bubbled: keyOf({ onCompositionUpdate: null }),
       captured: keyOf({ onCompositionUpdateCapture: null })
     },
-    dependencies: [bmy.topBlur, bmy.topCompositionUpdate, bmy.topKeyDown, bmy.topKeyPress, bmy.topKeyUp, bmy.topMouseDown]
+    dependencies: [bG2p.topBlur, bG2p.topCompositionUpdate, bG2p.topKeyDown, bG2p.topKeyPress, bG2p.topKeyUp, bG2p.topMouseDown]
   }
 };
 
-var bz4 = false;
+var blev = false;
 
-function bv9(nativeEvent) {
+function bVQv(nativeEvent) {
   return (nativeEvent.ctrlKey || nativeEvent.altKey || nativeEvent.metaKey) && !(nativeEvent.ctrlKey && nativeEvent.altKey);
 }
 
-function bad(topLevelType) {
+function bgv3(topLevelType) {
   switch (topLevelType) {
-    case bmy.topCompositionStart:
-      return bng.compositionStart;
-    case bmy.topCompositionEnd:
-      return bng.compositionEnd;
-    case bmy.topCompositionUpdate:
-      return bng.compositionUpdate;
+    case bG2p.topCompositionStart:
+      return bbZ3.compositionStart;
+    case bG2p.topCompositionEnd:
+      return bbZ3.compositionEnd;
+    case bG2p.topCompositionUpdate:
+      return bbZ3.compositionUpdate;
   }
 }
 
-function b2k(topLevelType, nativeEvent) {
-  return topLevelType === bmy.topKeyDown && nativeEvent.keyCode === bV4;
+function bM2k(topLevelType, nativeEvent) {
+  return topLevelType === bG2p.topKeyDown && nativeEvent.keyCode === brr3;
 }
 
-function bel(topLevelType, nativeEvent) {
+function b6gr(topLevelType, nativeEvent) {
   switch (topLevelType) {
-    case bmy.topKeyUp:
-      return blM.indexOf(nativeEvent.keyCode) !== -1;
-    case bmy.topKeyDown:
-      return nativeEvent.keyCode !== bV4;
-    case bmy.topKeyPress:
-    case bmy.topMouseDown:
-    case bmy.topBlur:
+    case bG2p.topKeyUp:
+      return bVB8.indexOf(nativeEvent.keyCode) !== -1;
+    case bG2p.topKeyDown:
+      return nativeEvent.keyCode !== brr3;
+    case bG2p.topKeyPress:
+    case bG2p.topMouseDown:
+    case bG2p.topBlur:
       return true;
     default:
       return false;
   }
 }
 
-function bBE(nativeEvent) {
+function bZRR(nativeEvent) {
   var detail = nativeEvent.detail;
   if (typeof detail === 'object' && 'data' in detail) {
     return detail.data;
@@ -9117,32 +9481,32 @@ function bBE(nativeEvent) {
   return null;
 }
 
-var bY4 = null;
+var bAge = null;
 
-function bOG(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+function b36V(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
   var eventType;
   var fallbackData;
 
-  if (bgL) {
-    eventType = bad(topLevelType);
-  } else if (!bY4) {
-    if (b2k(topLevelType, nativeEvent)) {
-      eventType = bng.compositionStart;
+  if (bQAm) {
+    eventType = bgv3(topLevelType);
+  } else if (!bAge) {
+    if (bM2k(topLevelType, nativeEvent)) {
+      eventType = bbZ3.compositionStart;
     }
-  } else if (bel(topLevelType, nativeEvent)) {
-    eventType = bng.compositionEnd;
+  } else if (b6gr(topLevelType, nativeEvent)) {
+    eventType = bbZ3.compositionEnd;
   }
 
   if (!eventType) {
     return null;
   }
 
-  if (bZX) {
-    if (!bY4 && eventType === bng.compositionStart) {
-      bY4 = FallbackCompositionState.getPooled(topLevelTarget);
-    } else if (eventType === bng.compositionEnd) {
-      if (bY4) {
-        fallbackData = bY4.getData();
+  if (bXOp) {
+    if (!bAge && eventType === bbZ3.compositionStart) {
+      bAge = FallbackCompositionState.getPooled(topLevelTarget);
+    } else if (eventType === bbZ3.compositionEnd) {
+      if (bAge) {
+        fallbackData = bAge.getData();
       }
     }
   }
@@ -9152,7 +9516,7 @@ function bOG(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, native
   if (fallbackData) {
     event.data = fallbackData;
   } else {
-    var customData = bBE(nativeEvent);
+    var customData = bZRR(nativeEvent);
     if (customData !== null) {
       event.data = customData;
     }
@@ -9162,23 +9526,23 @@ function bOG(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, native
   return event;
 }
 
-function b8Y(topLevelType, nativeEvent) {
+function bp3E(topLevelType, nativeEvent) {
   switch (topLevelType) {
-    case bmy.topCompositionEnd:
-      return bBE(nativeEvent);
-    case bmy.topKeyPress:
+    case bG2p.topCompositionEnd:
+      return bZRR(nativeEvent);
+    case bG2p.topKeyPress:
       var which = nativeEvent.which;
-      if (which !== b35) {
+      if (which !== bKv2) {
         return null;
       }
 
-      bz4 = true;
-      return bp2;
+      blev = true;
+      return b4yp;
 
-    case bmy.topTextInput:
+    case bG2p.topTextInput:
       var chars = nativeEvent.data;
 
-      if (chars === bp2 && bz4) {
+      if (chars === b4yp && blev) {
         return null;
       }
 
@@ -9189,70 +9553,72 @@ function b8Y(topLevelType, nativeEvent) {
   }
 }
 
-function bNx(topLevelType, nativeEvent) {
-  if (bY4) {
-    if (topLevelType === bmy.topCompositionEnd || bel(topLevelType, nativeEvent)) {
-      var chars = bY4.getData();
-      FallbackCompositionState.release(bY4);
-      bY4 = null;
+function bmLz(topLevelType, nativeEvent) {
+  if (bAge) {
+    if (topLevelType === bG2p.topCompositionEnd || b6gr(topLevelType, nativeEvent)) {
+      var chars = bAge.getData();
+      FallbackCompositionState.release(bAge);
+      bAge = null;
       return chars;
     }
     return null;
   }
 
   switch (topLevelType) {
-    case bmy.topPaste:
+    case bG2p.topPaste:
       return null;
-    case bmy.topKeyPress:
-      if (nativeEvent.which && !bv9(nativeEvent)) {
+    case bG2p.topKeyPress:
+      if (nativeEvent.which && !bVQv(nativeEvent)) {
         return String.fromCharCode(nativeEvent.which);
       }
       return null;
-    case bmy.topCompositionEnd:
-      return bZX ? null : nativeEvent.data;
+    case bG2p.topCompositionEnd:
+      return bXOp ? null : nativeEvent.data;
     default:
       return null;
   }
 }
 
-function bd0(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+function bnLK(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
   var chars;
 
-  if (b6p) {
-    chars = b8Y(topLevelType, nativeEvent);
+  if (bxMx) {
+    chars = bp3E(topLevelType, nativeEvent);
   } else {
-    chars = bNx(topLevelType, nativeEvent);
+    chars = bmLz(topLevelType, nativeEvent);
   }
 
   if (!chars) {
     return null;
   }
 
-  var event = SyntheticInputEvent.getPooled(bng.beforeInput, topLevelTargetID, nativeEvent, nativeEventTarget);
+  var event = SyntheticInputEvent.getPooled(bbZ3.beforeInput, topLevelTargetID, nativeEvent, nativeEventTarget);
 
   event.data = chars;
   EventPropagators.accumulateTwoPhaseDispatches(event);
   return event;
 }
 
+function bz6b(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
+  return [b36V(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget), bnLK(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget)];
+}
+
 var BeforeInputEventPlugin = {
 
-  eventTypes: bng,
+  eventTypes: bbZ3,
 
-  extractEvents: function (topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget) {
-    return [bOG(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget), bd0(topLevelType, topLevelTarget, topLevelTargetID, nativeEvent, nativeEventTarget)];
-  }
+  extractEvents: bz6b
 };
 /**bandol> resource: node_modules/react/lib/ReactDefaultInjection.js */
 
 
-var bGZ = false;
+var bbBz = false;
 
-function bbe() {
-  if (bGZ) {
+function blrg() {
+  if (bbBz) {
     return;
   }
-  bGZ = true;
+  bbBz = true;
 
   ReactInjection.EventEmitter.injectReactEventListener(ReactEventListener);
 
@@ -9287,57 +9653,57 @@ function bbe() {
   ReactInjection.Component.injectEnvironment(ReactComponentBrowserEnvironment);
 }
 
-var bxq = {
-  inject: bbe
+var bAdv = {
+  inject: blrg
 };
 /**bandol> resource: node_modules/react/lib/ReactDOMServer.js */
 
 
-bxq.inject();
+bAdv.inject();
 
 var ReactDOMServer = {
-  renderToString: bPq.renderToString,
-  renderToStaticMarkup: bPq.renderToStaticMarkup,
-  version: bQr
+  renderToString: b9d.renderToString,
+  renderToStaticMarkup: b9d.renderToStaticMarkup,
+  version: bPq
 };
 /**bandol> resource: node_modules/react/lib/renderSubtreeIntoContainer.js */
-var bXz = ReactMount.renderSubtreeIntoContainer;
+var bRp9 = ReactMount.renderSubtreeIntoContainer;
 /**bandol> resource: node_modules/react/lib/ReactDOM.js */
 
 
-bxq.inject();
+bAdv.inject();
 
-var b4l = ReactPerf.measure('React', 'render', ReactMount.render);
+var bGey = ReactPerf.measure('React', 'render', ReactMount.render);
 
-var bRK = {
+var bKvr = {
   findDOMNode: findDOMNode,
-  render: b4l,
+  render: bGey,
   unmountComponentAtNode: ReactMount.unmountComponentAtNode,
-  version: bQr,
+  version: bPq,
 
   unstable_batchedUpdates: ReactUpdates.batchedUpdates,
-  unstable_renderSubtreeIntoContainer: bXz
+  unstable_renderSubtreeIntoContainer: bRp9
 };
 /**bandol> resource: node_modules/react/lib/React.js */
 
 var React = {};
 
-assign(React, bKv);
+assign(React, b4y3);
 
 assign(React, {
-  findDOMNode: deprecated('findDOMNode', 'ReactDOM', 'react-dom', bRK, bRK.findDOMNode),
-  render: deprecated('render', 'ReactDOM', 'react-dom', bRK, bRK.render),
-  unmountComponentAtNode: deprecated('unmountComponentAtNode', 'ReactDOM', 'react-dom', bRK, bRK.unmountComponentAtNode),
+  findDOMNode: deprecated('findDOMNode', 'ReactDOM', 'react-dom', bKvr, bKvr.findDOMNode),
+  render: deprecated('render', 'ReactDOM', 'react-dom', bKvr, bKvr.render),
+  unmountComponentAtNode: deprecated('unmountComponentAtNode', 'ReactDOM', 'react-dom', bKvr, bKvr.unmountComponentAtNode),
 
   renderToString: deprecated('renderToString', 'ReactDOMServer', 'react-dom/server', ReactDOMServer, ReactDOMServer.renderToString),
   renderToStaticMarkup: deprecated('renderToStaticMarkup', 'ReactDOMServer', 'react-dom/server', ReactDOMServer, ReactDOMServer.renderToStaticMarkup)
 });
 
-React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = bRK;
+React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = bKvr;
 React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;
 /**bandol> resource: actual.js */
 
 
-bRK.render(React.createElement('h1', null, 'Hello Bandol'), document.getElementById('content'));
+bKvr.render(React.createElement('h1', null, 'Hello Bandol'), document.getElementById('content'));
 
 }());
