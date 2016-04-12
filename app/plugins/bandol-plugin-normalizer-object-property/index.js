@@ -59,16 +59,16 @@ export default class Plugin extends BasePlugin {
               normalizedProperties.push(
                 t.objectProperty(property.key, t.identifier(name), property.computed, isShorthand, property.decorators));
               shouldReplace = true;
-            } else if (t.isCallExpression) {
+            } else if (t.isCallExpression(property.value)) {
               normalizedProperties.push(property);
             } else {
               // Generate variable name
               const name = this.bundle.generateUid();
               // Extract value to variable
-              rootPath.insertBefore(t.variableDeclaration(t.identifier(name), property.value));
+              rootPath.insertBefore(t.variableDeclaration('let', [t.variableDeclarator(t.identifier(name), property.value)]));
               // And replace property value with its name
               normalizedProperties.push(
-                t.objectProperty(property.key.name, t.identifier(name), property.computed, false, property.decorators));
+                t.objectProperty(t.identifier(property.key.name), t.identifier(name), property.computed, false, property.decorators));
               shouldReplace = true;
             }
             i++;

@@ -12,12 +12,12 @@ import jsLoaderPlugin from '../app/plugins/bandol-plugin-loader-js';
 import jsonLoaderPlugin from '../app/plugins/bandol-plugin-loader-json';
 import cjsToEs6NormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-cjs-to-es6';
 import removeDeprecatedNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-remove-deprecated';
+import objectPropertyNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-object-property';
 import es6ExportsNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-es6-exports';
 import processEnvNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-process-env';
 import runningContextNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-running-context';
 import removeFalsyBlocksNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-remove-falsy-blocks';
 import removeUnusedNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-remove-unused';
-import objectPropertyNormalizerPlugin from '../app/plugins/bandol-plugin-normalizer-object-property';
 import es6AnalyzerPlugin from '../app/plugins/bandol-plugin-analyzer-es6';
 import es6ExportsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-es6-exports';
 import renameInternalsOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-rename-internals';
@@ -46,13 +46,13 @@ const allPlugins = [
   jsonLoaderPlugin,
   // Normalisation
   cjsToEs6NormalizerPlugin,
+  objectPropertyNormalizerPlugin,
   removeDeprecatedNormalizerPlugin,
   processEnvNormalizerPlugin,
   runningContextNormalizerPlugin,
   removeFalsyBlocksNormalizerPlugin,
   es6ExportsNormalizerPlugin,
   removeUnusedNormalizerPlugin,
-  objectPropertyNormalizerPlugin,
   // Optimisation
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
@@ -465,6 +465,20 @@ test('normalizer/es6-exports_8', t => {
   return bandol(opts).then(b => {
     b.finalize();
     t.is(b.code, expected('normalizer/es6-exports_8'));
+  });
+});
+
+test('normalizer/object-property', t => {
+  const opts = getOptions('normalizer/object-property', {
+    plugins: [
+      ...basePlugins,
+      objectPropertyNormalizerPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/object-property'));
   });
 });
 
