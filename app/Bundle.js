@@ -220,7 +220,7 @@ export default class Bundle {
     this.defaultExportsById.set(id, name);
   }
 
-  addNamedExport(id, originalName, name) {
+  addNamedExport(id, originalName, name, fromDefdault = false) {
     this.namedExportsByName.set(name, id);
     this.namedExportsById.set(`${id}_${originalName}`, name);
   }

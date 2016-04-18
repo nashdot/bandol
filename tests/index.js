@@ -459,7 +459,7 @@ test('normalizer/es6-exports_8', t => {
   const opts = getOptions('normalizer/es6-exports_8', {
     plugins: [
       ...basePlugins,
-      es6ExportsNormalizerPlugin
+      es6ExportsOptimizerPlugin
     ]
   });
   return bandol(opts).then(b => {
@@ -611,6 +611,21 @@ test('optimizer/es6-exports-imports_7', t => {
   });
 });
 
+test('optimizer/es6-exports-imports_8', t => {
+  const opts = getOptions('optimizer/es6-exports-imports_8', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('optimizer/es6-exports-imports_8'));
+  });
+});
+
 test('optimizer/rename-internals', t => {
   const opts = getOptions('optimizer/rename-internals', {
     plugins: [
@@ -718,7 +733,8 @@ test('todo/cjs-to-es6', t => {
 //   const opts = getOptions('core/module', {
 //     env: { NODE_ENV: 'production' },
 //     runningContext: createRunningContext(),
-//     plugins: allPlugins
+//     plugins: allPlugins,
+//     logLevel: log.levels.TRACE
 //   });
 //   return bandol(opts).then(b => {
 //     b.finalize({ debug: true });
