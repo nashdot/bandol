@@ -20,9 +20,7 @@ export default class Plugin extends BasePlugin {
     let i = 0;
     let shouldReplace = false;
     node.properties.forEach(property => {
-      this.log.info(`Old property name: ${property.key.name}`);
       const name = !this.bundle.hasName(property.key.name) ? property.key.name : this.bundle.generateUid();
-      this.log.info(`New property name: ${name}`);
       this.bundle.addNamedExport(resource.id, property.key.name, name, true);
 
       if (t.isIdentifier(property.value)) {
@@ -78,13 +76,14 @@ export default class Plugin extends BasePlugin {
     });
 
     if (shouldReplace) {
-      nodePath.replaceWith(t.objectExpression(normalizedProperties));
+      nodePath.replaceWith(t.variableDeclarator(nodePath.node.id, t.objectExpression(normalizedProperties)));
     }
   }
 
   optimizeBundle() {
     for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
       const resource = this.bundle.sortedResources[i];
+      const alreadyOptimized = new Map();
 
       const transformExportedDeclaration = {
         Identifier: (nodePath) => {
@@ -93,8 +92,10 @@ export default class Plugin extends BasePlugin {
 
           // Last condition: traverse going inside new added statement
           if (nodePath.node.name === this.opts.identifier
-              && parentType !== this.opts.excludeType) {
+              && parentType !== this.opts.excludeType
+              && !alreadyOptimized.has(this.opts.identifier)) {
             this.log.info(`Analyzing ${this.opts.identifier}...`);
+            alreadyOptimized.set(this.opts.identifier, true);
             // VariableDeclarator
             if (parentType === 'VariableDeclarator') {
               if (t.isObjectExpression(parentPath.node.init)) {
