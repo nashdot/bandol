@@ -1,17 +1,19 @@
 (function () {
+function square(n) {
+  return n * n;
+}
+
+function cube(x) {
+  return x * x * x;
+}
 
 const a = {
-  square: function (n) {
-    return n * n;
-  },
-
-  cube: function (x) {
-    return x * x * x;
-  }
+  square,
+  cube
 };
 
 
-const a = a.square(4);
+const a = square(4);
 
 console.log(`${ a }`);
 

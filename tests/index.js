@@ -457,7 +457,7 @@ test('normalizer/es6-exports_8', t => {
   const opts = getOptions('normalizer/es6-exports_8', {
     plugins: [
       ...basePlugins,
-      es6ExportsOptimizerPlugin
+      es6ExportsNormalizerPlugin
     ]
   });
   return bandol(opts).then(b => {
