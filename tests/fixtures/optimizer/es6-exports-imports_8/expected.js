@@ -14,7 +14,7 @@ class g {}
 
 class h {}
 
-const {
+const test = {
   a: a,
   b: b,
   c: c,
