@@ -63,7 +63,8 @@ export default class Plugin extends BasePlugin {
           t.objectProperty(property.key, t.identifier(name), property.computed, isShorthand, property.decorators));
         shouldReplace = true;
       } else if (t.isCallExpression(property.value)) {
-        throw new Error(`TODO: CallExpression used in property of exported object (${this.bundle.getShortName(resource.id)}:${property.key.name})`);
+        const body = t.blockStatement([t.returnStatement(property.value)]);
+        rootPath.insertBefore(t.functionDeclaration(t.identifier(name), [], body));
       } else {
         // Extract value to variable
         rootPath.insertBefore(t.variableDeclaration('let', [t.variableDeclarator(t.identifier(name), property.value)]));
