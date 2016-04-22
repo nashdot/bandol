@@ -64,13 +64,6 @@ const expected = testPath => { return fs.readFileSync(join(fixturesDir, testPath
 
 function createRunningContext() {
   const context = new Map();
-  context.set('__REACT_DEVTOOLS_GLOBAL_HOOK__', 'undefined');
-
-  return context;
-}
-
-function createRunningContext2() {
-  const context = new Map();
   context.set('__TEST__', '\'test\'');
 
   return context;
@@ -350,7 +343,7 @@ test('normalizer/remove-unused', t => {
 
 test('normalizer/running-context', t => {
   const opts = getOptions('normalizer/running-context', {
-    runningContext: createRunningContext2(),
+    runningContext: createRunningContext(),
     plugins: [
       ...basePlugins,
       runningContextNormalizerPlugin
@@ -712,18 +705,3 @@ test('todo/cjs-to-es6', t => {
   });
   return t.throws(bandol(opts), 'TODO: module.exports.message = ...');
 });
-
-// test('core/module', t => {
-//   const opts = getOptions('core/module', {
-//     env: { NODE_ENV: 'production' },
-//     runningContext: createRunningContext(),
-//     plugins: allPlugins,
-//     logLevel: log.levels.TRACE
-//   });
-//   return bandol(opts).then(b => {
-//     b.finalize({ debug: true });
-//     const outputPath = `${process.cwd()}/out/core_module.js`;
-//     fs.writeFileSync(outputPath, b.code);
-//     t.is(b.code, expected('core/module'));
-//   });
-// });

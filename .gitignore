@@ -1,6 +1,7 @@
 node_modules
 dist
 npm-debug.log
+cases/out
 tests/out
 .nyc_output
 coverage

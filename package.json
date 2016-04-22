@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "pretest": "rimraf ./tests/out && mkdirp ./tests/out && cd ./tests/fixtures/core/module && npm install",
     "test": "ava -s",
+    "precases": "rimraf ./cases/out && mkdirp ./cases/out && cd ./cases/react-hello && npm install",
+    "cases": "ava -s",
     "coverage": "nyc npm test",
     "codecov": "cat coverage/*/lcov.info | codecov",
     "report": "npm run coverage && nyc report --reporter=lcov",

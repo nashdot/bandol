@@ -1,3 +1,4 @@
 dist/
+cases/
 tests/
 !tests/index.js
