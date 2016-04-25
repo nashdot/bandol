@@ -341,6 +341,19 @@ test('normalizer/remove-unused', t => {
   });
 });
 
+test('normalizer/remove-deprecated', t => {
+  const opts = getOptions('normalizer/remove-deprecated', {
+    plugins: [
+      ...basePlugins,
+      removeDeprecatedNormalizerPlugin
+    ]
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('normalizer/remove-deprecated'));
+  });
+});
+
 test('normalizer/running-context', t => {
   const opts = getOptions('normalizer/running-context', {
     runningContext: createRunningContext(),
