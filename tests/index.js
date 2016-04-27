@@ -616,6 +616,21 @@ test('optimizer/es6-exports-imports_8', t => {
   });
 });
 
+test('optimizer/es6-exports-imports_9', t => {
+  const opts = getOptions('optimizer/es6-exports-imports_9', {
+    plugins: [
+      ...basePlugins,
+      es6ExportsOptimizerPlugin,
+      es6ImportsOptimizerPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('optimizer/es6-exports-imports_9'));
+  });
+});
+
 test('optimizer/rename-internals', t => {
   const opts = getOptions('optimizer/rename-internals', {
     plugins: [

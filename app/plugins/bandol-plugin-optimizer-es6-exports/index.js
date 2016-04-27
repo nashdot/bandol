@@ -62,15 +62,12 @@ export default class Plugin extends BasePlugin {
         normalizedProperties.push(
           t.objectProperty(property.key, t.identifier(name), property.computed, isShorthand, property.decorators));
         shouldReplace = true;
-      } else if (t.isCallExpression(property.value)) {
-        const body = t.blockStatement([t.returnStatement(property.value)]);
-        rootPath.insertBefore(t.functionDeclaration(t.identifier(name), [], body));
       } else {
-        // Extract value to variable
+        // Extract value/function call to variable
         rootPath.insertBefore(t.variableDeclaration('let', [t.variableDeclarator(t.identifier(name), property.value)]));
         // And replace property value with its name
         normalizedProperties.push(
-          t.objectProperty(t.identifier(property.key.name), t.identifier(name), property.computed, false, property.decorators));
+          t.objectProperty(property.key, t.identifier(name), property.computed, false, property.decorators));
         shouldReplace = true;
       }
       i++;
@@ -141,6 +138,7 @@ export default class Plugin extends BasePlugin {
             delete this.opts;
 
             // Register
+            this.log.info(`Registering default '${name}' from ${resource.id}`);
             this.bundle.addDefaultExport(resource.id, name);
             nodePath.remove();
           } else {
