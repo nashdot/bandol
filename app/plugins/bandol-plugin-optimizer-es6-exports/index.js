@@ -20,7 +20,10 @@ export default class Plugin extends BasePlugin {
     let i = 0;
     let shouldReplace = false;
     node.properties.forEach(property => {
-      const name = !this.bundle.hasName(property.key.name) ? property.key.name : this.bundle.generateUid();
+      const isSameKeyVar = t.isIdentifier(property.value)
+          && property.value.name === property.key.name;
+      const name = !(this.bundle.hasName(property.key.name)
+          || (!isSameKeyVar && rootPath.scope.bindings[property.key.name])) ? property.key.name : this.bundle.generateUid();
       this.bundle.addNamedExport(resource.id, property.key.name, name, true);
 
       if (t.isIdentifier(property.value)) {
