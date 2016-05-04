@@ -109,11 +109,6 @@ export default class Plugin extends BasePlugin {
               // this.log.info(`Resource: ${this.bundle.getShortName(resource.id)}`);
               // this.logAst(nodePath.parentPath.node);
             }
-            // MemberExpression
-            // CallExpression
-            // FunctionDeclaration
-            // AssignmentExpression
-            this.opts.type = nodePath.parentPath.node.type;
           }
         }
       };
@@ -130,10 +125,8 @@ export default class Plugin extends BasePlugin {
               nodePath.parentPath.scope.rename(node.declaration.name, name);
             }
 
-            const type = '';
             this.opts = {
-              identifier: name,
-              type: type
+              identifier: name
             };
             nodePath.parentPath.traverse(transformExportedDeclaration);
             delete this.opts;
