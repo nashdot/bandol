@@ -17,20 +17,6 @@ export default class Plugin extends BasePlugin {
     for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
       const resource = this.bundle.sortedResources[i];
 
-      const transformNamespaceVariables = {
-        Identifier: (nodePath) => {
-          // Last condition: traverse going inside new added statement
-          if (nodePath.node.name === this.opts.identifier
-              && !t.isImportSpecifier(nodePath.parentPath)
-              && !t.isImportDefaultSpecifier(nodePath.parentPath)
-              && !t.isObjectProperty(nodePath.parentPath)
-              && !t.isMemberExpression(nodePath.parentPath)) {
-            nodePath.replaceWith(t.memberExpression(
-              t.identifier(this.opts.namespace), t.identifier(this.opts.identifier)));
-          }
-        }
-      };
-
       const transformNamespaceImport = {
         MemberExpression: (nodePath) => {
           // Found <namespace>.<varaible>
@@ -69,20 +55,9 @@ export default class Plugin extends BasePlugin {
               delete this.opts;
             } else {
               const name = this.bundle.getNamedName(sourceId, specifier.imported.name);
-              if (name) {
-                nodePath.parentPath.scope.rename(specifier.local.name, name);
-                // Mark as used
-                this.bundle.markUsed(sourceId, name);
-              } else {
-                // Namespace
-                const id = this.bundle.resolveResource(node.source.value, resource.id);
-                this.opts = {
-                  identifier: specifier.local.name,
-                  namespace: this.bundle.getDefaultName(id)
-                };
-                nodePath.parentPath.traverse(transformNamespaceVariables);
-                delete this.opts;
-              }
+              nodePath.parentPath.scope.rename(specifier.local.name, name);
+              // Mark as used
+              this.bundle.markUsed(sourceId, name);
             }
           });
 
