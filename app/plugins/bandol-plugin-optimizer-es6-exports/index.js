@@ -93,7 +93,6 @@ export default class Plugin extends BasePlugin {
 
           // Last condition: traverse going inside new added statement
           if (nodePath.node.name === this.opts.identifier
-              && parentType !== this.opts.excludeType
               && !alreadyOptimized.has(this.opts.identifier)) {
             this.log.info(`Analyzing ${this.opts.identifier}...`);
             alreadyOptimized.set(this.opts.identifier, true);
@@ -134,8 +133,7 @@ export default class Plugin extends BasePlugin {
             const type = '';
             this.opts = {
               identifier: name,
-              type: type,
-              excludeType: 'ExportDefaultDeclaration'
+              type: type
             };
             nodePath.parentPath.traverse(transformExportedDeclaration);
             delete this.opts;
