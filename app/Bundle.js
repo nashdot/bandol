@@ -76,38 +76,39 @@ export default class Bundle {
   }
 
   initPlugins() {
-    for (const Plugin of this.plugins) {
-      const worker = new Plugin(this);
+    for (let i = 0; i < this.plugins.length; i++) {
+      const Plugin = this.plugins[i];
+      const plugin = new Plugin(this);
 
-      if (worker.generateUid) {
-        this.uidPlugins.push(worker);
+      if (plugin.generateUid) {
+        this.uidPlugins.push(plugin);
       }
 
-      if (worker.resolveResource) {
-        this.resolverPlugins.push(worker);
+      if (plugin.resolveResource) {
+        this.resolverPlugins.push(plugin);
       }
 
-      if (worker.loadResource) {
-        this.loaderPlugins.push(worker);
+      if (plugin.loadResource) {
+        this.loaderPlugins.push(plugin);
       }
 
-      if (worker.normalizeResource) {
-        this.normalizerPlugins.push(worker);
+      if (plugin.normalizeResource) {
+        this.normalizerPlugins.push(plugin);
       }
 
-      if (worker.analyzeResource) {
-        this.analyzerPlugins.push(worker);
+      if (plugin.analyzeResource) {
+        this.analyzerPlugins.push(plugin);
       }
 
-      if (worker.optimizeBundle) {
-        this.optimizerPlugins.push(worker);
+      if (plugin.optimizeBundle) {
+        this.optimizerPlugins.push(plugin);
       }
 
-      if (worker.finalize) {
-        this.finalizerPlugins.push(worker);
+      if (plugin.finalize) {
+        this.finalizerPlugins.push(plugin);
       }
 
-      this.log.info(`Registering "${worker.name}/${worker.version}" plugin. Available features: ${JSON.stringify(worker.features)}`);
+      this.log.info(`Registering "${plugin.name}/${plugin.version}" plugin. Available features: ${JSON.stringify(plugin.features)}`);
     }
   }
 
@@ -156,11 +157,12 @@ export default class Bundle {
 
   resolveResource(importee, importerId) {
     let id;
-    for (const plugin of this.resolverPlugins) {
+    for (let i = 0; i < this.resolverPlugins.length; i++) {
+      const plugin = this.resolverPlugins[i];
       id = plugin.resolveResource(importee, importerId);
 
       if (id !== undefined) {
-        return id;
+        break;
       }
     }
 
