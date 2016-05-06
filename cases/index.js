@@ -25,8 +25,6 @@ import removeUseStrictOptimizerPlugin from '../app/plugins/bandol-plugin-optimiz
 import removeUnusedOptimizerPlugin from '../app/plugins/bandol-plugin-optimizer-remove-unused';
 import iifeFinalizerPlugin from '../app/plugins/bandol-plugin-finalizer-iife';
 
-import testLogPlugin from './fixtures/core/logAst/bandol-plugin-normalizer-test-log'
-
 const basePlugins = [
   // Utils
   hashidsUidPlugin,
@@ -69,7 +67,7 @@ function createRunningContext() {
 }
 
 function getOptions(testPath, opts) {
-  return Object.assign({}, { entry: join(fixturesDir, testPath, 'actual.js') }, opts);
+  return Object.assign({}, { entry: join(__dirname, testPath, 'actual.js') }, opts);
 }
 
 test('react-hello', t => {
@@ -81,7 +79,7 @@ test('react-hello', t => {
   });
   return bandol(opts).then(b => {
     b.finalize({ debug: true });
-    const outputPath = `${process.cwd()}/out/core_module.js`;
+    const outputPath = `${process.cwd()}/out/react-hello.js`;
     fs.writeFileSync(outputPath, b.code);
     t.is(b.code, expected('react-hello'));
   });
