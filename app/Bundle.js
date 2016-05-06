@@ -223,12 +223,9 @@ export default class Bundle {
   }
 
   getShortName(id) {
-    let name = path.basename(id, path.extname(id));
+    const name = path.basename(id, path.extname(id));
     const names = name.split('.');
-    if (names.length > 0) {
-      name = names[names.length - 1];
-    }
-    return name;
+    return names[names.length - 1];
   }
 
   addDefaultExport(id, name) {

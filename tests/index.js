@@ -244,6 +244,20 @@ test('loader/json_3', t => {
   return t.throws(bandol(opts), 'No loader plugin found for resource "test.json"');
 });
 
+test('loader/json_4', t => {
+  const opts = getOptions('loader/json_4', {
+    plugins: [
+      ...basePlugins,
+      jsonLoaderPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return bandol(opts).then(b => {
+    b.finalize();
+    t.is(b.code, expected('loader/json_4'));
+  });
+});
+
 test('normalizer/cjs-to-es6', t => {
   const opts = getOptions('normalizer/cjs-to-es6', {
     plugins: [
