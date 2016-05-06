@@ -3,6 +3,9 @@ node_js:
   - '5'
   - '4'
   - '0.12'
+addons:
+  code_climate:
+    repo_token: 45806c4cf4a93a346190d49725b38a98e0cc08742045690292aa63b00d65f80d
 before_install:
   - 'npm install -g npm@latest'
 install:
@@ -11,3 +14,4 @@ script:
   - 'npm run report'
 after_success:
   - 'npm run codecov'
+  - 'codeclimate-test-reporter < lcov.info'
