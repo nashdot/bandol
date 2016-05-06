@@ -1,5 +1,6 @@
 import traverse from 'babel-traverse';
 import * as t from 'babel-types';
+import * as a from '../../utils/ast';
 
 import BasePlugin from '../../BasePlugin';
 
@@ -39,10 +40,8 @@ export default class Plugin extends BasePlugin {
         // Extract function
         rootPath.insertBefore(t.functionDeclaration(t.identifier(name), params, body, generator, property.value.async));
         // Shorthand
-        let isShorthand = false;
-        if (t.isIdentifier(property.key) && property.key.name === name) {
-          isShorthand = true;
-        }
+        const isShorthand = a.isShorthand(property.key, name);
+
         // And replace property value with its name
         normalizedProperties.push(
           t.objectProperty(property.key, t.identifier(name), property.computed, isShorthand, property.decorators));
@@ -57,10 +56,7 @@ export default class Plugin extends BasePlugin {
         // Extract class
         rootPath.insertBefore(t.classDeclaration(t.identifier(name), superClass, body, []));
         // Shorthand
-        let isShorthand = false;
-        if (t.isIdentifier(property.key) && property.key.name === name) {
-          isShorthand = true;
-        }
+        const isShorthand = a.isShorthand(property.key, name);
         // And replace property value with its name
         normalizedProperties.push(
           t.objectProperty(property.key, t.identifier(name), property.computed, isShorthand, property.decorators));
