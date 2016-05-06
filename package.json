@@ -9,7 +9,7 @@
     "precases": "rimraf ./cases/out && mkdirp ./cases/out && cd ./cases/react-hello && npm install",
     "cases": "ava -s",
     "coverage": "nyc npm test",
-    "codecov": "cat coverage/*/lcov.info | codecov",
+    "codecov": "cat coverage/lcov.info | codecov",
     "report": "npm run coverage && nyc report --reporter=lcov",
     "start": "babel-node index.js"
   },
@@ -41,6 +41,7 @@
     "babel-polyfill": "^6.8.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.8.0",
+    "codeclimate-test-reporter": "^0.3.1",
     "codecov": "^1.0.1",
     "eslint": "^2.9.0",
     "eslint-config-nashdot": "^1.1.1",
