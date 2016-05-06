@@ -3,9 +3,37 @@ engines:
   duplication:
     enabled: true
     exclude_fingerprints:
-      # app/plugins/bandol-plugin-optimizer-remove-use-strict/index.js
-      # name/version
+      # name/version declaration
+      # analyzer-es6
+      - ee487c318e8b8ac7182e86ab39e28425
+      # finalizer-iife
+      - dff72b00dc02618a3775f0f4b225cddb
+      # normalizer-cjs-to-es6
+      - 57495c9c9b6f586d1eecbc7873e1959c
+      # normalizer-es6-exports
+      - 7a4e21270779a95bcdbfef1ec67c784c
+      # normalizer-process-env
+      - 119d6c7cfe7cf2c85b9c02eee4beaedd
+      # normalizer-remove-deprecated
+      - 690251b3d75f255468e3b201e9e67e36
+      # normalizer-remove-falsy-blocks
+      - 50401ad1cb6d75180f5d9774e89f2f24
+      # normalizer-remove-unused
+      - 8dfab8e412ddda26ee0977ce7fac72f4
+      # normalizer-running-context
+      - 1dd6d936a8a5bacd9b4c99898756bdbc
+      # optimizer-es6-exports
+      - 3bd850da1fc52501a8ff74258a944e05
+      # optimizer-es6-imports
+      - 3c6b4d2322262739e63311fb44fc9a60
+      # optimizer-remove-unused
+      - 0a1d07ae72c50d516340f42028f9c2be
+      # optimizer-remove-use-strict
       - a928b0e97970c8fd464477d6c7d2efde
+      # optimizer-rename-internals
+      - 1f649813de6d992c285174a99ad74985
+      # resolver-node
+      - cceb5df070815e6be97dd03fad94ebc1
     config:
       languages:
       - javascript
