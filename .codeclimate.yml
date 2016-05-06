@@ -3,7 +3,7 @@ engines:
   duplication:
     enabled: true
     exclude_fingerprints:
-      # name/version declaration
+      # name/version duplications
       # analyzer-es6
       - ee487c318e8b8ac7182e86ab39e28425
       # finalizer-iife
@@ -34,6 +34,11 @@ engines:
       - 1f649813de6d992c285174a99ad74985
       # resolver-node
       - cceb5df070815e6be97dd03fad94ebc1
+      # optimizer-es6-exports duplications
+      # normalizedProperties.push
+      - 8fe0a52f6ce997501d1831509bbab8a1
+      # nodePath.parentPath.scope.rename
+      - c08e047b8a720bf35aa383cdcee8f8d8
     config:
       languages:
       - javascript
