@@ -18,11 +18,14 @@ export default function sortDependencies(items) {
     items: items
   };
 
-  for (const item of ctx.items.values()) {
-    if (ctx.visited.indexOf(item.id) !== -1) {
-      continue;
+  const iterator = ctx.items.values();
+  while (true) {
+    const current = iterator.next();
+    if (current.done || ctx.visited.indexOf(current.value.id) !== -1) {
+      break;
     }
-    topologicalSort(item, ctx);
+    topologicalSort(current.value, ctx);
   }
+
   return ctx.stack;
 }
