@@ -57,6 +57,22 @@ export default class Bundle {
     if (this.uidPlugins.length === 0) {
       throw new Error('No uid plugin found in this Bandol configuration.');
     }
+
+    if (this.resolverPlugins.length === 0) {
+      throw new Error('No one resolver plugin found in this Bandol configuration.');
+    }
+
+    if (this.loaderPlugins.length === 0) {
+      throw new Error('No one loder plugin found in this Bandol configuration.');
+    }
+
+    if (this.analyzerPlugins.length === 0) {
+      throw new Error('No one analyzer plugin found in this Bandol configuration.');
+    }
+
+    if (this.finalizerPlugins.length === 0) {
+      throw new Error('No finalizer plugin found in this Bandol configuration.');
+    }
   }
 
   initPlugins() {

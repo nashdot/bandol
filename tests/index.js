@@ -133,18 +133,64 @@ test('core/sort', t => {
   });
 });
 
-test('uid/hashids', t => {
-  const opts = getOptions('uid/hashids', {
+test('core/no-uid-plugin', t => {
+  const opts = getOptions('core/no-uid-plugin', {
     plugins: [
       nodeResolverPlugin,
       jsLoaderPlugin,
       es6AnalyzerPlugin,
-      renameInternalsOptimizerPlugin,
       iifeFinalizerPlugin
-    ],
-    logLevel: log.levels.TRACE
+    ]
   });
   return t.throws(bandol(opts), 'No uid plugin found in this Bandol configuration.');
+});
+
+test('core/no-resolver-plugin', t => {
+  const opts = getOptions('core/no-resolver-plugin', {
+    plugins: [
+      hashidsUidPlugin,
+      jsLoaderPlugin,
+      es6AnalyzerPlugin,
+      iifeFinalizerPlugin
+    ]
+  });
+  return t.throws(bandol(opts), 'No one resolver plugin found in this Bandol configuration.');
+});
+
+test('core/no-loder-plugin', t => {
+  const opts = getOptions('core/no-loder-plugin', {
+    plugins: [
+      hashidsUidPlugin,
+      nodeResolverPlugin,
+      es6AnalyzerPlugin,
+      iifeFinalizerPlugin
+    ]
+  });
+  return t.throws(bandol(opts), 'No one loder plugin found in this Bandol configuration.');
+});
+
+test('core/no-analyzer-plugin', t => {
+  const opts = getOptions('core/no-analyzer-plugin', {
+    plugins: [
+      hashidsUidPlugin,
+      nodeResolverPlugin,
+      jsLoaderPlugin,
+      iifeFinalizerPlugin
+    ]
+  });
+  return t.throws(bandol(opts), 'No one analyzer plugin found in this Bandol configuration.');
+});
+
+test('core/no-finalizer-plugin', t => {
+  const opts = getOptions('core/no-finalizer-plugin', {
+    plugins: [
+      hashidsUidPlugin,
+      nodeResolverPlugin,
+      jsLoaderPlugin,
+      es6AnalyzerPlugin
+    ]
+  });
+  return t.throws(bandol(opts), 'No finalizer plugin found in this Bandol configuration.');
 });
 
 test('loader/not-supported-resource-type', t => {
@@ -180,7 +226,9 @@ test('loader/json_2', t => {
     plugins: [
       hashidsUidPlugin,
       nodeResolverPlugin,
-      jsonLoaderPlugin
+      jsonLoaderPlugin,
+      es6AnalyzerPlugin,
+      iifeFinalizerPlugin
     ]
   });
   return t.throws(bandol(opts), 'No loader plugin found for resource "actual.js"');
