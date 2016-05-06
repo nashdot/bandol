@@ -30,7 +30,7 @@ export default class Plugin extends BasePlugin {
 
           if (t.isFunctionDeclaration(node.declaration)) {
           // -- Function declaration
-            const name = node.declaration.id ? node.declaration.id.name : this.bundle.generateUid();
+            const name = this.bundle.getUniqueName(node.declaration.id);
 
             const { params: params, body: body, generator: generator } = node.declaration;
             nodePath.replaceWithMultiple([
@@ -38,8 +38,8 @@ export default class Plugin extends BasePlugin {
               t.exportDefaultDeclaration(t.identifier(name))
             ]);
           } else if (t.isClassDeclaration(node.declaration)) {
-          // Class declaration
-            const name = node.declaration.id ? node.declaration.id.name : this.bundle.generateUid();
+          // -- Class declaration
+            const name = this.bundle.getUniqueName(node.declaration.id);
 
             const { superClass: superClass, body: body } = node.declaration;
             nodePath.replaceWithMultiple([

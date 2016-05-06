@@ -218,6 +218,10 @@ export default class Bundle {
     return this.uidPlugins[0].generateUid();
   }
 
+  getUniqueName(id) {
+    return id ? id.name : this.generateUid();
+  }
+
   getShortPath(id) {
     return path.relative(this.srcBasePath, id).replace(/\\/g, '/');
   }
