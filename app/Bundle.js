@@ -21,9 +21,9 @@ export default class Bundle {
 
     // Enhance environment by options provided to Bandol
     if (options.env) {
-      for (const prop in options.env) {
-        process.env[prop] = options.env[prop];
-      }
+      Object.getOwnPropertyNames(options.env).forEach((name) => {
+        process.env[name] = options.env[name];
+      });
     }
 
     this.runningContext = options.runningContext || new Map();
