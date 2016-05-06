@@ -20,8 +20,8 @@ export default class Bundle {
     this.log.setLevel(logLevel);
 
     // Enhance environment by options provided to Bandol
-    for (const prop in options.env) {
-      if (options.env.hasOwnProperty(prop)) {
+    if (options.env) {
+      for (const prop in options.env) {
         process.env[prop] = options.env[prop];
       }
     }
