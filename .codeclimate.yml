@@ -2,6 +2,10 @@
 engines:
   duplication:
     enabled: true
+    exclude_fingerprints:
+      # app/plugins/bandol-plugin-optimizer-remove-use-strict/index.js
+      # name/version
+      - a928b0e97970c8fd464477d6c7d2efde
     config:
       languages:
       - javascript
