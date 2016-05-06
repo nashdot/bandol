@@ -73,16 +73,29 @@ function getOptions(testPath, opts) {
   return Object.assign({}, { entry: join(fixturesDir, testPath, 'actual.js') }, opts);
 }
 
+test('core/no-options-provided', t => {
+  return t.throws(bandol(), "You must supply options to bandol");
+});
+
 test('core/no-entry-provided', t => {
   const opts = {
   };
-  return t.throws(bandol(opts), "You must supply options.entry to bandol");
+  return t.throws(bandol(opts), 'You must supply "entry" option to bandol');
+});
+
+test('core/no-plugins-provided', t => {
+  const opts = {
+    entry: 'test.js'
+  };
+  return t.throws(bandol(opts), 'You must supply "plugins" option to bandol');
 });
 
 test('core/not-valid-option', t => {
-  const opts = getOptions('core/not-valid-option', {
+  const opts = {
+    entry: 'test.js',
+    plugins: basePlugins,
     notValid: 'test'
-  });
+  };
   return t.throws(bandol(opts), "Unexpected key 'notValid' found, expected one of: entry, env, runningContext, plugins, logLevel");
 });
 

@@ -10,8 +10,16 @@ const ALLOWED_KEYS = [
 ];
 
 async function bandol(options) {
-  if (!options || !options.entry) {
-    return Promise.reject(new Error('You must supply options.entry to bandol'));
+  if (!options) {
+    return Promise.reject(new Error('You must supply options to bandol'));
+  }
+
+  if (!options.entry) {
+    return Promise.reject(new Error('You must supply "entry" option to bandol'));
+  }
+
+  if (!options.plugins) {
+    return Promise.reject(new Error('You must supply "plugins" option to bandol'));
   }
 
   const error = validateKeys(options, ALLOWED_KEYS);

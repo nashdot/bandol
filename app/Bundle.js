@@ -27,7 +27,7 @@ export default class Bundle {
     }
 
     this.runningContext = options.runningContext || new Map();
-    this.plugins = options.plugins || [];
+    this.plugins = options.plugins;
 
     // Final bundle genarated code source
     this.code = '';
