@@ -209,9 +209,7 @@ export default class Bundle {
   }
 
   finalize(opts) {
-    for (const plugin of this.finalizerPlugins) {
-      plugin.finalize(opts);
-    }
+    return this.finalizerPlugins[0].finalize(opts);
   }
 
   generateUid() {
