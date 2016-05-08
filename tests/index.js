@@ -52,11 +52,11 @@ const allPlugins = [
   es6ExportsNormalizerPlugin,
   removeUnusedNormalizerPlugin,
   // Optimisation
+  removeUnusedOptimizerPlugin,
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
   es6ImportsOptimizerPlugin,
-  removeUseStrictOptimizerPlugin,
-  removeUnusedOptimizerPlugin
+  removeUseStrictOptimizerPlugin
 ];
 
 const fixturesDir = join(__dirname, 'fixtures');

@@ -50,11 +50,11 @@ const allPlugins = [
   es6ExportsNormalizerPlugin,
   removeUnusedNormalizerPlugin,
   // Optimisation
+  removeUnusedOptimizerPlugin,
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
   es6ImportsOptimizerPlugin,
-  removeUseStrictOptimizerPlugin,
-  removeUnusedOptimizerPlugin
+  removeUseStrictOptimizerPlugin
 ];
 
 const expected = testPath => { return fs.readFileSync(join(__dirname, testPath, 'expected.js'), 'utf8'); };
