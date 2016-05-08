@@ -52,10 +52,10 @@ const allPlugins = [
   es6ExportsNormalizerPlugin,
   removeUnusedNormalizerPlugin,
   // Optimisation
-  removeUnusedOptimizerPlugin,
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
   es6ImportsOptimizerPlugin,
+  removeUnusedOptimizerPlugin,
   removeUseStrictOptimizerPlugin
 ];
 
@@ -748,6 +748,24 @@ test('optimizer/es6-exports-imports_12', t => {
   return bandol(opts).then(b => {
     b.finalize({ debug: true });
     t.is(b.code, expected('optimizer/es6-exports-imports_12'));
+  });
+});
+
+test('optimizer/es6-exports-imports_13', t => {
+  const opts = getOptions('optimizer/es6-exports-imports_13', {
+    plugins: [
+      ...basePlugins,
+      removeUnusedNormalizerPlugin,
+      es6ExportsOptimizerPlugin,
+      renameInternalsOptimizerPlugin,
+      es6ImportsOptimizerPlugin,
+      removeUnusedOptimizerPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('optimizer/es6-exports-imports_13'));
   });
 });
 

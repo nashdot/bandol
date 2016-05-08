@@ -33,6 +33,17 @@ export default class Plugin extends BasePlugin {
         }
       };
 
+      const isDefaultUsed = {
+        Identifier: (nodePath) => {
+          // Found <namespace>.<varaible>
+          if (nodePath.parentPath.init
+              && t.isIdentifier(nodePath.parentPath.init)
+              && nodePath.parentPath.init.name === this.opts.namespace) {
+            this.opts.isUsed = true;
+          }
+        }
+      };
+
       traverse(resource.ast, {
         ImportDeclaration: (nodePath) => {
           const node = nodePath.node;
@@ -42,12 +53,28 @@ export default class Plugin extends BasePlugin {
               // Get exported name
               const name = this.bundle.getDefaultName(sourceId);
               nodePath.parentPath.scope.rename(specifier.local.name, name);
-              // Mark as used
-              this.bundle.markUsed(sourceId, name);
+
+              // Temporary options object for worker visitor
+              this.opts = {
+                importedModule: node.source.value,
+                namespace: name,
+                sourceId: sourceId,
+                isUsed: false
+              };
+              nodePath.parentPath.traverse(transformNamespaceImport);
+
+              // Not mark as used if used as namespace import
+              nodePath.parentPath.traverse(isDefaultUsed);
+              this.log.info(`isUsed: ${this.opts.isUsed}`);
+              if (this.opts.isUsed) {
+                this.bundle.markUsed(sourceId, name);
+              }
+
+              delete this.opts;
             } else if (t.isImportNamespaceSpecifier(specifier)) {
               // Temporary options object for worker visitor
               this.opts = {
-                importedModule: nodePath.node.source.value,
+                importedModule: node.source.value,
                 namespace: specifier.local.name,
                 sourceId: sourceId
               };

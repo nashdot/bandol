@@ -50,10 +50,10 @@ const allPlugins = [
   es6ExportsNormalizerPlugin,
   removeUnusedNormalizerPlugin,
   // Optimisation
-  removeUnusedOptimizerPlugin,
   es6ExportsOptimizerPlugin,
   renameInternalsOptimizerPlugin,
   es6ImportsOptimizerPlugin,
+  removeUnusedOptimizerPlugin,
   removeUseStrictOptimizerPlugin
 ];
 
