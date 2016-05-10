@@ -38,10 +38,10 @@ export default class BasePlugin {
   }
 
   getProgramPath(nodePath) {
-    return nodePath.findParent((_path) => _path.isProgram());
+    return nodePath.findParent((_path) => { return _path.isProgram(); });
   }
 
   getRootPath(nodePath) {
-    return nodePath.findParent((_path) => _path.parentPath.isProgram());
+    return nodePath.findParent((_path) => { return _path.parentPath.isProgram(); });
   }
 }
