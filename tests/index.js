@@ -769,6 +769,25 @@ test('optimizer/es6-exports-imports_13', t => {
   });
 });
 
+test('optimizer/es6-exports-imports_14', t => {
+  const opts = getOptions('optimizer/es6-exports-imports_14', {
+    plugins: [
+      ...basePlugins,
+      cjsToEs6NormalizerPlugin,
+      removeUnusedNormalizerPlugin,
+      es6ExportsOptimizerPlugin,
+      renameInternalsOptimizerPlugin,
+      es6ImportsOptimizerPlugin,
+      removeUnusedOptimizerPlugin
+    ],
+    logLevel: log.levels.TRACE
+  });
+  return bandol(opts).then(b => {
+    b.finalize({ debug: true });
+    t.is(b.code, expected('optimizer/es6-exports-imports_14'));
+  });
+});
+
 test('optimizer/rename-internals', t => {
   const opts = getOptions('optimizer/rename-internals', {
     plugins: [
