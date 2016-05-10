@@ -15,6 +15,7 @@ export default class Plugin extends BasePlugin {
 
   // module.exports
   _isModuleExports(node) {
+    this.log.info('_isModuleExports');
     return t.isMemberExpression(node.left)
       && t.isIdentifier(node.left.object)
       && node.left.object.name === 'module'
@@ -23,6 +24,7 @@ export default class Plugin extends BasePlugin {
   }
 
   _isNamedModuleExports(node) {
+    this.log.info('_isNamedModuleExports');
     return t.isMemberExpression(node.left)
       && t.isMemberExpression(node.left.object)
       && t.isIdentifier(node.left.object.object)
@@ -33,6 +35,7 @@ export default class Plugin extends BasePlugin {
   }
 
   _isRequireCall(node) {
+    this.log.info('_isRequireCall');
     return t.isIdentifier(node.callee)
       && node.callee.name === 'require'
       && node.arguments.length === 1
@@ -72,7 +75,7 @@ export default class Plugin extends BasePlugin {
           node.declarations.forEach(decl => {
             if (t.isCallExpression(decl.init)
                 && this._isRequireCall(decl.init)) {
-              // this.log.info(`Converting ${node.id.name}`);
+              // this.log.info(`Converting ${decl.id.name}`);
               const programPath = this.getProgramPath(nodePath);
 
               // Add import statement
@@ -91,7 +94,7 @@ export default class Plugin extends BasePlugin {
                 && t.isCallExpression(decl.init.object)
                 && this._isRequireCall(decl.init.object)
                 && t.isIdentifier(decl.init.property)) {
-              // this.log.info(`Converting ${node.id.name}`);
+              // this.log.info(`Converting ${decl.id.name}`);
               const programPath = this.getProgramPath(nodePath);
 
               // Add import statement
@@ -121,6 +124,7 @@ export default class Plugin extends BasePlugin {
           const node = nodePath.node;
 
           if (this._isRequireCall(node)) {
+            // this.log.info('Converting CallExpression');
             const programPath = this.getProgramPath(nodePath);
 
             programPath.unshiftContainer('body',
