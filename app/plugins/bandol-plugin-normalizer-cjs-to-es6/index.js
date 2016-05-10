@@ -15,7 +15,6 @@ export default class Plugin extends BasePlugin {
 
   // module.exports
   _isModuleExports(node) {
-    this.log.info('_isModuleExports');
     return t.isMemberExpression(node.left)
       && t.isIdentifier(node.left.object)
       && node.left.object.name === 'module'
@@ -24,7 +23,6 @@ export default class Plugin extends BasePlugin {
   }
 
   _isNamedModuleExports(node) {
-    this.log.info('_isNamedModuleExports');
     return t.isMemberExpression(node.left)
       && t.isMemberExpression(node.left.object)
       && t.isIdentifier(node.left.object.object)
@@ -35,7 +33,6 @@ export default class Plugin extends BasePlugin {
   }
 
   _isRequireCall(node) {
-    this.log.info('_isRequireCall');
     return t.isIdentifier(node.callee)
       && node.callee.name === 'require'
       && node.arguments.length === 1
