@@ -205,12 +205,18 @@ export default class Bundle {
 
   async optimizeBundle() {
     for (const plugin of this.optimizerPlugins) {
-      plugin.optimizeBundle();
+      this.log.info(`Optimizer: ${plugin.name}`);
+      for (let i = this.sortedResources.length - 1; i >= 0; i--) {
+        const resource = this.sortedResources[i];
+        plugin.optimizeBundle(resource);
+      }
+
       traverse.clearCache();
     }
   }
 
   finalize(opts) {
+    this.log.info('Finalizer');
     return this.finalizerPlugins[0].finalize(opts);
   }
 

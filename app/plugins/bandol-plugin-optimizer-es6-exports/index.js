@@ -77,93 +77,90 @@ export default class Plugin extends BasePlugin {
     }
   }
 
-  optimizeBundle() {
-    for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
-      const resource = this.bundle.sortedResources[i];
-      const alreadyOptimized = new Map();
+  optimizeBundle(resource) {
+    const alreadyOptimized = new Map();
 
-      const transformExportedDeclaration = {
-        Identifier: (nodePath) => {
-          const parentPath = nodePath.parentPath;
-          const parentType = parentPath.node.type;
+    const transformExportedDeclaration = {
+      Identifier: (nodePath) => {
+        const parentPath = nodePath.parentPath;
+        const parentType = parentPath.node.type;
 
-          // Last condition: traverse going inside new added statement
-          if (nodePath.node.name === this.opts.identifier
-              && !alreadyOptimized.has(this.opts.identifier)) {
-            this.log.info(`Analyzing ${this.opts.identifier}...`);
-            alreadyOptimized.set(this.opts.identifier, true);
-            // VariableDeclarator
-            if (parentType === 'VariableDeclarator') {
-              if (t.isObjectExpression(parentPath.node.init)) {
-                // ObjectExpression
-                this.log.info(`Right: ${parentPath.node.init.type}`);
-                this.optimizeExportObject(resource, parentPath, parentPath.node.init);
-              }
-              // this.logAst(parentPath.node);
-
-              // this.log.info(`VariableDeclarator: ${nodePath.parentPath.node.init.type}`);
-              // this.log.info(`Resource: ${this.bundle.getShortName(resource.id)}`);
-              // this.logAst(nodePath.parentPath.node);
+        // Last condition: traverse going inside new added statement
+        if (nodePath.node.name === this.opts.identifier
+            && !alreadyOptimized.has(this.opts.identifier)) {
+          this.log.info(`Analyzing ${this.opts.identifier}...`);
+          alreadyOptimized.set(this.opts.identifier, true);
+          // VariableDeclarator
+          if (parentType === 'VariableDeclarator') {
+            if (t.isObjectExpression(parentPath.node.init)) {
+              // ObjectExpression
+              this.log.info(`Right: ${parentPath.node.init.type}`);
+              this.optimizeExportObject(resource, parentPath, parentPath.node.init);
             }
+            // this.logAst(parentPath.node);
+
+            // this.log.info(`VariableDeclarator: ${nodePath.parentPath.node.init.type}`);
+            // this.log.info(`Resource: ${this.bundle.getShortName(resource.id)}`);
+            // this.logAst(nodePath.parentPath.node);
           }
         }
-      };
+      }
+    };
 
-      traverse(resource.ast, {
-        ExportDefaultDeclaration: (nodePath) => {
-          const node = nodePath.node;
+    traverse(resource.ast, {
+      ExportDefaultDeclaration: (nodePath) => {
+        const node = nodePath.node;
 
-          if (t.isIdentifier(node.declaration)) {
-            let name = node.declaration.name;
-            if (this.bundle.hasName(name)) {
-              // Already used by another module
-              name = this.bundle.generateUid();
-              nodePath.parentPath.scope.rename(node.declaration.name, name);
-            }
+        if (t.isIdentifier(node.declaration)) {
+          let name = node.declaration.name;
+          if (this.bundle.hasName(name)) {
+            // Already used by another module
+            name = this.bundle.generateUid();
+            nodePath.parentPath.scope.rename(node.declaration.name, name);
+          }
 
-            this.opts = {
-              identifier: name
-            };
-            nodePath.parentPath.traverse(transformExportedDeclaration);
-            delete this.opts;
+          this.opts = {
+            identifier: name
+          };
+          nodePath.parentPath.traverse(transformExportedDeclaration);
+          delete this.opts;
 
-            // Register
-            this.log.info(`Registering default '${name}' from ${resource.id}`);
-            this.bundle.addDefaultExport(resource.id, name);
-            nodePath.remove();
+          // Register
+          this.log.info(`Registering default '${name}' from ${resource.id}`);
+          this.bundle.addDefaultExport(resource.id, name);
+          nodePath.remove();
+        } else {
+          throw new Error(`${this.bundle.getShortPath(resource.id)} should be normalised.`);
+        }
+      },
+      ExportNamedDeclaration: (nodePath) => {
+        const node = nodePath.node;
+
+        if (node.source === null) {
+          if (!node.declaration) {
+            node.specifiers.forEach(spec => {
+              let name = spec.exported.name;
+              const originalName = name;
+              if (this.bundle.hasName(name)) {
+                // Already used by another module
+                name = this.bundle.generateUid();
+                nodePath.parentPath.scope.rename(originalName, name);
+              }
+
+              // Register
+              this.bundle.addNamedExport(resource.id, originalName, name);
+              nodePath.remove();
+            });
           } else {
             throw new Error(`${this.bundle.getShortPath(resource.id)} should be normalised.`);
           }
-        },
-        ExportNamedDeclaration: (nodePath) => {
-          const node = nodePath.node;
-
-          if (node.source === null) {
-            if (!node.declaration) {
-              node.specifiers.forEach(spec => {
-                let name = spec.exported.name;
-                const originalName = name;
-                if (this.bundle.hasName(name)) {
-                  // Already used by another module
-                  name = this.bundle.generateUid();
-                  nodePath.parentPath.scope.rename(originalName, name);
-                }
-
-                // Register
-                this.bundle.addNamedExport(resource.id, originalName, name);
-                nodePath.remove();
-              });
-            } else {
-              throw new Error(`${this.bundle.getShortPath(resource.id)} should be normalised.`);
-            }
-          } else {
-            throw new Error(`TODO: ExportNamedDeclaration from ${nodePath.node.source.value}`);
-          }
-        },
-        ExportAllDeclaration: (nodePath) => {
-          throw new Error(`TODO: ExportAllDeclaration from ${nodePath.node.source.value}`);
+        } else {
+          throw new Error(`TODO: ExportNamedDeclaration from ${nodePath.node.source.value}`);
         }
-      });
-    }
+      },
+      ExportAllDeclaration: (nodePath) => {
+        throw new Error(`TODO: ExportAllDeclaration from ${nodePath.node.source.value}`);
+      }
+    });
   }
 }

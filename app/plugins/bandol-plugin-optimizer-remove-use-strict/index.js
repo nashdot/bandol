@@ -12,21 +12,17 @@ export default class Plugin extends BasePlugin {
     this.init();
   }
 
-  optimizeBundle() {
-    for (let i = this.bundle.sortedResources.length - 1; i >= 0; i--) {
-      const resource = this.bundle.sortedResources[i];
-
-      traverse(resource.ast, {
-        Program: (nodePath) => {
-          const node = nodePath.node;
-          for (let j = 0; j < node.directives.length; j++) {
-            const directive = node.directives[j];
-            if (directive.value.value === 'use strict') {
-              node.directives.splice(j, 1);
-            }
+  optimizeBundle(resource) {
+    traverse(resource.ast, {
+      Program: (nodePath) => {
+        const node = nodePath.node;
+        for (let j = 0; j < node.directives.length; j++) {
+          const directive = node.directives[j];
+          if (directive.value.value === 'use strict') {
+            node.directives.splice(j, 1);
           }
         }
-      });
-    }
+      }
+    });
   }
 }
