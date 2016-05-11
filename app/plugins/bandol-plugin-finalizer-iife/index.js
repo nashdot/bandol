@@ -1,4 +1,3 @@
-import generate from 'babel-generator';
 
 import BasePlugin from '../../BasePlugin';
 
@@ -20,18 +19,16 @@ export default class Plugin extends BasePlugin {
 
     for (let i = 0; i < this.bundle.sortedResources.length; i++) {
       const resource = this.bundle.sortedResources[i];
-      resource.code = generate(
-        resource.ast,
-        {
-          comments: false
-        },
-        resource.originalCode).code;
+      this.log.info(`Generating: ${resource.id}`);
+
+      resource.code = this.generateCode(resource.ast, resource.originalCode);
 
       if (opts.debug) {
         this.bundle.code += `/**bandol> resource: ${this.bundle.getShortPath(resource.id)} */\n`;
       }
 
       this.bundle.code += `${resource.code}\n`;
+      this.log.info('ok');
     }
 
     this.bundle.code += outro;

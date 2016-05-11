@@ -1,5 +1,6 @@
 import * as path from 'path';
 import stringify from 'json-stringify-safe';
+import generate from 'babel-generator';
 
 export default class BasePlugin {
   constructor(bundle) {
@@ -21,6 +22,22 @@ export default class BasePlugin {
   logAst(ast) {
     const message = stringify(ast, null, 2);
     console.log(message);
+  }
+
+  generateCode(ast, originalCode) {
+    let code = '';
+    try {
+      code = generate(
+        ast,
+        {
+          comments: false
+        },
+        originalCode).code;
+    } catch (ex) {
+      this.log.info(ex.stack);
+    }
+
+    return code;
   }
 
   /**
